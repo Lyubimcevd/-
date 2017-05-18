@@ -1,0 +1,140 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"    
+        xmlns:local="clr-namespace:Cards_of_defectation.Classes"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:Classes="clr-namespace:Cards_of_defectation.Classes" x:Class="Cards_of_defectation.ShopAlert"
+        mc:Ignorable="d"
+        Title="Оповещения цехам" 
+        Height="310"
+        ResizeMode="NoResize" 
+        Closing="Window_Closing" 
+        Width="583">
+    <Window.Resources>
+        <ContextMenu x:Key="Context_menu">
+            <MenuItem Header="Дерево дефектации" 
+                              Click="MenuItem_Click"/>
+            <MenuItem Header="Отметить как срочный" 
+                              Click="MenuItem_Click_1"/>
+            <MenuItem Header="Снять отметку срочности" 
+                              Click="MenuItem_Click_2" 
+                              IsEnabled="False"/>
+        </ContextMenu>
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                        Color="Aquamarine"/>
+    </Window.Resources>
+    <Grid>
+        <DataGrid Name="main_grid" 
+                  AutoGenerateColumns="False">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" 
+                                 Handler="Row_DoubleClick"/>
+                    <Setter Property="ContextMenu" 
+                            Value="{StaticResource ResourceKey=Context_menu}" />
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Заявка"
+                                        Width="60" >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Nom_zay}" 
+                                       Background="{Binding Color}"
+                                       Foreground="Black"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Приоритет"
+                                        Width="80" >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                    Value="Center"/>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Prior}" 
+                                       Background="{Binding Color}"
+                                       Foreground="Black"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Заказ"
+                                        Width="60" >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Nom_zak}" 
+                                       Background="{Binding Color}"
+                                       Foreground="Black"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Деталь"
+                                        Width="130" >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Obozn_det}"
+                                       Background="{Binding Color}"
+                                       Foreground="Black"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Дата поступления"
+                                        Width="120">
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Data_post}"
+                                       Background="{Binding Color}"
+                                       Foreground="Black"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Дата дефектации"
+                                        Width="120">
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                    Value="Center" />
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Data_def}"
+                                       Background="{Binding Color}"
+                                       Foreground="Black"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

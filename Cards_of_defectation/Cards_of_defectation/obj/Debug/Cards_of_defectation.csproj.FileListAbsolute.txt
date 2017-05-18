@@ -1,0 +1,81 @@
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Resources\бланк.dot
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe.config
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe.manifest
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.application
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.pdb
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Office.Interop.Word.dll
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\office.dll
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\stdole.dll
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Office.Interop.Word.xml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\bin\Debug\office.xml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\MainOUP.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Defect_map.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\ShopAlert.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Tree_defect.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Alert_time.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\ReductionReference.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Work_shop.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\App.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_Content.g.cs
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_MarkupCompile.cache
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_MarkupCompile.lref
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\MainOUP.baml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Defect_map.baml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\ShopAlert.baml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Tree_defect.baml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Alert_time.baml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\ReductionReference.baml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Work_shop.baml
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.g.resources
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.Properties.Resources.resources
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.csproj.GenerateResource.Cache
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.exe.manifest
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.application
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.exe
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.pdb
+D:\Project\Карты дефектации(in work)\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.csprojResolveAssemblyReference.cache
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Resources\sl_zap.dot
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Resources\бланк.dot
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe.config
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe.manifest
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.application
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.pdb
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Office.Interop.Word.dll
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\office.dll
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\stdole.dll
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Office.Interop.Word.xml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\office.xml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Choice_of_podrazd.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\FirstLevel.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\MainOUP.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Defect_map.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ShopAlert.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Tree_defect.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Alert_time.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ReductionReference.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Work_shop.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\App.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_Content.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_MarkupCompile.cache
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_MarkupCompile.lref
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Choice_of_podrazd.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\FirstLevel.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\MainOUP.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Defect_map.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ShopAlert.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Tree_defect.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Alert_time.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ReductionReference.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Work_shop.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.g.resources
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.Properties.Resources.resources
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.csproj.GenerateResource.Cache
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.exe.manifest
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.application
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.exe
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.pdb
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.csprojResolveAssemblyReference.cache

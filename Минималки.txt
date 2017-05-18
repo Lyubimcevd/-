@@ -1,0 +1,4 @@
+Минимальные системные требования:
+Windows XP
+Microsoft Framework 4.0
+Microsoft Office 2003
