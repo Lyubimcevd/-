@@ -14,7 +14,7 @@ using Cards_of_defectation.Classes;
 
 namespace Cards_of_defectation
 {
-    public partial class Choice_of_podrazd : Window
+    public partial class Choice_of_podrazd : UserControl
     {
         FirstLevelViewModal flvm;
         List<ChoiceViewModal> Rows;
@@ -31,7 +31,6 @@ namespace Cards_of_defectation
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Print.Init().PrintSlZap(flvm, Rows);
-            this.Close();
         }
 
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

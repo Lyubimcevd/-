@@ -16,7 +16,7 @@ using System.Collections.ObjectModel;
 
 namespace Cards_of_defectation
 {
-    public partial class FirstLevel : Window
+    public partial class FirstLevel : UserControl
     {
         bool IsSave;
         FirstLevelViewModal flvm;
@@ -37,8 +37,7 @@ namespace Cards_of_defectation
 
         private void Print_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Choice_of_podrazd CoP = new Choice_of_podrazd(flvm);
-            CoP.Show();
+            Main_window.Init().AddWindow("Выбор подразделений", new Choice_of_podrazd(flvm));
         }
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
@@ -114,7 +113,7 @@ namespace Cards_of_defectation
             var tb = (TextBox)e.OriginalSource;
             tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
         }
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void Window_Closing(WPF.MDI.Event.ClosingEventArgs e)
         {
             foreach (FirstLevelIzgotViewModal row in flvm.Izgot)
                 if (row.IsChange)

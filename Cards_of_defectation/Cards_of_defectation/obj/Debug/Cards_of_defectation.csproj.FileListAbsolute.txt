@@ -44,6 +44,7 @@ D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defecta
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.pdb
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Office.Interop.Word.dll
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\WPF.MDI.dll
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\office.dll
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Vbe.Interop.dll
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\stdole.dll
@@ -53,6 +54,7 @@ D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defecta
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\FirstLevel.g.cs
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\MainOUP.g.cs
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Defect_map.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Main_window_of_system.g.cs
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ShopAlert.g.cs
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Tree_defect.g.cs
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Alert_time.g.cs
@@ -66,6 +68,7 @@ D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defecta
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\FirstLevel.baml
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\MainOUP.baml
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Defect_map.baml
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Main_window_of_system.baml
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ShopAlert.baml
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Tree_defect.baml
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Alert_time.baml
@@ -79,3 +82,47 @@ D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defecta
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.exe
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.pdb
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.csprojResolveAssemblyReference.cache
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Resources\sl_zap.dot
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Resources\бланк.dot
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe.config
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe.manifest
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.application
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.exe
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Cards_of_defectation.pdb
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Office.Interop.Word.dll
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\office.dll
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\stdole.dll
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\Microsoft.Office.Interop.Word.xml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Debug\office.xml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Choice_of_podrazd.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\FirstLevel.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\MainOUP.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Defect_map.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Main_window_of_system.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ShopAlert.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Tree_defect.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Alert_time.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ReductionReference.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Work_shop.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\App.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_Content.g.cs
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_MarkupCompile.cache
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation_MarkupCompile.lref
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Choice_of_podrazd.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\FirstLevel.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\MainOUP.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Defect_map.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Main_window_of_system.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ShopAlert.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Tree_defect.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Alert_time.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\ReductionReference.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Work_shop.baml
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.g.resources
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.Properties.Resources.resources
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.csproj.GenerateResource.Cache
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.exe.manifest
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.application
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.exe
+D:\Project\back up\Карты дефектации WPF MDI\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.pdb

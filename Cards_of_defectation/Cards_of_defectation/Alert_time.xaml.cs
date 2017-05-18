@@ -14,10 +14,7 @@ using System.Windows.Shapes;
 
 namespace Cards_of_defectation
 {
-    /// <summary>
-    /// Логика взаимодействия для Window1.xaml
-    /// </summary>
-    public partial class Alert_time : Window
+    public partial class Alert_time : UserControl
     {
         public Alert_time()
         {

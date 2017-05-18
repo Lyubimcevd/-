@@ -27,7 +27,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>45</ApplicationRevision>
+    <ApplicationRevision>43</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -90,6 +90,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPF.MDI">
+      <HintPath>..\..\..\WPF.MDI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -105,6 +108,7 @@
     <Compile Include="Classes\FirstLevelRemontViewModal.cs" />
     <Compile Include="Classes\FirstLevelStorRemViewModal.cs" />
     <Compile Include="Classes\FirstLevelViewModal.cs" />
+    <Compile Include="Classes\Main_window.cs" />
     <Compile Include="Classes\References.cs" />
     <Compile Include="Classes\Print.cs" />
     <Compile Include="Classes\RowDefectViewModal.cs" />
@@ -121,6 +125,9 @@
     </Compile>
     <Compile Include="Defect_map.xaml.cs">
       <DependentUpon>Defect_map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Main_window_of_system.xaml.cs">
+      <DependentUpon>Main_window_of_system.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShopAlert.xaml.cs">
       <DependentUpon>ShopAlert.xaml</DependentUpon>
@@ -156,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Defect_map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main_window_of_system.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

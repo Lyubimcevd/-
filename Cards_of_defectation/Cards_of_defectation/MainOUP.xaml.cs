@@ -10,10 +10,10 @@ using System.Windows.Data;
 
 namespace Cards_of_defectation
 {
-    public partial class MainOUP : Window
+    public partial class MainOUP : UserControl
     {
         ObservableCollection<RowPlanViewModal> Rows;
-        bool IsSave; 
+        bool IsSave;
 
         public MainOUP()
         {
@@ -68,16 +68,13 @@ namespace Cards_of_defectation
                 switch ((sender as MenuItem).Header as string)
                 {
                     case "Дерево дефектации":
-                        Tree_defect TD = new Tree_defect(nom_zay, false);
-                        TD.Show();
+                        Main_window.Init().AddWindow("Дерево дефектации", new Tree_defect(nom_zay, false));
                         break;
                     case "Цеха":
-                        Work_shop WS = new Work_shop(nom_zay);
-                        WS.Show();
+                        Main_window.Init().AddWindow("Цеха", new Work_shop(nom_zay));
                         break;
                     case "Служебная записка":
-                        FirstLevel FL = new FirstLevel(nom_zay);
-                        FL.Show();
+                        Main_window.Init().AddWindow("Служебная записка", new FirstLevel(nom_zay));
                         break;
                 }           
             }
@@ -85,17 +82,10 @@ namespace Cards_of_defectation
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            Alert_time AT = new Alert_time();
-            AT.ShowDialog();
+            Main_window.Init().AddWindow("Контроль сроков", new Alert_time());
         }
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
-        {
-            ReductionReference RR = new ReductionReference();
-            RR.ShowDialog();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void Window_Closing(WPF.MDI.Event.ClosingEventArgs e)
         {
             foreach (RowPlanViewModal row in Rows)
                 if (row.IsChange)
@@ -107,7 +97,7 @@ namespace Cards_of_defectation
             {
                 MessageBoxResult result = MessageBox.Show("Данные не были сохранены. Сохранить?", "Предупреждение", MessageBoxButton.YesNoCancel);
                 if (result == MessageBoxResult.Yes) Save_Execute(null, null);
-                if (result == MessageBoxResult.Cancel) e.Cancel = true;
+                if (result == MessageBoxResult.Cancel) e.Cancel= true;
             }
         }
 
@@ -136,12 +126,6 @@ namespace Cards_of_defectation
                 }
                 else e.Handled = true;
             }
-        }
-
-        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
-        {
-            FirstLevel FL = new FirstLevel(Rows[Rows.Count - 1].Nom_zay + 1);
-            FL.Show();
         }
 
         void RegistrIndexInKartDefect(int nom_zay)

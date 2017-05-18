@@ -17,7 +17,7 @@ using System.Windows.Threading;
 
 namespace Cards_of_defectation
 {
-    public partial class Work_shop : Window
+    public partial class Work_shop : UserControl
     {
         int nom_zay;
 
@@ -40,8 +40,7 @@ namespace Cards_of_defectation
 
         private void dataGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ShopAlert SA = new ShopAlert(((sender as DataGrid).SelectedItems[0] as DataRowView).Row.ItemArray[0].ToString(),false);
-            SA.Show();
+            Main_window.Init().AddWindow("Карты дефектации цеха", new ShopAlert(((sender as DataGrid).SelectedItems[0] as DataRowView).Row.ItemArray[0].ToString()));
         }
     }
 }

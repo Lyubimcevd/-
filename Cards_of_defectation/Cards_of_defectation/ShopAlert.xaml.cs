@@ -8,44 +8,48 @@ using System.Threading;
 using System.Collections.ObjectModel;
 using System.Windows.Threading;
 using System.Windows.Forms;
+using WPF.MDI;
 
 namespace Cards_of_defectation
 {
-    public partial class ShopAlert : Window
+    public partial class ShopAlert : System.Windows.Controls.UserControl
     {
         ObservableCollection<ShopAlertViewModal> Rows;
         int current_kolvo,nom_ceh;
-        bool is_ceh;
         NotifyIcon NI;
+        Main_window_of_system main_window;
 
-        public ShopAlert(string Nom_ceh, bool IsCeh)
+        public ShopAlert(string Nom_ceh)
         {
-            is_ceh = IsCeh;
-            if (is_ceh)
-            {
-                NI = new NotifyIcon();
-                NI.Icon = Cards_of_defectation.Properties.Resources.advancedsettings_5685;
-                NI.Text = "Карты дефектации";
-                NI.DoubleClick += new EventHandler(Click_by_Icon);
-                NI.BalloonTipClicked += new EventHandler(Click_by_Icon);
-                NI.Visible = true;
-                NI.ContextMenu = new System.Windows.Forms.ContextMenu();
-                NI.ContextMenu.MenuItems.Add(new System.Windows.Forms.MenuItem("Выход", Click_for_exit));
-            }
             nom_ceh = References.InitReferences().Cehs.IndexOf(Nom_ceh);
             InitializeComponent();          
+            UpdateRow();
+            Server.InitServer().DataBase("test1").InitStalker(Dispatcher.CurrentDispatcher, this);
+        }
+        public ShopAlert(string Nom_ceh, Main_window_of_system pmain_window)
+        {
+            main_window = pmain_window;
+            NI = new NotifyIcon();
+            NI.Icon = Cards_of_defectation.Properties.Resources.advancedsettings_5685;
+            NI.Text = "Карты дефектации";
+            NI.DoubleClick += new EventHandler(Click_by_Icon);
+            NI.BalloonTipClicked += new EventHandler(Click_by_Icon);
+            NI.Visible = true;
+            NI.ContextMenu = new System.Windows.Forms.ContextMenu();
+            NI.ContextMenu.MenuItems.Add(new System.Windows.Forms.MenuItem("Выход", Click_for_exit));
+            nom_ceh = References.InitReferences().Cehs.IndexOf(Nom_ceh);
+            InitializeComponent();
             UpdateRow();
             Server.InitServer().DataBase("test1").InitStalker(Dispatcher.CurrentDispatcher, this);
         }
 
         void Click_by_Icon(object sender, EventArgs e)
         {
-            this.Visibility = Visibility.Visible;
+            main_window.Show();
         }
         void Click_for_exit(object sender, EventArgs e)
         {
-            is_ceh = false;
-            this.Close();
+            System.Windows.Application.Current.Shutdown();
         }
 
         public void UpdateRow()
@@ -64,21 +68,18 @@ namespace Cards_of_defectation
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
-            {
-                Defect_map DM = new Defect_map((main_grid.SelectedItem as ShopAlertViewModal).Id);
-                DM.ShowDialog();
-            }
+                Main_window.Init().AddWindow("Карта дефектации", new Defect_map((main_grid.SelectedItem as ShopAlertViewModal).Id));
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Tree_defect TD = new Tree_defect((main_grid.SelectedItem as ShopAlertViewModal).Nom_zay,is_ceh);
-            TD.Show();
+            if (main_window != null) Main_window.Init().AddWindow("Дерево дефектации", new Tree_defect((main_grid.SelectedItem as ShopAlertViewModal).Nom_zay, true));
+            else Main_window.Init().AddWindow("Дерево дефектации", new Tree_defect((main_grid.SelectedItem as ShopAlertViewModal).Nom_zay, false));
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            if (!is_ceh)
+            if (main_window == null)
             {
                 (main_grid.SelectedItem as ShopAlertViewModal).Color = "Red";
                 ShopAlertViewModal tmp = main_grid.SelectedItem as ShopAlertViewModal;
@@ -100,12 +101,12 @@ namespace Cards_of_defectation
                 .Items[2] as System.Windows.Controls.MenuItem).IsEnabled = false;
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void Window_Closing(WPF.MDI.Event.ClosingEventArgs e)
         {
-            if (is_ceh)
+            if (main_window != null)
             {
                 e.Cancel = true;
-                this.Hide();
+                main_window.Hide();
             }
         }
     }

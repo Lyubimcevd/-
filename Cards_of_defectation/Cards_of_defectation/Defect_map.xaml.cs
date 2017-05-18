@@ -17,7 +17,7 @@ using System.Data;
 
 namespace Cards_of_defectation
 {
-    public partial class Defect_map : Window
+    public partial class Defect_map : UserControl
     {
         ObservableCollection<RowDefectViewModal> Rows;
         RowDefectViewModal Header;
@@ -171,7 +171,7 @@ namespace Cards_of_defectation
             var tb = (TextBox)e.OriginalSource;
             tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
         }
-        private void window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void Window_Closing(WPF.MDI.Event.ClosingEventArgs e)
         {
             foreach (RowDefectViewModal row in Rows)
                 if (row.IsChange)

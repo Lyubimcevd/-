@@ -16,7 +16,7 @@ using System.Data;
 
 namespace Cards_of_defectation
 {
-    public partial class ReductionReference:Window
+    public partial class ReductionReference: UserControl
     {
         string table_name;
         bool IsSave;
@@ -55,7 +55,7 @@ namespace Cards_of_defectation
             Save_item.IsEnabled = true;
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void Window_Closing(WPF.MDI.Event.ClosingEventArgs e)
         {
             if (!IsSave)
             {

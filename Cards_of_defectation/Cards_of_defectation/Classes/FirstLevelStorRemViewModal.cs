@@ -115,7 +115,6 @@ namespace Cards_of_defectation.Classes
             {
                 parent_row.Kolvo = value;
                 is_change = true;
-                OnPropertyChanged("ColorKolvo");
             }
         }
         public string Prim
@@ -282,14 +281,6 @@ namespace Cards_of_defectation.Classes
             {
                 color = value;
                 OnPropertyChanged("Color");
-            }
-        }
-        public string ColorKolvo
-        {
-            get
-            {
-                if (Kolvo == 0) return "Red";
-                else return "Black";
             }
         }
 

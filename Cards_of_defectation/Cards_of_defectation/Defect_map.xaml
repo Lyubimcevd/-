@@ -1,14 +1,11 @@
-﻿<Window x:Name="window" x:Class="Cards_of_defectation.Defect_map"
+﻿<UserControl x:Class="Cards_of_defectation.Defect_map"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cards_of_defectation.Classes"
-        mc:Ignorable="d"
-        Title="Карта дефектации" 
-        Height="400" 
-        Closing="window_Closing">
-    <Window.Resources>
+        mc:Ignorable="d">
+    <UserControl.Resources>
         <ContextMenu x:Key="Context_menu_row">
             <MenuItem Command="ApplicationCommands.Cut"/>
             <MenuItem Command="ApplicationCommands.Copy"/>
@@ -18,7 +15,7 @@
             <Setter Property="ContextMenu" 
                     Value="{StaticResource ResourceKey=Context_menu_row}" />
         </Style>
-    </Window.Resources>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -236,11 +233,18 @@
                             </DataGridTemplateColumn.HeaderStyle>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <ComboBox ItemsSource="{Binding Spos_ustr_list}" 
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="25"/>
+                                        </Grid.RowDefinitions>
+                                        <ComboBox ItemsSource="{Binding Spos_ustr_list}" 
                                               SelectedIndex="{Binding Spos_ustr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                              SelectionChanged="ComboBox_SelectionChanged_4"
-                                              Height="25"
-                                              VerticalAlignment="Center"/>
+                                              SelectionChanged="ComboBox_SelectionChanged_4"/>
+                                        <TextBox Grid.Row="1" 
+                                             Text ="{Binding Spos_ustr_komment,UpdateSourceTrigger=PropertyChanged}" 
+                                             TextWrapping="Wrap"/>
+                                    </Grid>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -313,4 +317,4 @@
             </TabControl>
         </Grid>
     </Grid>
-</Window>
+</UserControl>

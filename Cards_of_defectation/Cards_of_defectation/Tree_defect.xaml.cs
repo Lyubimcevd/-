@@ -15,7 +15,7 @@ using System.Windows.Media;
 
 namespace Cards_of_defectation
 {
-    public partial class Tree_defect : Window
+    public partial class Tree_defect : UserControl
     {
         int id,nom_zay;
         bool is_ceh;
@@ -73,10 +73,7 @@ namespace Cards_of_defectation
                 .DataBase("test1").ExecuteCommand("select spos_ustr from kart_defect where id ="
                  + ((sender as TextBlock).DataContext as TreeViewModal).Id.ToString());
                 if (References.InitReferences().Elimination_method[Convert.ToInt32(tmp[0])] == "Дефектация")
-                {
-                    Defect_map DM = new Defect_map(((sender as TextBlock).DataContext as TreeViewModal).Id);
-                    DM.ShowDialog();
-                }
+                    Main_window.Init().AddWindow("Дерево дефектации", new Defect_map(((sender as TextBlock).DataContext as TreeViewModal).Id));
             }
         }
 

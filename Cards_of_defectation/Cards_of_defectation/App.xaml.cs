@@ -18,17 +18,17 @@ namespace Cards_of_defectation
 
         void AppStartup(object sender, StartupEventArgs e)
         {
-            if (Environment.UserName[0] != 'c')
+            Main_window_of_system M = null;
+            if (Environment.UserName[0] == 'c')
             {
-                MainOUP MOUP = new MainOUP();
-                MOUP.Show();
+                M = new Main_window_of_system();
             }
             else
             {
-                //ShopAlert SA = new ShopAlert("024", true);
-                ShopAlert SA = new ShopAlert(Environment.UserName.Substring(1, Environment.UserName.IndexOf('-') - 1).PadLeft(3, '0'),true);
-                SA.Show();
+                M = new Main_window_of_system("024");
+                //M = new Main_window_of_system(Environment.UserName.Substring(1, Environment.UserName.IndexOf('-') - 1).PadLeft(3, '0'));
             }
+            M.Show();
         }
     }
 }
