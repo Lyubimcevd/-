@@ -6,7 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Cards_of_defectation.Classes;
-using Cards_of_defectation.ОТГО;
+using Cards_of_defectation.ОТГО.Windows;
+using Cards_of_defectation.Windows;
 
 namespace Cards_of_defectation
 {

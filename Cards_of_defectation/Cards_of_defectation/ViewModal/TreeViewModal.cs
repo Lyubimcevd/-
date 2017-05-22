@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace Cards_of_defectation.Classes
+namespace Cards_of_defectation.ViewModal
 {
     class TreeViewModal: INotifyPropertyChanged
     {

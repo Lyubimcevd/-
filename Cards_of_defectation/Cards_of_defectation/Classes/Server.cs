@@ -6,6 +6,8 @@ using System.Windows.Controls;
 using System.Collections.ObjectModel;
 using System.Collections;
 using System.Windows.Threading;
+using Cards_of_defectation.Windows;
+using Cards_of_defectation.ОУП.Windows;
 
 namespace Cards_of_defectation.Classes
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace Cards_of_defectation.Classes
+namespace Cards_of_defectation.ViewModal
 {
     class ChoiceViewModal: INotifyPropertyChanged
     {

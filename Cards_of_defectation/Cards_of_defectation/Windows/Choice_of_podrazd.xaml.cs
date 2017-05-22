@@ -11,8 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Cards_of_defectation.Classes;
+using Cards_of_defectation.ViewModal;
 
-namespace Cards_of_defectation
+namespace Cards_of_defectation.Windows
 {
     public partial class Choice_of_podrazd : Window
     {

@@ -8,6 +8,7 @@ using Cards_of_defectation.Classes;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
+using Cards_of_defectation.ViewModal;
 
 namespace Cards_of_defectation.Classes
 {

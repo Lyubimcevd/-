@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using Cards_of_defectation.Classes;
 
-namespace Cards_of_defectation.Classes
+namespace Cards_of_defectation.ViewModal
 {
     class ShopAlertViewModal : INotifyPropertyChanged
     {

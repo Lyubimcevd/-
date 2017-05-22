@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.Windows;
+using Cards_of_defectation.Classes;
 
-namespace Cards_of_defectation.Classes
+namespace Cards_of_defectation.ViewModal
 {
     public class SlugebZapiskaIzgotViewModal : INotifyPropertyChanged
     {        

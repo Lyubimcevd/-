@@ -14,8 +14,9 @@ using System.Windows.Shapes;
 using Cards_of_defectation.Classes;
 using System.Collections.ObjectModel;
 using System.Data;
+using Cards_of_defectation.ViewModal;
 
-namespace Cards_of_defectation
+namespace Cards_of_defectation.Windows
 {
     public partial class Defect_map : Window
     {

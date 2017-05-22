@@ -131,10 +131,21 @@
     <Compile Include="Classes\Print.cs" />
     <Compile Include="Classes\Row_in_kart_defect.cs" />
     <Compile Include="Classes\Row_in_plan_rabot.cs" />
-    <Compile Include="Windows\FirstLevel.xaml.cs">
-      <DependentUpon>FirstLevel.xaml</DependentUpon>
+    <Compile Include="Windows\SlugebZapiska.xaml.cs">
+      <DependentUpon>SlugebZapiska.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MainOUP.xaml.cs">
+    <Compile Include="ОТГО\ViewModal\SearchWindowByNomZakViewModal.cs" />
+    <Compile Include="ОТГО\ViewModal\SearchWindowSZViewModal.cs" />
+    <Compile Include="ОТГО\Windows\SearchWindowByNomZak.xaml.cs">
+      <DependentUpon>SearchWindowByNomZak.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ОТГО\Windows\SearchWindowBySerNom.xaml.cs">
+      <DependentUpon>SearchWindowBySerNom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ОТГО\Windows\SearchWindowSZ.xaml.cs">
+      <DependentUpon>SearchWindowSZ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ОУП\Windows\MainOUP.xaml.cs">
       <DependentUpon>MainOUP.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Defect_map.xaml.cs">
@@ -146,10 +157,10 @@
     <Compile Include="Windows\Tree_defect.xaml.cs">
       <DependentUpon>Tree_defect.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Alert_time.xaml.cs">
+    <Compile Include="ОУП\Windows\Alert_time.xaml.cs">
       <DependentUpon>Alert_time.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ReductionReference.xaml.cs">
+    <Compile Include="ОУП\Windows\ReductionReference.xaml.cs">
       <DependentUpon>ReductionReference.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModal\ChoiceViewModal.cs" />
@@ -159,10 +170,10 @@
     <Compile Include="ViewModal\FirstLevelStorRemViewModal.cs" />
     <Compile Include="ViewModal\FirstLevelViewModal.cs" />
     <Compile Include="ViewModal\RowDefectViewModal.cs" />
-    <Compile Include="ViewModal\RowPlanViewModal.cs" />
+    <Compile Include="ОУП\ViewModal\RowPlanViewModal.cs" />
     <Compile Include="ViewModal\ShopAlertViewModal.cs" />
     <Compile Include="ViewModal\TreeViewModal.cs" />
-    <Compile Include="Windows\Work_shop.xaml.cs">
+    <Compile Include="ОУП\Windows\Work_shop.xaml.cs">
       <DependentUpon>Work_shop.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -172,19 +183,19 @@
     <Compile Include="Classes\Converter.cs" />
     <Compile Include="Classes\Server.cs" />
     <Compile Include="ОТГО\Classes\NomSZ_Cherch_Naim_ZavNom.cs" />
-    <Compile Include="ОТГО\CreateWindowNaim.xaml.cs">
+    <Compile Include="ОТГО\Windows\CreateWindowNaim.xaml.cs">
       <DependentUpon>CreateWindowNaim.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ОТГО\CreateWindowNomCherch.xaml.cs">
+    <Compile Include="ОТГО\Windows\CreateWindowNomCherch.xaml.cs">
       <DependentUpon>CreateWindowNomCherch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ОТГО\CreateWindowNumberSZ.xaml.cs">
+    <Compile Include="ОТГО\Windows\CreateWindowNumberSZ.xaml.cs">
       <DependentUpon>CreateWindowNumberSZ.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ОТГО\CreateWindowZavNomIzd.xaml.cs">
+    <Compile Include="ОТГО\Windows\CreateWindowZavNomIzd.xaml.cs">
       <DependentUpon>CreateWindowZavNomIzd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ОТГО\MainWindowOTGO.xaml.cs">
+    <Compile Include="ОТГО\Windows\MainWindowOTGO.xaml.cs">
       <DependentUpon>MainWindowOTGO.xaml</DependentUpon>
     </Compile>
     <Compile Include="ОТГО\ViewModal\CreateWindowNaimIzdViewModal.cs" />
@@ -193,11 +204,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\FirstLevel.xaml">
+    <Page Include="Windows\SlugebZapiska.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MainOUP.xaml">
+    <Page Include="ОТГО\Windows\SearchWindowByNomZak.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОТГО\Windows\SearchWindowBySerNom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОТГО\Windows\SearchWindowSZ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОУП\Windows\MainOUP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,35 +236,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Alert_time.xaml">
+    <Page Include="ОУП\Windows\Alert_time.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ReductionReference.xaml">
+    <Page Include="ОУП\Windows\ReductionReference.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Work_shop.xaml">
+    <Page Include="ОУП\Windows\Work_shop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ОТГО\CreateWindowNaim.xaml">
+    <Page Include="ОТГО\Windows\CreateWindowNaim.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ОТГО\CreateWindowNomCherch.xaml">
+    <Page Include="ОТГО\Windows\CreateWindowNomCherch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ОТГО\CreateWindowNumberSZ.xaml">
+    <Page Include="ОТГО\Windows\CreateWindowNumberSZ.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ОТГО\CreateWindowZavNomIzd.xaml">
+    <Page Include="ОТГО\Windows\CreateWindowZavNomIzd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ОТГО\MainWindowOTGO.xaml">
+    <Page Include="ОТГО\Windows\MainWindowOTGO.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

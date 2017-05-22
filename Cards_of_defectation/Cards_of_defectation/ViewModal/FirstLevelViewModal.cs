@@ -6,8 +6,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Input;
+using Cards_of_defectation.Classes;
+using Cards_of_defectation.ОУП.Windows;
 
-namespace Cards_of_defectation.Classes
+namespace Cards_of_defectation.ViewModal
 {
     public class SlugebZapiskaViewModal: INotifyPropertyChanged
     {

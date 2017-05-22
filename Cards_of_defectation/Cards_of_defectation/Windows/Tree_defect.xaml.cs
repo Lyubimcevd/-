@@ -12,8 +12,10 @@ using Cards_of_defectation.Classes;
 using System.Collections.ObjectModel;
 using System.Windows.Threading;
 using System.Windows.Media;
+using Cards_of_defectation.ViewModal;
+using Cards_of_defectation.ОУП.Windows;
 
-namespace Cards_of_defectation
+namespace Cards_of_defectation.Windows
 {
     public partial class Tree_defect : Window
     {

@@ -8,8 +8,9 @@ using System.Threading;
 using System.Collections.ObjectModel;
 using System.Windows.Threading;
 using System.Windows.Forms;
+using Cards_of_defectation.ViewModal;
 
-namespace Cards_of_defectation
+namespace Cards_of_defectation.Windows
 {
     public partial class ShopAlert : Window
     {

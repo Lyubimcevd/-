@@ -5,6 +5,7 @@ using System.Text;
 using Cards_of_defectation.Classes;
 using System.Windows;
 using System.Collections.ObjectModel;
+using Cards_of_defectation.ViewModal;
 
 namespace Cards_of_defectation.Classes
 {
