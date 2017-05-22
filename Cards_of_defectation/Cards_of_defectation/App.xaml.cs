@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Cards_of_defectation.Classes;
+using Cards_of_defectation.ОТГО;
 
 namespace Cards_of_defectation
 {
@@ -20,8 +21,10 @@ namespace Cards_of_defectation
         {
             if (Environment.UserName[0] != 'c')
             {
-                MainOUP MOUP = new MainOUP();
-                MOUP.Show();
+                MainWindowOTGO MWOT = new MainWindowOTGO();
+                MWOT.Show();
+                //MainOUP MOUP = new MainOUP();
+                //MOUP.Show();
             }
             else
             {

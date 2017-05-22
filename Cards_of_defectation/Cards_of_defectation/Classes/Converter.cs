@@ -13,7 +13,7 @@ namespace Cards_of_defectation.Classes
         public static void ListToTable(List<Row_in_plan_rabot> Rows, DataTable DT)
         {
             foreach (DataRow row in DT.Rows)
-                if (Rows.Find(x => x.Nom_zay == Convert.ToInt32(row["nom_zay"])) == null) row.Delete();
+                if (Rows.Find(x => x.Nom_zay == row["nom_zay"].ToString()) == null) row.Delete();
             foreach (Row_in_plan_rabot row in Rows)
             {
                 DataRow[] tmp = DT.Select("nom_zay =" + row.Nom_zay.ToString());
@@ -68,7 +68,7 @@ namespace Cards_of_defectation.Classes
         }
         static Row_in_plan_rabot FillRowFromTable(DataRow DR, Row_in_plan_rabot row)
         {
-            row.Nom_zay = Convert.ToInt32(DR[0]);
+            row.Nom_zay = DR[0].ToString();
             if (DR[1] != DBNull.Value) row.Ser_nom_izd = DR[1].ToString();
             if (DR[2] != DBNull.Value) row.Voin_chast = DR[2].ToString();
             if (DR[3] != DBNull.Value) row.Data_uved = DR[3].ToString();
@@ -147,7 +147,7 @@ namespace Cards_of_defectation.Classes
         }
         static Row_in_kart_defect FillRowFromTable(DataRow DR, Row_in_kart_defect row)
         {
-            row.Nom_zay = Convert.ToInt32(DR[0]);
+            row.Nom_zay = DR[0].ToString();
             if (DR[1] != DBNull.Value) row.Obozn_det = DR[1].ToString();
             row.Kolvo = float.Parse(DR[2].ToString());
             row.Nom_kart = Convert.ToInt32(DR[3]);

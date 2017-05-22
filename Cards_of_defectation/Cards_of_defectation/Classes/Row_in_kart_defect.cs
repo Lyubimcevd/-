@@ -8,15 +8,14 @@ namespace Cards_of_defectation.Classes
 {
     public class Row_in_kart_defect
     {
-        int met_opr, opis_def, prichina, spos_ustr, teh_treb, id, nom_kart,
-            nom_zay, par, nom_ceh;
+        int met_opr, opis_def, prichina, spos_ustr, teh_treb, id, nom_kart, par, nom_ceh;
         string obozn_det, met_opr_komment, opis_def_komment, prichina_komment, spos_ustr_komment, teh_treb_komment,
-            data_def, data_post, zavod_izgot,n_nomer,prim,naim;
+            data_def, data_post, zavod_izgot,n_nomer,prim,naim,nom_zay;
         float kolvo;
   
         public Row_in_kart_defect()
         {
-            nom_ceh = -1;
+            DefaultAction();
         }
         public Row_in_kart_defect(Row_in_plan_rabot row)
         {
@@ -25,11 +24,20 @@ namespace Cards_of_defectation.Classes
                 .ExecuteCommand("select Чертёж from type_cherch where [Заводской номер изделия] = '"
                 + Server.InitServer().DataBase("test1")
                 .ExecuteCommand("select [Заводской номер изделия] from nom_type where [Номер изделия] = '"
-                + row.Ser_nom_izd + "'")[0].ToString() + "'")[0].ToString();              
+                + row.Ser_nom_izd + "'")[0].ToString() + "'")[0].ToString();
+            DefaultAction();
+        }
+        public Row_in_kart_defect(string pnom_zay)
+        {
+            nom_zay = pnom_zay;
+            DefaultAction();
+        }
+        void DefaultAction()
+        {
             nom_ceh = -1;
         }
         
-        public int Nom_zay
+        public string Nom_zay
         {
             get
             {

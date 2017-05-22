@@ -1,0 +1,522 @@
+﻿<Window x:Class="Cards_of_defectation.SlugebZapiska"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cards_of_defectation"
+        mc:Ignorable="d"
+        Title="SlugebZapiska"
+        Closing="Window_Closing">
+    <Window.Resources>
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                        Color="Aquamarine"/>
+    </Window.Resources>
+    <Grid x:Name="main_grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="menu" 
+              Background="#FFCECECE">
+            <MenuItem Header="Сохранить" 
+                      Command="Save" 
+                      Height="25"/>
+            <MenuItem Header="Печать"
+                      Command="Print"
+                      Height="25"/>
+        </Menu>
+        <Grid x:Name="Cap" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Контракт"
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="1"
+                      IsEditable="True"
+                      IsDropDownOpen="{Binding IsDropDownKontract}"
+                      Text="{Binding Text_for_filter_kontract,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                      ItemsSource="{Binding Kontract_list}"   
+                      SelectedItem="{Binding SelectedKontract,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                           
+                      IsTextSearchEnabled="False"
+                      FontSize="14"
+                      TextBoxBase.TextChanged="ComboBox_TextChanged"/>
+            <TextBlock Text="Номер станции"
+                       Grid.Row="1"                       
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="1"
+                      Grid.Column="1"
+                      IsEditable="True"
+                      IsDropDownOpen="{Binding IsDropDownSer_nom}"
+                      Text="{Binding Text_for_filter_ser_nom,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                      ItemsSource="{Binding Ser_nom_list}"   
+                      SelectedItem="{Binding SelectedSer_nom,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                           
+                      IsTextSearchEnabled="False"
+                      FontSize="14"
+                      TextBoxBase.TextChanged="ComboBox_TextChanged"/>
+            <TextBlock Text="{Binding Izdelie, StringFormat={}Изделие {0}}" 
+                       Grid.Row="2"      
+                       Grid.ColumnSpan="2"
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Воинская часть"
+                       Grid.Row="3"
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       VerticalAlignment="Center"/>
+            <TextBox  Grid.Row="3" 
+                      Grid.Column="1" 
+                      Text="{Binding Voin_chast,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                      FontSize="14" 
+                      FontWeight="Bold"/>
+            <TextBlock Text="№ заказа"
+                       Grid.Row="4"
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Row="4" 
+                     Grid.Column="1" 
+                     Text="{Binding Nom_zak,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                     FontSize="14" 
+                     FontWeight="Bold"/>
+            <TextBlock Text="Срок отправки"
+                       Grid.Row="5"
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       VerticalAlignment="Center"/>
+            <DatePicker Grid.Row="5"
+                        Grid.Column="1"
+                        Width="120"
+                        Text ="{Binding Srok_otprav,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
+            <TextBlock Text="Примечание: "
+                       Grid.Column ="2"
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column ="2"
+                     Grid.RowSpan="5"
+                     Grid.Row="1"
+                     Text="{Binding Proizv_chast,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                     FontSize="12"/>
+        </Grid>
+        <ScrollViewer Grid.Row="2" 
+                      VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Изготовить" 
+                               FontSize="14" 
+                               FontWeight="Bold"/>
+                    <DataGrid Grid.Row="1" 
+                              AutoGenerateColumns="False"
+                              VerticalAlignment="Top"
+                              ItemsSource="{Binding Izgot}"
+                              x:Name="table_izgot"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="True"
+                              PreviewKeyDown="Key_PreviewKeyDown">
+                        <DataGrid.InputBindings>
+                            <KeyBinding Key="Enter" Command="{Binding NewExecute}"/>
+                        </DataGrid.InputBindings>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Чертёж" 
+                                                    Width="150">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True"
+                                                  IsDropDownOpen="{Binding IsDropDownCherch}"
+                                                  Text="{Binding Text_for_filter_cherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                                                  ItemsSource="{Binding Cherch_list}"   
+                                                  SelectedItem="{Binding SelectedCherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                 
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Наименование" 
+                                                    Width="250">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True" 
+                                                  IsDropDownOpen="{Binding IsDropDownNaim}"
+                                                  Text="{Binding Text_for_filter_naim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  ItemsSource="{Binding Naim_list}" 
+                                                  SelectedItem="{Binding SelectedNaim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                  
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Количество" 
+                                                Binding="{Binding Kolvo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground"
+                                                Value="{Binding ColorKolvo}"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Примечание" 
+                                                Binding="{Binding Prim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                                Width="*"
+                                                Foreground="Black">
+                                <DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.HeaderStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Отремонтировать" 
+                               FontSize="14" 
+                               FontWeight="Bold"/>
+                    <DataGrid Grid.Row="1" 
+                              AutoGenerateColumns="False" 
+                              VerticalAlignment="Top"
+                              ItemsSource="{Binding Remont}"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="True"
+                              x:Name="table_remont"
+                              PreviewKeyDown="Key_PreviewKeyDown">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Чертёж" 
+                                                    Width="150">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True"
+                                                  IsDropDownOpen="{Binding IsDropDownCherch}"
+                                                  Text="{Binding Text_for_filter_cherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                                                  ItemsSource="{Binding Cherch_list}"   
+                                                  SelectedItem="{Binding SelectedCherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Наименование"
+                                                    Width="250">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True" 
+                                                  IsDropDownOpen="{Binding IsDropDownNaim}"
+                                                  Text="{Binding Text_for_filter_naim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  ItemsSource="{Binding Naim_list}" 
+                                                  SelectedItem="{Binding SelectedNaim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                  
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Количество" 
+                                                Binding="{Binding Kolvo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground"
+                                                Value="{Binding ColorKolvo}"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>                            
+                            <DataGridTextColumn Header="Примечание" 
+                                                Binding="{Binding Prim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                                Width="*"
+                                                Foreground="Black">
+                                <DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.HeaderStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Приобрести" FontSize="14" 
+                               FontWeight="Bold"/>
+                    <DataGrid Grid.Row="1" 
+                              AutoGenerateColumns="False" 
+                              VerticalAlignment="Top"
+                              ItemsSource="{Binding Priobr}"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="True"
+                              x:Name="table_priobr"
+                              PreviewKeyDown="Key_PreviewKeyDown">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Н/номер"
+                                                    Width="150">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True"
+                                                  IsDropDownOpen="{Binding IsDropDownNNomer}"
+                                                  Text="{Binding Text_for_filter_n_nomer,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                                                  ItemsSource="{Binding N_nomer_list}"   
+                                                  SelectedItem="{Binding SelectedN_nomer,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Чертёж,ТУ,ГОСТ" 
+                                                    Width="150">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True"
+                                                  IsDropDownOpen="{Binding IsDropDownCherch}"
+                                                  Text="{Binding Text_for_filter_cherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                                                  ItemsSource="{Binding Cherch_list}"   
+                                                  SelectedItem="{Binding SelectedCherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Наименование" 
+                                                    Width="250">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True" 
+                                                  IsDropDownOpen="{Binding IsDropDownNaim}"
+                                                  Text="{Binding Text_for_filter_naim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  ItemsSource="{Binding Naim_list}" 
+                                                  SelectedItem="{Binding SelectedNaim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                  
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Количество" 
+                                                Binding="{Binding Kolvo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground"
+                                                Value="{Binding ColorKolvo}"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Примечание" 
+                                                Binding="{Binding Prim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                                Width="*"
+                                                Foreground="Black">
+                                <DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.HeaderStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Сторонний ремонт" 
+                               FontSize="14" 
+                               FontWeight="Bold"/>
+                    <DataGrid Grid.Row="1" 
+                              AutoGenerateColumns="False" 
+                              VerticalAlignment="Top"
+                              ItemsSource="{Binding Stor_rem}"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="True"
+                              x:Name="table_stor_rem"
+                              PreviewKeyDown="Key_PreviewKeyDown">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Чертёж" 
+                                                    Width="150">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True"
+                                                  IsDropDownOpen="{Binding IsDropDownCherch}"
+                                                  Text="{Binding Text_for_filter_cherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                                                  ItemsSource="{Binding Cherch_list}"   
+                                                  SelectedItem="{Binding SelectedCherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Наименование" 
+                                                    Width="250">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True" 
+                                                  IsDropDownOpen="{Binding IsDropDownNaim}"
+                                                  Text="{Binding Text_for_filter_naim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  ItemsSource="{Binding Naim_list}" 
+                                                  SelectedItem="{Binding SelectedNaim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                  
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Background="{Binding Color}"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Количество"
+                                                Binding="{Binding Kolvo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground"
+                                                Value="{Binding ColorKolvo}"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="Завод-изготовитель">
+                                <DataGridTemplateColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center" />
+                                    </Style>
+                                </DataGridTemplateColumn.HeaderStyle>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox IsEditable="True" 
+                                                  IsDropDownOpen="{Binding IsDropDownZav_izgot}"
+                                                  Text="{Binding Text_for_filter_zav_izgot,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  ItemsSource="{Binding Zav_izgot_list}" 
+                                                  SelectedItem="{Binding SelectedZav_izgot,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                  
+                                                  IsTextSearchEnabled="False"
+                                                  TextBoxBase.TextChanged="ComboBox_TextChanged"
+                                                  Foreground="Black"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Примечание" 
+                                                Binding="{Binding Prim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                                Width="*"
+                                                Foreground="Black">
+                                <DataGridTextColumn.HeaderStyle>
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="HorizontalContentAlignment" 
+                                                Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.HeaderStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Примечания" 
+                       FontWeight="Bold" 
+                       FontSize="14"/>
+            <TextBox Grid.Row="1"
+                 Text="{Binding Last_prim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                 FontSize="12" />
+        </Grid>
+    </Grid>
+</Window>

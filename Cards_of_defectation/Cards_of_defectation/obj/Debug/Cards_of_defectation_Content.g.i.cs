@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sl_zap.dot")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("nlog.config")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/%d0%b1%d0%bb%d0%b0%d0%bd%d0%ba.dot")]
 
 

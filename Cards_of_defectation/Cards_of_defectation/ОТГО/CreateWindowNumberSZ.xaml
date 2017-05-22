@@ -1,0 +1,24 @@
+﻿<Window x:Class="Cards_of_defectation.ОТГО.CreateWindowNumberSZ"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cards_of_defectation.ОТГО"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Ремонтые заказы" Height="60" Width="320" ResizeMode ="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="235"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Введите номера служебной записки: 137/" 
+                   FontSize="14"/>
+        <xctk:MaskedTextBox Mask="00-0000" 
+                            Name="textbox"
+                            CaretIndex="0" 
+                            Grid.Column="1"
+                            PreviewKeyDown="MaskedTextBox_PreviewKeyDown" 
+                            FontSize="14"/>
+    </Grid>
+</Window>

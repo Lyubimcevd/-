@@ -100,7 +100,7 @@ namespace Cards_of_defectation.Classes
                 }
             application.Visible = true;
         }
-        public void PrintSlZap(FirstLevelViewModal flvm,List<ChoiceViewModal> Rows)
+        public void PrintSlZap(SlugebZapiskaViewModal flvm,List<ChoiceViewModal> Rows)
         {
             application = new Word.Application();
             fileName = Path.GetTempFileName();

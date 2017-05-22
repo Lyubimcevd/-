@@ -1,0 +1,1 @@
+2017-05-22 13:03:21.2591|DEBUG|Cards_of_defectation.MainOUP|Первая ступень отработала

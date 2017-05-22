@@ -77,6 +77,10 @@
     <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.9\lib\net40\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -90,51 +94,75 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Choice_of_podrazd.xaml.cs">
+    <Compile Include="Windows\Choice_of_podrazd.xaml.cs">
       <DependentUpon>Choice_of_podrazd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\ChoiceViewModal.cs" />
-    <Compile Include="Classes\FirstLevelIzgotViewModal.cs" />
-    <Compile Include="Classes\FirstLevelPriobrViewModal.cs" />
-    <Compile Include="Classes\FirstLevelRemontViewModal.cs" />
-    <Compile Include="Classes\FirstLevelStorRemViewModal.cs" />
-    <Compile Include="Classes\FirstLevelViewModal.cs" />
     <Compile Include="Classes\References.cs" />
     <Compile Include="Classes\Print.cs" />
-    <Compile Include="Classes\RowDefectViewModal.cs" />
-    <Compile Include="Classes\RowPlanViewModal.cs" />
     <Compile Include="Classes\Row_in_kart_defect.cs" />
     <Compile Include="Classes\Row_in_plan_rabot.cs" />
-    <Compile Include="Classes\ShopAlertViewModal.cs" />
-    <Compile Include="Classes\TreeViewModal.cs" />
-    <Compile Include="FirstLevel.xaml.cs">
+    <Compile Include="Windows\FirstLevel.xaml.cs">
       <DependentUpon>FirstLevel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainOUP.xaml.cs">
+    <Compile Include="Windows\MainOUP.xaml.cs">
       <DependentUpon>MainOUP.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Defect_map.xaml.cs">
+    <Compile Include="Windows\Defect_map.xaml.cs">
       <DependentUpon>Defect_map.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShopAlert.xaml.cs">
+    <Compile Include="Windows\ShopAlert.xaml.cs">
       <DependentUpon>ShopAlert.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tree_defect.xaml.cs">
+    <Compile Include="Windows\Tree_defect.xaml.cs">
       <DependentUpon>Tree_defect.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Alert_time.xaml.cs">
+    <Compile Include="Windows\Alert_time.xaml.cs">
       <DependentUpon>Alert_time.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReductionReference.xaml.cs">
+    <Compile Include="Windows\ReductionReference.xaml.cs">
       <DependentUpon>ReductionReference.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Work_shop.xaml.cs">
+    <Compile Include="ViewModal\ChoiceViewModal.cs" />
+    <Compile Include="ViewModal\FirstLevelIzgotViewModal.cs" />
+    <Compile Include="ViewModal\FirstLevelPriobrViewModal.cs" />
+    <Compile Include="ViewModal\FirstLevelRemontViewModal.cs" />
+    <Compile Include="ViewModal\FirstLevelStorRemViewModal.cs" />
+    <Compile Include="ViewModal\FirstLevelViewModal.cs" />
+    <Compile Include="ViewModal\RowDefectViewModal.cs" />
+    <Compile Include="ViewModal\RowPlanViewModal.cs" />
+    <Compile Include="ViewModal\ShopAlertViewModal.cs" />
+    <Compile Include="ViewModal\TreeViewModal.cs" />
+    <Compile Include="Windows\Work_shop.xaml.cs">
       <DependentUpon>Work_shop.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -143,39 +171,77 @@
     </Compile>
     <Compile Include="Classes\Converter.cs" />
     <Compile Include="Classes\Server.cs" />
-    <Page Include="Choice_of_podrazd.xaml">
+    <Compile Include="ОТГО\Classes\NomSZ_Cherch_Naim_ZavNom.cs" />
+    <Compile Include="ОТГО\CreateWindowNaim.xaml.cs">
+      <DependentUpon>CreateWindowNaim.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ОТГО\CreateWindowNomCherch.xaml.cs">
+      <DependentUpon>CreateWindowNomCherch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ОТГО\CreateWindowNumberSZ.xaml.cs">
+      <DependentUpon>CreateWindowNumberSZ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ОТГО\CreateWindowZavNomIzd.xaml.cs">
+      <DependentUpon>CreateWindowZavNomIzd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ОТГО\MainWindowOTGO.xaml.cs">
+      <DependentUpon>MainWindowOTGO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ОТГО\ViewModal\CreateWindowNaimIzdViewModal.cs" />
+    <Compile Include="ОТГО\ViewModal\CreateWindowNomCherchViewModal.cs" />
+    <Page Include="Windows\Choice_of_podrazd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FirstLevel.xaml">
+    <Page Include="Windows\FirstLevel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainOUP.xaml">
+    <Page Include="Windows\MainOUP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Defect_map.xaml">
+    <Page Include="Windows\Defect_map.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShopAlert.xaml">
+    <Page Include="Windows\ShopAlert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Tree_defect.xaml">
+    <Page Include="Windows\Tree_defect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Alert_time.xaml">
+    <Page Include="Windows\Alert_time.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ReductionReference.xaml">
+    <Page Include="Windows\ReductionReference.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Work_shop.xaml">
+    <Page Include="Windows\Work_shop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОТГО\CreateWindowNaim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОТГО\CreateWindowNomCherch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОТГО\CreateWindowNumberSZ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОТГО\CreateWindowZavNomIzd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОТГО\MainWindowOTGO.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +270,11 @@
     </EmbeddedResource>
     <None Include="Cards_of_defectation.application" />
     <None Include="Cards_of_defectation_TemporaryKey.pfx" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

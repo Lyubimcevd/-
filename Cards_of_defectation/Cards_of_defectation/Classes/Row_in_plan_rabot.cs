@@ -9,12 +9,12 @@ namespace Cards_of_defectation.Classes
     {
         string ser_nom_izd, voin_chast, data_uved, nom_uved, srok_def, srok_def_komment, srok_dost,
             srok_dost_komment, srok_def_predpr, srok_def_predpr_komment, srok_rem, srok_rem_komment,
-            srok_rem_soisp, soisp, srok_vosstan, srok_vosstan_komment, prim, last_prim,kontract;
-        int nom_zay, nom_zak, type_rem;
+            srok_rem_soisp, soisp, srok_vosstan, srok_vosstan_komment, prim, last_prim,kontract,nom_zay;
+        int nom_zak, type_rem;
 
         public Row_in_plan_rabot() { }
 
-        public int Nom_zay
+        public string Nom_zay
         {
             get
             {
