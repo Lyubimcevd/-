@@ -63,34 +63,40 @@ namespace Cards_of_defectation.Classes
             range = SearchRange("@@kolvo");
             if (range != null) range.Text = header.Kolvo.ToString();
             range = SearchRange("@@ser_nom_izd");
-            if (range != null) range.Text = "№ " + header.Ser_nom_izd.ToString();
-            range = SearchRange("@@obozn_det");
-            if (range != null) range.Text = header.Obozn_det;
+            if (range != null) range.Text = "№ " + header.Ser_nom.ToString();
+            range = SearchRange("@@Cherch");
+            if (range != null) range.Text = header.Cherch;
             range = SearchRange("@@naim_det_1");
             if (range != null)
-                range.Text = Server.InitServer().DataBase("test1")
-                    .ExecuteCommand("select [Заводской номер изделия] from nom_type where [Номер изделия] = '"
-                                    + header.Ser_nom_izd+"'")[0].ToString();
+                range.Text = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select naim from rz_ser_nom_naim where ser_nom = '"
+                                    + header.Ser_nom+"'")[0].ToString();
             range = SearchRange("@@naim_det_2");
             if (range != null) range.Text = header.Naim_det;          
             range = SearchRange("@@nom_kart");
             if (range != null)
-                if (header.Par == 0) range.Text = header.Nom_zay.ToString();
+                if (header.Par == 0) range.Text = header.Nom_sz.ToString();
                 else range.Text = header.Nom_kart;
             table = document.Tables[1];
             for (int i = 0; i < Rows.Count; i++)
             {
                 table.Cell(table.Rows.Count, 1).Range.Text = i.ToString()+1;
-                table.Cell(table.Rows.Count, 2).Range.Text = Rows[i].Obozn_det + " = " + Rows[i].Kolvo.ToString() + " шт" +
-                    "\n" + Rows[i].Opis_def_list[Rows[i].Opis_def] + "\n" + Rows[i].Opis_def_komment;
-                table.Cell(table.Rows.Count, 3).Range.Text = Rows[i].Prichina_list[Rows[i].Prichina] + "\n"
+                table.Cell(table.Rows.Count, 2).Range.Text = Rows[i].Cherch + " = " + Rows[i].Kolvo.ToString() + " шт" +
+                    "\n" + Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select opis_def from rz_opis_def where id = " 
+                    + Rows[i].Opis_def)[0].ToString() + "\n" + Rows[i].Opis_def_komment;
+                table.Cell(table.Rows.Count, 3).Range.Text = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select prich from rz_prichina where id = " + Rows[i].Prichina)[0].ToString() + "\n"
                     + Rows[i].Prichina_komment;
-                table.Cell(table.Rows.Count, 4).Range.Text = Rows[i].Met_opr_list[Rows[i].Met_opr] + "\n"
+                table.Cell(table.Rows.Count, 4).Range.Text = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select met_opr from rz_met_opred where id = " + Rows[i].Met_opr)[0].ToString() + "\n"
                     + Rows[i].Met_opr_komment;
-                table.Cell(table.Rows.Count, 5).Range.Text = Rows[i].Teh_treb_list[Rows[i].Teh_treb] + "\n"
+                table.Cell(table.Rows.Count, 5).Range.Text = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select teh_treb from rz_teh_treb where id = " + Rows[i].Teh_treb)[0].ToString() + "\n"
                     + Rows[i].Teh_treb_komment;
-                table.Cell(table.Rows.Count, 6).Range.Text = Rows[i].Spos_ustr_list[Rows[i].Spos_ustr] + "\n"
-                    + Rows[i].Spos_ustr_komment;
+                table.Cell(table.Rows.Count, 6).Range.Text = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select spos_ustr from rz_spos_ustr where id = " + Rows[i].Spos_ustr)[0].ToString() 
+                    + "\n"+ Rows[i].Spos_ustr_komment;
                 if (i < Rows.Count - 1) table.Rows.Add(missingObj);
             }
             foreach (Word.Paragraph paragraph in document.Paragraphs)
@@ -167,12 +173,10 @@ namespace Cards_of_defectation.Classes
                 table.Cell(table.Rows.Count, 2).Range.Text = flvm.Stor_rem[i].SelectedCherch;
                 table.Cell(table.Rows.Count, 3).Range.Text = flvm.Stor_rem[i].SelectedNaim;
                 table.Cell(table.Rows.Count, 4).Range.Text = flvm.Stor_rem[i].Kolvo.ToString();                  
-                table.Cell(table.Rows.Count, 5).Range.Text = flvm.Stor_rem[i].Zavod_izgotov;
+                table.Cell(table.Rows.Count, 5).Range.Text = flvm.Stor_rem[i].SelectedIzgotov;
                 table.Cell(table.Rows.Count, 6).Range.Text = flvm.Stor_rem[i].Prim;
                 if (i < flvm.Stor_rem.Count - 1) table.Rows.Add(missingObj);
             }
-            range = SearchRange("@@last_prim");
-            if (range != null) range.Text = flvm.Last_prim;
             foreach (Word.Paragraph paragraph in document.Paragraphs)
                 if (paragraph.Range.Text.Trim() == string.Empty)
                 {

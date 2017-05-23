@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cards_of_defectation.ОУП.Windows"
         mc:Ignorable="d"
-        Height="500"
         Title="План работ" 
         Closing="Window_Closing">
     <Window.Resources>
@@ -31,27 +30,19 @@
             <RowDefinition Height="25"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Menu x:Name="menu" 
-              Background="#FFCECECE">
+        <Menu x:Name="menu">
             <MenuItem Header="Добавить строку" 
-                      Command="New" 
-                      Height="25" 
-                      HorizontalContentAlignment="Center" 
-                      VerticalContentAlignment="Center"/>
+                      Command="New"
+                      FontSize="14"/>
             <MenuItem Header="Контроль сроков" 
-                      Click="MenuItem_Click_1" 
-                      HorizontalContentAlignment="Center" 
-                      VerticalContentAlignment="Center"/>
+                      Click="MenuItem_Click_1"
+                      FontSize="14"/>
             <MenuItem Header="Сохранить" 
-                      Command="Save" 
-                      HorizontalContentAlignment="Center" 
-                      VerticalContentAlignment="Center"/>
+                      Command="Save"
+                      FontSize="14"/>
             <MenuItem Header="Справочники" 
-                      Click="MenuItem_Click_2"/>
-            <MenuItem Header="Создать служебную записку" 
-                      HorizontalContentAlignment="Center" 
-                      VerticalContentAlignment="Center" 
-                      Click="MenuItem_Click_3"/>
+                      Click="MenuItem_Click_2"
+                      FontSize="14"/>
         </Menu>
         <DataGrid Grid.Row="1" 
                   x:Name="main_table" 
@@ -60,329 +51,103 @@
                   CanUserDeleteRows="True"
                   CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Заявка" 
-                                    Binding="{Binding Nom_zay}" 
-                                    IsReadOnly="True"
-                                    Foreground="Black"/>
-                <DataGridTextColumn Header="Номер изделия" 
-                                    Binding="{Binding Ser_nom_izd,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                    Foreground="Black"/>
-                <DataGridTextColumn Width="115" 
-                                    Binding="{Binding Voin_chast,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                    Foreground="Black">
+                <DataGridTextColumn Header="Заявка"
+                                    Binding="{Binding Nom_sz}"
+                                    Foreground="Black"
+                                    FontSize="14"
+                                    Width="2*">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Воинская часть и место дислокации" 
-                                                   TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
                             <Setter Property="HorizontalContentAlignment" 
-                                    Value="Center" />
+                                        Value="Center"/>
+                            <Setter Property="FontSize"
+                                    Value="14"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
-                    <DataGridTextColumn.ElementStyle>
-                        <Style>
-                            <Setter Property="TextBlock.TextWrapping" 
-                                    Value="Wrap"/>
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTemplateColumn Width="115">
-                    <DataGridTemplateColumn.HeaderStyle>
+                <DataGridTextColumn Header="Приоритет" 
+                                    Binding="{Binding Prior,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                    Foreground="Black"
+                                    FontSize="14"
+                                    Width="2*">
+                    <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Уведомление о проведении работ" 
-                                                   TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="HorizontalContentAlignment" 
-                                    Value="Center" />
+                            <Setter Property="FontSize"
+                                    Value="14"/>
                         </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <TextBox Text ="{Binding Nom_uved,UpdateSourceTrigger=PropertyChanged}" 
-                                         TextWrapping="Wrap"
-                                         Foreground="Black"/>
-                                <DatePicker Grid.Row="1" 
-                                            Text ="{Binding Data_uved,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                            Foreground="Black"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="110">
-                    <DataGridTemplateColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Срок проведения дефектации изделия на месте"
-                                                   TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="HorizontalContentAlignment" 
-                                    Value="Center" />
-                        </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <DatePicker Text ="{Binding Srok_def,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                            Foreground="Black"/>
-                                <TextBox Grid.Row="1" 
-                                         Text ="{Binding Srok_def_komment,UpdateSourceTrigger=PropertyChanged}" 
-                                         TextWrapping="Wrap"
-                                         Foreground="Black"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="110">
-                    <DataGridTemplateColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Срок доставки имущества на предприятие" 
-                                                   TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="HorizontalContentAlignment" 
-                                    Value="Center" />
-                        </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <DatePicker Text ="{Binding Srok_dost,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                            Foreground="Black"/>
-                                <TextBox Grid.Row="1" 
-                                         Text ="{Binding Srok_dost_komment,UpdateSourceTrigger=PropertyChanged}" 
-                                         TextWrapping="Wrap"
-                                         Foreground="Black"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="130">
-                    <DataGridTemplateColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Срок проведения дефектации изделия на предприятии" TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="HorizontalContentAlignment" 
-                                    Value="Center" />
-                        </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <DatePicker Text ="{Binding Srok_def_predpr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                            Foreground="Black"/>
-                                <TextBox Grid.Row="1" 
-                                         Text ="{Binding Srok_def_predpr_komment,UpdateSourceTrigger=PropertyChanged}" 
-                                         TextWrapping="Wrap"
-                                         Foreground="Black"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="150">
-                    <DataGridTemplateColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Срок ремонта и изготовления имущества предприятием" 
-                                                   TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="HorizontalContentAlignment" 
-                                    Value="Center" />
-                        </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <DatePicker Text ="{Binding Srok_rem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                            Foreground="Black"/>
-                                <TextBox Grid.Row="1" 
-                                         Text ="{Binding Srok_rem_komment,UpdateSourceTrigger=PropertyChanged}" 
-                                         TextWrapping="Wrap"
-                                         Foreground="Black"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="150">
-                    <DataGridTemplateColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Срок ремонта и изготовления имущества соисполнителями" 
-                                                   TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="HorizontalContentAlignment" 
-                                    Value="Center" />
-                        </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <DatePicker Text ="{Binding Srok_rem_soisp,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                            Foreground="Black"/>
-                                <TextBox Grid.Row="1" 
-                                         Text ="{Binding Soisp,UpdateSourceTrigger=PropertyChanged}" 
-                                         TextWrapping="Wrap"
-                                         Foreground="Black"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="120">
-                    <DataGridTemplateColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Срок восстановления изделия" 
-                                                   TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <DatePicker Text ="{Binding Srok_vosstan,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                            Foreground="Black"/>
-                                <TextBox Grid.Row="1" 
-                                         Text ="{Binding Srok_vosstan_komment,UpdateSourceTrigger=PropertyChanged}" 
-                                         TextWrapping="Wrap"
-                                         Foreground="Black"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="150">
-                    <DataGridTemplateColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" 
-                                                   Text="Срок ремонта и изготовления имущества соисполнителями" 
-                                                   TextAlignment="Center"/>
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <DatePicker Text ="{Binding Date,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                            Foreground="Black"/>
-                                <TextBox Grid.Row="1" 
-                                         Text ="{Binding Komment,UpdateSourceTrigger=PropertyChanged}" 
-                                         TextWrapping="Wrap"
-                                         Foreground="Black"/>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Номер заказа" 
-                                    Binding="{Binding Nom_zak,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                    Foreground="Black"/>
-                <DataGridTemplateColumn Header="Тип ремонта" 
-                                        Width="120">
-                    <DataGridTemplateColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="HorizontalContentAlignment" 
-                                    Value="Center" />
-                        </Style>
-                    </DataGridTemplateColumn.HeaderStyle>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <ComboBox SelectedIndex="{Binding Type_rem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                      Height="25"
-                                      Foreground="Black">
-                                <ComboBoxItem Content="Гарантийный"/>
-                                <ComboBoxItem Content="Негарантийный"/>
-                            </ComboBox>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Примечание" 
-                                    Binding="{Binding Prim,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                    Width="200"
-                                    Foreground="Black">
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Изделие"
+                                    Binding="{Binding Ser_nom,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                    Foreground="Black"
+                                    FontSize="14"
+                                    Width="2*">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
-                                                Value="Center" />
+                                        Value="Center"/>
+                            <Setter Property="FontSize"
+                                    Value="14"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Воинская часть"
+                                    Binding="{Binding Voin_chast,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                    Foreground="Black"
+                                    FontSize="14"
+                                    Width="6*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                            <Setter Property="FontSize"
+                                    Value="14"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Заказ"
+                                    Binding="{Binding Nom_zak,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                    Foreground="Black"
+                                    FontSize="14"
+                                    Width="2*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                            <Setter Property="FontSize"
+                                    Value="14"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Header="Срок восстановления"
+                                        Width="4*">
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                            <Setter Property="FontSize"
+                                    Value="14"/>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker Text ="{Binding Srok_rem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                        Foreground="Black"
+                                        FontSize="14"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Количество карт"
+                                    Binding="{Binding Kards}"
+                                    Foreground="Black"
+                                    FontSize="14"
+                                    Width="3*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                            <Setter Property="FontSize"
+                                    Value="14"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>

@@ -480,10 +480,10 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <ComboBox IsEditable="True" 
-                                                  IsDropDownOpen="{Binding IsDropDownZav_izgot}"
-                                                  Text="{Binding Text_for_filter_zav_izgot,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                                  ItemsSource="{Binding Zav_izgot_list}" 
-                                                  SelectedItem="{Binding SelectedZav_izgot,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                  
+                                                  IsDropDownOpen="{Binding IsDropDownIzgotov}"
+                                                  Text="{Binding Text_for_filter_izgotov,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                  ItemsSource="{Binding Izgotov_list}" 
+                                                  SelectedItem="{Binding SelectedIzgotov,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                  
                                                   IsTextSearchEnabled="False"
                                                   TextBoxBase.TextChanged="ComboBox_TextChanged"
                                                   Foreground="Black"/>

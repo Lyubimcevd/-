@@ -45,7 +45,7 @@ namespace Cards_of_defectation.Classes
         public Connection(string DataBaseName)
         {
             conn = new SqlConnection("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=" + DataBaseName + ";MultipleActiveResultSets=True");
-            SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=test1;MultipleActiveResultSets=True");
+            //SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database="+ DataBaseName + ";MultipleActiveResultSets=True");
             conn.Open();
         }
         public List<object> ExecuteCommand(string Command)
@@ -95,11 +95,11 @@ namespace Cards_of_defectation.Classes
         }
         void Stalker()
         {
-            using (var command = new SqlCommand("select a.id,a.nom_ceh,a.kolvo,b.nom_zay from dbo.kart_defect as a, dbo.plan_rabot as b", conn))
+            using (var command = new SqlCommand("select a.id,a.nom_ceh,a.kolvo,b.Nom_sz from dbo.kart_defect as a, dbo.plan_rabot as b", conn))
             {
                 var sqlDependency = new SqlDependency(command);
                 sqlDependency.OnChange += new OnChangeEventHandler(OnDatabaseChange);
-                command.ExecuteReader();
+                //command.ExecuteReader();
             }
         }
         void OnDatabaseChange(object sender, SqlNotificationEventArgs e)
@@ -148,7 +148,7 @@ namespace Cards_of_defectation.Classes
         }
         public object LoadFromServer()
         {
-            if (DT.TableName == "plan_rabot")
+            if (DT.TableName == "rz_plan_rabot")
             {
                 return Converter.TableToList(DT) as List<Row_in_plan_rabot>;
             }

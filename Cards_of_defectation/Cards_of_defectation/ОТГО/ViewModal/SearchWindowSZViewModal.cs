@@ -9,52 +9,52 @@ namespace Cards_of_defectation.ОТГО.ViewModal
 {
     class SearchWindowSZViewModal: INotifyPropertyChanged
     {
-        string text_for_filter_nom_zay;
-        List<object> nom_zay_list;
-        int current_length_of_nom_zay_filter;
-        bool is_drop_down_nom_zay;
+        string text_for_filter_nom_sz;
+        List<object> nom_sz_list;
+        int current_length_of_nom_sz_filter;
+        bool is_drop_down_nom_sz;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public List<object> Nom_zay_list
+        public List<object> Nom_sz_list
         {
             get
             {
-                return nom_zay_list;
+                return nom_sz_list;
             }
             set
             {
-                nom_zay_list = value;
-                OnPropertyChanged("Nom_zay_list");
+                Nom_sz_list = value;
+                OnPropertyChanged("Nom_sz_list");
             }
         }
-        public string Text_for_filter_nom_zay
+        public string Text_for_filter_nom_sz
         {
             get
             {
-                return text_for_filter_nom_zay;
+                return text_for_filter_nom_sz;
             }
             set
             {
-                text_for_filter_nom_zay = value;
-                if (Nom_zay_list?.Count != 0 || current_length_of_nom_zay_filter > text_for_filter_nom_zay.Length || Nom_zay_list == null)
-                    Nom_zay_list = Server.InitServer().DataBase("test1")
-                        .ExecuteCommand("select distinct top 50 rtrim(nom_zay) from plan_rabot where nom_zay like '"
-                                        + text_for_filter_nom_zay + "%'");
+                text_for_filter_nom_sz = value;
+                if (Nom_sz_list?.Count != 0 || current_length_of_nom_sz_filter > text_for_filter_nom_sz.Length || Nom_sz_list == null)
+                    Nom_sz_list = Server.InitServer().DataBase("uit")
+                        .ExecuteCommand("select top 50 rtrim(nom_sz) from rz_plan_rabot where nom_sz like '"
+                                        + text_for_filter_nom_sz + "%'");
                 IsDropDownNomZay = true;
-                current_length_of_nom_zay_filter = text_for_filter_nom_zay.Length;
+                current_length_of_nom_sz_filter = text_for_filter_nom_sz.Length;
             }
         }
         public bool IsDropDownNomZay
         {
             get
             {
-                return is_drop_down_nom_zay;
+                return is_drop_down_nom_sz;
             }
             set
             {
-                is_drop_down_nom_zay = value;
-                if (Nom_zay_list.Count == 0) is_drop_down_nom_zay = false;
+                is_drop_down_nom_sz = value;
+                if (Nom_sz_list.Count == 0) is_drop_down_nom_sz = false;
                 OnPropertyChanged("IsDropDownNomZay");
             }
         }

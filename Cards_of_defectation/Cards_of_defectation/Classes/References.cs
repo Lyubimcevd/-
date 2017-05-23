@@ -28,7 +28,7 @@ namespace Cards_of_defectation.Classes
             List<object> tmp = new List<object>();
             tmp = Server.InitServer().DataBase("uit")
                 .ExecuteCommand("select ltrim(rtrim(nc)) from spkd1 where nk = '" 
-                                + parent.Obozn_det_for_search + "' order by nc");
+                                + parent.Cherch_for_search + "' order by nc");
             foreach (string obozn in tmp) composition.Add(new RowDefectViewModal(obozn,parent));
             return composition;
         }
@@ -37,7 +37,7 @@ namespace Cards_of_defectation.Classes
             if (armsearch == null) armsearch = new ObservableCollection<RowDefectViewModal>();
             bool is_here = false;
             foreach (RowDefectViewModal row in armsearch)
-                if (row.Obozn_det == order)
+                if (row.Cherch == order)
                 {
                     is_here = true;
                     MessageBox.Show("Чертёж уже добавлен в список");
@@ -52,7 +52,7 @@ namespace Cards_of_defectation.Classes
             {
                 if (causes_of_defect == null)
                 {
-                    List<object> tmp = Server.InitServer().DataBase("test1").ExecuteCommand("select * from prichina");
+                    List<object> tmp = Server.InitServer().DataBase("uit").ExecuteCommand("select prich from rz_prichina");
                     causes_of_defect = new List<string>();
                     foreach (string el in tmp) causes_of_defect.Add(el);
                 }
@@ -65,7 +65,7 @@ namespace Cards_of_defectation.Classes
             {
                 if (determination_method_of_defect == null)
                 {
-                    List<object> tmp = Server.InitServer().DataBase("test1").ExecuteCommand("select * from met_opred");
+                    List<object> tmp = Server.InitServer().DataBase("uit").ExecuteCommand("select met_opr from rz_met_opred");
                     determination_method_of_defect = new List<string>();
                     foreach (string el in tmp) determination_method_of_defect.Add(el);
                 }
@@ -78,7 +78,7 @@ namespace Cards_of_defectation.Classes
             {
                 if (technical_requirements == null)
                 {
-                    List<object> tmp = Server.InitServer().DataBase("test1").ExecuteCommand("select * from teh_treb");
+                    List<object> tmp = Server.InitServer().DataBase("uit").ExecuteCommand("select teh_treb from rz_teh_treb");
                     technical_requirements = new List<string>();
                     foreach (string el in tmp) technical_requirements.Add(el);
                 }
@@ -91,7 +91,7 @@ namespace Cards_of_defectation.Classes
             {
                 if (defects == null)
                 {
-                    List<object> tmp = Server.InitServer().DataBase("test1").ExecuteCommand("select * from opis_defect");
+                    List<object> tmp = Server.InitServer().DataBase("uit").ExecuteCommand("select opis_def from rz_opis_def");
                     defects = new List<string>();
                     foreach (string el in tmp) defects.Add(el);
                 }
@@ -104,7 +104,7 @@ namespace Cards_of_defectation.Classes
             {
                 if (elimination_method == null)
                 {
-                    List<object> tmp = Server.InitServer().DataBase("test1").ExecuteCommand("select * from spos_ustr");
+                    List<object> tmp = Server.InitServer().DataBase("uit").ExecuteCommand("select spos_ustr from rz_spos_ustr");
                     elimination_method = new List<string>();
                     foreach (string el in tmp) elimination_method.Add(el);
                 }
@@ -117,7 +117,7 @@ namespace Cards_of_defectation.Classes
             {
                 if (cehs == null)
                 {
-                    List<object> tmp = Server.InitServer().DataBase("test1").ExecuteCommand("select * from ceh");
+                    List<object> tmp = Server.InitServer().DataBase("cvodka").ExecuteCommand("select nc from podr1");
                     cehs = new List<string>();
                     foreach (string el in tmp) cehs.Add(el);
                 }
@@ -126,13 +126,13 @@ namespace Cards_of_defectation.Classes
         }
         public bool IsSerInReference(string Ser_nom_izd)
         {
-            List<object> tmp = Server.InitServer().DataBase("test1")
-              .ExecuteCommand("select [Заводской номер изделия] from nom_type where [Номер изделия] = '"
+            List<object> tmp = Server.InitServer().DataBase("uit")
+              .ExecuteCommand("select naim from rz_ser_nom_naim where ser_nom = '"
                               + Ser_nom_izd + "'");
             if (tmp.Count != 0)
             {
-                tmp = Server.InitServer().DataBase("test1")
-                    .ExecuteCommand("select Чертёж from type_cherch where [Заводской номер изделия] = '"
+                tmp = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select cherch from rz_naim_cherch where naim = '"
                                     + tmp[0].ToString() + "'");
                 if (tmp.Count != 0) return true;
                 MessageBox.Show("В справочнике 'Тип изделия - чертёж' не задано соответствие изделия чертежу", "Ошибка");

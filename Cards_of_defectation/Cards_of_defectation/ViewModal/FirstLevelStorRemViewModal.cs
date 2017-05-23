@@ -9,58 +9,61 @@ namespace Cards_of_defectation.ViewModal
 {
     public class SlugebZapiskaStorRemViewModal: INotifyPropertyChanged
     {       
-        List<object> cherch_list, naim_list,zav_izgot_list;
+        List<object> cherch_list, naim_list,izgotov_list;
         Row_in_kart_defect parent_row;
-        string text_for_filter_cherch, text_for_filter_naim, text_for_filter_zav_izgot, color;
-        bool is_drop_down_cherch, is_drop_down_naim, is_drop_down_zav_izgot, is_change;
-        int current_length_of_cherch_filter, current_length_of_naim_filter, current_length_of_zav_izgot_filter;
+        string text_for_filter_cherch, text_for_filter_naim, text_for_filter_izgotov, color;
+        bool is_drop_down_cherch, is_drop_down_naim, is_drop_down_izgotov, is_change;
+        int current_length_of_cherch_filter, current_length_of_naim_filter, current_length_of_izgotov_filter;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public SlugebZapiskaStorRemViewModal()
         {
             parent_row = new Row_in_kart_defect();
-            zav_izgot_list = Server.InitServer().DataBase("cvodka")
-                        .ExecuteCommand("select distinct Ltrim(rtrim(zakazchi_naim)) from zakazchi_naim");
-            is_change = false;
+            DefaultAction();           
         }
         public SlugebZapiskaStorRemViewModal(int id)
         {
             parent_row = new Row_in_kart_defect();
             parent_row.Par = id;
             if (id != 0)
-                parent_row.Nom_zay = Server.InitServer().DataBase("test1")
-                       .ExecuteCommand("select nom_zay from kart_defect where id = " + parent_row.Par)[0].ToString();
-            zav_izgot_list = Server.InitServer().DataBase("cvodka")
-                        .ExecuteCommand("select distinct Ltrim(rtrim(zakazchi_naim)) from zakazchi_naim");
-            is_change = false;
+                parent_row.Nom_sz = Server.InitServer().DataBase("uit")
+                       .ExecuteCommand("select nom_sz from rz_kart_defect where id = " + parent_row.Par)[0].ToString();
+            DefaultAction();
         }
         public SlugebZapiskaStorRemViewModal(RowDefectViewModal row)
         {
             parent_row = row.Save;
-            text_for_filter_cherch = parent_row.Obozn_det;
+            text_for_filter_cherch = parent_row.Cherch;
             text_for_filter_naim = parent_row.Naim;
-            text_for_filter_zav_izgot = parent_row.Zavod_izgot;
-            zav_izgot_list = Server.InitServer().DataBase("cvodka")
+            text_for_filter_izgotov = Server.InitServer().DataBase("cvodka")
+                        .ExecuteCommand("select Ltrim(rtrim(zakazchi_naim)) from"
+                         +" zakazchi_naim where id = "+ parent_row.Izgotov)[0].ToString();
+            DefaultAction();
+            IsRight();
+        }
+
+        void DefaultAction()
+        {
+            izgotov_list = Server.InitServer().DataBase("cvodka")
                         .ExecuteCommand("select distinct Ltrim(rtrim(zakazchi_naim)) from zakazchi_naim");
             is_change = false;
-            IsRight();
         }
         public string SelectedCherch
         {
             get
             {
-                return parent_row.Obozn_det;
+                return parent_row.Cherch;
             }
             set
             {
-                parent_row.Obozn_det = value;
+                parent_row.Cherch = value;
                 is_change = true;
                 if (SelectedNaim == null)
                 {
                     Naim_list = Server.InitServer().DataBase("cvodka")
                        .ExecuteCommand("select top 50 ltrim(rtrim(naim)) from naim where ltrim(nom) = '"
-                                       + parent_row.Obozn_det + "'");
+                                       + parent_row.Cherch + "'");
                     if (Naim_list.Count == 1)
                     {
                         SelectedNaim = Naim_list.First().ToString();
@@ -94,15 +97,18 @@ namespace Cards_of_defectation.ViewModal
                 else IsRight();
             }
         }
-        public string SelectedZav_izgot
+        public string SelectedIzgotov
         {
             get
             {
-                return parent_row.Zavod_izgot;
+                return Server.InitServer().DataBase("cvodka")
+                        .ExecuteCommand("select Ltrim(rtrim(zakazchi_naim)) from"
+                         + " zakazchi_naim where id = " + parent_row.Izgotov)[0].ToString();
             }
             set
             {
-                parent_row.Zavod_izgot = value;
+                parent_row.Izgotov = Convert.ToInt32(Server.InitServer().DataBase("cvodka").ExecuteCommand("select id from"
+                         + " zakazchi_naim where Ltrim(rtrim(zakazchi_naim)) = " + value)[0]);
                 is_change = true;
             }
         }
@@ -131,18 +137,6 @@ namespace Cards_of_defectation.ViewModal
                 is_change = true;
             }
         }
-        public string Zavod_izgotov
-        {
-            get
-            {
-                return parent_row.Zavod_izgot;
-            }
-            set
-            {
-                parent_row.Zavod_izgot = value;
-                is_change = true;
-            }
-        }
         public List<object> Cherch_list
         {
             get
@@ -167,16 +161,16 @@ namespace Cards_of_defectation.ViewModal
                 OnPropertyChanged("Naim_list");
             }
         }
-        public List<object> Zav_izgot_list
+        public List<object> Izgotov_list
         {
             get
             {
-                return zav_izgot_list;
+                return izgotov_list;
             }
             set
             {
-                zav_izgot_list = value;
-                OnPropertyChanged("Zav_izgot_list");
+                izgotov_list = value;
+                OnPropertyChanged("Izgotov_list");
             }
         }
         public string Text_for_filter_cherch
@@ -213,21 +207,21 @@ namespace Cards_of_defectation.ViewModal
                 current_length_of_naim_filter = text_for_filter_naim.Length;
             }
         }
-        public string Text_for_filter_zav_izgot
+        public string Text_for_filter_izgotov
         {
             get
             {
-                return text_for_filter_zav_izgot;
+                return text_for_filter_izgotov;
             }
             set
             {
-                text_for_filter_zav_izgot = value;
-                if (Zav_izgot_list?.Count != 0 || current_length_of_zav_izgot_filter > text_for_filter_zav_izgot.Length || Zav_izgot_list == null)
-                    Zav_izgot_list = Server.InitServer().DataBase("cvodka")
+                text_for_filter_izgotov = value;
+                if (Izgotov_list?.Count != 0 || current_length_of_izgotov_filter > text_for_filter_izgotov.Length || Izgotov_list == null)
+                    Izgotov_list = Server.InitServer().DataBase("cvodka")
                         .ExecuteCommand("select distinct Ltrim(rtrim(zakazchi_naim)) from zakazchi_naim where ltrim(zakazchi_naim) like '%"
-                                        + text_for_filter_zav_izgot + "%'");
-                if (Zav_izgot_list.Count != 0) IsDropDownZav_izgot = true;
-                current_length_of_zav_izgot_filter = text_for_filter_zav_izgot.Length;
+                                        + text_for_filter_izgotov + "%'");
+                if (Izgotov_list.Count != 0) IsDropDownIzgotov = true;
+                current_length_of_izgotov_filter = text_for_filter_izgotov.Length;
             }
         }
         public bool IsDropDownCherch
@@ -254,16 +248,16 @@ namespace Cards_of_defectation.ViewModal
                 OnPropertyChanged("IsDropDownNaim");
             }
         }
-        public bool IsDropDownZav_izgot
+        public bool IsDropDownIzgotov
         {
             get
             {
-                return is_drop_down_zav_izgot;
+                return is_drop_down_izgotov;
             }
             set
             {
-                is_drop_down_zav_izgot = value;
-                OnPropertyChanged("IsDropDownZav_izgot");
+                is_drop_down_izgotov = value;
+                OnPropertyChanged("IsDropDownIzgotov");
             }
         }
         public bool IsChange
@@ -304,23 +298,22 @@ namespace Cards_of_defectation.ViewModal
             get
             {
                 if (parent_row.Naim == null) parent_row.Naim = Text_for_filter_naim;
-                if (parent_row.Obozn_det == null) parent_row.Obozn_det = Text_for_filter_cherch;
-                if (parent_row.Naim == null && parent_row.Obozn_det == null) return null;
+                if (parent_row.Cherch == null) parent_row.Cherch = Text_for_filter_cherch;
+                if (parent_row.Naim == null && parent_row.Cherch == null) return null;
                 if (parent_row.Data_post == null)
                     parent_row.Data_post = DateTime.Now.ToShortDateString();
                 parent_row.Spos_ustr = 1;
-                parent_row.Zavod_izgot = Zavod_izgotov;
                 is_change = false;
                 return parent_row;
             }
         }
         void IsRight()
         {
-            if (parent_row.Obozn_det != null)
+            if (parent_row.Cherch != null)
             {
                 List<object> tmp = Server.InitServer().DataBase("cvodka")
                    .ExecuteCommand("select ltrim(rtrim(naim)) from naim where ltrim(nom) = '"
-                   + parent_row.Obozn_det + "'");
+                   + parent_row.Cherch + "'");
                 if (tmp.Count != 0)
                     if (tmp[0].ToString() != parent_row.Naim) Color = "Red";
                     else Color = null;

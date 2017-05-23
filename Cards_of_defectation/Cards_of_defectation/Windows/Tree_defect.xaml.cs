@@ -20,19 +20,19 @@ namespace Cards_of_defectation.Windows
     public partial class Tree_defect : Window
     {
         int id;
-        string nom_zay;
+        string Nom_sz;
         bool is_ceh;
         ObservableCollection<TreeViewModal> Modal;
 
-        public Tree_defect(string pnom_zay, bool IsCeh)
+        public Tree_defect(string pNom_sz, bool IsCeh)
         {
             InitializeComponent();
             is_ceh = IsCeh;
-            nom_zay = pnom_zay;
-            id = MainOUP.GetIndexOfKartDefect(nom_zay);
+            Nom_sz = pNom_sz;
+            id = MainOUP.GetIndexOfKartDefect(Nom_sz);
             Modal = new ObservableCollection<TreeViewModal>();
             Modal.Add(LoadTreeFromServer(id));
-            Server.InitServer().DataBase("test1").InitStalker(Dispatcher.CurrentDispatcher,this);
+            Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher,this);
             treeView.ItemsSource = Modal;
             CommandBinding bind = new CommandBinding(ApplicationCommands.Print);
             bind.Executed += Print_Execute;
@@ -46,13 +46,13 @@ namespace Cards_of_defectation.Windows
 
         TreeViewModal LoadTreeFromServer(int pid)
         {
-            RowDefectViewModal tmp = Converter.ToViewModal(Server.InitServer().DataBase("test1")
-                .Table("select * from kart_defect where id =" + pid).LoadFromServer() as List<Row_in_kart_defect>)[0];
+            RowDefectViewModal tmp = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+                .Table("select * from rz_kart_defect where id =" + pid).LoadFromServer() as List<Row_in_kart_defect>)[0];
             string header = OboznOrNaim(tmp) + "  " + tmp.Nom_kart + "  "
-                + References.InitReferences().Elimination_method[tmp.Spos_ustr] + "  Кол-во: " + tmp.Kolvo;
+                +  tmp.Spos_ustr + "  Кол-во: " + tmp.Kolvo;
             TreeViewModal root = new TreeViewModal(header, pid);
-            List<object> tmp_list = Server.InitServer().DataBase("test1")
-                .ExecuteCommand("select id from kart_defect where par =" + pid);
+            List<object> tmp_list = Server.InitServer().DataBase("uit")
+                .ExecuteCommand("select id from rz_kart_defect where par =" + pid);
             foreach (int id in tmp_list)
             {
                 TreeViewModal tmplist = root.Children.FirstOrDefault(x => x.Id == id);
@@ -64,17 +64,17 @@ namespace Cards_of_defectation.Windows
 
         string OboznOrNaim(RowDefectViewModal tmp)
         {
-            if (tmp.Obozn_det == null) return tmp.Naim_det;
-            return tmp.Obozn_det;
+            if (tmp.Cherch == null) return tmp.Naim_det;
+            return tmp.Cherch;
         }
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (!is_ceh)
             {
-                List<object> tmp = Server.InitServer()
-                .DataBase("test1").ExecuteCommand("select spos_ustr from kart_defect where id ="
-                 + ((sender as TextBlock).DataContext as TreeViewModal).Id.ToString());
-                if (References.InitReferences().Elimination_method[Convert.ToInt32(tmp[0])] == "Дефектация")
+                if (Server.InitServer().DataBase("uit").ExecuteCommand("select spos_ustr from rz_kart_defect where id ="
+                 + ((sender as TextBlock).DataContext as TreeViewModal).Id)[0].ToString() == 
+                 Server.InitServer().DataBase("uit")
+                 .ExecuteCommand("select id from rz_spos_ustr where spos_ustr = 'Дефектация'")[0].ToString())
                 {
                     Defect_map DM = new Defect_map(((sender as TextBlock).DataContext as TreeViewModal).Id);
                     DM.ShowDialog();
@@ -99,7 +99,7 @@ namespace Cards_of_defectation.Windows
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            Server.InitServer().DataBase("test1").DeleteStalker(this);
+            Server.InitServer().DataBase("uit").DeleteStalker(this);
         }
     }
 }

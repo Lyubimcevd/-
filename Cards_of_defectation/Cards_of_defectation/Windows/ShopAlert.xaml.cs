@@ -36,7 +36,7 @@ namespace Cards_of_defectation.Windows
             nom_ceh = References.InitReferences().Cehs.IndexOf(Nom_ceh);
             InitializeComponent();          
             UpdateRow();
-            Server.InitServer().DataBase("test1").InitStalker(Dispatcher.CurrentDispatcher, this);
+            Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
         }
 
         void Click_by_Icon(object sender, EventArgs e)
@@ -51,8 +51,8 @@ namespace Cards_of_defectation.Windows
 
         public void UpdateRow()
         {
-            Rows = Converter.ToViewModalShop(Server.InitServer().DataBase("test1")
-                .Table("select * from kart_defect where nom_ceh = '" + nom_ceh + "' and spos_ustr = 0").LoadFromServerReverse());
+            Rows = Converter.ToViewModalShop(Server.InitServer().DataBase("uit")
+                .Table("select * from rz_kart_defect where nom_ceh = '" + nom_ceh + "' and spos_ustr = 1").LoadFromServerReverse());
             if (Rows.Count > current_kolvo && current_kolvo != 0)
             {
                 NI.ShowBalloonTip(30000, "Оповещение", "Получена новая карта на дефектацию", ToolTipIcon.Info);
@@ -73,7 +73,7 @@ namespace Cards_of_defectation.Windows
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Tree_defect TD = new Tree_defect((main_grid.SelectedItem as ShopAlertViewModal).Nom_zay,is_ceh);
+            Tree_defect TD = new Tree_defect((main_grid.SelectedItem as ShopAlertViewModal).Nom_sz,is_ceh);
             TD.Show();
         }
 

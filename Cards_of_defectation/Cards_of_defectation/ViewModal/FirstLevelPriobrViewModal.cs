@@ -27,14 +27,14 @@ namespace Cards_of_defectation.ViewModal
             parent_row = new Row_in_kart_defect();
             parent_row.Par = id;
             if (id != 0)
-                parent_row.Nom_zay = Server.InitServer().DataBase("test1")
-                        .ExecuteCommand("select nom_zay from kart_defect where id = " + parent_row.Par)[0].ToString();
+                parent_row.Nom_sz = Server.InitServer().DataBase("uit")
+                        .ExecuteCommand("select nom_sz from rz_kart_defect where id = " + parent_row.Par)[0].ToString();
             is_change = false;
         }
         public SlugebZapiskaPriobrViewModal(RowDefectViewModal row)
         {
             parent_row = row.Save;
-            text_for_filter_cherch = parent_row.Obozn_det;
+            text_for_filter_cherch = parent_row.Cherch;
             text_for_filter_naim = parent_row.Naim;
             text_for_filter_n_nomer = parent_row.N_nomer;
             is_change = false;
@@ -84,17 +84,17 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return parent_row.Obozn_det;
+                return parent_row.Cherch;
             }
             set
             {
-                parent_row.Obozn_det = value;
+                parent_row.Cherch = value;
                 is_change = true;
                 if (SelectedNaim == null)
                 {
                     Naim_list = Server.InitServer().DataBase("cvodka")
                             .ExecuteCommand("select top 50 ltrim(rtrim(naim)) from naim where nom = '"
-                                            + parent_row.Obozn_det + "'");
+                                            + parent_row.Cherch + "'");
                     if (Naim_list.Count == 1)
                     {
                         SelectedNaim = Naim_list.First().ToString();
@@ -105,12 +105,12 @@ namespace Cards_of_defectation.ViewModal
                 {
                     N_nomer_list = Server.InitServer().DataBase("uit")
                         .ExecuteCommand("select top 50 rtrim(nc) from spkd_poksp where ltrim(rtrim(nk)) = '"
-                                        + parent_row.Obozn_det + "'");
+                                        + parent_row.Cherch + "'");
                     if (N_nomer_list.Count < 50)
                     {
                         List<object> tmp_list = Server.InitServer().DataBase("cvodka")
                         .ExecuteCommand("select top 50 rtrim(nn) from m56 where ltrim(rtrim(nc)) = '"
-                                        + parent_row.Obozn_det + "'");
+                                        + parent_row.Cherch + "'");
                         foreach (object ob in tmp_list) N_nomer_list.Add(ob);
                     }
                     if (N_nomer_list.Count == 1)
@@ -341,9 +341,9 @@ namespace Cards_of_defectation.ViewModal
             get
             {
                 if (parent_row.Naim == null) parent_row.Naim = Text_for_filter_naim;
-                if (parent_row.Obozn_det == null) parent_row.Obozn_det = Text_for_filter_cherch;
+                if (parent_row.Cherch == null) parent_row.Cherch = Text_for_filter_cherch;
                 if (parent_row.N_nomer == null) parent_row.N_nomer = Text_for_filter_n_nomer;
-                if (parent_row.Naim == null && parent_row.Obozn_det == null&&parent_row.N_nomer == null) return null;
+                if (parent_row.Naim == null && parent_row.Cherch == null&&parent_row.N_nomer == null) return null;
                 if (parent_row.Data_post == null)
                     parent_row.Data_post = DateTime.Now.ToShortDateString();
                 parent_row.Spos_ustr = 3;

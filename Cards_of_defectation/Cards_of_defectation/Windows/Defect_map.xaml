@@ -52,18 +52,18 @@
                        Margin="10,0,0,0"/>
             <TextBlock Grid.Row="1" 
                        TextWrapping="Wrap" 
-                       Text="{Binding Obozn_det, StringFormat={}Обозначение \детали: {0}}" 
+                       Text="{Binding Cherch, StringFormat={}Обозначение \детали: {0}}" 
                        Margin="10,0,0,0"/>
             <TextBlock Grid.Column="1" 
                        TextWrapping="Wrap" 
-                       Text="{Binding Ser_nom_izd, StringFormat={}Серийный \номер \изделия: {0}}"/>
+                       Text="{Binding Ser_nom, StringFormat={}Серийный \номер \изделия: {0}}"/>
             <TextBlock Grid.Column="1" 
                        Grid.Row="1" 
                        TextWrapping="Wrap" 
                        Text="{Binding Naim_det, Mode=OneWay, StringFormat={}Наименование: {0}}"/>
             <TextBlock Grid.Column="2" 
                        TextWrapping="Wrap" 
-                       Text="{Binding Nom_zay, StringFormat={}Заявка № {0}}" />
+                       Text="{Binding Nom_sz, StringFormat={}Заявка № {0}}" />
             <TextBlock Grid.Column="2" 
                        Grid.Row="1" 
                        TextWrapping="Wrap" 
@@ -98,7 +98,7 @@
                       CanUserDeleteRows="True"
                       PreviewKeyDown="main_table_PreviewKeyDown">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Obozn_det}" 
+                        <DataGridTextColumn Binding="{Binding Cherch}" 
                                         IsReadOnly="True"
                                         Header="Обозначение детали"
                                         Width="3*"
@@ -138,7 +138,7 @@
                                             <RowDefinition Height="25"/>
                                         </Grid.RowDefinitions>
                                         <ComboBox ItemsSource="{Binding Opis_def_list}" 
-                                              SelectedIndex="{Binding Opis_def,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                              Text="{Binding Opis_def,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                                               SelectionChanged="ComboBox_SelectionChanged"/>
                                         <TextBox Grid.Row="1" 
                                              Text ="{Binding Opis_def_komment,UpdateSourceTrigger=PropertyChanged}" 
@@ -164,7 +164,7 @@
                                             <RowDefinition Height="25"/>
                                         </Grid.RowDefinitions>
                                         <ComboBox ItemsSource="{Binding Prichina_list}" 
-                                              SelectedIndex="{Binding Prichina,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                              Text="{Binding Prichina,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                               SelectionChanged="ComboBox_SelectionChanged_1"/>
                                         <TextBox Grid.Row="1" 
                                              Text ="{Binding Prichina_komment,UpdateSourceTrigger=PropertyChanged}" 
@@ -190,7 +190,7 @@
                                             <RowDefinition Height="25"/>
                                         </Grid.RowDefinitions>
                                         <ComboBox ItemsSource="{Binding Met_opr_list}" 
-                                              SelectedIndex="{Binding Met_opr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                              Text="{Binding Met_opr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                               SelectionChanged="ComboBox_SelectionChanged_2"/>
                                         <TextBox Grid.Row="1" 
                                              Text ="{Binding Met_opr_komment,UpdateSourceTrigger=PropertyChanged}" 
@@ -216,7 +216,7 @@
                                             <RowDefinition Height="25"/>
                                         </Grid.RowDefinitions>
                                         <ComboBox ItemsSource="{Binding Teh_treb_list}" 
-                                              SelectedIndex="{Binding Teh_treb,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                              Text="{Binding Teh_treb,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                               SelectionChanged="ComboBox_SelectionChanged_3"/>
                                         <TextBox Grid.Row="1" 
                                              Text ="{Binding Teh_treb_komment,UpdateSourceTrigger=PropertyChanged}" 
@@ -237,7 +237,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <ComboBox ItemsSource="{Binding Spos_ustr_list}" 
-                                              SelectedIndex="{Binding Spos_ustr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                              Text="{Binding Spos_ustr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                               SelectionChanged="ComboBox_SelectionChanged_4"
                                               Height="25"
                                               VerticalAlignment="Center"/>
@@ -279,7 +279,7 @@
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Text="{Binding Cehs_path}"/>
-                                        <TextBlock Grid.Column="1" Text="{Binding Obozn_det}"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding Cherch}"/>
                                         <TextBlock Grid.Column="2" Text="  "/>
                                         <TextBlock Grid.Column="3" Text="{Binding Naim_det}"/>
                                     </Grid>
@@ -304,7 +304,7 @@
                                  MouseLeftButtonUp="listBox_MouseLeftButtonUp">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Obozn_det}"/>
+                                        <TextBlock Text="{Binding Cherch}"/>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>

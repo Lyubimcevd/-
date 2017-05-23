@@ -46,7 +46,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Nom_zay}" 
+                            <TextBlock Text="{Binding Nom_sz}" 
                                        Background="{Binding Color}"
                                        Foreground="Black"/>
                         </DataTemplate>
@@ -94,7 +94,7 @@
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Obozn_det}"
+                            <TextBlock Text="{Binding Cherch}"
                                        Background="{Binding Color}"
                                        Foreground="Black"/>
                         </DataTemplate>

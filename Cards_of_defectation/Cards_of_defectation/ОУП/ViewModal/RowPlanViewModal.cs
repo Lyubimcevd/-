@@ -9,41 +9,39 @@ namespace Cards_of_defectation.ОУП.ViewModal
     public class RowPlanViewModal
     {
         Row_in_plan_rabot row;
-        bool is_change;
+        bool is_change = false;
 
-        public RowPlanViewModal(string pnom_zay)
+        public RowPlanViewModal(string pnom_sz)
         {
             row = new Row_in_plan_rabot();
-            row.Nom_zay = pnom_zay;
-            is_change = false;
+            row.Nom_sz = pnom_sz;
         }
         public RowPlanViewModal(Row_in_plan_rabot prow)
         {
             row = prow;
-            is_change = false;
         }
 
-        public string Nom_zay
+        public string Nom_sz
         {
             get
             {
-                return row.Nom_zay;
+                return row.Nom_sz;
             }
             set
             {
-                row.Nom_zay = value;
+                row.Nom_sz = value;
                 is_change = true;
             }
         }
-        public string Ser_nom_izd
+        public string Ser_nom
         {
             get
             {
-                return row.Ser_nom_izd;
+                return row.Ser_nom;
             }
             set
             {
-                row.Ser_nom_izd = value;
+                row.Ser_nom = value;
                 is_change = true;
             }
         }
@@ -59,99 +57,15 @@ namespace Cards_of_defectation.ОУП.ViewModal
                 is_change = true;
             }
         }
-        public string Data_uved
+        public string Nom_zak
         {
             get
             {
-                return row.Data_uved;
+                return row.Nom_zak;
             }
             set
             {
-                row.Data_uved = value;
-                is_change = true;
-            }
-        }
-        public string Nom_uved
-        {
-            get
-            {
-                return row.Nom_uved;
-            }
-            set
-            {
-                row.Nom_uved = value;
-                is_change = true;
-            }
-        }
-        public string Srok_def
-        {
-            get
-            {
-                return row.Srok_def;
-            }
-            set
-            {
-                row.Srok_def = value;
-                is_change = true;
-            }
-        }
-        public string Srok_def_komment
-        {
-            get
-            {
-                return row.Srok_def_komment;
-            }
-            set
-            {
-                row.Srok_def_komment = value;
-                is_change = true;
-            }
-        }
-        public string Srok_dost
-        {
-            get
-            {
-                return row.Srok_dost;
-            }
-            set
-            {
-                row.Srok_dost = value;
-                is_change = true;
-            }
-        }
-        public string Srok_dost_komment
-        {
-            get
-            {
-                return row.Srok_dost_komment;
-            }
-            set
-            {
-                row.Srok_dost_komment = value;
-                is_change = true;
-            }
-        }
-        public string Srok_def_predpr
-        {
-            get
-            {
-                return row.Srok_def_predpr;
-            }
-            set
-            {
-                row.Srok_def_predpr = value;
-                is_change = true;
-            }
-        }
-        public string Srok_def_predpr_komment
-        {
-            get
-            {
-                return row.Srok_def_predpr_komment;
-            }
-            set
-            {
-                row.Srok_def_predpr_komment = value;
+                row.Nom_zak = value;
                 is_change = true;
             }
         }
@@ -166,67 +80,7 @@ namespace Cards_of_defectation.ОУП.ViewModal
                 row.Srok_rem = value;
                 is_change = true;
             }
-        }
-        public string Srok_rem_komment
-        {
-            get
-            {
-                return row.Srok_rem_komment;
-            }
-            set
-            {
-                row.Srok_rem_komment = value;
-                is_change = true;
-            }
-        }
-        public string Srok_rem_soisp
-        {
-            get
-            {
-                return row.Srok_rem_soisp;
-            }
-            set
-            {
-                row.Srok_rem_soisp = value;
-                is_change = true;
-            }
-        }
-        public string Soisp
-        {
-            get
-            {
-                return row.Soisp;
-            }
-            set
-            {
-                row.Soisp = value;
-                is_change = true;
-            }
-        }
-        public string Srok_vosstan
-        {
-            get
-            {
-                return row.Srok_vosstan;
-            }
-            set
-            {
-                row.Srok_vosstan = value;
-                is_change = true;
-            }
-        }
-        public string Srok_vosstan_komment
-        {
-            get
-            {
-                return row.Srok_vosstan_komment;
-            }
-            set
-            {
-                row.Srok_vosstan_komment = value;
-                is_change = true;
-            }
-        }
+        }    
         public string Prim
         {
             get
@@ -239,28 +93,22 @@ namespace Cards_of_defectation.ОУП.ViewModal
                 is_change = true;
             }
         }
-        public int Nom_zak
+        public string Kards
         {
             get
             {
-                return row.Nom_zak;
-            }
-            set
-            {
-                row.Nom_zak = value;
-                is_change = true;
+                return "";
             }
         }
-        public int Type_rem
+        public int Prior
         {
             get
             {
-                return row.Type_rem;
+                return 0;
             }
             set
             {
-                row.Type_rem = value;
-                is_change = true;
+
             }
         }
         public bool IsChange

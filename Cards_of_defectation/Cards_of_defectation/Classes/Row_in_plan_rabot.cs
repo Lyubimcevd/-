@@ -7,33 +7,30 @@ namespace Cards_of_defectation.Classes
 {
     public class Row_in_plan_rabot
     {
-        string ser_nom_izd, voin_chast, data_uved, nom_uved, srok_def, srok_def_komment, srok_dost,
-            srok_dost_komment, srok_def_predpr, srok_def_predpr_komment, srok_rem, srok_rem_komment,
-            srok_rem_soisp, soisp, srok_vosstan, srok_vosstan_komment, prim, last_prim,kontract,nom_zay;
-        int nom_zak, type_rem;
+        string nom_sz, ser_nom, voin_chast, nom_zak, srok_rem, nom_kont, prim;
 
         public Row_in_plan_rabot() { }
 
-        public string Nom_zay
+        public string Nom_sz
         {
             get
             {
-                return nom_zay;
+                return nom_sz;
             }
             set
             {
-                nom_zay = value;
+                nom_sz = value;
             }
         }
-        public string Ser_nom_izd
+        public string Ser_nom
         {
             get
             {
-                return ser_nom_izd;
+                return ser_nom;
             }
             set
             {
-                ser_nom_izd = value;
+                ser_nom = value;
             }
         }
         public string Voin_chast
@@ -47,92 +44,15 @@ namespace Cards_of_defectation.Classes
                 voin_chast = value;
             }
         }
-        public string Data_uved
+        public string Nom_zak
         {
             get
             {
-                return data_uved;
+                return nom_zak;
             }
             set
             {
-                data_uved = value;
-            }
-        }
-        public string Nom_uved
-        {
-            get
-            {
-                return nom_uved;
-            }
-            set
-            {
-                nom_uved = value;
-            }
-        }
-        public string Srok_def
-        {
-            get
-            {
-                return srok_def;
-            }
-            set
-            {
-                srok_def = value;
-            }
-        }
-        public string Srok_def_komment
-        {
-            get
-            {
-                return srok_def_komment;
-            }
-            set
-            {
-                srok_def_komment = value;
-            }
-        }
-        public string Srok_dost
-        {
-            get
-            {
-                return srok_dost;
-            }
-            set
-            {
-                srok_dost = value;
-            }
-        }
-        public string Srok_dost_komment
-        {
-            get
-            {
-                return srok_dost_komment;
-            }
-            set
-            {
-                srok_dost_komment = value;
-            }
-        }
-        public string Srok_def_predpr
-        {
-            get
-            {
-                return srok_def_predpr;
-            }
-            set
-            {
-                srok_def_predpr = value;
-            }
-        }
-        public string Srok_def_predpr_komment
-        {
-            get
-            {
-                return srok_def_predpr_komment;
-            }
-            set
-            {
-                srok_def_predpr_komment = value;
+                nom_zak = value;
             }
         }
         public string Srok_rem
@@ -146,59 +66,15 @@ namespace Cards_of_defectation.Classes
                 srok_rem = value;
             }
         }
-        public string Srok_rem_komment
+        public string Nom_kont
         {
             get
             {
-                return srok_rem_komment;
+                return nom_kont;
             }
             set
             {
-                srok_rem_komment = value;
-            }
-        }
-        public string Srok_rem_soisp
-        {
-            get
-            {
-                return srok_rem_soisp;
-            }
-            set
-            {
-                srok_rem_soisp = value;
-            }
-        }
-        public string Soisp
-        {
-            get
-            {
-                return soisp;
-            }
-            set
-            {
-                soisp = value;
-            }
-        }
-        public string Srok_vosstan
-        {
-            get
-            {
-                return srok_vosstan;
-            }
-            set
-            {
-                srok_vosstan = value;
-            }
-        }
-        public string Srok_vosstan_komment
-        {
-            get
-            {
-                return srok_vosstan_komment;
-            }
-            set
-            {
-                srok_vosstan_komment = value;
+                nom_kont = value;
             }
         }
         public string Prim
@@ -210,50 +86,6 @@ namespace Cards_of_defectation.Classes
             set
             {
                 prim = value;
-            }
-        }
-        public int Nom_zak
-        {
-            get
-            {
-                return nom_zak;
-            }
-            set
-            {
-                nom_zak = value;
-            }
-        }
-        public int Type_rem
-        {
-            get
-            {
-                return type_rem;
-            }
-            set
-            {
-                type_rem = value;
-            }
-        }
-        public string Last_prim
-        {
-            get
-            {
-                return last_prim;
-            }
-            set
-            {
-                last_prim = value;
-            }
-        }
-        public string Kontract
-        {
-            get
-            {
-                return kontract;
-            }
-            set
-            {
-                kontract = value;
             }
         }
     }

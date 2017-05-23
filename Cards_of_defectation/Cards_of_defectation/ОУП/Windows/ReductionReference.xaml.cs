@@ -26,7 +26,7 @@ namespace Cards_of_defectation.ОУП.Windows
             IsSave = true;
             InitializeComponent();
             Binding_Commands();
-            dataGrid1.ItemsSource = Server.InitServer().DataBase("test1").Table("select naim from spravochniki")
+            dataGrid1.ItemsSource = Server.InitServer().DataBase("uit").Table("select naim from rz_spravochniki")
                 .LoadTableFromServer().DefaultView;
         }
 
@@ -40,17 +40,17 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Server.InitServer().DataBase("test1").Table("select * from "+table_name).UpdateServerData((dataGrid.ItemsSource as DataView).Table);
+            Server.InitServer().DataBase("uit").Table("select * from "+table_name).UpdateServerData((dataGrid.ItemsSource as DataView).Table);
             MessageBox.Show("Сохранено");
             IsSave = true;
         }
 
         private void dataGrid1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            table_name = Server.InitServer().DataBase("test1")
-                    .ExecuteCommand("select table_naim from spravochniki where naim = '"
+            table_name = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select table_naim from rz_spravochniki where naim = '"
                     + ((sender as DataGrid).SelectedItem as DataRowView).Row.ItemArray[0].ToString() + "'")[0].ToString();
-            dataGrid.ItemsSource = Server.InitServer().DataBase("test1").Table("select * from " + table_name)
+            dataGrid.ItemsSource = Server.InitServer().DataBase("uit").Table("select * from " + table_name)
                 .LoadTableFromServer().DefaultView;
             Save_item.IsEnabled = true;
         }

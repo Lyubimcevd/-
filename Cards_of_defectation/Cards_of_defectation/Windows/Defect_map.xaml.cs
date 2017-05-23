@@ -38,16 +38,16 @@ namespace Cards_of_defectation.Windows
             bind.Executed += Print_Execute;
             this.CommandBindings.Add(bind);
 
-            Header = Converter.ToViewModal(Server.InitServer().DataBase("test1")
-                .Table("select * from kart_defect where id = " + Id).LoadFromServer() as List<Row_in_kart_defect>)[0];
+            Header = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+                .Table("select * from rz_kart_defect where id = " + Id).LoadFromServer() as List<Row_in_kart_defect>)[0];
             cap.DataContext = Header;
             if (Header.Par == 0)
-                Rows = Converter.ToViewModal(Server.InitServer().DataBase("test1")
-                    .Table("select * from kart_defect where par = " + Id + " and spos_ustr = 0")
+                Rows = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+                    .Table("select * from rz_kart_defect where par = " + Id + " and spos_ustr = 1")
                     .LoadFromServer() as List<Row_in_kart_defect>);
             else
-                Rows = Converter.ToViewModal(Server.InitServer().DataBase("test1")
-                    .Table("select * from kart_defect where par = " + Id).LoadFromServer() as List<Row_in_kart_defect>);
+                Rows = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+                    .Table("select * from rz_kart_defect where par = " + Id).LoadFromServer() as List<Row_in_kart_defect>);
             main_table.ItemsSource = Rows;
             listBox_sostav.ItemsSource = References.InitReferences().InitComposition(Header);
             IsSave = true;
@@ -55,12 +55,12 @@ namespace Cards_of_defectation.Windows
 
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Server.InitServer().DataBase("test1").Table("select * from kart_defect where par = " + Id)
+            Server.InitServer().DataBase("uit").Table("select * from rz_kart_defect where par = " + Id)
                 .UpdateServerData(Converter.ToSave(Rows));
             ObservableCollection<RowDefectViewModal> tmp = new ObservableCollection<RowDefectViewModal>();
             Header.Data_def = DateTime.Now.ToShortDateString();
             tmp.Add(Header);
-            Server.InitServer().DataBase("test1").Table("select * from kart_defect where id = " + Id)
+            Server.InitServer().DataBase("uit").Table("select * from rz_kart_defect where id = " + Id)
                 .UpdateServerData(Converter.ToSave(tmp));
             MessageBox.Show("Сохранено");
             IsSave = true;
@@ -81,14 +81,14 @@ namespace Cards_of_defectation.Windows
                     List<RowDefectViewModal> for_delete = new List<RowDefectViewModal>();
                     foreach (RowDefectViewModal row in main_table.SelectedItems)
                     {
-                        List<object> tmp = Server.InitServer().DataBase("test1")
-                            .ExecuteCommand("select id from kart_defect where par = " + row.Id);
+                        List<object> tmp = Server.InitServer().DataBase("uit")
+                            .ExecuteCommand("select id from rz_kart_defect where par = " + row.Id);
                         if (tmp.Count != 0) for_delete.Add(row);
                     }
                     if (for_delete.Count > 0)
                         if (for_delete.Count == 1)
                         {
-                            if (MessageBox.Show("Деталь " + for_delete.First().Obozn_det + " дефектирована. Продолжить?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                            if (MessageBox.Show("Деталь " + for_delete.First().Cherch + " дефектирована. Продолжить?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                                 DeleteRecurs((main_table.SelectedItem as RowDefectViewModal).Id);
                             else
                             {
@@ -99,7 +99,7 @@ namespace Cards_of_defectation.Windows
                         else
                         {
                             string details = "";
-                            foreach (RowDefectViewModal row in for_delete) details += "," + row.Obozn_det;
+                            foreach (RowDefectViewModal row in for_delete) details += "," + row.Cherch;
                             details = details.Substring(1);
                             if (MessageBox.Show("Детали " + details + " дефектированы. Продолжить?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                                 foreach (RowDefectViewModal row in for_delete) DeleteRecurs(row.Id);
@@ -117,10 +117,10 @@ namespace Cards_of_defectation.Windows
 
         void DeleteRecurs(int pid)
         {
-            List<object> tmp = Server.InitServer().DataBase("test1")
-                .ExecuteCommand("select id from kart_defect where par=" + pid);
+            List<object> tmp = Server.InitServer().DataBase("uit")
+                .ExecuteCommand("select id from rz_kart_defect where par=" + pid);
             foreach (int id in tmp) DeleteRecurs(id);
-            Server.InitServer().DataBase("test1").ExecuteCommand("delete from kart_defect where id=" + pid);
+            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_kart_defect where id=" + pid);
         }
 
         private void listBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -134,23 +134,23 @@ namespace Cards_of_defectation.Windows
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Opis_def = (sender as ComboBox).SelectedIndex;
+            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Opis_def = (sender as ComboBox).Text;
         }
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Prichina = (sender as ComboBox).SelectedIndex;
+            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Prichina = (sender as ComboBox).Text;
         }
         private void ComboBox_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
         {
-            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Met_opr = (sender as ComboBox).SelectedIndex;
+            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Met_opr = (sender as ComboBox).Text;
         }
         private void ComboBox_SelectionChanged_3(object sender, SelectionChangedEventArgs e)
         {
-            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Teh_treb = (sender as ComboBox).SelectedIndex;
+            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Teh_treb = (sender as ComboBox).Text;
         }
         private void ComboBox_SelectionChanged_4(object sender, SelectionChangedEventArgs e)
         {
-            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Spos_ustr = (sender as ComboBox).SelectedIndex;
+            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Spos_ustr = (sender as ComboBox).Text;
         }
         private void ComboBox_SelectionChanged_5(object sender, SelectionChangedEventArgs e)
         {

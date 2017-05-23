@@ -19,18 +19,18 @@ namespace Cards_of_defectation.ViewModal
             parent_row = row;
             color = "White";
         }
-        public string Nom_zay
+        public string Nom_sz
         {
             get
             {
-                return parent_row.Nom_zay;
+                return parent_row.Nom_sz;
             }
         }
-        public string Obozn_det
+        public string Cherch
         {
             get
             {
-                return parent_row.Obozn_det;
+                return parent_row.Cherch;
             }
         }
         public string Data_post
@@ -70,8 +70,8 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                List<object> tmp = Server.InitServer().DataBase("test1")
-                    .ExecuteCommand("select [Приоритет] from rz_prior where [РЗ] = " + Nom_zak);
+                List<object> tmp = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select prior from rz_nom_zak_prior where nom_zak = " + Nom_zak);
                 if (tmp.Count != 0) return Convert.ToInt32(tmp[0]);
                 else return 0;
             }
@@ -80,8 +80,8 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return Convert.ToInt32(Server.InitServer().DataBase("test1")
-                    .ExecuteCommand("select nom_zak from plan_rabot where nom_zay =" + Nom_zay)[0]);
+                return Convert.ToInt32(Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select nom_zak from rz_plan_rabot where nom_sz =" + Nom_sz)[0]);
             }
         }
 

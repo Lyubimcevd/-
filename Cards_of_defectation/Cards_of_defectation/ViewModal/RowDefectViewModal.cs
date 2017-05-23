@@ -12,17 +12,17 @@ namespace Cards_of_defectation.ViewModal
         RowDefectViewModal parent;
         Row_in_kart_defect row;
         List<string> ceh_list;
-        string obozn_det_for_search;
+        string cherch_for_search;
         bool is_change;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public RowDefectViewModal(string pobozn_det, RowDefectViewModal prow)
+        public RowDefectViewModal(string pCherch, RowDefectViewModal prow)
         {
             row = new Row_in_kart_defect();
-            row.Nom_zay = prow.Nom_zay;
+            row.Nom_sz = prow.Nom_sz;
             row.Par = prow.Id;
-            row.Obozn_det = pobozn_det;
+            row.Cherch = pCherch;
             parent = prow;
             is_change = false;
         }
@@ -32,18 +32,37 @@ namespace Cards_of_defectation.ViewModal
             is_change = false;
         }
 
-        public string Nom_zay
+        public int Id
         {
             get
             {
-                return row.Nom_zay;
+                return row.Id;
             }
         }
-        public string Obozn_det
+        public int Par
         {
             get
             {
-                return row.Obozn_det;
+                return row.Par;
+            }
+            set
+            {
+                row.Par = value;
+                is_change = true;
+            }
+        }
+        public string Nom_sz
+        {
+            get
+            {
+                return row.Nom_sz;
+            }
+        }
+        public string Cherch
+        {
+            get
+            {
+                return row.Cherch;
             }
         }
         public float Kolvo
@@ -56,7 +75,7 @@ namespace Cards_of_defectation.ViewModal
                     {
                         List<object> tmp = Server.InitServer().DataBase("uit")
                         .ExecuteCommand("select ks from spkd1 where ltrim(rtrim(nc))='"
-                        + row.Obozn_det + "' and ltrim(rtrim(nk))='" + parent.Obozn_det + "'");
+                        + row.Cherch + "' and ltrim(rtrim(nk))='" + parent.Cherch + "'");
                         if (tmp.Count!=0) row.Kolvo = Convert.ToInt32(tmp[0]);
                         return parent.Kolvo * row.Kolvo;
                     }
@@ -74,6 +93,20 @@ namespace Cards_of_defectation.ViewModal
                 is_change = true;
             }
         }
+        public int Nom_ceh
+        {
+            get
+            {
+                return row.Nom_ceh;
+            }
+
+            set
+            {
+                row.Nom_ceh = value;
+                is_change = true;
+                OnPropertyChanged("Nom_ceh");
+            }
+        }
         public string Nom_kart
         {
             get
@@ -82,16 +115,18 @@ namespace Cards_of_defectation.ViewModal
                 else return row.Nom_kart.ToString();
             }
         }
-        public int Opis_def
+        public string Opis_def
         {
             get
             {
-                return row.Opis_def;
+                return Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select opis_def from rz_opis_def where id = " + row.Opis_def)[0].ToString();
             }
 
             set
             {
-                row.Opis_def = value;
+                row.Opis_def = Convert.ToInt32(Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select id from rz_opis_def where opis_def = " + value)[0]);
                 is_change = true;
                 OnPropertyChanged("Opis_def");
             }
@@ -109,16 +144,18 @@ namespace Cards_of_defectation.ViewModal
                 is_change = true;
             }
         }
-        public int Prichina
+        public string Prichina
         {
             get
             {
-                return row.Prichina;
+                return Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select prich from rz_prichina where id = " + row.Prich)[0].ToString();
             }
 
             set
             {
-                row.Prichina = value;
+                row.Prich = Convert.ToInt32(Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select id from rz_prichina where prich = " + value)[0]);
                 is_change = true;
                 OnPropertyChanged("Prichina");
             }
@@ -127,25 +164,27 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return row.Prichina_komment;
+                return row.Prich_komment;
             }
 
             set
             {
-                row.Prichina_komment = value;
+                row.Prich_komment = value;
                 is_change = true;
             }
         }
-        public int Met_opr
+        public string Met_opr
         {
             get
             {
-                return row.Met_opr;
+                return Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select met_opr from rz_met_opred where id = " + row.Met_opr)[0].ToString();           
             }
 
             set
             {
-                row.Met_opr = value;
+                row.Met_opr = Convert.ToInt32(Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select id from rz_met_opred where met_opr = " + value)[0]);
                 is_change = true;
                 OnPropertyChanged("Met_opr");
             }
@@ -163,16 +202,18 @@ namespace Cards_of_defectation.ViewModal
                 is_change = true;
             }
         }
-        public int Teh_treb
+        public string Teh_treb
         {
             get
             {
-                return row.Teh_treb;
+                return Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select teh_treb from rz_teh_treb where id = " + row.Teh_treb)[0].ToString();
             }
 
             set
             {
-                row.Teh_treb = value;
+                row.Teh_treb = Convert.ToInt32(Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select id from rz_teh_treb where teh_treb = " + value)[0]);
                 is_change = true;
                 OnPropertyChanged("Teh_treb");
             }
@@ -190,16 +231,18 @@ namespace Cards_of_defectation.ViewModal
                 is_change = true;
             }
         }
-        public int Spos_ustr
+        public string Spos_ustr
         {
             get
             {
-                return row.Spos_ustr;
+                return Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select spos_ustr from rz_spos_ustr where id = " + row.Spos_ustr)[0].ToString();
             }
 
             set
             {
-                row.Spos_ustr = value;
+                row.Spos_ustr = Convert.ToInt32(Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select id from rz_spos_ustr where spos_ustr = " + value)[0]);
                 is_change = true;
                 OnPropertyChanged("Spos_ustr");
             }
@@ -215,39 +258,6 @@ namespace Cards_of_defectation.ViewModal
             {
                 row.Spos_ustr_komment = value;
                 is_change = true;
-            }
-        }
-        public int Nom_ceh
-        {
-            get
-            {
-                return row.Nom_ceh;
-            }
-
-            set
-            {
-                row.Nom_ceh = value;
-                is_change = true;
-                OnPropertyChanged("Nom_ceh");
-            }
-        }
-        public int Par
-        {
-            get
-            {
-                return row.Par;
-            }
-            set
-            {
-                row.Par = value;
-                is_change = true;
-            }
-        }
-        public int Id
-        {
-            get
-            {
-                return row.Id;
             }
         }
         public string Data_post
@@ -282,7 +292,7 @@ namespace Cards_of_defectation.ViewModal
                 if (row.Naim == null)
                 {
                     List<object> tmp = Server.InitServer().DataBase("cvodka")
-                    .ExecuteCommand("select naim from naim where nom = '" + Obozn_det_for_search + "'");
+                    .ExecuteCommand("select naim from naim where nom = '" + Cherch_for_search + "'");
                     if (tmp.Count != 0) row.Naim = tmp[0].ToString().TrimEnd();
                 }
                 return row.Naim;
@@ -293,8 +303,8 @@ namespace Cards_of_defectation.ViewModal
             get
             {              
                 if (parent != null) return parent.Nom_zak;
-                else return Convert.ToInt32(Server.InitServer().DataBase("test1")
-                    .ExecuteCommand("select nom_zak from plan_rabot where nom_zay =" + Nom_zay)[0]);
+                else return Convert.ToInt32(Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select nom_zak from rz_plan_rabot where Nom_sz =" + Nom_sz)[0]);
             }
         }
         public int Prior
@@ -304,22 +314,22 @@ namespace Cards_of_defectation.ViewModal
                 if (parent != null) return parent.Prior;
                 else
                 {
-                    List<object> tmp = Server.InitServer().DataBase("test1")
-                    .ExecuteCommand("select [Приоритет] from rz_prior where [РЗ] = " + Nom_zak);
+                    List<object> tmp = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select prior from rz_nom_zak_prior where nom_zak = " + Nom_zak);
                     if (tmp.Count != 0) return Convert.ToInt32(tmp[0]);
                     else return 0;
                 } 
                
             }
         }
-        public string Ser_nom_izd
+        public string Ser_nom
         {
             get
             {
                 string ser_nom_izd;
-                if (parent != null) ser_nom_izd = parent.Ser_nom_izd;
-                else ser_nom_izd = Server.InitServer().DataBase("test1")
-                        .ExecuteCommand("select ser_nom_izd from plan_rabot where nom_zay =" + Nom_zay)[0].ToString();
+                if (parent != null) ser_nom_izd = parent.Ser_nom;
+                else ser_nom_izd = Server.InitServer().DataBase("uit")
+                        .ExecuteCommand("select ser_nom from rz_plan_rabot where nom_sz =" + Nom_sz)[0].ToString();
                 return ser_nom_izd;
             }
         }
@@ -379,7 +389,7 @@ namespace Cards_of_defectation.ViewModal
                 {
                     List<object> tmp = Server.InitServer().DataBase("cvodka")
                                        .ExecuteCommand("select distinct ci from stabil where nc = '"
-                                       + Obozn_det_for_search + "'");
+                                       + Cherch_for_search + "'");
                     if (tmp.Count != 0)
                     {
                         ceh_list = new List<string>();
@@ -395,10 +405,11 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                if (row.Nom_ceh == -1)
+                if (row.Nom_ceh == 0)
                     if (ceh_list != References.InitReferences().Cehs)
                     {
-                        row.Nom_ceh = References.InitReferences().Cehs.IndexOf(ceh_list.Last());
+                        row.Nom_ceh = Convert.ToInt32(Server.InitServer().DataBase("cvodka")
+                            .ExecuteCommand("select id from podr1 where nc = " + ceh_list.Last())[0]);
                         return ceh_list.Last();
                     }
                     else return "";
@@ -406,26 +417,27 @@ namespace Cards_of_defectation.ViewModal
             }
             set
             {
-                Nom_ceh = References.InitReferences().Cehs.IndexOf(value);
+                Nom_ceh = Convert.ToInt32(Server.InitServer().DataBase("cvodka")
+                    .ExecuteCommand("select id from podr1 where nc = " + value)[0]);
                 is_change = true;
             }
         }
-        public string Obozn_det_for_search
+        public string Cherch_for_search
         {
             get
             {
-                if (Obozn_det != null)
+                if (Cherch != null)
                 {
-                    if (obozn_det_for_search == null)
+                    if (cherch_for_search == null)
                     {
                         int i = 0;
-                        while (Char.IsLetter(Obozn_det, i) && (Obozn_det.Length > i)) i++;
-                        if (i != 0) obozn_det_for_search = Obozn_det.PadLeft(Obozn_det.Length + 4 - i);
-                        else obozn_det_for_search = Obozn_det;
+                        while (Char.IsLetter(Cherch, i) && (Cherch.Length > i)) i++;
+                        if (i != 0) cherch_for_search = Cherch.PadLeft(Cherch.Length + 4 - i);
+                        else cherch_for_search = Cherch;
                     }
                 }
-                else obozn_det_for_search = "";
-                return obozn_det_for_search;
+                else cherch_for_search = "";
+                return cherch_for_search;
             }
         }
         public bool IsChange

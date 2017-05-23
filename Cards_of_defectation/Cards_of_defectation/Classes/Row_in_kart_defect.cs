@@ -8,56 +8,92 @@ namespace Cards_of_defectation.Classes
 {
     public class Row_in_kart_defect
     {
-        int met_opr, opis_def, prichina, spos_ustr, teh_treb, id, nom_kart, par, nom_ceh;
-        string obozn_det, met_opr_komment, opis_def_komment, prichina_komment, spos_ustr_komment, teh_treb_komment,
-            data_def, data_post, zavod_izgot,n_nomer,prim,naim,nom_zay;
+        int met_opr, opis_def, prich, spos_ustr, teh_treb, id, nom_kart, par, nom_ceh, izgotov;
+        string cherch, met_opr_komment, opis_def_komment, prich_komment, spos_ustr_komment, teh_treb_komment,
+            data_def, data_post, n_nomer, prim, naim, nom_sz;
         float kolvo;
-  
-        public Row_in_kart_defect()
-        {
-            DefaultAction();
-        }
+        
+        public Row_in_kart_defect() { }
         public Row_in_kart_defect(Row_in_plan_rabot row)
         {
-            nom_zay = row.Nom_zay;
-            obozn_det = Server.InitServer().DataBase("test1")
-                .ExecuteCommand("select Чертёж from type_cherch where [Заводской номер изделия] = '"
-                + Server.InitServer().DataBase("test1")
-                .ExecuteCommand("select [Заводской номер изделия] from nom_type where [Номер изделия] = '"
-                + row.Ser_nom_izd + "'")[0].ToString() + "'")[0].ToString();
-            DefaultAction();
+            nom_sz = row.Nom_sz;
+            cherch = Server.InitServer().DataBase("uit")
+                .ExecuteCommand("select cherch from rz_naim_cherch where naim = '"
+                + Server.InitServer().DataBase("uit")
+                .ExecuteCommand("select naim from rz_ser_nom_naim where ser_nom = '"
+                + row.Ser_nom + "'")[0].ToString() + "'")[0].ToString();
         }
-        public Row_in_kart_defect(string pnom_zay)
+        public Row_in_kart_defect(string pnom_sz)
         {
-            nom_zay = pnom_zay;
-            DefaultAction();
+            nom_sz = pnom_sz;
         }
-        void DefaultAction()
-        {
-            nom_ceh = -1;
-        }
-        
-        public string Nom_zay
+
+        public int Id
         {
             get
             {
-                return nom_zay;
+                return id;
             }
 
             set
             {
-                nom_zay = value;
+                id = value;
             }
         }
-        public string Obozn_det
+        public int Par
         {
             get
-            {   
-                return obozn_det;
+            {
+                return par;
             }
             set
             {
-                obozn_det = value;
+                par = value;
+            }
+        }
+        public string Nom_sz
+        {
+            get
+            {
+                return nom_sz;
+            }
+
+            set
+            {
+                nom_sz = value;
+            }
+        }
+        public string Cherch
+        {
+            get
+            {
+                return cherch;
+            }
+            set
+            {
+                cherch = value;
+            }
+        }
+        public string N_nomer
+        {
+            get
+            {
+                return n_nomer;
+            }
+            set
+            {
+                n_nomer = value;
+            }
+        }
+        public string Naim
+        {
+            get
+            {
+                return naim;
+            }
+            set
+            {
+                naim = value;
             }
         }
         public float Kolvo
@@ -69,6 +105,18 @@ namespace Cards_of_defectation.Classes
             set
             {
                 kolvo = value;
+            }
+        }
+        public int Nom_ceh
+        {
+            get
+            {
+                return nom_ceh;
+            }
+
+            set
+            {
+                nom_ceh = value;
             }
         }
         public int Nom_kart
@@ -106,28 +154,28 @@ namespace Cards_of_defectation.Classes
                 opis_def_komment = value;
             }
         }
-        public int Prichina
+        public int Prich
         {
             get
             {
-                return prichina;
+                return prich;
             }
 
             set
             {
-                prichina = value;
+                prich = value;
             }
         }
-        public string Prichina_komment
+        public string Prich_komment
         {
             get
             {
-                return prichina_komment;
+                return prich_komment;
             }
 
             set
             {
-                prichina_komment = value;
+                prich_komment = value;
             }
         }
         public int Met_opr
@@ -201,42 +249,7 @@ namespace Cards_of_defectation.Classes
             {
                 spos_ustr_komment = value;
             }
-        }
-        public int Nom_ceh
-        {
-            get
-            {            
-                return nom_ceh;
-            }
-
-            set
-            {
-                nom_ceh = value;
-            }
-        }
-        public int Par
-        {
-            get
-            {
-                return par;
-            }
-            set
-            {
-                par = value;
-            }
-        }
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
-        }
+        }      
         public string Data_post
         {
             get
@@ -261,26 +274,15 @@ namespace Cards_of_defectation.Classes
                 data_def = value;
             }
         }
-        public string Zavod_izgot
+        public int Izgotov
         {
             get
             {
-                return zavod_izgot;
+                return izgotov;
             }
             set
             {
-                zavod_izgot = value;
-            }
-        }
-        public string N_nomer
-        {
-            get
-            {
-                return n_nomer;
-            }
-            set
-            {
-                n_nomer = value;
+                izgotov = value;
             }
         }
         public string Prim
@@ -292,17 +294,6 @@ namespace Cards_of_defectation.Classes
             set
             {
                 prim = value;
-            }
-        }
-        public string Naim
-        {
-            get
-            {
-                return naim;
-            }
-            set
-            {
-                naim = value;
             }
         }
     }

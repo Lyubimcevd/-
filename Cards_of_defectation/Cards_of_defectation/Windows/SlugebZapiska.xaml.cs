@@ -22,16 +22,16 @@ namespace Cards_of_defectation.Windows
         SlugebZapiskaViewModal SZVM;
         bool IsSave;
 
-        public SlugebZapiska(string pnom_zay)
+        public SlugebZapiska(string pNom_sz)
         {
             InitializeComponent();
-            SZVM = new SlugebZapiskaViewModal(pnom_zay);
+            SZVM = new SlugebZapiskaViewModal(pNom_sz);
             DefaultAction();
         }
-        public SlugebZapiska(string pnom_zay,string ser_nom)
+        public SlugebZapiska(string pNom_sz,string ser_nom)
         {
             InitializeComponent();
-            SZVM = new SlugebZapiskaViewModal(pnom_zay, ser_nom);
+            SZVM = new SlugebZapiskaViewModal(pNom_sz, ser_nom);
             DefaultAction();
         }
         void DefaultAction()
@@ -53,9 +53,9 @@ namespace Cards_of_defectation.Windows
         }
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Server.InitServer().DataBase("test1").Table("select * from plan_rabot where nom_zay = " + SZVM.Nom_zay)
+            Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = " + SZVM.Nom_sz)
                 .UpdateServerData(SZVM.SaveInPlanRabot());
-            Server.InitServer().DataBase("test1").Table("select * from kart_defect where par = " + SZVM.Id)
+            Server.InitServer().DataBase("uit").Table("select * from rz_kart_defect where par = " + SZVM.Id)
                 .UpdateServerData(SZVM.SaveInKartDefect());
             if (SZVM.Id == 0) MessageBox.Show("Сохранено в план");
             else MessageBox.Show("Сохранено");

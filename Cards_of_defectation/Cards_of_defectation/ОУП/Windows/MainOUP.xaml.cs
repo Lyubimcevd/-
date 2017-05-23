@@ -25,14 +25,14 @@ namespace Cards_of_defectation.ОУП.Windows
             InitializeComponent();
             Binding_Commands();
             UpdateTable();
-            Server.InitServer().DataBase("test1").InitStalker(Dispatcher.CurrentDispatcher, this);
+            Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
             log.Debug("Первая ступень отработала");
         }
 
         public void UpdateTable()
         {
-            Rows = Converter.ToViewModal(Server.InitServer().DataBase("test1")
-                .Table("select * from plan_rabot").LoadFromServer() as List<Row_in_plan_rabot>);
+            Rows = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+                .Table("select * from rz_plan_rabot").LoadFromServer() as List<Row_in_plan_rabot>);
             main_table.ItemsSource = Rows;
         }
 
@@ -48,13 +48,13 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void New_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Rows.Add(new RowPlanViewModal(Rows[Rows.Count - 1].Nom_zay+1));
+            Rows.Add(new RowPlanViewModal(Rows[Rows.Count - 1].Nom_sz+1));
             IsSave = false;
         }
 
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Server.InitServer().DataBase("test1").Table("select * from plan_rabot")
+            Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot")
                 .UpdateServerData(Converter.ToSave(Rows));
             MessageBox.Show("Сохранено");
             IsSave = true;
@@ -62,24 +62,24 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Server.InitServer().DataBase("test1").Table("select * from plan_rabot")
+            Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot")
                 .UpdateServerData(Converter.ToSave(Rows));
             IsSave = true;
-            string nom_zay = (main_table.SelectedItem as RowPlanViewModal).Nom_zay;
-            if (References.InitReferences().IsSerInReference((main_table.SelectedItem as RowPlanViewModal).Ser_nom_izd))
+            string Nom_sz = (main_table.SelectedItem as RowPlanViewModal).Nom_sz;
+            if (References.InitReferences().IsSerInReference((main_table.SelectedItem as RowPlanViewModal).Ser_nom))
             {
                 switch ((sender as MenuItem).Header as string)
                 {
                     case "Дерево дефектации":
-                        Tree_defect TD = new Tree_defect(nom_zay, false);
+                        Tree_defect TD = new Tree_defect(Nom_sz, false);
                         TD.Show();
                         break;
                     case "Цеха":
-                        Work_shop WS = new Work_shop(nom_zay);
+                        Work_shop WS = new Work_shop(Nom_sz);
                         WS.Show();
                         break;
                     case "Служебная записка":
-                        SlugebZapiska FL = new SlugebZapiska(nom_zay);
+                        SlugebZapiska FL = new SlugebZapiska(Nom_sz);
                         FL.Show();
                         break;
                 }           
@@ -120,15 +120,15 @@ namespace Cards_of_defectation.ОУП.Windows
             {
                 if (MessageBox.Show("Подтвердите удаление", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    if (Server.InitServer().DataBase("test1").ExecuteCommand("select id from kart_defect where nom_zay ="
-                        + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_zay).Count != 0)
+                    if (Server.InitServer().DataBase("uit").ExecuteCommand("select id from rz_kart_defect where nom_sz ="
+                        + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz).Count != 0)
                         if (MessageBox.Show("Для этой заявки есть карты дефектации. Они будут удалены вместе с заявкой."
                             + " Продолжить?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                         {
-                            Server.InitServer().DataBase("test1").ExecuteCommand("delete from kart_defect where nom_zay="
-                                + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_zay);
-                            Server.InitServer().DataBase("test1").ExecuteCommand("delete from plan_rabot where nom_zay="
-                                + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_zay);
+                            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_kart_defect where nom_sz="
+                                + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz);
+                            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_plan_rabot where nom_sz="
+                                + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz);
                         }
                         else
                         {
@@ -143,23 +143,23 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
-            SlugebZapiska FL = new SlugebZapiska(Rows[Rows.Count - 1].Nom_zay + 1);
+            SlugebZapiska FL = new SlugebZapiska(Rows[Rows.Count - 1].Nom_sz + 1);
             FL.Show();
         }
 
-        public static int GetIndexOfKartDefect(string nom_zay)
+        public static int GetIndexOfKartDefect(string Nom_sz)
         {
-            if (Server.InitServer().DataBase("test1")
-                .ExecuteCommand("select * from kart_defect where nom_zay = " + nom_zay).Count == 0)
+            if (Server.InitServer().DataBase("uit")
+                .ExecuteCommand("select * from rz_kart_defect where nom_sz = " + Nom_sz).Count == 0)
             {
                 List<Row_in_kart_defect> save_list = new List<Row_in_kart_defect>();
-                save_list.Add(new Row_in_kart_defect(nom_zay));
-                Server.InitServer().DataBase("test1")
-                    .Table("select * from kart_defect where nom_zay = " + nom_zay)
+                save_list.Add(new Row_in_kart_defect(Nom_sz));
+                Server.InitServer().DataBase("uit")
+                    .Table("select * from rz_kart_defect where nom_sz = " + Nom_sz)
                     .UpdateServerData(save_list);
             }
-            return Convert.ToInt32(Server.InitServer().DataBase("test1")
-                    .ExecuteCommand("select id from kart_defect where nom_zay = " + nom_zay + " and par is NULL")[0]);
+            return Convert.ToInt32(Server.InitServer().DataBase("uit")
+                        .ExecuteCommand("select id from rz_kart_defect where nom_sz = " + Nom_sz + " and par is NULL")[0]);
         }
     }
 }
