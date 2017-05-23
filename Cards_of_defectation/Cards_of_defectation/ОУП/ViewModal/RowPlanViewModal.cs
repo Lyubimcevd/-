@@ -9,12 +9,12 @@ namespace Cards_of_defectation.ОУП.ViewModal
     public class RowPlanViewModal
     {
         Row_in_plan_rabot row;
+        int prior;
         bool is_change = false;
 
-        public RowPlanViewModal(string pnom_sz)
+        public RowPlanViewModal()
         {
             row = new Row_in_plan_rabot();
-            row.Nom_sz = pnom_sz;
         }
         public RowPlanViewModal(Row_in_plan_rabot prow)
         {
@@ -97,18 +97,30 @@ namespace Cards_of_defectation.ОУП.ViewModal
         {
             get
             {
-                return "";
+                string result = "";
+                if (Nom_sz != null)
+                {
+                    result = Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = "
+                    + Nom_sz + " group by nom_sz")[0].ToString() + " / ";
+                    List<object> tmp = Server.InitServer().DataBase("uit")
+                        .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = "
+                        + Nom_sz + " and data_def is not null group by nom_sz");
+                    if (tmp.Count == 0) result += "0";
+                    else result += tmp[0].ToString();
+                }
+                return result;
             }
         }
         public int Prior
         {
             get
             {
-                return 0;
+                return prior;
             }
             set
             {
-
+                prior = value;
             }
         }
         public bool IsChange

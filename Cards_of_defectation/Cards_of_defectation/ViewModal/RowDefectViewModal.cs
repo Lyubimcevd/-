@@ -126,7 +126,7 @@ namespace Cards_of_defectation.ViewModal
             set
             {
                 row.Opis_def = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_opis_def where opis_def = " + value)[0]);
+                    .ExecuteCommand("select id from rz_opis_def where opis_def = '" + value+"'")[0]);
                 is_change = true;
                 OnPropertyChanged("Opis_def");
             }
@@ -155,7 +155,7 @@ namespace Cards_of_defectation.ViewModal
             set
             {
                 row.Prich = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_prichina where prich = " + value)[0]);
+                    .ExecuteCommand("select id from rz_prichina where prich = '" + value+"'")[0]);
                 is_change = true;
                 OnPropertyChanged("Prichina");
             }
@@ -184,7 +184,7 @@ namespace Cards_of_defectation.ViewModal
             set
             {
                 row.Met_opr = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_met_opred where met_opr = " + value)[0]);
+                    .ExecuteCommand("select id from rz_met_opred where met_opr = '" + value+"'")[0]);
                 is_change = true;
                 OnPropertyChanged("Met_opr");
             }
@@ -213,7 +213,7 @@ namespace Cards_of_defectation.ViewModal
             set
             {
                 row.Teh_treb = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_teh_treb where teh_treb = " + value)[0]);
+                    .ExecuteCommand("select id from rz_teh_treb where teh_treb = '" + value+"'")[0]);
                 is_change = true;
                 OnPropertyChanged("Teh_treb");
             }
@@ -242,7 +242,7 @@ namespace Cards_of_defectation.ViewModal
             set
             {
                 row.Spos_ustr = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_spos_ustr where spos_ustr = " + value)[0]);
+                    .ExecuteCommand("select id from rz_spos_ustr where spos_ustr = '" + value+"'")[0]);
                 is_change = true;
                 OnPropertyChanged("Spos_ustr");
             }

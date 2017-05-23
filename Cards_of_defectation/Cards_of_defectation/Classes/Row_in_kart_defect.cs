@@ -134,6 +134,7 @@ namespace Cards_of_defectation.Classes
         {
             get
             {
+                if (opis_def == 0) opis_def = 1;
                 return opis_def;
             }
 
@@ -158,6 +159,7 @@ namespace Cards_of_defectation.Classes
         {
             get
             {
+                if (prich == 0) prich = 1;
                 return prich;
             }
 
@@ -182,6 +184,7 @@ namespace Cards_of_defectation.Classes
         {
             get
             {
+                if (met_opr == 0) met_opr = 1;
                 return met_opr;
             }
 
@@ -206,6 +209,7 @@ namespace Cards_of_defectation.Classes
         {
             get
             {
+                if (teh_treb == 0) teh_treb = 1;
                 return teh_treb;
             }
 
@@ -230,6 +234,7 @@ namespace Cards_of_defectation.Classes
         {
             get
             {
+                if (spos_ustr == 0) spos_ustr = 1;
                 return spos_ustr;
             }
 

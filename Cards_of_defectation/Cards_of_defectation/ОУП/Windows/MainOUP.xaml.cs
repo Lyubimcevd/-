@@ -18,6 +18,7 @@ namespace Cards_of_defectation.ОУП.Windows
         ObservableCollection<RowPlanViewModal> Rows;
         bool IsSave;
         Logger log;
+        List<object> tmp;
         public MainOUP()
         {
             log = LogManager.GetCurrentClassLogger();
@@ -33,6 +34,15 @@ namespace Cards_of_defectation.ОУП.Windows
         {
             Rows = Converter.ToViewModal(Server.InitServer().DataBase("uit")
                 .Table("select * from rz_plan_rabot").LoadFromServer() as List<Row_in_plan_rabot>);
+            foreach(RowPlanViewModal row in Rows)
+            {
+                if (row.Prior == 0)
+                {
+                    tmp = Server.InitServer().DataBase("cvodka")
+                        .ExecuteCommand("select pr from nazpr where zakspis = " + row.Nom_zak);
+                    if (tmp.Count != 0) row.Prior = Convert.ToInt32(tmp[0]);
+                }
+            }
             main_table.ItemsSource = Rows;
         }
 
@@ -48,7 +58,7 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void New_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Rows.Add(new RowPlanViewModal(Rows[Rows.Count - 1].Nom_sz+1));
+            Rows.Add(new RowPlanViewModal());
             IsSave = false;
         }
 

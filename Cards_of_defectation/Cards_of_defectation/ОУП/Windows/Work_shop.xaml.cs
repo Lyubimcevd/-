@@ -26,12 +26,6 @@ namespace Cards_of_defectation.ОУП.Windows
         {
             Nom_sz = pNom_sz;
             InitializeComponent();
-            UpdateTable();
-            Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
-        }
-
-        public void UpdateTable()
-        {
             DataTable DT = Server.InitServer().DataBase("uit")
                 .Table("select nom_ceh as Цех,Count(*) as [Карт на дефектации] from kart_defect where Nom_sz = "
                 + Nom_sz.ToString() + "and nom_ceh is not null and spos_ustr = 0 group by nom_ceh").LoadTableFromServer();

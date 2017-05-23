@@ -39,13 +39,12 @@ namespace Cards_of_defectation.Classes
         Dispatcher dis;
         ShopAlert SA;
         Tree_defect TD;
-        Work_shop WS;
         MainOUP MOUP;
 
         public Connection(string DataBaseName)
         {
             conn = new SqlConnection("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=" + DataBaseName + ";MultipleActiveResultSets=True");
-            //SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database="+ DataBaseName + ";MultipleActiveResultSets=True");
+            //SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=uit;MultipleActiveResultSets=True");
             conn.Open();
         }
         public List<object> ExecuteCommand(string Command)
@@ -81,12 +80,6 @@ namespace Cards_of_defectation.Classes
             TD = pTD;
             Stalker();
         }
-        public void InitStalker(Dispatcher pdis, Work_shop pWS)
-        {
-            dis = pdis;
-            WS = pWS;
-            Stalker();
-        }
         public void InitStalker(Dispatcher pdis, MainOUP pMOUP)
         {
             dis = pdis;
@@ -95,7 +88,7 @@ namespace Cards_of_defectation.Classes
         }
         void Stalker()
         {
-            using (var command = new SqlCommand("select a.id,a.nom_ceh,a.kolvo,b.Nom_sz from dbo.kart_defect as a, dbo.plan_rabot as b", conn))
+            using (var command = new SqlCommand("select a.id,a.nom_ceh,b.Nom_sz,c.pr from uit.dbo.rz_kart_defect as a, uit.dbo.rz_plan_rabot as b, cvodka.dbo.nazpr as c", conn))
             {
                 var sqlDependency = new SqlDependency(command);
                 sqlDependency.OnChange += new OnChangeEventHandler(OnDatabaseChange);
@@ -106,7 +99,6 @@ namespace Cards_of_defectation.Classes
         {
             if (SA != null) dis.Invoke(new Action(SA.UpdateRow));
             if (TD != null) dis.Invoke(new Action(TD.UpdateTree));
-            if (WS != null) dis.Invoke(new Action(WS.UpdateTable));
             if (MOUP != null) dis.Invoke(new Action(MOUP.UpdateTable));
             Stalker();
         }

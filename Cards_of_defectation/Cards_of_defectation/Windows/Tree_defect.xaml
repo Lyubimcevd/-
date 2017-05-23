@@ -27,7 +27,9 @@
                     <TextBlock Text="{Binding Header}" 
                                MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"
                                Foreground="Black" 
-                               MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
+                               MouseEnter="TextBlock_MouseEnter" 
+                               MouseLeave="TextBlock_MouseLeave"
+                               FontSize="14"/>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
