@@ -24,10 +24,13 @@ namespace Cards_of_defectation.ОУП.Windows
         public ReductionReference()
         {
             IsSave = true;
+            Log.Init.Info("Запуск ReductionReference");
             InitializeComponent();
             Binding_Commands();
+            Log.Init.Info("Загрузка таблицы rz_spravochniki");
             dataGrid1.ItemsSource = Server.InitServer().DataBase("uit").Table("select naim from rz_spravochniki")
                 .LoadTableFromServer().DefaultView;
+            Log.Init.Info("Загружено");
         }
 
         void Binding_Commands()
@@ -40,18 +43,22 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
+            Log.Init.Info("Сохранение в "+table_name);
             Server.InitServer().DataBase("uit").Table("select * from "+table_name).UpdateServerData((dataGrid.ItemsSource as DataView).Table);
+            Log.Init.Info("Сохранено");
             MessageBox.Show("Сохранено");
             IsSave = true;
         }
 
         private void dataGrid1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Log.Init.Info("Загрузка таблицы "+ (e.OriginalSource as TextBlock).Text);
             table_name = Server.InitServer().DataBase("uit")
                     .ExecuteCommand("select table_naim from rz_spravochniki where naim = '"
-                    + ((sender as DataGrid).SelectedItem as DataRowView).Row.ItemArray[0].ToString() + "'")[0].ToString();
+                    + (e.OriginalSource as TextBlock).Text + "'")[0].ToString();
             dataGrid.ItemsSource = Server.InitServer().DataBase("uit").Table("select * from " + table_name)
                 .LoadTableFromServer().DefaultView;
+            Log.Init.Info("загружено");
             Save_item.IsEnabled = true;
         }
 

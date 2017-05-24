@@ -23,7 +23,7 @@ namespace Cards_of_defectation.ОТГО.Windows
 
         private void Create_new_SZ(object sender, RoutedEventArgs e)
         {
-            CreateWindowNumberSZ Next_window = new CreateWindowNumberSZ(new NomSZ_Cherch_Naim_ZavNom());
+            CreateWindowNumberSZ Next_window = new CreateWindowNumberSZ(new NomSZ_Cherch_Naim());
             Next_window.Show();
         }
 

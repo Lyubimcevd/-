@@ -17,32 +17,22 @@ namespace Cards_of_defectation.ОУП.Windows
     {
         ObservableCollection<RowPlanViewModal> Rows;
         bool IsSave;
-        Logger log;
-        List<object> tmp;
         public MainOUP()
         {
-            log = LogManager.GetCurrentClassLogger();
             IsSave = true;
+            Log.Init.Info("Запуск MainOUP");
             InitializeComponent();
             Binding_Commands();
             UpdateTable();
             Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
-            log.Debug("Первая ступень отработала");
         }
 
         public void UpdateTable()
         {
+            Log.Init.Info("Загрузка таблицы rz_plan_rabot");
             Rows = Converter.ToViewModal(Server.InitServer().DataBase("uit")
                 .Table("select * from rz_plan_rabot").LoadFromServer() as List<Row_in_plan_rabot>);
-            foreach(RowPlanViewModal row in Rows)
-            {
-                if (row.Prior == 0)
-                {
-                    tmp = Server.InitServer().DataBase("cvodka")
-                        .ExecuteCommand("select pr from nazpr where zakspis = " + row.Nom_zak);
-                    if (tmp.Count != 0) row.Prior = Convert.ToInt32(tmp[0]);
-                }
-            }
+            Log.Init.Info("Загру");
             main_table.ItemsSource = Rows;
         }
 
@@ -57,15 +47,18 @@ namespace Cards_of_defectation.ОУП.Windows
         }
 
         private void New_Execute(object sender, ExecutedRoutedEventArgs e)
-        {
+        {          
             Rows.Add(new RowPlanViewModal());
+            Log.Init.Info("Добавлена строка в rz_plan_rabot");
             IsSave = false;
         }
 
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
+            Log.Init.Info("Сохранение в rz_plan_rabot");
             Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot")
                 .UpdateServerData(Converter.ToSave(Rows));
+            Log.Init.Info("Сохранено");
             MessageBox.Show("Сохранено");
             IsSave = true;
         }
@@ -135,10 +128,14 @@ namespace Cards_of_defectation.ОУП.Windows
                         if (MessageBox.Show("Для этой заявки есть карты дефектации. Они будут удалены вместе с заявкой."
                             + " Продолжить?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                         {
+                            Log.Init.Info("Удаление из rz_kart_defect по номеру служебки "+ ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz);
                             Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_kart_defect where nom_sz='"
                                 + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz+"'");
+                            Log.Init.Info("Удалено");
+                            Log.Init.Info("Удаление из rz_plan_rabot по номеру служебки " + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz);
                             Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_plan_rabot where nom_sz='"
                                 + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz+"'");
+                            Log.Init.Info("Удалено");
                         }
                         else
                         {
@@ -159,6 +156,7 @@ namespace Cards_of_defectation.ОУП.Windows
 
         public static int GetIndexOfKartDefect(string Nom_sz)
         {
+            Log.Init.Info("Запрос нового индекса в rz_kart_defect");
             if (Server.InitServer().DataBase("uit")
                 .ExecuteCommand("select * from rz_kart_defect where nom_sz = " + Nom_sz).Count == 0)
             {
@@ -168,8 +166,10 @@ namespace Cards_of_defectation.ОУП.Windows
                     .Table("select * from rz_kart_defect where nom_sz = " + Nom_sz)
                     .UpdateServerData(save_list);
             }
-            return Convert.ToInt32(Server.InitServer().DataBase("uit")
+            int result = Convert.ToInt32(Server.InitServer().DataBase("uit")
                         .ExecuteCommand("select id from rz_kart_defect where nom_sz = " + Nom_sz + " and par is NULL")[0]);
+            Log.Init.Info("Возвращён индекс "+result);
+            return result;
         }
     }
 }

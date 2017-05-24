@@ -20,20 +20,21 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Номер изделия: " FontSize="14"/>
         <ComboBox IsEditable="True"
-                  IsDropDownOpen="{Binding IsDropDownChech}"
-                  Text="{Binding Text_for_filter_cherch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
-                  ItemsSource="{Binding Cherch_list}"                                                   
+                  IsDropDownOpen="{Binding IsDropDownSerNom}"
+                  Text="{Binding Text_for_filter_ser_nom,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                  ItemsSource="{Binding Ser_nom_list}"                                                   
                   IsTextSearchEnabled="False"
                   TextBoxBase.TextChanged="ComboBox_TextChanged"
                   PreviewKeyDown="ComboBox_PreviewKeyDown"
                   Grid.Column="1" 
                   Name="combo_box"/>
         <DataGrid Grid.Row="1" 
-                 Grid.ColumnSpan ="2"
+                  Grid.ColumnSpan ="2"
                   Name="datagrid"
                   ItemsSource="{Binding}"
                   MouseLeftButtonUp="listBox_MouseLeftButtonUp" 
                   HeadersVisibility="None"
+                  IsReadOnly="True"
                   ColumnWidth="*"/>
     </Grid>
 </Window>

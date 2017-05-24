@@ -24,7 +24,7 @@ namespace Cards_of_defectation.ОТГО.ViewModal
             }
             set
             {
-                Nom_sz_list = value;
+                nom_sz_list = value;
                 OnPropertyChanged("Nom_sz_list");
             }
         }

@@ -1,0 +1,19 @@
+﻿<Window x:Class="Cards_of_defectation.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cards_of_defectation"
+        mc:Ignorable="d"
+        Title="Window1" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Интерфейс ОУП" Click="Button_Click"/>
+        <Button Content="Интерфейс ОТГО" Click="Button_Click_1" Grid.Row="1"/>
+        <Button Content="Интерфейс цехов" Click="Button_Click_2" Grid.Row="2"/>
+    </Grid>
+</Window>

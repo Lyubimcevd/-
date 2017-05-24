@@ -88,7 +88,6 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <GridSplitter Grid.Column="1" 
-                          Width="5"
                           VerticalAlignment="Stretch" 
                           HorizontalAlignment="Stretch"/>
             <DataGrid Grid.Column="2" 

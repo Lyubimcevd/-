@@ -202,7 +202,7 @@ namespace Cards_of_defectation.ViewModal
                 text_for_filter_naim = value;               
                 if (Naim_list?.Count != 0 || current_length_of_naim_filter > text_for_filter_naim.Length||Naim_list == null)
                     Naim_list = Server.InitServer().DataBase("cvodka")
-                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where ltrim(naim) like '"
+                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where ltrim(naim) like '%"
                                         + text_for_filter_naim + "%'");
                 if (Naim_list.Count != 0) IsDropDownNaim = true;
                 current_length_of_naim_filter = text_for_filter_naim.Length;

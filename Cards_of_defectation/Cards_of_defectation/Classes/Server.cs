@@ -8,6 +8,7 @@ using System.Collections;
 using System.Windows.Threading;
 using Cards_of_defectation.Windows;
 using Cards_of_defectation.ОУП.Windows;
+using System.Windows;
 
 namespace Cards_of_defectation.Classes
 {
@@ -18,7 +19,9 @@ namespace Cards_of_defectation.Classes
 
         private Server()
         {
+            Log.Init.Info("Создание соединения");
             connections = new Dictionary<string, Connection>();
+            Log.Init.Info("Соединение создано");
         }
         public static Server InitServer()
         {
@@ -44,13 +47,47 @@ namespace Cards_of_defectation.Classes
         public Connection(string DataBaseName)
         {
             conn = new SqlConnection("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=" + DataBaseName + ";MultipleActiveResultSets=True");
-            //SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=uit;MultipleActiveResultSets=True");
-            conn.Open();
+            Log.Init.Info("Старт системы слежения");
+            try
+            {
+                SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=uit;MultipleActiveResultSets=True");
+            }
+            catch (Exception e)
+            {
+                Log.Init.Fatal("Не запущена. Ошибка: "+e.Message);
+                MessageBox.Show("Система слежения не запущена");
+                System.Environment.Exit(0);
+            }
+            Log.Init.Info("Запущена");
+            Log.Init.Info("Открытие соединения");
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception e)
+            {
+                Log.Init.Fatal("Не подключился к серверу. Ошибка: " + e.Message);
+                MessageBox.Show("Сервер не доступен");
+                System.Environment.Exit(0);
+            }
+            Log.Init.Info("Открыто");
         }
         public List<object> ExecuteCommand(string Command)
         {
             SqlCommand SC = new SqlCommand(Command, conn);
-            SqlDataReader SDR = SC.ExecuteReader();
+            Log.Init.Info("ExecuteCommand чтение по запросу "+Command);
+            SqlDataReader SDR = null;
+            try
+            {
+                SDR = SC.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Log.Init.Fatal("Ошибка чтения. Ошибка: " + e.Message);
+                MessageBox.Show("Ошибка чтения по запросу " + Command);
+                System.Environment.Exit(0);
+            }
+            Log.Init.Info("Чтение успешно");
             if (SDR.HasRows)
             {
                 List<object> ResultDate = new List<object>();
@@ -88,11 +125,11 @@ namespace Cards_of_defectation.Classes
         }
         void Stalker()
         {
-            using (var command = new SqlCommand("select a.id,a.nom_ceh,b.Nom_sz,c.pr from uit.dbo.rz_kart_defect as a, uit.dbo.rz_plan_rabot as b, cvodka.dbo.nazpr as c", conn))
+            using (var command = new SqlCommand("select a.id,a.nom_ceh,b.Nom_sz from dbo.rz_kart_defect as a, dbo.rz_plan_rabot as b", conn))
             {
                 var sqlDependency = new SqlDependency(command);
                 sqlDependency.OnChange += new OnChangeEventHandler(OnDatabaseChange);
-                //command.ExecuteReader();
+                command.ExecuteReader();
             }
         }
         void OnDatabaseChange(object sender, SqlNotificationEventArgs e)
@@ -122,12 +159,34 @@ namespace Cards_of_defectation.Classes
             int end = SelectCommand.IndexOf("where")-1;
             if (end == -2) end = SelectCommand.Length;
             DT = new DataTable(SelectCommand.Substring(start, end - start));
-            DA.Fill(DT);
+            Log.Init.Info("Заполнение таблицы из DataAdapter. Команда: " + SelectCommand);
+            try
+            {
+                DA.Fill(DT);
+            }
+            catch (Exception e)
+            {
+                Log.Init.Fatal("Ошибка в блоке DataTableBuffer. Ошибка: " + e.Message);
+                MessageBox.Show("Ошибка заполнения таблицы");
+                Environment.Exit(0);
+            }
+            Log.Init.Info("Заполнено");
         }
         public void UpdateServerData(List<Row_in_plan_rabot> Rows)
         {
             Converter.ListToTable(Rows, DT);
-            DA.Update(DT);
+            Log.Init.Info("Update таблицы " + DT.TableName);
+            try
+            {
+                DA.Update(DT);
+            }
+            catch (Exception e)
+            {
+                Log.Init.Fatal("Ошибка блока UpdateServerData. Ошибка: "+e.Message);
+                MessageBox.Show("Не удалось сохранить строку");
+                Environment.Exit(0);
+            }
+            Log.Init.Info("Update успешно");
         }
         public void UpdateServerData(List<Row_in_kart_defect> Rows)
         {

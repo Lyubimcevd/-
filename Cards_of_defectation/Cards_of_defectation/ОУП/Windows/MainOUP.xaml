@@ -65,7 +65,7 @@
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Приоритет" 
-                                    Binding="{Binding Prior,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                    Binding="{Binding Prior}"
                                     Foreground="Black"
                                     IsReadOnly="True"
                                     Width="2*">
@@ -109,12 +109,18 @@
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTemplateColumn Header="Срок восстановления"
-                                        Width="4*">
+                <DataGridTemplateColumn Width="4*">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
                                         Value="Center"/>
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="Срок восстановления"/>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>

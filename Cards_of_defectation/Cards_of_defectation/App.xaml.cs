@@ -21,19 +21,21 @@ namespace Cards_of_defectation
 
         void AppStartup(object sender, StartupEventArgs e)
         {
-            if (Environment.UserName[0] != 'c')
-            {
-                MainWindowOTGO MWOT = new MainWindowOTGO();
-                MWOT.Show();
-                //MainOUP MOUP = new MainOUP();
-                //MOUP.Show();
-            }
-            else
-            {
-                //ShopAlert SA = new ShopAlert("024", true);
-                ShopAlert SA = new ShopAlert(Environment.UserName.Substring(1, Environment.UserName.IndexOf('-') - 1).PadLeft(3, '0'),true);
-                SA.Show();
-            }
+            Window1 W1 = new Window1();
+            W1.Show();
+            //if (Environment.UserName[0] != 'c')
+            //{
+            //    MainWindowOTGO MWOT = new MainWindowOTGO();
+            //    MWOT.Show();
+            //    //MainOUP MOUP = new MainOUP();
+            //    //MOUP.Show();
+            //}
+            //else
+            //{
+            //    //ShopAlert SA = new ShopAlert("024", true);
+            //    ShopAlert SA = new ShopAlert(Environment.UserName.Substring(1, Environment.UserName.IndexOf('-') - 1).PadLeft(3, '0'),true);
+            //    SA.Show();
+            //}
         }
     }
 }

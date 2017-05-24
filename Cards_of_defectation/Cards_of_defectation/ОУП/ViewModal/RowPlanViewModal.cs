@@ -9,7 +9,6 @@ namespace Cards_of_defectation.ОУП.ViewModal
     public class RowPlanViewModal
     {
         Row_in_plan_rabot row;
-        int prior;
         bool is_change = false;
 
         public RowPlanViewModal()
@@ -103,6 +102,7 @@ namespace Cards_of_defectation.ОУП.ViewModal
                 string result = "";
                 if (Nom_sz != Ser_nom)
                 {
+                    Log.Init.Info("Формирование всего/выполнено в плане");
                     result = Server.InitServer().DataBase("uit")
                     .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = "
                     + Nom_sz + " group by nom_sz")[0].ToString() + " / ";
@@ -112,19 +112,25 @@ namespace Cards_of_defectation.ОУП.ViewModal
                     if (tmp.Count == 0) result += "0";
                     else result += tmp[0].ToString();
                 }
+                Log.Init.Info("Формирование завершено. Результат "+result);
                 return result;
             }
         }
-        public int Prior
+        public string Prior
         {
             get
             {
-                return prior;
-            }
-            set
-            {
-                prior = value;
-            }
+                string result = null;
+                if (row.Nom_zak != null)
+                {
+                    Log.Init.Info("Формирование приоритет в плане");
+                    List<object> tmp = Server.InitServer().DataBase("cvodka")
+                          .ExecuteCommand("select pr from nazpr where zakspis = " + row.Nom_zak);
+                    if (tmp.Count != 0) result = tmp[0].ToString();
+                }
+                Log.Init.Info("Формирование завершено. Результат "+result);
+                return result;
+            }         
         }
         public bool IsChange
         {

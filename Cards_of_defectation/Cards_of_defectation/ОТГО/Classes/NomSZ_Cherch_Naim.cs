@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Cards_of_defectation.ОТГО.Classes
 {
-    public class NomSZ_Cherch_Naim_ZavNom
+    public class NomSZ_Cherch_Naim
     {
         string nom_sz, cherch, naim;
         public string Nom_sz

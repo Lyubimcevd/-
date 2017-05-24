@@ -113,3 +113,6 @@ D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defecta
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.application
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.exe
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.pdb
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Cards_of_defectation.csprojResolveAssemblyReference.cache
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Window1.g.cs
+D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Debug\Window1.baml

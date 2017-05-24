@@ -27,7 +27,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>45</ApplicationRevision>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -124,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Log.cs" />
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Choice_of_podrazd.xaml.cs">
       <DependentUpon>Choice_of_podrazd.xaml</DependentUpon>
     </Compile>
@@ -135,6 +139,7 @@
       <DependentUpon>SlugebZapiska.xaml</DependentUpon>
     </Compile>
     <Compile Include="ОТГО\ViewModal\SearchWindowByNomZakViewModal.cs" />
+    <Compile Include="ОТГО\ViewModal\SearchWindowBySerNomViewModal.cs" />
     <Compile Include="ОТГО\ViewModal\SearchWindowSZViewModal.cs" />
     <Compile Include="ОТГО\Windows\SearchWindowByNomZak.xaml.cs">
       <DependentUpon>SearchWindowByNomZak.xaml</DependentUpon>
@@ -183,7 +188,7 @@
     </Compile>
     <Compile Include="Classes\Converter.cs" />
     <Compile Include="Classes\Server.cs" />
-    <Compile Include="ОТГО\Classes\NomSZ_Cherch_Naim_ZavNom.cs" />
+    <Compile Include="ОТГО\Classes\NomSZ_Cherch_Naim.cs" />
     <Compile Include="ОТГО\Windows\CreateWindowNaim.xaml.cs">
       <DependentUpon>CreateWindowNaim.xaml</DependentUpon>
     </Compile>
@@ -201,6 +206,10 @@
     </Compile>
     <Compile Include="ОТГО\ViewModal\CreateWindowNaimIzdViewModal.cs" />
     <Compile Include="ОТГО\ViewModal\CreateWindowNomCherchViewModal.cs" />
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Choice_of_podrazd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

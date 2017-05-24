@@ -67,6 +67,7 @@ namespace Cards_of_defectation.ViewModal
         {
             save_row = new Row_in_plan_rabot();
             save_row.Nom_sz = pnom_sz;
+            save_row.Ser_nom = pser_nom;
             text_for_filter_ser_nom = pser_nom;
             izgot = new ObservableCollection<SlugebZapiskaIzgotViewModal>();
             izgot.Add(new SlugebZapiskaIzgotViewModal());
@@ -371,12 +372,22 @@ namespace Cards_of_defectation.ViewModal
             return result;
         }
         public List<Row_in_plan_rabot> SaveInPlanRabot()
-        {         
-            List<Row_in_plan_rabot> result = new List<Row_in_plan_rabot>();
-            result.Add(save_row);
-            if (save_row.Ser_nom == null) save_row.Ser_nom = text_for_filter_ser_nom; //?
-            id = MainOUP.GetIndexOfKartDefect(save_row.Nom_sz);
-            return result;
+        {
+            if (Server.InitServer().DataBase("uit")
+                .ExecuteCommand("select * from rz_plan_rabot where nom_sz = '" + save_row.Ser_nom + "'").Count == 0)
+            {
+                List<Row_in_plan_rabot> result = new List<Row_in_plan_rabot>();
+                result.Add(save_row);
+                id = MainOUP.GetIndexOfKartDefect(save_row.Nom_sz);
+                return result;
+            }
+            else
+            {
+                Server.InitServer().DataBase("uit")
+                    .ExecuteCommand("update rz_plan_rabot set nom_sz = '" + save_row.Nom_sz
+                    + "' where nom_sz = '" + save_row.Ser_nom);
+                return null;
+            }
         }
     }
 }

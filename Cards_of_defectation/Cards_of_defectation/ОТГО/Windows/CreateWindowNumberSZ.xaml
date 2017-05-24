@@ -7,12 +7,12 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="Ремонтые заказы" 
-        Height="60" 
-        Width="320" 
+        Height="50" 
+        Width="355" 
         ResizeMode ="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="235"/>
+            <ColumnDefinition Width="275"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="Введите номера служебной записки: 137/" 

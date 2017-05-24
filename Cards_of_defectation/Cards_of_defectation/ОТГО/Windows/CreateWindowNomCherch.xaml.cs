@@ -17,8 +17,8 @@ namespace Cards_of_defectation.ОТГО.Windows
 {
     public partial class CreateWindowNomCherch : Window
     {
-        NomSZ_Cherch_Naim_ZavNom tmp;
-        public CreateWindowNomCherch(NomSZ_Cherch_Naim_ZavNom ptmp)
+        NomSZ_Cherch_Naim tmp;
+        public CreateWindowNomCherch(NomSZ_Cherch_Naim ptmp)
         {
             InitializeComponent();
             combo_box.DataContext = new CreateWindowNomCherchViewModal();

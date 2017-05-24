@@ -21,7 +21,7 @@ namespace Cards_of_defectation.ОТГО.Windows
         public SearchWindowBySerNom()
         {
             InitializeComponent();
-            combo_box.DataContext = new CreateWindowNomCherchViewModal();
+            combo_box.DataContext = new SearchWindowBySerNomViewModal();
             Loaded += delegate { combo_box.Focus(); };
         }
         private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -35,7 +35,7 @@ namespace Cards_of_defectation.ОТГО.Windows
             {
                 if (combo_box.SelectedItem == null) combo_box.SelectedItem = combo_box.Items.CurrentItem;
                 datagrid.DataContext = Server.InitServer().DataBase("uit")
-                    .Table("select rtrim(nom_sz) from rz_plan_rabot where ser_nom = " + combo_box.SelectedItem)
+                    .Table("select rtrim(nom_sz) from rz_plan_rabot where ser_nom = '" + combo_box.SelectedItem+"'")
                     .LoadTableFromServer();
             }
         }

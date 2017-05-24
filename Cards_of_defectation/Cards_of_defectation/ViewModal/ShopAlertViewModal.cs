@@ -70,7 +70,6 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-
                 List<object> tmp = Server.InitServer().DataBase("cvodka")
                         .ExecuteCommand("select pr from nazpr where zakspis = '" + Nom_zak +"'");
                 if (tmp.Count != 0) return tmp[0].ToString();

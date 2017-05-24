@@ -14,7 +14,6 @@ namespace Cards_of_defectation.ViewModal
         List<string> ceh_list;
         string cherch_for_search;
         bool is_change;
-        int prior;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -112,7 +111,8 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                if (row.Nom_ceh != 0) return References.InitReferences().Cehs[row.Nom_ceh - 1] + "/" + row.Nom_kart.ToString();
+                if (Spos_ustr == "Дефектация"&&Nom_ceh!=0)
+                    return References.InitReferences().Cehs[row.Nom_ceh - 1] + "/" + row.Nom_kart.ToString();
                 else return null;
             }
         }
@@ -308,19 +308,14 @@ namespace Cards_of_defectation.ViewModal
                     .ExecuteCommand("select nom_zak from rz_plan_rabot where Nom_sz =" + Nom_sz)[0]);
             }
         }
-        public int Prior
+        public string Prior
         {
             get
-            {
-                if (parent != null) return parent.Prior;
-                else
-                {
-                    List<object> tmp = Server.InitServer().DataBase("cvodka")
-                        .ExecuteCommand("select pr from nazpr where zakspis = " + Nom_zak);
-                    if (tmp.Count != 0) prior = Convert.ToInt32(tmp[0]);
-                    return prior;
-                } 
-               
+            {                            
+                List<object> tmp = Server.InitServer().DataBase("cvodka")
+                    .ExecuteCommand("select pr from nazpr where zakspis = " + Nom_zak);
+                if (tmp.Count != 0) return tmp[0].ToString();
+                else return null;              
             }
         }
         public string Ser_nom
