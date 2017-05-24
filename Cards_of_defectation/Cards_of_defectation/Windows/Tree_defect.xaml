@@ -9,6 +9,10 @@
         Height="378" 
         Width="449" 
         Closed="Window_Closed">
+    <Window.Resources>
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                        Color="Aquamarine"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -24,12 +28,40 @@
         <TreeView x:Name="treeView" Grid.Row="1">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}" >
-                    <TextBlock Text="{Binding Header}" 
-                               MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"
-                               Foreground="Black" 
-                               MouseEnter="TextBlock_MouseEnter" 
-                               MouseLeave="TextBlock_MouseLeave"
-                               FontSize="14"/>
+                    <Grid MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" 
+                          MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="8"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="8"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="8"/>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="8"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Cherch}" 
+                                   TextWrapping="Wrap" 
+                                   FontSize="14"
+                                   Foreground="Black"/>
+                        <TextBlock Text="{Binding Nom_kart}" 
+                                   Grid.Column="2"
+                                   FontSize="14"
+                                   Foreground="Black"/>
+                        <TextBlock Text="{Binding Spos_ustr}" 
+                                   Grid.Column="4"
+                                   FontSize="14"
+                                   Foreground="Black"/>
+                        <TextBlock Text="{Binding Kolvo}" 
+                                   Grid.Column="6"
+                                   FontSize="14"
+                                   Foreground="Black"/>
+                        <TextBlock Text="{Binding IsDone}" 
+                                   Grid.Column="8"
+                                   FontSize="14"
+                                   Foreground="Black"/>
+                    </Grid>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>

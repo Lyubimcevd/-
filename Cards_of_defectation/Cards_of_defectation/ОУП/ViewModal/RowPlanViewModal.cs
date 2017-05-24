@@ -27,10 +27,13 @@ namespace Cards_of_defectation.ОУП.ViewModal
             {
                 return row.Nom_sz;
             }
-            set
+        }
+        public string Nom_sz_view
+        {
+            get
             {
-                row.Nom_sz = value;
-                is_change = true;
+                if (row.Nom_sz != null && row.Nom_sz == row.Ser_nom) return "";
+                else return row.Nom_sz;
             }
         }
         public string Ser_nom
@@ -98,7 +101,7 @@ namespace Cards_of_defectation.ОУП.ViewModal
             get
             {
                 string result = "";
-                if (Nom_sz != null)
+                if (Nom_sz != Ser_nom)
                 {
                     result = Server.InitServer().DataBase("uit")
                     .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = "
@@ -134,6 +137,7 @@ namespace Cards_of_defectation.ОУП.ViewModal
         {
             get
             {
+                if (row.Nom_sz == null) row.Nom_sz = row.Ser_nom;
                 is_change = false;
                 return row;
             }

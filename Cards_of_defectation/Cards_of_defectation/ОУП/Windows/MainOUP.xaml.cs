@@ -130,15 +130,15 @@ namespace Cards_of_defectation.ОУП.Windows
             {
                 if (MessageBox.Show("Подтвердите удаление", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    if (Server.InitServer().DataBase("uit").ExecuteCommand("select id from rz_kart_defect where nom_sz ="
-                        + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz).Count != 0)
+                    if (Server.InitServer().DataBase("uit").ExecuteCommand("select id from rz_kart_defect where nom_sz ='"
+                        + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz+"'").Count != 0)
                         if (MessageBox.Show("Для этой заявки есть карты дефектации. Они будут удалены вместе с заявкой."
                             + " Продолжить?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                         {
-                            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_kart_defect where nom_sz="
-                                + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz);
-                            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_plan_rabot where nom_sz="
-                                + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz);
+                            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_kart_defect where nom_sz='"
+                                + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz+"'");
+                            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_plan_rabot where nom_sz='"
+                                + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz+"'");
                         }
                         else
                         {

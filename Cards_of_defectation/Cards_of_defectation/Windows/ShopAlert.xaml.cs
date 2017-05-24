@@ -33,7 +33,7 @@ namespace Cards_of_defectation.Windows
                 NI.ContextMenu = new System.Windows.Forms.ContextMenu();
                 NI.ContextMenu.MenuItems.Add(new System.Windows.Forms.MenuItem("Выход", Click_for_exit));
             }
-            nom_ceh = References.InitReferences().Cehs.IndexOf(Nom_ceh);
+            nom_ceh = References.InitReferences().Cehs.IndexOf(Nom_ceh)+1;
             InitializeComponent();          
             UpdateRow();
             Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);

@@ -49,19 +49,18 @@
                   AutoGenerateColumns="False"
                   PreviewKeyDown="main_table_PreviewKeyDown"
                   CanUserDeleteRows="True"
-                  CanUserAddRows="False">
+                  CanUserAddRows="False"
+                  FontSize="14">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Заявка"
-                                    Binding="{Binding Nom_sz}"
+                                    Binding="{Binding Nom_sz_view}"
+                                    IsReadOnly="True"
                                     Foreground="Black"
-                                    FontSize="14"
                                     Width="2*">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
                                         Value="Center"/>
-                            <Setter Property="FontSize"
-                                    Value="14"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -69,54 +68,44 @@
                                     Binding="{Binding Prior,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                     Foreground="Black"
                                     IsReadOnly="True"
-                                    FontSize="14"
                                     Width="2*">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="FontSize"
-                                    Value="14"/>
+                            <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Изделие"
                                     Binding="{Binding Ser_nom,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                     Foreground="Black"
-                                    FontSize="14"
                                     Width="2*">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
                                         Value="Center"/>
-                            <Setter Property="FontSize"
-                                    Value="14"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Воинская часть"
                                     Binding="{Binding Voin_chast,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                     Foreground="Black"
-                                    FontSize="14"
                                     Width="6*">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
                                         Value="Center"/>
-                            <Setter Property="FontSize"
-                                    Value="14"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Заказ"
                                     Binding="{Binding Nom_zak,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                     Foreground="Black"
-                                    FontSize="14"
                                     Width="2*">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
                                         Value="Center"/>
-                            <Setter Property="FontSize"
-                                    Value="14"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -126,21 +115,17 @@
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
                                         Value="Center"/>
-                            <Setter Property="FontSize"
-                                    Value="14"/>
                         </Style>
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <DatePicker Text ="{Binding Srok_rem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                        Foreground="Black"
-                                        FontSize="14"/>
+                                        Foreground="Black"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Kards}"
                                     Foreground="Black"
-                                    FontSize="14"
                                     IsReadOnly="True"
                                     Width="3*">
                     <DataGridTextColumn.HeaderStyle>
@@ -154,8 +139,6 @@
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>
-                            <Setter Property="FontSize"
-                                    Value="14"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>

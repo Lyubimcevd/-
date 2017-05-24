@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Cards_of_defectation.Classes;
 
 namespace Cards_of_defectation.ViewModal
 {
@@ -11,13 +12,11 @@ namespace Cards_of_defectation.ViewModal
     {
         ObservableCollection<TreeViewModal> children;
         public event PropertyChangedEventHandler PropertyChanged;
-        string header;
-        int id;
+        RowDefectViewModal row;
 
-        public TreeViewModal(string pheader,int pid)
+        public TreeViewModal(RowDefectViewModal prow)
         {
-            header = pheader;
-            id = pid;
+            row = prow;
             children = new ObservableCollection<TreeViewModal>();
         }
         public ObservableCollection<TreeViewModal> Children
@@ -32,35 +31,75 @@ namespace Cards_of_defectation.ViewModal
                 OnPropertyChanged("Children");
             }
         }
-        public string Header
+        public string Cherch
         {
             get
             {
-                return header;
+                if (row.Cherch == null) return row.Naim_det;
+                else return row.Cherch;
             }
-            set
+        }
+        public string Nom_kart
+        {
+            get
             {
-                header = value;
-                OnPropertyChanged("Header");
+                return row.Nom_kart;
+            }
+        }
+        public string Spos_ustr
+        {
+            get
+            {
+                return row.Spos_ustr;
+            }
+        }
+        public float Kolvo
+        {
+            get
+            {
+                return row.Kolvo;
+            }
+        }
+        public string IsDone
+        {
+            get
+            {
+                if (row.Data_def != null) return "Выполнено";
+                else return "В работе";
             }
         }
         public int Id
         {
             get
             {
-                return id;
+                return row.Id;
+            }
+        }
+        public string Nom_ceh
+        {
+            get
+            {
+                if (row.Ceh.Length == 0) return "999";
+                else return row.Ceh;
             }
         }
         public void OnPropertyChanged(string prop)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-        public bool IsSelected
+        public void Sort()
         {
-            get
-            {
-                return true;
-            }
+            TreeViewModal tmp;
+            for (int i = 0; i<children.Count-1;i++)
+                for(int j = i+1; j < children.Count;j++)
+                {
+                    if (string.Compare(children[i].Nom_ceh,children[j].Nom_ceh)>0)
+                    {
+                        tmp = children[i];
+                        children[i] = children[j];
+                        children[j] = tmp;
+                    }
+                }
         }
     }
 }

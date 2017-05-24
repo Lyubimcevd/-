@@ -15,27 +15,26 @@ using Cards_of_defectation.Classes;
 using System.Data;
 using Cards_of_defectation.Windows;
 using System.Windows.Threading;
+using Cards_of_defectation.ОУП.ViewModal;
 
 namespace Cards_of_defectation.ОУП.Windows
 {
     public partial class Work_shop : Window
     {
-        string Nom_sz;
-
-        public Work_shop(string pNom_sz)
+        public Work_shop(string nom_sz)
         {
-            Nom_sz = pNom_sz;
             InitializeComponent();
-            DataTable DT = Server.InitServer().DataBase("uit")
-                .Table("select nom_ceh as Цех,Count(*) as [Карт на дефектации] from kart_defect where Nom_sz = "
-                + Nom_sz.ToString() + "and nom_ceh is not null and spos_ustr = 0 group by nom_ceh").LoadTableFromServer();
-            foreach (DataRow row in DT.Rows) row[0] = References.InitReferences().Cehs[Convert.ToInt32(row[0])];
-            dataGrid.ItemsSource = DT.DefaultView;
+            List<object> tmp = Server.InitServer().DataBase("uit")
+                .ExecuteCommand("select nom_ceh from rz_kart_defect where nom_ceh is not null and nom_sz = " + nom_sz 
+                +" group by nom_ceh");
+            List<WorkShopViewModal> Rows = new List<WorkShopViewModal>();
+            foreach (object nom_ceh in tmp) Rows.Add(new WorkShopViewModal(Convert.ToInt32(nom_ceh)));
+            dataGrid.ItemsSource = Rows;
         }
 
         private void dataGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ShopAlert SA = new ShopAlert(((sender as DataGrid).SelectedItems[0] as DataRowView).Row.ItemArray[0].ToString(),false);
+            ShopAlert SA = new ShopAlert(((sender as DataGrid).SelectedItem as WorkShopViewModal).Nom_ceh,false);
             SA.Show();
         }
     }

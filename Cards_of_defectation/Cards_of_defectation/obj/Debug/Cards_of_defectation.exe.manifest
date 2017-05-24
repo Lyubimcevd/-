@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cards_of_defectation.exe" size="400384">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cards_of_defectation.exe" size="402432">
       <assemblyIdentity name="Cards_of_defectation" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VcNVAjZ2/pJfIXRFDC9Ta5jC7ZM=</dsig:DigestValue>
+        <dsig:DigestValue>epHGwmc+Pf+13a0c6z2lu6eRNMU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

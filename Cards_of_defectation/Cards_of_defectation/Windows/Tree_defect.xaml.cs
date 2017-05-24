@@ -42,15 +42,14 @@ namespace Cards_of_defectation.Windows
         public void UpdateTree()
         {
             Modal[0] = LoadTreeFromServer(Modal[0].Id);
+
         }
 
         TreeViewModal LoadTreeFromServer(int pid)
         {
             RowDefectViewModal tmp = Converter.ToViewModal(Server.InitServer().DataBase("uit")
                 .Table("select * from rz_kart_defect where id =" + pid).LoadFromServer() as List<Row_in_kart_defect>)[0];
-            string header = OboznOrNaim(tmp) + "  " + tmp.Nom_kart + "  "
-                +  tmp.Spos_ustr + "  Кол-во: " + tmp.Kolvo;
-            TreeViewModal root = new TreeViewModal(header, pid);
+            TreeViewModal root = new TreeViewModal(tmp);
             List<object> tmp_list = Server.InitServer().DataBase("uit")
                 .ExecuteCommand("select id from rz_kart_defect where par =" + pid);
             foreach (int id in tmp_list)
@@ -59,6 +58,7 @@ namespace Cards_of_defectation.Windows
                 if (tmplist == null) root.Children.Add(LoadTreeFromServer(id));
                 else tmplist = LoadTreeFromServer(id);
             }
+            root.Sort();         
             return root;
         }
 
@@ -71,12 +71,9 @@ namespace Cards_of_defectation.Windows
         {
             if (!is_ceh)
             {
-                if (Server.InitServer().DataBase("uit").ExecuteCommand("select spos_ustr from rz_kart_defect where id ="
-                 + ((sender as TextBlock).DataContext as TreeViewModal).Id)[0].ToString() == 
-                 Server.InitServer().DataBase("uit")
-                 .ExecuteCommand("select id from rz_spos_ustr where spos_ustr = 'Дефектация'")[0].ToString())
+                if (((sender as Grid).DataContext as TreeViewModal).Spos_ustr == "Дефектация")
                 {
-                    Defect_map DM = new Defect_map(((sender as TextBlock).DataContext as TreeViewModal).Id);
+                    Defect_map DM = new Defect_map(((sender as Grid).DataContext as TreeViewModal).Id);
                     DM.ShowDialog();
                 }
             }
@@ -87,19 +84,19 @@ namespace Cards_of_defectation.Windows
             Print.Init().PrintTree(Modal[0]);
         }
 
-        private void TextBlock_MouseEnter(object sender, MouseEventArgs e)
-        {
-            (sender as TextBlock).Background = Brushes.Aquamarine;
-        }
-
-        private void TextBlock_MouseLeave(object sender, MouseEventArgs e)
-        {
-            (sender as TextBlock).Background = Brushes.White;
-        }
-
         private void Window_Closed(object sender, EventArgs e)
         {
             Server.InitServer().DataBase("uit").DeleteStalker(this);
+        }
+
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
+        {
+            (sender as Grid).Background = Brushes.Aquamarine;
+        }
+
+        private void Grid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            (sender as Grid).Background = Brushes.White;
         }
     }
 }

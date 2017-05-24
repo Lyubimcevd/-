@@ -14,6 +14,7 @@ namespace Cards_of_defectation.ViewModal
         List<string> ceh_list;
         string cherch_for_search;
         bool is_change;
+        int prior;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -111,8 +112,8 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                if (row.Nom_ceh != -1) return References.InitReferences().Cehs[row.Nom_ceh] + "/" + row.Nom_kart.ToString();
-                else return row.Nom_kart.ToString();
+                if (row.Nom_ceh != 0) return References.InitReferences().Cehs[row.Nom_ceh - 1] + "/" + row.Nom_kart.ToString();
+                else return null;
             }
         }
         public string Opis_def
@@ -314,10 +315,10 @@ namespace Cards_of_defectation.ViewModal
                 if (parent != null) return parent.Prior;
                 else
                 {
-                    List<object> tmp = Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select prior from rz_nom_zak_prior where nom_zak = " + Nom_zak);
-                    if (tmp.Count != 0) return Convert.ToInt32(tmp[0]);
-                    else return 0;
+                    List<object> tmp = Server.InitServer().DataBase("cvodka")
+                        .ExecuteCommand("select pr from nazpr where zakspis = " + Nom_zak);
+                    if (tmp.Count != 0) prior = Convert.ToInt32(tmp[0]);
+                    return prior;
                 } 
                
             }
@@ -388,8 +389,8 @@ namespace Cards_of_defectation.ViewModal
                 if (ceh_list == null)
                 {
                     List<object> tmp = Server.InitServer().DataBase("cvodka")
-                                       .ExecuteCommand("select distinct ci from stabil where nc = '"
-                                       + Cherch_for_search + "'");
+                        .ExecuteCommand("select cex from cvodka.dbo.iz_ci_v_cex where ci = "
+                        +"(select distinct ci from cvodka.dbo.stabil where nc ='"+ Cherch_for_search + "')");
                     if (tmp.Count != 0)
                     {
                         ceh_list = new List<string>();
@@ -406,14 +407,14 @@ namespace Cards_of_defectation.ViewModal
             get
             {
                 if (row.Nom_ceh == 0)
-                    if (ceh_list != References.InitReferences().Cehs)
+                    if (Ceh_list != References.InitReferences().Cehs)
                     {
                         row.Nom_ceh = Convert.ToInt32(Server.InitServer().DataBase("cvodka")
-                            .ExecuteCommand("select id from podr1 where nc = " + ceh_list.Last())[0]);
-                        return ceh_list.Last();
+                            .ExecuteCommand("select id from podr1 where nc = " + Ceh_list.Last())[0]);
+                        return Ceh_list.Last();
                     }
                     else return "";
-                else return References.InitReferences().Cehs[Nom_ceh];
+                else return References.InitReferences().Cehs[Nom_ceh-1];
             }
             set
             {

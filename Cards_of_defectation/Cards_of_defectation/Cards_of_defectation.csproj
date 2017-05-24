@@ -145,6 +145,7 @@
     <Compile Include="ОТГО\Windows\SearchWindowSZ.xaml.cs">
       <DependentUpon>SearchWindowSZ.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ОУП\ViewModal\WorkShopViewModal.cs" />
     <Compile Include="ОУП\Windows\MainOUP.xaml.cs">
       <DependentUpon>MainOUP.xaml</DependentUpon>
     </Compile>

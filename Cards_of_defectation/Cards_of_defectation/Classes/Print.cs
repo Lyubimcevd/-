@@ -47,8 +47,8 @@ namespace Cards_of_defectation.Classes
         }
         void ExpandTree(TreeViewModal Modal, int koef)
         {
-            range.Text += new string('\t', koef) + Modal.Header;
-            foreach (TreeViewModal child in Modal.Children) ExpandTree(child, koef + 1);
+            //range.Text += new string('\t', koef) + Modal;
+            //foreach (TreeViewModal child in Modal.Children) ExpandTree(child, koef + 1);
         }
         public void PrintDocument(RowDefectViewModal header,ObservableCollection<RowDefectViewModal> Rows)
         {

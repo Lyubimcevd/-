@@ -101,6 +101,7 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
+                if (parent_row.Izgotov == 0) parent_row.Izgotov = 1;
                 return Server.InitServer().DataBase("cvodka")
                         .ExecuteCommand("select Ltrim(rtrim(zakazchi_naim)) from"
                          + " zakazchi_naim where id = " + parent_row.Izgotov)[0].ToString();

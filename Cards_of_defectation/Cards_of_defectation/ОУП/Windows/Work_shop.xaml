@@ -5,8 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cards_of_defectation.ОУП.Windows"
         mc:Ignorable="d"
-        Title="Список цехов" Height="300" Width="300">
+        Title="Список цехов" 
+        Height="300" 
+        Width="300"
+        ResizeMode="NoResize">
     <Grid>
-        <DataGrid x:Name="dataGrid" ColumnWidth="*" IsReadOnly="True" HeadersVisibility="Column" MouseLeftButtonDown="dataGrid_MouseLeftButtonDown" FontSize="14"/>
+        <DataGrid x:Name="dataGrid"                   
+                  HeadersVisibility="Column" 
+                  MouseLeftButtonDown="dataGrid_MouseLeftButtonDown" 
+                  FontSize="14" 
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Nom_ceh}"
+                                    Width="1*"
+                                    Header="Цех">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Kart}"
+                                    Width="1*"
+                                    Header="Карт на дефектации Всего/Выполнено">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock TextWrapping="Wrap" Text="Количество карт Всего/Выполнено"/>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

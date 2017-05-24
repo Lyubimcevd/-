@@ -23,10 +23,10 @@ namespace Cards_of_defectation
         {
             if (Environment.UserName[0] != 'c')
             {
-                //MainWindowOTGO MWOT = new MainWindowOTGO();
-                //MWOT.Show();
-                MainOUP MOUP = new MainOUP();
-                MOUP.Show();
+                MainWindowOTGO MWOT = new MainWindowOTGO();
+                MWOT.Show();
+                //MainOUP MOUP = new MainOUP();
+                //MOUP.Show();
             }
             else
             {

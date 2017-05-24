@@ -38,12 +38,12 @@ namespace Cards_of_defectation.ОТГО.Windows
                 DT.Rows.Add(New_row);
                 Server.InitServer().DataBase("uit").Table("select * from rz_naim_cherch").UpdateServerData(DT);
 
-                DT = Server.InitServer().DataBase("uit").Table("select * from rz_nom_zak_naim").LoadTableFromServer();
+                DT = Server.InitServer().DataBase("uit").Table("select * from rz_ser_nom_naim").LoadTableFromServer();
                 New_row = DT.NewRow();
                 New_row[0] = textbox.Text;
                 New_row[1] = tmp.Naim;
                 DT.Rows.Add(New_row);
-                Server.InitServer().DataBase("uit").Table("select * from rz_nom_zak_naim").UpdateServerData(DT);
+                Server.InitServer().DataBase("uit").Table("select * from rz_ser_nom_naim").UpdateServerData(DT);
 
                 SlugebZapiska FL = new SlugebZapiska(tmp.Nom_sz,textbox.Text);
                 FL.Show();

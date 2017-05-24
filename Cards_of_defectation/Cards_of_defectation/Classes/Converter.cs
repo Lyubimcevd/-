@@ -18,7 +18,7 @@ namespace Cards_of_defectation.Classes
                 if (Rows.Find(x => x.Nom_sz == row["nom_sz"].ToString()) == null) row.Delete();
             foreach (Row_in_plan_rabot row in Rows)
             {
-                DataRow[] tmp = DT.Select("nom_sz =" + row.Nom_sz.ToString());
+                DataRow[] tmp = DT.Select("nom_sz = '" + row.Nom_sz + "'");
                 if (tmp.Length != 0) FillRowInTable(row, tmp.First());
                 else
                 {
@@ -127,7 +127,7 @@ namespace Cards_of_defectation.Classes
             if (DR[5] != DBNull.Value) row.Naim = DR[5].ToString();
             row.Kolvo = float.Parse(DR[6].ToString());
             if (DR[7] != DBNull.Value) row.Nom_ceh = Convert.ToInt32(DR[7]);
-            row.Nom_kart = Convert.ToInt32(DR[8]);
+            if (DR[8] != DBNull.Value) row.Nom_kart = Convert.ToInt32(DR[8]);
             if (DR[9] != DBNull.Value) row.Opis_def = Convert.ToInt32(DR[9]);
             if (DR[10] != DBNull.Value) row.Opis_def_komment = DR[10].ToString();
             if (DR[11] != DBNull.Value) row.Prich = Convert.ToInt32(DR[11]);

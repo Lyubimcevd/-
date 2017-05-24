@@ -66,14 +66,15 @@ namespace Cards_of_defectation.ViewModal
                 return parent_row.Id;
             }
         }
-        public int Prior
+        public string Prior
         {
             get
             {
-                List<object> tmp = Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select prior from rz_nom_zak_prior where nom_zak = " + Nom_zak);
-                if (tmp.Count != 0) return Convert.ToInt32(tmp[0]);
-                else return 0;
+
+                List<object> tmp = Server.InitServer().DataBase("cvodka")
+                        .ExecuteCommand("select pr from nazpr where zakspis = '" + Nom_zak +"'");
+                if (tmp.Count != 0) return tmp[0].ToString();
+                else return null;
             }
         }
         public int Nom_zak
@@ -81,7 +82,7 @@ namespace Cards_of_defectation.ViewModal
             get
             {
                 return Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select nom_zak from rz_plan_rabot where nom_sz =" + Nom_sz)[0]);
+                    .ExecuteCommand("select nom_zak from rz_plan_rabot where nom_sz ='" + Nom_sz +"'")[0]);
             }
         }
 
