@@ -10,6 +10,7 @@ using System.Windows.Data;
 using NLog;
 using Cards_of_defectation.ОУП.ViewModal;
 using Cards_of_defectation.Windows;
+using Cards_of_defectation.ОУП.Windows;
 
 namespace Cards_of_defectation.ОУП.Windows
 {
@@ -82,8 +83,17 @@ namespace Cards_of_defectation.ОУП.Windows
                         WS.Show();
                         break;
                     case "Служебная записка":
-                        SlugebZapiska FL = new SlugebZapiska(Nom_sz);
-                        FL.Show();
+                        if (Nom_sz == (main_table.SelectedItem as RowPlanViewModal).Ser_nom)
+                        {
+                            CreateWindowNumberSZ_OUP Nom_sz_enter = new CreateWindowNumberSZ_OUP();
+                            Nom_sz_enter.ShowDialog();
+                            Nom_sz = Nom_sz_enter.Return_nom_sz();
+                        }
+                        if (Nom_sz != null)
+                        {
+                            SlugebZapiska FL = new SlugebZapiska(Nom_sz);
+                            FL.Show();
+                        }
                         break;
                 }           
             }
@@ -158,16 +168,16 @@ namespace Cards_of_defectation.ОУП.Windows
         {
             Log.Init.Info("Запрос нового индекса в rz_kart_defect");
             if (Server.InitServer().DataBase("uit")
-                .ExecuteCommand("select * from rz_kart_defect where nom_sz = " + Nom_sz).Count == 0)
+                .ExecuteCommand("select * from rz_kart_defect where nom_sz = '" + Nom_sz+"'").Count == 0)
             {
                 List<Row_in_kart_defect> save_list = new List<Row_in_kart_defect>();
                 save_list.Add(new Row_in_kart_defect(Nom_sz));
                 Server.InitServer().DataBase("uit")
-                    .Table("select * from rz_kart_defect where nom_sz = " + Nom_sz)
+                    .Table("select * from rz_kart_defect where nom_sz = '" + Nom_sz+"'")
                     .UpdateServerData(save_list);
             }
             int result = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                        .ExecuteCommand("select id from rz_kart_defect where nom_sz = " + Nom_sz + " and par is NULL")[0]);
+                        .ExecuteCommand("select id from rz_kart_defect where nom_sz = '" + Nom_sz + "' and par is NULL")[0]);
             Log.Init.Info("Возвращён индекс "+result);
             return result;
         }

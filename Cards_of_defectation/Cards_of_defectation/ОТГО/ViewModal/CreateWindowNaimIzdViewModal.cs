@@ -9,13 +9,24 @@ namespace Cards_of_defectation.ОТГО.ViewModal
 {
     class CreateWindowNaimViewModal: INotifyPropertyChanged
     {
-        string text_for_filter_naim;
+        string text_for_filter_naim,select_item;
         List<object> naim_list;
         int current_length_of_naim_filter;
         bool is_drop_down_naim;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string SelectItem
+        {
+            get
+            {
+                return select_item;
+            }
+            set
+            {
+                select_item = value;
+            }
+        }
         public List<object> Naim_list
         {
             get
@@ -35,11 +46,11 @@ namespace Cards_of_defectation.ОТГО.ViewModal
                 return text_for_filter_naim;
             }
             set
-            {
+            {              
                 text_for_filter_naim = value;
                 if (Naim_list?.Count != 0 || current_length_of_naim_filter > text_for_filter_naim.Length || Naim_list == null)
                     Naim_list = Server.InitServer().DataBase("cvodka")
-                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where ltrim(naim) like '%"
+                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%"
                                         + text_for_filter_naim + "%'");
                 IsDropDownNaim = true;
                 current_length_of_naim_filter = text_for_filter_naim.Length;

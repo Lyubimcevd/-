@@ -164,14 +164,14 @@ namespace Cards_of_defectation.ViewModal
                 return text_for_filter_naim;
             }
             set
-            {                
+            {
                 text_for_filter_naim = value;
                 if (Naim_list?.Count != 0 || current_length_of_naim_filter > text_for_filter_naim.Length || Naim_list == null)
                     Naim_list = Server.InitServer().DataBase("cvodka")
-                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where ltrim(naim) like '%"
+                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%"
                                         + text_for_filter_naim + "%'");
                 IsDropDownNaim = true;
-                current_length_of_naim_filter = text_for_filter_naim.Length;                
+                current_length_of_naim_filter = text_for_filter_naim.Length;
             }
         }
         public bool IsDropDownCherch

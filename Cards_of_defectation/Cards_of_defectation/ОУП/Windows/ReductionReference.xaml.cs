@@ -52,14 +52,17 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void dataGrid1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Log.Init.Info("Загрузка таблицы "+ (e.OriginalSource as TextBlock).Text);
-            table_name = Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select table_naim from rz_spravochniki where naim = '"
-                    + (e.OriginalSource as TextBlock).Text + "'")[0].ToString();
-            dataGrid.ItemsSource = Server.InitServer().DataBase("uit").Table("select * from " + table_name)
-                .LoadTableFromServer().DefaultView;
-            Log.Init.Info("загружено");
-            Save_item.IsEnabled = true;
+            if (e.OriginalSource is TextBlock)
+            {
+                Log.Init.Info("Загрузка таблицы " + (e.OriginalSource as TextBlock).Text);
+                table_name = Server.InitServer().DataBase("uit")
+                        .ExecuteCommand("select table_naim from rz_spravochniki where naim = '"
+                        + (e.OriginalSource as TextBlock).Text + "'")[0].ToString();
+                dataGrid.ItemsSource = Server.InitServer().DataBase("uit").Table("select * from " + table_name)
+                    .LoadTableFromServer().DefaultView;
+                Log.Init.Info("загружено");
+                Save_item.IsEnabled = true;
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

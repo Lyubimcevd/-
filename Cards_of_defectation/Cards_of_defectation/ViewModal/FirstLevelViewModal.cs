@@ -27,8 +27,8 @@ namespace Cards_of_defectation.ViewModal
 
         public SlugebZapiskaViewModal(string pnom_sz)
         {
-            save_row = (Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = " 
-                + pnom_sz).LoadFromServer() as List<Row_in_plan_rabot>)[0];
+            save_row = (Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = '" 
+                + pnom_sz+"'").LoadFromServer() as List<Row_in_plan_rabot>)[0];
             id = MainOUP.GetIndexOfKartDefect(pnom_sz);
             text_for_filter_ser_nom = save_row.Ser_nom;
             text_for_filter_kontract = save_row.Nom_kont;
@@ -244,6 +244,10 @@ namespace Cards_of_defectation.ViewModal
                         .ExecuteCommand("select nom_sz from rz_plan_rabot")[0].ToString();
                 return save_row.Nom_sz;
             }
+            set
+            {
+                save_row.Nom_sz = value;
+            }
         }
         public bool IsChange
         {
@@ -318,7 +322,8 @@ namespace Cards_of_defectation.ViewModal
         }
 
         public List<Row_in_kart_defect> SaveInKartDefect()
-        {  
+        {
+            id = MainOUP.GetIndexOfKartDefect(save_row.Nom_sz);
             List<Row_in_kart_defect> result = new List<Row_in_kart_defect>();
             foreach (SlugebZapiskaIzgotViewModal row in izgot)
             {
@@ -378,7 +383,6 @@ namespace Cards_of_defectation.ViewModal
             {
                 List<Row_in_plan_rabot> result = new List<Row_in_plan_rabot>();
                 result.Add(save_row);
-                id = MainOUP.GetIndexOfKartDefect(save_row.Nom_sz);
                 return result;
             }
             else

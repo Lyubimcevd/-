@@ -305,7 +305,7 @@ namespace Cards_of_defectation.ViewModal
             {              
                 if (parent != null) return parent.Nom_zak;
                 else return Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select nom_zak from rz_plan_rabot where Nom_sz =" + Nom_sz)[0]);
+                    .ExecuteCommand("select nom_zak from rz_plan_rabot where Nom_sz = '" + Nom_sz+"'")[0]);
             }
         }
         public string Prior
@@ -325,7 +325,7 @@ namespace Cards_of_defectation.ViewModal
                 string ser_nom_izd;
                 if (parent != null) ser_nom_izd = parent.Ser_nom;
                 else ser_nom_izd = Server.InitServer().DataBase("uit")
-                        .ExecuteCommand("select ser_nom from rz_plan_rabot where nom_sz =" + Nom_sz)[0].ToString();
+                        .ExecuteCommand("select ser_nom from rz_plan_rabot where nom_sz = '" + Nom_sz+"'")[0].ToString();
                 return ser_nom_izd;
             }
         }

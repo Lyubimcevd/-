@@ -27,8 +27,8 @@ namespace Cards_of_defectation.ОУП.Windows
             InitializeComponent();
             Log.Init.Info("Загрузка данных");
             List<object> tmp = Server.InitServer().DataBase("uit")
-                .ExecuteCommand("select nom_ceh from rz_kart_defect where nom_ceh is not null and nom_sz = " + nom_sz 
-                +" group by nom_ceh");
+                .ExecuteCommand("select nom_ceh from rz_kart_defect where nom_ceh is not null and nom_sz = '" + nom_sz 
+                +"' group by nom_ceh");
             List<WorkShopViewModal> Rows = new List<WorkShopViewModal>();
             foreach (object nom_ceh in tmp) Rows.Add(new WorkShopViewModal(Convert.ToInt32(nom_ceh),nom_sz));
             Log.Init.Info("Загружено");

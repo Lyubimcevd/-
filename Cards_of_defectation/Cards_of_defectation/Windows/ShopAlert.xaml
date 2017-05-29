@@ -26,7 +26,8 @@
     </Window.Resources>
     <Grid>
         <DataGrid Name="main_grid" 
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding}">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" 

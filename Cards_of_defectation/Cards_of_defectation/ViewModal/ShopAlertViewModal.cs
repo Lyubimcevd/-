@@ -17,7 +17,7 @@ namespace Cards_of_defectation.ViewModal
         public ShopAlertViewModal(Row_in_kart_defect row)
         {
             parent_row = row;
-            color = "White";
+            color = "white";
         }
         public string Nom_sz
         {

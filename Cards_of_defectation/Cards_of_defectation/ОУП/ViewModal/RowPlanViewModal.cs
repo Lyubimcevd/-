@@ -104,11 +104,11 @@ namespace Cards_of_defectation.ОУП.ViewModal
                 {
                     Log.Init.Info("Формирование всего/выполнено в плане");
                     result = Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = "
-                    + Nom_sz + " group by nom_sz")[0].ToString() + " / ";
+                        .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = '"
+                        + Nom_sz + "' group by nom_sz")[0].ToString() + " / ";
                     List<object> tmp = Server.InitServer().DataBase("uit")
-                        .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = "
-                        + Nom_sz + " and data_def is not null group by nom_sz");
+                        .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = '"
+                        + Nom_sz + "' and data_def is not null group by nom_sz");
                     if (tmp.Count == 0) result += "0";
                     else result += tmp[0].ToString();
                 }

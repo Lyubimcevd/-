@@ -35,6 +35,7 @@
                   MouseLeftButtonUp="listBox_MouseLeftButtonUp" 
                   HeadersVisibility="None"
                   IsReadOnly="True"
-                  ColumnWidth="*"/>
+                  ColumnWidth="*"
+                  CanUserAddRows="False"/>
     </Grid>
 </Window>

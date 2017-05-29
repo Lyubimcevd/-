@@ -23,6 +23,7 @@
                   TextBoxBase.TextChanged="ComboBox_TextChanged"
                   Grid.Column="1" 
                   PreviewKeyDown="ComboBox_PreviewKeyDown"
-                  Name="combo_box"/>
+                  Name="combo_box"
+                  SelectedItem="{Binding SelectItem}"/>
     </Grid>
 </Window>

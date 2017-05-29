@@ -23,7 +23,7 @@
         <TextBlock Text="Номер служебной записки: 137/" FontSize="14"/>
         <ComboBox IsEditable="True"
                   IsDropDownOpen="{Binding IsDropDownNomZay}"
-                  Text="{Binding Text_for_filter_Nom_sz,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
+                  Text="{Binding Text_for_filter_nom_sz,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                                                    
                   ItemsSource="{Binding Nom_sz_list}"                                                   
                   IsTextSearchEnabled="False"
                   TextBoxBase.TextChanged="ComboBox_TextChanged"

@@ -16,7 +16,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <PublishUrl>D:\Почта\План ремонта\</PublishUrl>
+    <PublishUrl>F:\NORMAW\NORMEXE\План ремонта\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -27,8 +27,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>49</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -151,6 +151,9 @@
       <DependentUpon>SearchWindowSZ.xaml</DependentUpon>
     </Compile>
     <Compile Include="ОУП\ViewModal\WorkShopViewModal.cs" />
+    <Compile Include="ОУП\Windows\CreateWindowNumberSZ_OUP.xaml.cs">
+      <DependentUpon>CreateWindowNumberSZ_OUP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ОУП\Windows\MainOUP.xaml.cs">
       <DependentUpon>MainOUP.xaml</DependentUpon>
     </Compile>
@@ -229,6 +232,10 @@
     <Page Include="ОТГО\Windows\SearchWindowSZ.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОУП\Windows\CreateWindowNumberSZ_OUP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ОУП\Windows\MainOUP.xaml">
       <SubType>Designer</SubType>

@@ -175,6 +175,20 @@ namespace Cards_of_defectation.Classes
         public void UpdateServerData(List<Row_in_plan_rabot> Rows)
         {
             Converter.ListToTable(Rows, DT);
+            LoadTableOnServer();
+        }
+        public void UpdateServerData(List<Row_in_kart_defect> Rows)
+        {
+            Converter.ListToTable(Rows, DT);
+            LoadTableOnServer();
+        }
+        public void UpdateServerData(DataTable pDT)
+        {
+            DT = pDT;
+            LoadTableOnServer();
+        }
+        void LoadTableOnServer()
+        {
             Log.Init.Info("Update таблицы " + DT.TableName);
             try
             {
@@ -182,20 +196,11 @@ namespace Cards_of_defectation.Classes
             }
             catch (Exception e)
             {
-                Log.Init.Fatal("Ошибка блока UpdateServerData. Ошибка: "+e.Message);
-                MessageBox.Show("Не удалось сохранить строку");
+                Log.Init.Fatal("Ошибка блока LoadTableOnServer. Ошибка: " + e.Message);
+                MessageBox.Show("Не удалось сохранить данные на сервер. Ошибка: "+e.Message);
                 Environment.Exit(0);
             }
             Log.Init.Info("Update успешно");
-        }
-        public void UpdateServerData(List<Row_in_kart_defect> Rows)
-        {
-            Converter.ListToTable(Rows, DT);
-            DA.Update(DT);
-        }
-        public void UpdateServerData(DataTable pDT)
-        {
-            DA.Update(pDT);
         }
         public object LoadFromServer()
         {

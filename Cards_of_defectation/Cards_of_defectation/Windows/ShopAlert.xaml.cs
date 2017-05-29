@@ -52,20 +52,24 @@ namespace Cards_of_defectation.Windows
         public void UpdateRow()
         {
             Rows = Converter.ToViewModalShop(Server.InitServer().DataBase("uit")
-                .Table("select * from rz_kart_defect where nom_ceh = '" + nom_ceh + "' and spos_ustr = 1").LoadFromServerReverse());
-            if (Rows.Count > current_kolvo && current_kolvo != 0)
+               .Table("select * from rz_kart_defect where nom_ceh = '" + nom_ceh + "' and spos_ustr = 1 order by data_post").LoadFromServerReverse());
+            if (Rows.Count != current_kolvo)
             {
-                NI.ShowBalloonTip(30000, "Оповещение", "Получена новая карта на дефектацию", ToolTipIcon.Info);
-                for (int i = 0; i < Rows.Count - current_kolvo; i++) Rows[i].Color = "GreenYellow";
+                if (Rows.Count > current_kolvo&&current_kolvo!=0)
+                {
+                    NI.ShowBalloonTip(30000, "Оповещение", "Получена новая карта на дефектацию", ToolTipIcon.Info);
+                    for (int i = 0; i < Rows.Count - current_kolvo; i++) Rows[i].Color = "GreenYellow";
+                }
+                current_kolvo = Rows.Count;
+                main_grid.ItemsSource = Rows;
             }
-            current_kolvo = Rows.Count;
-            main_grid.ItemsSource = Rows;
         }
 
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
             {
+                (main_grid.SelectedItem as ShopAlertViewModal).Color = "White";
                 Defect_map DM = new Defect_map((main_grid.SelectedItem as ShopAlertViewModal).Id);
                 DM.ShowDialog();
             }

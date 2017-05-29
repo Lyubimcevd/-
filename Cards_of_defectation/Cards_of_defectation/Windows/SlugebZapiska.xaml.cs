@@ -14,6 +14,7 @@ using System.Data;
 using Cards_of_defectation.Classes;
 using System.Collections.ObjectModel;
 using Cards_of_defectation.ViewModal;
+using Cards_of_defectation.ОУП.Windows;
 
 namespace Cards_of_defectation.Windows
 {
@@ -55,7 +56,7 @@ namespace Cards_of_defectation.Windows
         {
             if (SZVM.SaveInPlanRabot() != null)
             {
-                Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = " + SZVM.Nom_sz)
+                Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = '" + SZVM.Nom_sz+"'")
                     .UpdateServerData(SZVM.SaveInPlanRabot());
             }
             Server.InitServer().DataBase("uit").Table("select * from rz_kart_defect where par = " + SZVM.Id)
