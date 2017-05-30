@@ -12,14 +12,43 @@
         Closing="Window_Closing" 
         Width="583">
     <Window.Resources>
-        <ContextMenu x:Key="Context_menu">
+        <ContextMenu x:Key="Context_menu_OUP">
             <MenuItem Header="Дерево дефектации" 
                               Click="MenuItem_Click"/>
             <MenuItem Header="Отметить как срочный" 
-                              Click="MenuItem_Click_1"/>
+                              Click="MenuItem_Click_1">
+                <MenuItem.Resources>
+                    <Style TargetType="MenuItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsFaster}" Value="True">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsFaster}" Value="False">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
             <MenuItem Header="Снять отметку срочности" 
-                              Click="MenuItem_Click_2" 
-                              IsEnabled="False"/>
+                              Click="MenuItem_Click_2">
+                <MenuItem.Resources>
+                    <Style TargetType="MenuItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsFaster}" Value="True">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsFaster}" Value="False">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </MenuItem.Resources>
+            </MenuItem>
+        </ContextMenu>
+        <ContextMenu x:Key="Context_menu_shop">
+            <MenuItem Header="Дерево дефектации" 
+                              Click="MenuItem_Click"/>
         </ContextMenu>
         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
                         Color="Aquamarine"/>
@@ -32,8 +61,14 @@
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" 
                                  Handler="Row_DoubleClick"/>
-                    <Setter Property="ContextMenu" 
-                            Value="{StaticResource ResourceKey=Context_menu}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsCeh}" Value="True">
+                            <Setter Property="ContextMenu" Value="{StaticResource Context_menu_shop}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsCeh}" Value="False">
+                            <Setter Property="ContextMenu" Value="{StaticResource Context_menu_OUP}" />
+                        </DataTrigger>
+                    </Style.Triggers>
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>

@@ -37,7 +37,7 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void dataGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ShopAlert SA = new ShopAlert(((sender as DataGrid).SelectedItem as WorkShopViewModal).Nom_ceh,false);
+            ShopAlert SA = new ShopAlert(((sender as DataGrid).SelectedItem as WorkShopViewModal).Nom_ceh);
             SA.Show();
         }
     }

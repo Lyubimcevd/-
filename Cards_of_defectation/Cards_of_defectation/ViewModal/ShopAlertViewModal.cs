@@ -51,7 +51,8 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return color;
+                if (IsFaster) return "Red";
+                else return color;
             }
             set
             {
@@ -82,6 +83,20 @@ namespace Cards_of_defectation.ViewModal
             {
                 return Convert.ToInt32(Server.InitServer().DataBase("uit")
                     .ExecuteCommand("select nom_zak from rz_plan_rabot where nom_sz ='" + Nom_sz +"'")[0]);
+            }
+        }
+        public bool IsCeh
+        {
+            get
+            {
+                return Authorization.Get.IsCeh;
+            }
+        }
+        public bool IsFaster
+        {
+            get
+            {
+               return parent_row.IsFaster;
             }
         }
 

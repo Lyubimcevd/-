@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="Дерево дефектации" 
         Height="378" 
-        Width="449" 
-        Closed="Window_Closed">
+        Width="449">
     <Window.Resources>
         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
                         Color="Aquamarine"/>

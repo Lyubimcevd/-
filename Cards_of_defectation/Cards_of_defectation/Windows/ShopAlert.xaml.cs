@@ -16,13 +16,12 @@ namespace Cards_of_defectation.Windows
     {
         ObservableCollection<ShopAlertViewModal> Rows;
         int current_kolvo,nom_ceh;
-        bool is_ceh;
+        bool realy_close;
         NotifyIcon NI;
 
-        public ShopAlert(string Nom_ceh, bool IsCeh)
+        public ShopAlert(string Nom_ceh)
         {
-            is_ceh = IsCeh;
-            if (is_ceh)
+            if (Authorization.Get.IsCeh)
             {
                 NI = new NotifyIcon();
                 NI.Icon = Cards_of_defectation.Properties.Resources.advancedsettings_5685;
@@ -37,6 +36,7 @@ namespace Cards_of_defectation.Windows
             InitializeComponent();          
             UpdateRow();
             Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
+            realy_close = !Authorization.Get.IsCeh;
         }
 
         void Click_by_Icon(object sender, EventArgs e)
@@ -45,24 +45,25 @@ namespace Cards_of_defectation.Windows
         }
         void Click_for_exit(object sender, EventArgs e)
         {
-            is_ceh = false;
+            realy_close = true;
             this.Close();
         }
 
         public void UpdateRow()
         {
             Rows = Converter.ToViewModalShop(Server.InitServer().DataBase("uit")
-               .Table("select * from rz_kart_defect where nom_ceh = '" + nom_ceh + "' and spos_ustr = 1 order by data_post").LoadFromServerReverse());
+               .Table("select * from rz_kart_defect where nom_ceh = '" 
+               + nom_ceh + "' and spos_ustr = 1 order by data_post").LoadFromServerForShopAlert());
             if (Rows.Count != current_kolvo)
             {
-                if (Rows.Count > current_kolvo&&current_kolvo!=0)
+                if (Rows.Count > current_kolvo && current_kolvo != 0)
                 {
                     NI.ShowBalloonTip(30000, "Оповещение", "Получена новая карта на дефектацию", ToolTipIcon.Info);
                     for (int i = 0; i < Rows.Count - current_kolvo; i++) Rows[i].Color = "GreenYellow";
                 }
                 current_kolvo = Rows.Count;
-                main_grid.ItemsSource = Rows;
             }
+            main_grid.ItemsSource = Rows;
         }
 
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
@@ -77,37 +78,31 @@ namespace Cards_of_defectation.Windows
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Tree_defect TD = new Tree_defect((main_grid.SelectedItem as ShopAlertViewModal).Nom_sz,is_ceh);
+            Tree_defect TD = new Tree_defect((main_grid.SelectedItem as ShopAlertViewModal).Nom_sz);
             TD.Show();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            if (!is_ceh)
+            if (main_grid.SelectedItem != null)
             {
-                (main_grid.SelectedItem as ShopAlertViewModal).Color = "Red";
-                ShopAlertViewModal tmp = main_grid.SelectedItem as ShopAlertViewModal;
-                Rows.Remove(main_grid.SelectedItem as ShopAlertViewModal);
-                Rows.Insert(0, tmp);
-                (((sender as System.Windows.Controls.MenuItem).Parent as System.Windows.Controls.ContextMenu)
-                    .Items[2] as System.Windows.Controls.MenuItem).IsEnabled = true;
-            }
-            (((sender as System.Windows.Controls.MenuItem).Parent as System.Windows.Controls.ContextMenu)
-                    .Items[1] as System.Windows.Controls.MenuItem).IsEnabled = false;
+                Server.InitServer().DataBase("uit").ExecuteCommand("update rz_kart_defect set is_faster = 1 where id = "
+                + (main_grid.SelectedItem as ShopAlertViewModal).Id);
+            }     
         }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-            (main_grid.SelectedItem as ShopAlertViewModal).Color = "White";
-            (((sender as System.Windows.Controls.MenuItem).Parent as System.Windows.Controls.ContextMenu)
-               .Items[1] as System.Windows.Controls.MenuItem).IsEnabled = true;
-            (((sender as System.Windows.Controls.MenuItem).Parent as System.Windows.Controls.ContextMenu)
-                .Items[2] as System.Windows.Controls.MenuItem).IsEnabled = false;
+            if (main_grid.SelectedItem != null)
+            {
+                Server.InitServer().DataBase("uit").ExecuteCommand("update rz_kart_defect set is_faster = 0 where id = "
+                + (main_grid.SelectedItem as ShopAlertViewModal).Id);
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (is_ceh)
+            if (realy_close)
             {
                 e.Cancel = true;
                 this.Hide();

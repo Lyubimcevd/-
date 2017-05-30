@@ -44,24 +44,24 @@ namespace Cards_of_defectation.Classes
         }
         static DataRow FillRowInTable(Row_in_plan_rabot row, DataRow DR)
         {
-            DR[0] = row.Nom_sz;
-            if (row.Ser_nom!= null) DR[1] = row.Ser_nom;
-            if (row.Voin_chast != null) DR[2] = row.Voin_chast;
-            if (row.Nom_zak != null) DR[3] = row.Nom_zak;
-            if (row.Srok_rem != null) DR[4] = row.Srok_rem;
-            if (row.Nom_kont != null) DR[5] = row.Nom_kont;
-            if (row.Prim != null) DR[6] = row.Prim;          
+            DR["nom_sz"] = row.Nom_sz;
+            if (row.Ser_nom!= null) DR["ser_nom"] = row.Ser_nom;
+            if (row.Voin_chast != null) DR["voin_chast"] = row.Voin_chast;
+            if (row.Nom_zak != null) DR["nom_zak"] = row.Nom_zak;
+            if (row.Srok_rem != null) DR["srok_rem"] = row.Srok_rem;
+            if (row.Nom_kont != null) DR["nom_kont"] = row.Nom_kont;
+            if (row.Prim != null) DR["prim"] = row.Prim;          
             return DR;
         }
         static Row_in_plan_rabot FillRowFromTable(DataRow DR, Row_in_plan_rabot row)
         {
-            row.Nom_sz = DR[0].ToString();
-            if (DR[1] != DBNull.Value) row.Ser_nom = DR[1].ToString();
-            if (DR[2] != DBNull.Value) row.Voin_chast = DR[2].ToString();
-            if (DR[3] != DBNull.Value) row.Nom_zak = DR[3].ToString();
-            if (DR[4] != DBNull.Value) row.Srok_rem = Convert.ToDateTime(DR[4]).ToShortDateString();
-            if (DR[5] != DBNull.Value) row.Nom_kont = DR[5].ToString();
-            if (DR[6] != DBNull.Value) row.Prim = DR[6].ToString();
+            row.Nom_sz = DR["nom_sz"].ToString();
+            if (DR["ser_nom"] != DBNull.Value) row.Ser_nom = DR["ser_nom"].ToString();
+            if (DR["voin_chast"] != DBNull.Value) row.Voin_chast = DR["voin_chast"].ToString();
+            if (DR["nom_zak"] != DBNull.Value) row.Nom_zak = DR["nom_zak"].ToString();
+            if (DR["srok_rem"] != DBNull.Value) row.Srok_rem = Convert.ToDateTime(DR["srok_rem"]).ToShortDateString();
+            if (DR["nom_kont"] != DBNull.Value) row.Nom_kont = DR["nom_kont"].ToString();
+            if (DR["prim"] != DBNull.Value) row.Prim = DR["prim"].ToString();
             return row;
         }
 
@@ -93,55 +93,56 @@ namespace Cards_of_defectation.Classes
 
         static DataRow FillRowInTable(Row_in_kart_defect row, DataRow DR)
         {
-            DR[0] = row.Id;
-            if (row.Par != 0) DR[1] = row.Par;
-            DR[2] = row.Nom_sz;
-            if (row.Cherch != null) DR[3] = row.Cherch;
-            if (row.N_nomer != null) DR[4] = row.N_nomer;
-            if (row.Naim != null) DR[5] = row.Naim;
-            DR[6] = row.Kolvo;
-            if (row.Nom_ceh != 0) DR[7] = row.Nom_ceh;
-            if (row.Opis_def != -1) DR[9] = row.Opis_def;
-            if (row.Opis_def_komment != null) DR[10] = row.Opis_def_komment;
-            if (row.Prich != -1) DR[11] = row.Prich;
-            if (row.Prich_komment != null) DR[12] = row.Prich_komment;
-            if (row.Met_opr != -1) DR[13] = row.Met_opr;
-            if (row.Met_opr_komment != null) DR[14] = row.Met_opr_komment;
-            if (row.Teh_treb != -1) DR[15] = row.Teh_treb;
-            if (row.Teh_treb_komment != null) DR[16] = row.Teh_treb_komment;
-            if (row.Spos_ustr!= -1) DR[17] = row.Spos_ustr;
-            if (row.Spos_ustr_komment != null) DR[18] = row.Spos_ustr_komment;                   
-            if (row.Data_post != null) DR[19] = Convert.ToDateTime(row.Data_post);
-            if (row.Data_def != null) DR[20] = Convert.ToDateTime(row.Data_def);
-            if (row.Izgotov != 0) DR[21] = row.Izgotov;
-            if (row.Prim != null) DR[22] = row.Prim;
+            DR["id"] = row.Id;
+            if (row.Par != 0) DR["par"] = row.Par;
+            DR["nom_sz"] = row.Nom_sz;
+            if (row.Cherch != null) DR["cherch"] = row.Cherch;
+            if (row.N_nomer != null) DR["n_nomer"] = row.N_nomer;
+            if (row.Naim != null) DR["naim"] = row.Naim;
+            DR["kolvo"] = row.Kolvo;
+            if (row.Nom_ceh != 0) DR["nom_ceh"] = row.Nom_ceh;
+            if (row.Opis_def != -1) DR["opis_def"] = row.Opis_def;
+            if (row.Opis_def_komment != null) DR["opis_def_komment"] = row.Opis_def_komment;
+            if (row.Prich != -1) DR["prich"] = row.Prich;
+            if (row.Prich_komment != null) DR["prich_komment"] = row.Prich_komment;
+            if (row.Met_opr != -1) DR["met_opr"] = row.Met_opr;
+            if (row.Met_opr_komment != null) DR["met_opr_komment"] = row.Met_opr_komment;
+            if (row.Teh_treb != -1) DR["teh_treb"] = row.Teh_treb;
+            if (row.Teh_treb_komment != null) DR["teh_treb_komment"] = row.Teh_treb_komment;
+            if (row.Spos_ustr!= -1) DR["spos_ustr"] = row.Spos_ustr;
+            if (row.Spos_ustr_komment != null) DR["spos_ustr_komment"] = row.Spos_ustr_komment;                   
+            if (row.Data_def != null) DR["data_def"] = Convert.ToDateTime(row.Data_def);
+            if (row.Izgotov != 0) DR["izgotov"] = row.Izgotov;
+            if (row.Prim != null) DR["prim"] = row.Prim;
+            DR["is_faster"] = row.IsFaster;
             return DR;
         }
         static Row_in_kart_defect FillRowFromTable(DataRow DR, Row_in_kart_defect row)
         {
-            row.Id = Convert.ToInt32(DR[0]);
-            if (DR[1] != DBNull.Value) row.Par = Convert.ToInt32(DR[1]);
-            row.Nom_sz = DR[2].ToString();
-            if (DR[3] != DBNull.Value) row.Cherch = DR[3].ToString();
-            if (DR[4] != DBNull.Value) row.N_nomer = DR[4].ToString();
-            if (DR[5] != DBNull.Value) row.Naim = DR[5].ToString();
-            row.Kolvo = float.Parse(DR[6].ToString());
-            if (DR[7] != DBNull.Value) row.Nom_ceh = Convert.ToInt32(DR[7]);
-            if (DR[8] != DBNull.Value) row.Nom_kart = Convert.ToInt32(DR[8]);
-            if (DR[9] != DBNull.Value) row.Opis_def = Convert.ToInt32(DR[9]);
-            if (DR[10] != DBNull.Value) row.Opis_def_komment = DR[10].ToString();
-            if (DR[11] != DBNull.Value) row.Prich = Convert.ToInt32(DR[11]);
-            if (DR[12] != DBNull.Value) row.Prich_komment = DR[12].ToString();
-            if (DR[13] != DBNull.Value) row.Met_opr = Convert.ToInt32(DR[13]);
-            if (DR[14] != DBNull.Value) row.Met_opr_komment = DR[14].ToString();
-            if (DR[15] != DBNull.Value) row.Teh_treb = Convert.ToInt32(DR[15]);
-            if (DR[16] != DBNull.Value) row.Teh_treb_komment = DR[16].ToString();
-            if (DR[17] != DBNull.Value) row.Spos_ustr = Convert.ToInt32(DR[17]);
-            if (DR[18] != DBNull.Value) row.Spos_ustr_komment = DR[18].ToString();
-            if (DR[19] != DBNull.Value) row.Data_post = DR[19].ToString().Substring(0,10);
-            if (DR[20] != DBNull.Value) row.Data_def = DR[20].ToString().Substring(0,10);
-            if (DR[21] != DBNull.Value) row.Izgotov = Convert.ToInt32(DR[21]);
-            if (DR[22] != DBNull.Value) row.Prim = DR[22].ToString();
+            row.Id = Convert.ToInt32(DR["id"]);
+            if (DR["par"] != DBNull.Value) row.Par = Convert.ToInt32(DR["par"]);
+            row.Nom_sz = DR["nom_sz"].ToString();
+            if (DR["cherch"] != DBNull.Value) row.Cherch = DR["cherch"].ToString();
+            if (DR["n_nomer"] != DBNull.Value) row.N_nomer = DR["n_nomer"].ToString();
+            if (DR["naim"] != DBNull.Value) row.Naim = DR["naim"].ToString();
+            row.Kolvo = float.Parse(DR["kolvo"].ToString());
+            if (DR["nom_ceh"] != DBNull.Value) row.Nom_ceh = Convert.ToInt32(DR["nom_ceh"]);
+            if (DR["nom_kart"] != DBNull.Value) row.Nom_kart = Convert.ToInt32(DR["nom_kart"]);
+            if (DR["opis_def"] != DBNull.Value) row.Opis_def = Convert.ToInt32(DR["opis_def"]);
+            if (DR["opis_def_komment"] != DBNull.Value) row.Opis_def_komment = DR["opis_def_komment"].ToString();
+            if (DR["prich"] != DBNull.Value) row.Prich = Convert.ToInt32(DR["prich"]);
+            if (DR["prich_komment"] != DBNull.Value) row.Prich_komment = DR["prich_komment"].ToString();
+            if (DR["met_opr"] != DBNull.Value) row.Met_opr = Convert.ToInt32(DR["met_opr"]);
+            if (DR["met_opr_komment"] != DBNull.Value) row.Met_opr_komment = DR["met_opr_komment"].ToString();
+            if (DR["teh_treb"] != DBNull.Value) row.Teh_treb = Convert.ToInt32(DR["teh_treb"]);
+            if (DR["teh_treb_komment"] != DBNull.Value) row.Teh_treb_komment = DR["teh_treb_komment"].ToString();
+            if (DR["spos_ustr"] != DBNull.Value) row.Spos_ustr = Convert.ToInt32(DR["spos_ustr"]);
+            if (DR["spos_ustr_komment"] != DBNull.Value) row.Spos_ustr_komment = DR["spos_ustr_komment"].ToString();
+            if (DR["data_post"] != DBNull.Value) row.Data_post = DR["data_post"].ToString().Substring(0,10);
+            if (DR["data_def"] != DBNull.Value) row.Data_def = DR["data_def"].ToString().Substring(0,10);
+            if (DR["izgotov"] != DBNull.Value) row.Izgotov = Convert.ToInt32(DR["izgotov"]);
+            if (DR["prim"] != DBNull.Value) row.Prim = DR["prim"].ToString();
+            row.IsFaster = Convert.ToBoolean(DR["is_faster"]);
             return row;
         }
 

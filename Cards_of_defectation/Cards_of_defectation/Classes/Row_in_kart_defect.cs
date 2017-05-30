@@ -11,6 +11,7 @@ namespace Cards_of_defectation.Classes
         int met_opr, opis_def, prich, spos_ustr, teh_treb, id, nom_kart, par, nom_ceh, izgotov;
         string cherch, met_opr_komment, opis_def_komment, prich_komment, spos_ustr_komment, teh_treb_komment,
             data_def, data_post, n_nomer, prim, naim, nom_sz;
+        bool is_faster;
         float kolvo;
         
         public Row_in_kart_defect() { }
@@ -299,6 +300,17 @@ namespace Cards_of_defectation.Classes
             set
             {
                 prim = value;
+            }
+        }
+        public bool IsFaster
+        {
+            get
+            {
+                return is_faster;
+            }
+            set
+            {
+                is_faster = value;
             }
         }
     }

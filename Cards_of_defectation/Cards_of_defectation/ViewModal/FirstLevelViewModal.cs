@@ -389,7 +389,7 @@ namespace Cards_of_defectation.ViewModal
             {
                 Server.InitServer().DataBase("uit")
                     .ExecuteCommand("update rz_plan_rabot set nom_sz = '" + save_row.Nom_sz
-                    + "' where nom_sz = '" + save_row.Ser_nom);
+                    + "' where nom_sz = '" + save_row.Ser_nom+"'");
                 return null;
             }
         }

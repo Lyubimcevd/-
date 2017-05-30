@@ -21,13 +21,11 @@ namespace Cards_of_defectation.Windows
     {
         int id;
         string Nom_sz;
-        bool is_ceh;
         ObservableCollection<TreeViewModal> Modal;
 
-        public Tree_defect(string pNom_sz, bool IsCeh)
+        public Tree_defect(string pNom_sz)
         {
             InitializeComponent();
-            is_ceh = IsCeh;
             Nom_sz = pNom_sz;
             id = MainOUP.GetIndexOfKartDefect(Nom_sz);
             Modal = new ObservableCollection<TreeViewModal>();
@@ -42,7 +40,6 @@ namespace Cards_of_defectation.Windows
         public void UpdateTree()
         {
             Modal[0] = LoadTreeFromServer(Modal[0].Id);
-
         }
 
         TreeViewModal LoadTreeFromServer(int pid)
@@ -69,7 +66,7 @@ namespace Cards_of_defectation.Windows
         }
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (!is_ceh)
+            if (!Authorization.Get.IsCeh)
             {
                 if (((sender as Grid).DataContext as TreeViewModal).Spos_ustr == "Дефектация")
                 {
@@ -82,11 +79,6 @@ namespace Cards_of_defectation.Windows
         private void Print_Execute(object sender, ExecutedRoutedEventArgs e)
         {
             Print.Init().PrintTree(Modal[0]);
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            Server.InitServer().DataBase("uit").DeleteStalker(this);
         }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)

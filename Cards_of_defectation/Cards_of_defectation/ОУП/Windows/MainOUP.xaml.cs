@@ -75,7 +75,7 @@ namespace Cards_of_defectation.ОУП.Windows
                 switch ((sender as MenuItem).Header as string)
                 {
                     case "Дерево дефектации":
-                        Tree_defect TD = new Tree_defect(Nom_sz, false);
+                        Tree_defect TD = new Tree_defect(Nom_sz);
                         TD.Show();
                         break;
                     case "Цеха":
@@ -129,7 +129,7 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void main_table_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Delete)
+            if (e.Key == Key.Delete&&e.OriginalSource is DataGridCell)
             {
                 if (MessageBox.Show("Подтвердите удаление", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {

@@ -43,6 +43,7 @@ namespace Cards_of_defectation.Classes
         ShopAlert SA;
         Tree_defect TD;
         MainOUP MOUP;
+        SqlDependency sqlDependencyForTree, sqlDependencyForShop, sqlDependencyForPlan;
 
         public Connection(string DataBaseName)
         {
@@ -109,39 +110,76 @@ namespace Cards_of_defectation.Classes
         {
             dis = pdis;
             SA = pSA;
-            Stalker();
+            StalkerForShop();
         }
         public void InitStalker(Dispatcher pdis, Tree_defect pTD)
         {
             dis = pdis;
             TD = pTD;
-            Stalker();
+            StalkerForTree();
         }
         public void InitStalker(Dispatcher pdis, MainOUP pMOUP)
         {
             dis = pdis;
             MOUP = pMOUP;
-            Stalker();
+            StalkerForPlan();
         }
-        void Stalker()
+        void StalkerForTree()
         {
-            using (var command = new SqlCommand("select a.id,a.nom_ceh,b.Nom_sz from dbo.rz_kart_defect as a, dbo.rz_plan_rabot as b", conn))
+            if (sqlDependencyForTree != null)
             {
-                var sqlDependency = new SqlDependency(command);
-                sqlDependency.OnChange += new OnChangeEventHandler(OnDatabaseChange);
+                sqlDependencyForTree.OnChange -= OnDatabaseChange_Id_and_nom_ceh;
+                sqlDependencyForTree = null;
+            }
+            using (var command = new SqlCommand("select id,nom_ceh from dbo.rz_kart_defect", conn))
+            {
+                sqlDependencyForTree = new SqlDependency(command);
+                sqlDependencyForTree.OnChange += new OnChangeEventHandler(OnDatabaseChange_Id_and_nom_ceh);
                 command.ExecuteReader();
             }
         }
-        void OnDatabaseChange(object sender, SqlNotificationEventArgs e)
+        void StalkerForShop()
+        {
+            if (sqlDependencyForShop != null)
+            {
+                sqlDependencyForShop.OnChange -= OnDatabaseChange_is_faster;
+                sqlDependencyForShop = null;
+            }           
+            using (var command = new SqlCommand("select is_faster from dbo.rz_kart_defect", conn))
+            {
+                sqlDependencyForShop = new SqlDependency(command);
+                sqlDependencyForShop.OnChange += new OnChangeEventHandler(OnDatabaseChange_is_faster);
+                command.ExecuteReader();
+            }
+        }
+        void StalkerForPlan()
+        {
+            if (sqlDependencyForPlan != null)
+            {
+                sqlDependencyForPlan.OnChange -= OnDatabaseChange_nom_sz;
+                sqlDependencyForPlan = null;
+            }
+            using (var command = new SqlCommand("select nom_sz from dbo.rz_plan_rabot", conn))
+            {
+                sqlDependencyForPlan = new SqlDependency(command);
+                sqlDependencyForPlan.OnChange += new OnChangeEventHandler(OnDatabaseChange_nom_sz);
+                command.ExecuteReader();
+            }
+        }
+        void OnDatabaseChange_Id_and_nom_ceh(object sender, SqlNotificationEventArgs e)
+        {
+            if (TD != null) dis.Invoke(new Action(TD.UpdateTree));
+            StalkerForTree();
+        }
+        void OnDatabaseChange_is_faster(object sender, SqlNotificationEventArgs e)
         {
             if (SA != null) dis.Invoke(new Action(SA.UpdateRow));
-            if (TD != null) dis.Invoke(new Action(TD.UpdateTree));
-            if (MOUP != null) dis.Invoke(new Action(MOUP.UpdateTable));
-            Stalker();
+            StalkerForShop();
         }
-        public void DeleteStalker(Tree_defect pTD)
+        void OnDatabaseChange_nom_sz(object sender, SqlNotificationEventArgs e)
         {
-            TD = null;
+            if (MOUP != null) dis.Invoke(new Action(MOUP.UpdateTable));
+            StalkerForPlan();
         }
     }
 
@@ -213,10 +251,16 @@ namespace Cards_of_defectation.Classes
                 return Converter.TableToList(DT) as List<Row_in_kart_defect>;              
             }        
         }
-        public List<Row_in_kart_defect> LoadFromServerReverse()
+        public List<Row_in_kart_defect> LoadFromServerForShopAlert()
         {
             List<Row_in_kart_defect> result = Converter.TableToList(DT) as List<Row_in_kart_defect>;
             result.Reverse();
+            for (int i = 0; i < result.Count; i++)
+                if (result[i].IsFaster)
+                {
+                    result.Insert(0, result[i]);
+                    result.RemoveAt(i + 1);
+                }
             return result;
         }
         public DataTable LoadTableFromServer()
