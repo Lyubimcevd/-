@@ -25,13 +25,13 @@ namespace Cards_of_defectation.ОУП.Windows
             InitializeComponent();
             Binding_Commands();
             UpdateTable();
-            Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
+            Server.GetServer.DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
         }
 
         public void UpdateTable()
         {
             Log.Init.Info("Загрузка таблицы rz_plan_rabot");
-            Rows = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+            Rows = Converter.ToViewModal(Server.GetServer.DataBase("uit")
                 .Table("select * from rz_plan_rabot").LoadFromServer() as List<Row_in_plan_rabot>);
             Log.Init.Info("Загру");
             main_table.ItemsSource = Rows;
@@ -57,7 +57,7 @@ namespace Cards_of_defectation.ОУП.Windows
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
             Log.Init.Info("Сохранение в rz_plan_rabot");
-            Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot")
+            Server.GetServer.DataBase("uit").Table("select * from rz_plan_rabot")
                 .UpdateServerData(Converter.ToSave(Rows));
             Log.Init.Info("Сохранено");
             MessageBox.Show("Сохранено");
@@ -66,11 +66,11 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot")
+            Server.GetServer.DataBase("uit").Table("select * from rz_plan_rabot")
                 .UpdateServerData(Converter.ToSave(Rows));
             IsSave = true;
             string Nom_sz = (main_table.SelectedItem as RowPlanViewModal).Nom_sz;
-            if (References.InitReferences().IsSerInReference((main_table.SelectedItem as RowPlanViewModal).Ser_nom))
+            if (References.GetReferences.IsSerInReference((main_table.SelectedItem as RowPlanViewModal).Ser_nom))
             {
                 switch ((sender as MenuItem).Header as string)
                 {
@@ -133,17 +133,17 @@ namespace Cards_of_defectation.ОУП.Windows
             {
                 if (MessageBox.Show("Подтвердите удаление", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    if (Server.InitServer().DataBase("uit").ExecuteCommand("select id from rz_kart_defect where nom_sz ='"
+                    if (Server.GetServer.DataBase("uit").ExecuteCommand("select id from rz_kart_defect where nom_sz ='"
                         + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz+"'").Count != 0)
                         if (MessageBox.Show("Для этой заявки есть карты дефектации. Они будут удалены вместе с заявкой."
                             + " Продолжить?", "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                         {
                             Log.Init.Info("Удаление из rz_kart_defect по номеру служебки "+ ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz);
-                            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_kart_defect where nom_sz='"
+                            Server.GetServer.DataBase("uit").ExecuteCommand("delete from rz_kart_defect where nom_sz='"
                                 + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz+"'");
                             Log.Init.Info("Удалено");
                             Log.Init.Info("Удаление из rz_plan_rabot по номеру служебки " + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz);
-                            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_plan_rabot where nom_sz='"
+                            Server.GetServer.DataBase("uit").ExecuteCommand("delete from rz_plan_rabot where nom_sz='"
                                 + ((sender as DataGrid).SelectedItem as RowPlanViewModal).Nom_sz+"'");
                             Log.Init.Info("Удалено");
                         }
@@ -167,16 +167,16 @@ namespace Cards_of_defectation.ОУП.Windows
         public static int GetIndexOfKartDefect(string Nom_sz)
         {
             Log.Init.Info("Запрос нового индекса в rz_kart_defect");
-            if (Server.InitServer().DataBase("uit")
+            if (Server.GetServer.DataBase("uit")
                 .ExecuteCommand("select * from rz_kart_defect where nom_sz = '" + Nom_sz+"'").Count == 0)
             {
                 List<Row_in_kart_defect> save_list = new List<Row_in_kart_defect>();
                 save_list.Add(new Row_in_kart_defect(Nom_sz));
-                Server.InitServer().DataBase("uit")
+                Server.GetServer.DataBase("uit")
                     .Table("select * from rz_kart_defect where nom_sz = '" + Nom_sz+"'")
                     .UpdateServerData(save_list);
             }
-            int result = Convert.ToInt32(Server.InitServer().DataBase("uit")
+            int result = Convert.ToInt32(Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select id from rz_kart_defect where nom_sz = '" + Nom_sz + "' and par is NULL")[0]);
             Log.Init.Info("Возвращён индекс "+result);
             return result;

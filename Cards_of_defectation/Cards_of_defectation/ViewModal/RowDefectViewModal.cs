@@ -11,7 +11,6 @@ namespace Cards_of_defectation.ViewModal
     {
         RowDefectViewModal parent;
         Row_in_kart_defect row;
-        List<string> ceh_list;
         string cherch_for_search;
         bool is_change;
 
@@ -73,7 +72,7 @@ namespace Cards_of_defectation.ViewModal
                 {
                     if (parent != null)
                     {
-                        List<object> tmp = Server.InitServer().DataBase("uit")
+                        List<object> tmp = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select ks from spkd1 where ltrim(rtrim(nc))='"
                         + row.Cherch + "' and ltrim(rtrim(nk))='" + parent.Cherch + "'");
                         if (tmp.Count!=0) row.Kolvo = Convert.ToInt32(tmp[0]);
@@ -112,7 +111,7 @@ namespace Cards_of_defectation.ViewModal
             get
             {
                 if (Spos_ustr == "Дефектация"&&Nom_ceh!=0)
-                    return References.InitReferences().Cehs[row.Nom_ceh - 1] + "/" + row.Nom_kart.ToString();
+                    return Ceh + "/" + row.Nom_kart.ToString();
                 else return null;
             }
         }
@@ -120,14 +119,12 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select opis_def from rz_opis_def where id = " + row.Opis_def)[0].ToString();
+                return References.GetReferences.GetNaim("rz_opis_def", row.Opis_def);
             }
 
             set
             {
-                row.Opis_def = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_opis_def where opis_def = '" + value+"'")[0]);
+                row.Opis_def = References.GetReferences.GetId("rz_opis_def", value);
                 is_change = true;
                 OnPropertyChanged("Opis_def");
             }
@@ -149,14 +146,12 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select prich from rz_prichina where id = " + row.Prich)[0].ToString();
+                return References.GetReferences.GetNaim("rz_prichina", row.Prich);
             }
 
             set
             {
-                row.Prich = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_prichina where prich = '" + value+"'")[0]);
+                row.Prich = References.GetReferences.GetId("rz_prichina", value);
                 is_change = true;
                 OnPropertyChanged("Prichina");
             }
@@ -178,14 +173,12 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select met_opr from rz_met_opred where id = " + row.Met_opr)[0].ToString();           
+                return References.GetReferences.GetNaim("rz_met_opr", row.Met_opr);      
             }
 
             set
             {
-                row.Met_opr = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_met_opred where met_opr = '" + value+"'")[0]);
+                row.Met_opr = References.GetReferences.GetId("rz_met_opr", value);
                 is_change = true;
                 OnPropertyChanged("Met_opr");
             }
@@ -207,14 +200,12 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select teh_treb from rz_teh_treb where id = " + row.Teh_treb)[0].ToString();
+                return References.GetReferences.GetNaim("rz_teh_treb", row.Teh_treb);
             }
 
             set
             {
-                row.Teh_treb = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_teh_treb where teh_treb = '" + value+"'")[0]);
+                row.Teh_treb = References.GetReferences.GetId("rz_teh_treb", value);
                 is_change = true;
                 OnPropertyChanged("Teh_treb");
             }
@@ -236,14 +227,12 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select spos_ustr from rz_spos_ustr where id = " + row.Spos_ustr)[0].ToString();
+                return References.GetReferences.GetNaim("rz_spos_ustr",row.Spos_ustr);
             }
 
             set
             {
-                row.Spos_ustr = Convert.ToInt32(Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select id from rz_spos_ustr where spos_ustr = '" + value+"'")[0]);
+                row.Spos_ustr = References.GetReferences.GetId("rz_spos_ustr", value);
                 is_change = true;
                 OnPropertyChanged("Spos_ustr");
             }
@@ -292,7 +281,7 @@ namespace Cards_of_defectation.ViewModal
             {
                 if (row.Naim == null)
                 {
-                    List<object> tmp = Server.InitServer().DataBase("cvodka")
+                    List<object> tmp = Server.GetServer.DataBase("cvodka")
                     .ExecuteCommand("select naim from naim where nom = '" + Cherch_for_search + "'");
                     if (tmp.Count != 0) row.Naim = tmp[0].ToString().TrimEnd();
                 }
@@ -304,7 +293,7 @@ namespace Cards_of_defectation.ViewModal
             get
             {              
                 if (parent != null) return parent.Nom_zak;
-                else return Convert.ToInt32(Server.InitServer().DataBase("uit")
+                else return Convert.ToInt32(Server.GetServer.DataBase("uit")
                     .ExecuteCommand("select nom_zak from rz_plan_rabot where Nom_sz = '" + Nom_sz+"'")[0]);
             }
         }
@@ -312,7 +301,7 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {                            
-                List<object> tmp = Server.InitServer().DataBase("cvodka")
+                List<object> tmp = Server.GetServer.DataBase("cvodka")
                     .ExecuteCommand("select pr from nazpr where zakspis = " + Nom_zak);
                 if (tmp.Count != 0) return tmp[0].ToString();
                 else return null;              
@@ -324,7 +313,7 @@ namespace Cards_of_defectation.ViewModal
             {
                 string ser_nom_izd;
                 if (parent != null) ser_nom_izd = parent.Ser_nom;
-                else ser_nom_izd = Server.InitServer().DataBase("uit")
+                else ser_nom_izd = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select ser_nom from rz_plan_rabot where nom_sz = '" + Nom_sz+"'")[0].ToString();
                 return ser_nom_izd;
             }
@@ -334,9 +323,13 @@ namespace Cards_of_defectation.ViewModal
             get
             {  
                 string ceh_path = "";
-                if (Ceh_list != References.InitReferences().Cehs)
+                List<object> tmp = Server.GetServer.DataBase("cvodka")
+                    .ExecuteCommand("select distinct ci from cvodka.dbo.stabil where nc ='" + Cherch_for_search + "'");
+                if (Server.GetServer.DataBase("cvodka")
+                    .ExecuteCommand("select distinct ci from cvodka.dbo.stabil where nc ='" + Cherch_for_search + "'")
+                    .Count != 0)
                 {
-                    foreach (string ceh in ceh_list) ceh_path += ceh + " -> ";
+                    foreach (string ceh in Ceh_list) ceh_path += ceh + " -> ";
                     ceh_path = "( " + ceh_path.Substring(0, ceh_path.Length - 4) + " )  ";
                 }
                 return ceh_path;
@@ -346,54 +339,49 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return References.InitReferences().Defects;
+                return References.GetReferences.ReferenceByName("rz_opis_def");
             }
         }
         public List<string> Prichina_list
         {
             get
             {
-                return References.InitReferences().Causes_of_defect;
+                return References.GetReferences.ReferenceByName("rz_prichina");
             }
         }
         public List<string> Met_opr_list
         {
             get
             {
-                return References.InitReferences().Determination_method_of_defect;
+                return References.GetReferences.ReferenceByName("rz_met_opr");
             }
         }
         public List<string> Teh_treb_list
         {
             get
             {
-                return References.InitReferences().Technical_requirements;
+                return References.GetReferences.ReferenceByName("rz_teh_treb");
             }
         }
         public List<string> Spos_ustr_list
         {
             get
             {
-                return References.InitReferences().Elimination_method;
+                return References.GetReferences.ReferenceByName("rz_spos_ustr");
             }
         }
         public List<string> Ceh_list
         {
             get
             {
-                if (ceh_list == null)
-                {
-                    List<object> tmp = Server.InitServer().DataBase("cvodka")
-                        .ExecuteCommand("select cex from cvodka.dbo.iz_ci_v_cex where ci = "
-                        +"(select distinct ci from cvodka.dbo.stabil where nc ='"+ Cherch_for_search + "')");
-                    if (tmp.Count != 0)
-                    {
-                        ceh_list = new List<string>();
-                        foreach (string ceh in tmp) ceh_list.Add(ceh);
-                        if (ceh_list.Last() == "005") ceh_list.RemoveAt(ceh_list.Count - 1);
-                    }
-                    else ceh_list = References.InitReferences().Cehs;
-                }
+                List<string> ceh_list = new List<string>();
+                List<object> tmp = Server.GetServer.DataBase("cvodka")
+                .ExecuteCommand("select cex from iz_ci_v_cex where ci in "
+                +"(select distinct ci from stabil where nc ='"+ Cherch_for_search + "')");
+                if (tmp.Count == 0)
+                    tmp = Server.GetServer.DataBase("cvodka").ExecuteCommand("select nc from podr1");
+                foreach (string ceh in tmp) ceh_list.Add(ceh);
+                if (ceh_list.Last() == "005") ceh_list.RemoveAt(ceh_list.Count - 1);
                 return ceh_list;
             }
         }
@@ -401,20 +389,13 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                if (row.Nom_ceh == 0)
-                    if (Ceh_list != References.InitReferences().Cehs)
-                    {
-                        row.Nom_ceh = Convert.ToInt32(Server.InitServer().DataBase("cvodka")
-                            .ExecuteCommand("select id from podr1 where nc = " + Ceh_list.Last())[0]);
-                        return Ceh_list.Last();
-                    }
-                    else return "";
-                else return References.InitReferences().Cehs[Nom_ceh-1];
+                if (row.Nom_ceh == 0) return Ceh_list.Last();
+                else return Server.GetServer.DataBase("cvodka")
+                    .ExecuteCommand("select nc from podr1 where id = " + row.Nom_ceh)[0].ToString();
             }
             set
             {
-                Nom_ceh = Convert.ToInt32(Server.InitServer().DataBase("cvodka")
-                    .ExecuteCommand("select id from podr1 where nc = " + value)[0]);
+                Nom_ceh = References.GetReferences.GetIdCeh(value);
                 is_change = true;
             }
         }

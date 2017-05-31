@@ -33,27 +33,27 @@ namespace Cards_of_defectation.ОТГО.Windows
             {
                 DataTable DT;
                 DataRow New_row;
-                if (Server.InitServer().DataBase("uit")
+                if (Server.GetServer.DataBase("uit")
                     .ExecuteCommand("select * from rz_naim_cherch where naim = '" + tmp.Naim + "' and cherch = '"
                     + tmp.Cherch + "'").Count == 0)
                 {
-                    DT = Server.InitServer().DataBase("uit").Table("select * from rz_naim_cherch").LoadTableFromServer();
+                    DT = Server.GetServer.DataBase("uit").Table("select * from rz_naim_cherch").LoadTableFromServer();
                     New_row = DT.NewRow();
                     New_row[0] = tmp.Naim;
                     New_row[1] = tmp.Cherch;
                     DT.Rows.Add(New_row);
-                    Server.InitServer().DataBase("uit").Table("select * from rz_naim_cherch").UpdateServerData(DT);
+                    Server.GetServer.DataBase("uit").Table("select * from rz_naim_cherch").UpdateServerData(DT);
                 }
-                if (Server.InitServer().DataBase("uit")
+                if (Server.GetServer.DataBase("uit")
                     .ExecuteCommand("select * from rz_ser_nom_naim where ser_nom = '" + textbox.Text
                     + "' and naim = '" + tmp.Naim + "'").Count == 0)
                 {
-                    DT = Server.InitServer().DataBase("uit").Table("select * from rz_ser_nom_naim").LoadTableFromServer();
+                    DT = Server.GetServer.DataBase("uit").Table("select * from rz_ser_nom_naim").LoadTableFromServer();
                     New_row = DT.NewRow();
                     New_row[0] = textbox.Text;
                     New_row[1] = tmp.Naim;
                     DT.Rows.Add(New_row);
-                    Server.InitServer().DataBase("uit").Table("select * from rz_ser_nom_naim").UpdateServerData(DT);
+                    Server.GetServer.DataBase("uit").Table("select * from rz_ser_nom_naim").UpdateServerData(DT);
                 }
 
                 SlugebZapiska FL = new SlugebZapiska(tmp.Nom_sz,textbox.Text);

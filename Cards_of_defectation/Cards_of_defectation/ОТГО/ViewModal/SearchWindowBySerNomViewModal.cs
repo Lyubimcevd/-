@@ -38,7 +38,7 @@ namespace Cards_of_defectation.ОТГО.ViewModal
             {
                 text_for_filter_ser_nom = value;
                 if (Ser_nom_list?.Count != 0 || current_length_of_ser_nom_filter > text_for_filter_ser_nom.Length || Ser_nom_list == null)
-                    Ser_nom_list = Server.InitServer().DataBase("uit")
+                    Ser_nom_list = Server.GetServer.DataBase("uit")
                             .ExecuteCommand("select top 50 ser_nom from rz_ser_nom_naim where ser_nom like '"
                                             + text_for_filter_ser_nom + "%'");  
                 IsDropDownSerNom = true;

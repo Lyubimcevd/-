@@ -38,7 +38,7 @@ namespace Cards_of_defectation.ОТГО.ViewModal
             {
                 text_for_filter_nom_sz = value;
                 if (Nom_sz_list?.Count != 0 || current_length_of_nom_sz_filter > text_for_filter_nom_sz.Length || Nom_sz_list == null)
-                    Nom_sz_list = Server.InitServer().DataBase("uit")
+                    Nom_sz_list = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select top 50 rtrim(nom_sz) from rz_plan_rabot where nom_sz like '"
                                         + text_for_filter_nom_sz + "%'");
                 IsDropDownNomZay = true;

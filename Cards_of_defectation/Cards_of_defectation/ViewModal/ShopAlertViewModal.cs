@@ -71,7 +71,7 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                List<object> tmp = Server.InitServer().DataBase("cvodka")
+                List<object> tmp = Server.GetServer.DataBase("cvodka")
                         .ExecuteCommand("select pr from nazpr where zakspis = '" + Nom_zak +"'");
                 if (tmp.Count != 0) return tmp[0].ToString();
                 else return null;
@@ -81,7 +81,7 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return Convert.ToInt32(Server.InitServer().DataBase("uit")
+                return Convert.ToInt32(Server.GetServer.DataBase("uit")
                     .ExecuteCommand("select nom_zak from rz_plan_rabot where nom_sz ='" + Nom_sz +"'")[0]);
             }
         }

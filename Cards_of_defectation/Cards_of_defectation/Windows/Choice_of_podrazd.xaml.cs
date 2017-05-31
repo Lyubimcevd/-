@@ -24,7 +24,7 @@ namespace Cards_of_defectation.Windows
             InitializeComponent();
             flvm = pflvm;
             Rows = new List<ChoiceViewModal>();
-            List<object> tmp = Server.InitServer().DataBase("uit").ExecuteCommand("select * from rz_for_print");
+            List<object> tmp = Server.GetServer.DataBase("uit").ExecuteCommand("select * from rz_for_print");
             foreach (string podr in tmp) Rows.Add(new ChoiceViewModal(podr));
             main_list_box.ItemsSource = Rows;
         }

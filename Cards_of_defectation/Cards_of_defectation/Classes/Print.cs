@@ -69,7 +69,7 @@ namespace Cards_of_defectation.Classes
             if (range != null) range.Text = header.Cherch;
             range = SearchRange("@@naim_det_1");
             if (range != null)
-                range.Text = Server.InitServer().DataBase("uit")
+                range.Text = Server.GetServer.DataBase("uit")
                     .ExecuteCommand("select naim from rz_ser_nom_naim where ser_nom = '"
                                     + header.Ser_nom+"'")[0].ToString();
             range = SearchRange("@@naim_det_2");
@@ -197,13 +197,13 @@ namespace Cards_of_defectation.Classes
         string EdIzm(string cherch)
         {
             List<object> tmp;
-            tmp = Server.InitServer().DataBase("cvodka")
+            tmp = Server.GetServer.DataBase("cvodka")
                 .ExecuteCommand("select ei from shifr where prbei = 1 and Ltrim(nn) = '" + cherch+"'");
             if (tmp.Count == 0)
-                tmp = Server.InitServer().DataBase("cvodka")
+                tmp = Server.GetServer.DataBase("cvodka")
                     .ExecuteCommand("select ei from shifr where prbei = 0 and Ltrim(nn) = '" + cherch+"'");               
             if (tmp.Count != 0)
-                return Server.InitServer().DataBase("cvodka")
+                return Server.GetServer.DataBase("cvodka")
                     .ExecuteCommand("select kratko from ei_opisanie where ei = " + tmp[0])[0].ToString();
             else return "";
 

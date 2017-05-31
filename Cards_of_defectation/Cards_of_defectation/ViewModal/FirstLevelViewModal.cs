@@ -27,36 +27,40 @@ namespace Cards_of_defectation.ViewModal
 
         public SlugebZapiskaViewModal(string pnom_sz)
         {
-            save_row = (Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = '" 
+            save_row = (Server.GetServer.DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = '" 
                 + pnom_sz+"'").LoadFromServer() as List<Row_in_plan_rabot>)[0];
             id = MainOUP.GetIndexOfKartDefect(pnom_sz);
             text_for_filter_ser_nom = save_row.Ser_nom;
             text_for_filter_kontract = save_row.Nom_kont;
 
             izgot = new ObservableCollection<SlugebZapiskaIzgotViewModal>();
-            ObservableCollection<RowDefectViewModal> tmp_list = Converter.ToViewModal(Server.InitServer()
-                .DataBase("uit").Table("select * from rz_kart_defect where par = " + id + " and spos_ustr = 3")
+            ObservableCollection<RowDefectViewModal> tmp_list = Converter.ToViewModal(Server.GetServer
+                .DataBase("uit").Table("select * from rz_kart_defect where par = " + id + " and spos_ustr = "
+                +References.GetReferences.GetId("rz_spos_ustr","Изготовить"))
                 .LoadFromServer() as List<Row_in_kart_defect>);
             foreach (RowDefectViewModal row in tmp_list) izgot.Add(new SlugebZapiskaIzgotViewModal(row));
             if (izgot.Count == 0) izgot.Add(new SlugebZapiskaIzgotViewModal(id));
 
             remont = new ObservableCollection<SlugebZapiskaRemontViewModal>();
-            tmp_list = Converter.ToViewModal(Server.InitServer().DataBase("uit")
-                .Table("select * from rz_kart_defect where par = " + id + " and spos_ustr = 1")
+            tmp_list = Converter.ToViewModal(Server.GetServer.DataBase("uit")
+                .Table("select * from rz_kart_defect where par = " + id + " and spos_ustr = "
+                + References.GetReferences.GetId("rz_spos_ustr", "Дефектация"))
                 .LoadFromServer() as List<Row_in_kart_defect>);
             foreach (RowDefectViewModal row in tmp_list) remont.Add(new SlugebZapiskaRemontViewModal(row));
             if (remont.Count == 0) remont.Add(new SlugebZapiskaRemontViewModal(id));
 
             priobr = new ObservableCollection<SlugebZapiskaPriobrViewModal>();
-            tmp_list = Converter.ToViewModal(Server.InitServer().DataBase("uit")
-                .Table("select * from rz_kart_defect where par = " + id + " and spos_ustr = 4")
+            tmp_list = Converter.ToViewModal(Server.GetServer.DataBase("uit")
+                .Table("select * from rz_kart_defect where par = " + id + " and spos_ustr = "
+                + References.GetReferences.GetId("rz_spos_ustr", "Приобрести"))
                 .LoadFromServer() as List<Row_in_kart_defect>);
             foreach (RowDefectViewModal row in tmp_list) priobr.Add(new SlugebZapiskaPriobrViewModal(row));
             if (priobr.Count == 0) priobr.Add(new SlugebZapiskaPriobrViewModal(id));
 
             stor_rem = new ObservableCollection<SlugebZapiskaStorRemViewModal>();
-            tmp_list = Converter.ToViewModal(Server.InitServer().DataBase("uit")
-                .Table("select * from rz_kart_defect where par = " + id + " and spos_ustr = 2")
+            tmp_list = Converter.ToViewModal(Server.GetServer.DataBase("uit")
+                .Table("select * from rz_kart_defect where par = " + id + " and spos_ustr = "
+                + References.GetReferences.GetId("rz_spos_ustr", "Сторонний ремонт"))
                 .LoadFromServer() as List<Row_in_kart_defect>);
             foreach (RowDefectViewModal row in tmp_list) stor_rem.Add(new SlugebZapiskaStorRemViewModal(row));
             if (stor_rem.Count == 0) stor_rem.Add(new SlugebZapiskaStorRemViewModal(id));
@@ -81,13 +85,13 @@ namespace Cards_of_defectation.ViewModal
         }
         void DefaultAction()
         {
-            kontract_list = Server.InitServer().DataBase("cvodka")
+            kontract_list = Server.GetServer.DataBase("cvodka")
                       .ExecuteCommand("select distinct top 50 Ltrim(rtrim(t.kontr)) from "
                       + "(SELECT sp34360+'/'+descr as kontr FROM[IZ_1C].[sql].[dbo].[SC33852] where sp34360 <> '')"
                       + "as t");
-            ser_nom_list = Server.InitServer().DataBase("uit")
+            ser_nom_list = Server.GetServer.DataBase("uit")
                       .ExecuteCommand("select top 50 ser_nom from rz_ser_nom_naim");
-            izdelie = Server.InitServer().DataBase("uit")
+            izdelie = Server.GetServer.DataBase("uit")
                .ExecuteCommand("select naim from rz_ser_nom_naim where ser_nom = '"
                + text_for_filter_ser_nom + "'")[0].ToString();
             is_change = false;
@@ -102,7 +106,7 @@ namespace Cards_of_defectation.ViewModal
             {              
                 text_for_filter_ser_nom = value;               
                 if (Ser_nom_list?.Count != 0 || current_length_of_ser_nom_filter > text_for_filter_ser_nom.Length||Ser_nom_list == null)
-                    Ser_nom_list = Server.InitServer().DataBase("uit")
+                    Ser_nom_list = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select top 50 ser_nom from rz_ser_nom_naim where ser_nom like '"
                                         + text_for_filter_ser_nom + "%'");
                 if (Ser_nom_list.Count != 0) IsDropDownSer_nom = true;
@@ -119,7 +123,7 @@ namespace Cards_of_defectation.ViewModal
             {
                 text_for_filter_kontract = value;          
                 if (Kontract_list?.Count != 0 || current_length_of_kontract_filter > text_for_filter_kontract.Length||Kontract_list == null)
-                    Kontract_list = Server.InitServer().DataBase("cvodka")
+                    Kontract_list = Server.GetServer.DataBase("cvodka")
                         .ExecuteCommand("select distinct top 50 Ltrim(rtrim(t.kontr)) from "
                         + "(SELECT sp34360+'/'+descr as kontr FROM[IZ_1C].[sql].[dbo].[SC33852] where sp34360 <> '')"
                         + "as t where ltrim(t.kontr) like '" + text_for_filter_kontract + "%'");
@@ -136,7 +140,7 @@ namespace Cards_of_defectation.ViewModal
             set
             {
                 save_row.Ser_nom = value;
-                izdelie = Server.InitServer().DataBase("uit")
+                izdelie = Server.GetServer.DataBase("uit")
                    .ExecuteCommand("select naim from rz_ser_nom_naim where ser_nom = '"
                    + save_row.Ser_nom + "'")[0].ToString();
                 OnPropertyChanged("Izdelie");
@@ -240,7 +244,7 @@ namespace Cards_of_defectation.ViewModal
             get
             {
                 if (save_row.Nom_sz == null)
-                    save_row.Nom_sz = Server.InitServer().DataBase("uit")
+                    save_row.Nom_sz = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select nom_sz from rz_plan_rabot")[0].ToString();
                 return save_row.Nom_sz;
             }
@@ -378,7 +382,7 @@ namespace Cards_of_defectation.ViewModal
         }
         public List<Row_in_plan_rabot> SaveInPlanRabot()
         {
-            if (Server.InitServer().DataBase("uit")
+            if (Server.GetServer.DataBase("uit")
                 .ExecuteCommand("select * from rz_plan_rabot where nom_sz = '" + save_row.Ser_nom + "'").Count == 0)
             {
                 List<Row_in_plan_rabot> result = new List<Row_in_plan_rabot>();
@@ -387,7 +391,7 @@ namespace Cards_of_defectation.ViewModal
             }
             else
             {
-                Server.InitServer().DataBase("uit")
+                Server.GetServer.DataBase("uit")
                     .ExecuteCommand("update rz_plan_rabot set nom_sz = '" + save_row.Nom_sz
                     + "' where nom_sz = '" + save_row.Ser_nom+"'");
                 return null;

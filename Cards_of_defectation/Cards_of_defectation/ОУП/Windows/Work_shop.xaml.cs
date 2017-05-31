@@ -26,7 +26,7 @@ namespace Cards_of_defectation.ОУП.Windows
             Log.Init.Info("Запуск Work_shop");
             InitializeComponent();
             Log.Init.Info("Загрузка данных");
-            List<object> tmp = Server.InitServer().DataBase("uit")
+            List<object> tmp = Server.GetServer.DataBase("uit")
                 .ExecuteCommand("select nom_ceh from rz_kart_defect where nom_ceh is not null and nom_sz = '" + nom_sz 
                 +"' group by nom_ceh");
             List<WorkShopViewModal> Rows = new List<WorkShopViewModal>();
@@ -37,7 +37,8 @@ namespace Cards_of_defectation.ОУП.Windows
 
         private void dataGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ShopAlert SA = new ShopAlert(((sender as DataGrid).SelectedItem as WorkShopViewModal).Nom_ceh);
+            ShopAlert SA = new ShopAlert(References.GetReferences
+                .GetIdCeh(((sender as DataGrid).SelectedItem as WorkShopViewModal).Nom_ceh));
             SA.Show();
         }
     }

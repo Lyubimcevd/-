@@ -20,7 +20,7 @@ namespace Cards_of_defectation.ОУП.ViewModal
         {
             get
             {
-                return References.InitReferences().Cehs[nom_ceh - 1];
+                return References.GetReferences.GetNaimCeh(nom_ceh);
             }
         }
         public string Kart
@@ -28,10 +28,10 @@ namespace Cards_of_defectation.ОУП.ViewModal
             get
             {
                 Log.Init.Info("Формирование всего/выполнено в work_shop");
-                string result = Server.InitServer().DataBase("uit")
+                string result = Server.GetServer.DataBase("uit")
                     .ExecuteCommand("select count(*) from rz_kart_defect where nom_ceh = "
                     + nom_ceh + " and nom_sz = '" + nom_sz+ "' group by nom_ceh")[0].ToString() + " / ";
-                List<object> tmp = Server.InitServer().DataBase("uit")
+                List<object> tmp = Server.GetServer.DataBase("uit")
                     .ExecuteCommand("select count(*) from rz_kart_defect where nom_ceh = "
                     + nom_ceh + " and data_def is not null and nom_sz = '"+nom_sz+"' group by nom_sz");
                 if (tmp.Count == 0) result += "0";

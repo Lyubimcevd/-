@@ -27,7 +27,7 @@ namespace Cards_of_defectation.ViewModal
             parent_row = new Row_in_kart_defect();
             parent_row.Par = id;
             if (id != 0)
-                parent_row.Nom_sz = Server.InitServer().DataBase("uit")
+                parent_row.Nom_sz = Server.GetServer.DataBase("uit")
                        .ExecuteCommand("select nom_sz from rz_kart_defect where id = " + parent_row.Par)[0].ToString();
             DefaultAction();
         }
@@ -36,7 +36,7 @@ namespace Cards_of_defectation.ViewModal
             parent_row = row.Save;
             text_for_filter_cherch = parent_row.Cherch;
             text_for_filter_naim = parent_row.Naim;
-            text_for_filter_izgotov = Server.InitServer().DataBase("cvodka")
+            text_for_filter_izgotov = Server.GetServer.DataBase("cvodka")
                         .ExecuteCommand("select Ltrim(rtrim(zakazchi_naim)) from"
                          +" zakazchi_naim where id = "+ parent_row.Izgotov)[0].ToString();
             DefaultAction();
@@ -45,7 +45,7 @@ namespace Cards_of_defectation.ViewModal
 
         void DefaultAction()
         {
-            izgotov_list = Server.InitServer().DataBase("cvodka")
+            izgotov_list = Server.GetServer.DataBase("cvodka")
                         .ExecuteCommand("select distinct Ltrim(rtrim(zakazchi_naim)) from zakazchi_naim");
             is_change = false;
         }
@@ -61,7 +61,7 @@ namespace Cards_of_defectation.ViewModal
                 is_change = true;
                 if (SelectedNaim == null)
                 {
-                    Naim_list = Server.InitServer().DataBase("cvodka")
+                    Naim_list = Server.GetServer.DataBase("cvodka")
                        .ExecuteCommand("select top 50 ltrim(rtrim(naim)) from naim where ltrim(nom) = '"
                                        + parent_row.Cherch + "'");
                     if (Naim_list.Count == 1)
@@ -85,7 +85,7 @@ namespace Cards_of_defectation.ViewModal
                 is_change = true;
                 if (SelectedCherch == null)
                 {
-                    Cherch_list = Server.InitServer().DataBase("uit")
+                    Cherch_list = Server.GetServer.DataBase("uit")
                             .ExecuteCommand("select distinct top 50 ltrim(rtrim(nc)) from table_nc1 where nc"
                                         + " in (select nom from cvodka.dbo.naim where ltrim(naim) = '" + parent_row.Naim + "')");
                     if (Cherch_list.Count == 1)
@@ -102,13 +102,13 @@ namespace Cards_of_defectation.ViewModal
             get
             {
                 if (parent_row.Izgotov == 0) parent_row.Izgotov = 1;
-                return Server.InitServer().DataBase("cvodka")
+                return Server.GetServer.DataBase("cvodka")
                         .ExecuteCommand("select Ltrim(rtrim(zakazchi_naim)) from"
                          + " zakazchi_naim where id = " + parent_row.Izgotov)[0].ToString();
             }
             set
             {
-                parent_row.Izgotov = Convert.ToInt32(Server.InitServer().DataBase("cvodka").ExecuteCommand("select id from"
+                parent_row.Izgotov = Convert.ToInt32(Server.GetServer.DataBase("cvodka").ExecuteCommand("select id from"
                          + " zakazchi_naim where Ltrim(rtrim(zakazchi_naim)) = " + value)[0]);
                 is_change = true;
             }
@@ -184,7 +184,7 @@ namespace Cards_of_defectation.ViewModal
             {
                 text_for_filter_cherch = value;               
                 if (Cherch_list?.Count != 0 || current_length_of_cherch_filter > text_for_filter_cherch.Length||Cherch_list == null)
-                    Cherch_list = Server.InitServer().DataBase("uit")
+                    Cherch_list = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like '"
                                         + text_for_filter_cherch + "%'");
                 if (Cherch_list.Count != 0) IsDropDownCherch = true;
@@ -201,7 +201,7 @@ namespace Cards_of_defectation.ViewModal
             {
                 text_for_filter_naim = value;               
                 if (Naim_list?.Count != 0 || current_length_of_naim_filter > text_for_filter_naim.Length||Naim_list == null)
-                    Naim_list = Server.InitServer().DataBase("cvodka")
+                    Naim_list = Server.GetServer.DataBase("cvodka")
                         .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%"
                                         + text_for_filter_naim + "%'");
                 if (Naim_list.Count != 0) IsDropDownNaim = true;
@@ -218,7 +218,7 @@ namespace Cards_of_defectation.ViewModal
             {
                 text_for_filter_izgotov = value;
                 if (Izgotov_list?.Count != 0 || current_length_of_izgotov_filter > text_for_filter_izgotov.Length || Izgotov_list == null)
-                    Izgotov_list = Server.InitServer().DataBase("cvodka")
+                    Izgotov_list = Server.GetServer.DataBase("cvodka")
                         .ExecuteCommand("select distinct Ltrim(rtrim(zakazchi_naim)) from zakazchi_naim where ltrim(zakazchi_naim) like '%"
                                         + text_for_filter_izgotov + "%'");
                 if (Izgotov_list.Count != 0) IsDropDownIzgotov = true;
@@ -303,7 +303,7 @@ namespace Cards_of_defectation.ViewModal
                 if (parent_row.Naim == null && parent_row.Cherch == null) return null;
                 if (parent_row.Data_post == null)
                     parent_row.Data_post = DateTime.Now.ToShortDateString();
-                parent_row.Spos_ustr = 1;
+                parent_row.Spos_ustr = References.GetReferences.GetId("rz_spos_ustr","Сторонний ремонт");
                 is_change = false;
                 return parent_row;
             }
@@ -312,7 +312,7 @@ namespace Cards_of_defectation.ViewModal
         {
             if (parent_row.Cherch != null)
             {
-                List<object> tmp = Server.InitServer().DataBase("cvodka")
+                List<object> tmp = Server.GetServer.DataBase("cvodka")
                    .ExecuteCommand("select ltrim(rtrim(naim)) from naim where ltrim(nom) = '"
                    + parent_row.Cherch + "'");
                 if (tmp.Count != 0)

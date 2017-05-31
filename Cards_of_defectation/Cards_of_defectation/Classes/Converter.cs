@@ -75,7 +75,7 @@ namespace Cards_of_defectation.Classes
                     FillRowInTable(row, DT.Select("id = "+row.Id)[0]);
                 else
                 {
-                    row.Id = Convert.ToInt32(Server.InitServer().DataBase("uit").ExecuteCommand("SELECT NEXT VALUE FOR dbo.CountBy1")[0]);
+                    row.Id = Convert.ToInt32(Server.GetServer.DataBase("uit").ExecuteCommand("SELECT NEXT VALUE FOR dbo.CountBy1")[0]);
                     DT.Rows.Add(DT.NewRow());
                     FillRowInTable(row, DT.Rows[DT.Rows.Count-1]);
                 }
@@ -84,11 +84,11 @@ namespace Cards_of_defectation.Classes
         
         static void DeleteRow(int pid)
         {
-            List<object> tmp = Server.InitServer().DataBase("uit").ExecuteCommand("select id from rz_kart_defect where par=" 
+            List<object> tmp = Server.GetServer.DataBase("uit").ExecuteCommand("select id from rz_kart_defect where par=" 
                 + pid);
             if (tmp.Count != 0)
                 foreach (int id in tmp) DeleteRow(id);
-            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_kart_defect where id=" + pid);
+            Server.GetServer.DataBase("uit").ExecuteCommand("delete from rz_kart_defect where id=" + pid);
         }
 
         static DataRow FillRowInTable(Row_in_kart_defect row, DataRow DR)

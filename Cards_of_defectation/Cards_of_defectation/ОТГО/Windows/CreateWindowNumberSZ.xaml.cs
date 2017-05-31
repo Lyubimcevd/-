@@ -28,7 +28,7 @@ namespace Cards_of_defectation.ОТГО.Windows
         {
             if (e.Key == Key.Enter)
             {
-                tmp.Nom_sz = textbox.Text;
+                tmp.Nom_sz = textbox.Text.TrimEnd('_');
                 CreateWindowNomCherch Next_window = new CreateWindowNomCherch(tmp);
                 Next_window.Show();
                 this.Close();

@@ -38,29 +38,29 @@ namespace Cards_of_defectation.Windows
             bind.Executed += Print_Execute;
             this.CommandBindings.Add(bind);
 
-            Header = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+            Header = Converter.ToViewModal(Server.GetServer.DataBase("uit")
                 .Table("select * from rz_kart_defect where id = " + Id).LoadFromServer() as List<Row_in_kart_defect>)[0];
             cap.DataContext = Header;
             if (Header.Par == 0)
-                Rows = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+                Rows = Converter.ToViewModal(Server.GetServer.DataBase("uit")
                     .Table("select * from rz_kart_defect where par = " + Id + " and spos_ustr = 1")
                     .LoadFromServer() as List<Row_in_kart_defect>);
             else
-                Rows = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+                Rows = Converter.ToViewModal(Server.GetServer.DataBase("uit")
                     .Table("select * from rz_kart_defect where par = " + Id).LoadFromServer() as List<Row_in_kart_defect>);
             main_table.ItemsSource = Rows;
-            listBox_sostav.ItemsSource = References.InitReferences().InitComposition(Header);
+            listBox_sostav.ItemsSource = References.GetReferences.InitComposition(Header);
             IsSave = true;
         }
 
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Server.InitServer().DataBase("uit").Table("select * from rz_kart_defect where par = " + Id)
+            Server.GetServer.DataBase("uit").Table("select * from rz_kart_defect where par = " + Id)
                 .UpdateServerData(Converter.ToSave(Rows));
             ObservableCollection<RowDefectViewModal> tmp = new ObservableCollection<RowDefectViewModal>();
             Header.Data_def = DateTime.Now.ToShortDateString();
             tmp.Add(Header);
-            Server.InitServer().DataBase("uit").Table("select * from rz_kart_defect where id = " + Id)
+            Server.GetServer.DataBase("uit").Table("select * from rz_kart_defect where id = " + Id)
                 .UpdateServerData(Converter.ToSave(tmp));
             MessageBox.Show("Сохранено");
             IsSave = true;
@@ -81,7 +81,7 @@ namespace Cards_of_defectation.Windows
                     List<RowDefectViewModal> for_delete = new List<RowDefectViewModal>();
                     foreach (RowDefectViewModal row in main_table.SelectedItems)
                     {
-                        List<object> tmp = Server.InitServer().DataBase("uit")
+                        List<object> tmp = Server.GetServer.DataBase("uit")
                             .ExecuteCommand("select id from rz_kart_defect where par = " + row.Id);
                         if (tmp.Count != 0) for_delete.Add(row);
                     }
@@ -117,10 +117,10 @@ namespace Cards_of_defectation.Windows
 
         void DeleteRecurs(int pid)
         {
-            List<object> tmp = Server.InitServer().DataBase("uit")
+            List<object> tmp = Server.GetServer.DataBase("uit")
                 .ExecuteCommand("select id from rz_kart_defect where par=" + pid);
             foreach (int id in tmp) DeleteRecurs(id);
-            Server.InitServer().DataBase("uit").ExecuteCommand("delete from rz_kart_defect where id=" + pid);
+            Server.GetServer.DataBase("uit").ExecuteCommand("delete from rz_kart_defect where id=" + pid);
         }
 
         private void listBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -160,11 +160,11 @@ namespace Cards_of_defectation.Windows
         private void arm_search_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if ((sender as ComboBox).SelectedItem!=null)
-                listBox_arm.ItemsSource = References.InitReferences().SearchAndLoad(Header, (sender as ComboBox).SelectedItem.ToString());
+                listBox_arm.ItemsSource = References.GetReferences.SearchAndLoad(Header, (sender as ComboBox).SelectedItem.ToString());
         }
         private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            arm_search_list = Server.InitServer().DataBase("uit")
+            arm_search_list = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like '"
                                         + (sender as ComboBox).Text + "%'");
             arm_search.ItemsSource = arm_search_list;

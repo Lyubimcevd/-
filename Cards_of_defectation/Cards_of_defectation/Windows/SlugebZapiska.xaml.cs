@@ -56,10 +56,10 @@ namespace Cards_of_defectation.Windows
         {
             if (SZVM.SaveInPlanRabot() != null)
             {
-                Server.InitServer().DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = '" + SZVM.Nom_sz+"'")
+                Server.GetServer.DataBase("uit").Table("select * from rz_plan_rabot where nom_sz = '" + SZVM.Nom_sz+"'")
                     .UpdateServerData(SZVM.SaveInPlanRabot());
             }
-            Server.InitServer().DataBase("uit").Table("select * from rz_kart_defect where par = " + SZVM.Id)
+            Server.GetServer.DataBase("uit").Table("select * from rz_kart_defect where par = " + SZVM.Id)
                 .UpdateServerData(SZVM.SaveInKartDefect());
             if (SZVM.Id == 0) MessageBox.Show("Сохранено в план");
             else MessageBox.Show("Сохранено");

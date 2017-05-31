@@ -15,18 +15,16 @@ namespace Cards_of_defectation.Classes
     class Server
     {
         static Server server;
-        Dictionary<string, Connection> connections;
+        Dictionary<string, Connection> connections = new Dictionary<string, Connection>();
 
-        private Server()
+        private Server() { }
+        public static Server GetServer
         {
-            Log.Init.Info("Создание соединения");
-            connections = new Dictionary<string, Connection>();
-            Log.Init.Info("Соединение создано");
-        }
-        public static Server InitServer()
-        {
-            if (server == null) server = new Server();
-            return server;
+            get
+            {
+                if (server == null) server = new Server();
+                return server;
+            }          
         }
         public Connection DataBase(string DataBaseName)
         {
@@ -47,19 +45,8 @@ namespace Cards_of_defectation.Classes
 
         public Connection(string DataBaseName)
         {
-            conn = new SqlConnection("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=" + DataBaseName + ";MultipleActiveResultSets=True");
-            Log.Init.Info("Старт системы слежения");
-            try
-            {
-                SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=uit;MultipleActiveResultSets=True");
-            }
-            catch (Exception e)
-            {
-                Log.Init.Fatal("Не запущена. Ошибка: "+e.Message);
-                MessageBox.Show("Система слежения не запущена");
-                System.Environment.Exit(0);
-            }
-            Log.Init.Info("Запущена");
+            conn = new SqlConnection("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=" + DataBaseName + ";MultipleActiveResultSets=True");            
+            SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=uit;MultipleActiveResultSets=True");
             Log.Init.Info("Открытие соединения");
             try
             {

@@ -38,7 +38,7 @@ namespace Cards_of_defectation.ОТГО.ViewModal
             {
                 text_for_filter_cherch = value;
                 if (Cherch_list?.Count != 0 || current_length_of_cherch_filter > text_for_filter_cherch.Length || Cherch_list == null)
-                    Cherch_list = Server.InitServer().DataBase("uit")
+                    Cherch_list = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like '"
                                         + text_for_filter_cherch + "%'");
                 IsDropDownCherch = true;

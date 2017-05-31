@@ -34,7 +34,7 @@ namespace Cards_of_defectation.ОТГО.Windows
             if (e.Key == Key.Enter)
             {
                 if (combo_box.SelectedItem == null) combo_box.SelectedItem = combo_box.Items.CurrentItem;
-                datagrid.DataContext = Server.InitServer().DataBase("uit")
+                datagrid.DataContext = Server.GetServer.DataBase("uit")
                     .Table("select rtrim(nom_sz) from rz_plan_rabot where ser_nom = '" + combo_box.SelectedItem+"'")
                     .LoadTableFromServer();
             }

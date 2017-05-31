@@ -23,7 +23,7 @@ namespace Cards_of_defectation.ОТГО.Windows
         {
             InitializeComponent();
             tmp = ptmp;
-            combo_box.DataContext = new CreateWindowNaimViewModal(Server.InitServer().DataBase("cvodka")
+            combo_box.DataContext = new CreateWindowNaimViewModal(Server.GetServer.DataBase("cvodka")
                 .ExecuteCommand("select ltrim(rtrim(naim)) from naim where ltrim(nom) = '"+tmp.Cherch+"'"));
             Loaded += delegate { combo_box.Focus(); };
         }

@@ -18,9 +18,9 @@ namespace Cards_of_defectation.Classes
         public Row_in_kart_defect(Row_in_plan_rabot row)
         {
             nom_sz = row.Nom_sz;
-            cherch = Server.InitServer().DataBase("uit")
+            cherch = Server.GetServer.DataBase("uit")
                 .ExecuteCommand("select cherch from rz_naim_cherch where naim = '"
-                + Server.InitServer().DataBase("uit")
+                + Server.GetServer.DataBase("uit")
                 .ExecuteCommand("select naim from rz_ser_nom_naim where ser_nom = '"
                 + row.Ser_nom + "'")[0].ToString() + "'")[0].ToString();
         }

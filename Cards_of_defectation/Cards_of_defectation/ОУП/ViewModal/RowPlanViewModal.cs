@@ -103,10 +103,10 @@ namespace Cards_of_defectation.ОУП.ViewModal
                 if (Nom_sz != Ser_nom)
                 {
                     Log.Init.Info("Формирование всего/выполнено в плане");
-                    result = Server.InitServer().DataBase("uit")
+                    result = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = '"
                         + Nom_sz + "' group by nom_sz")[0].ToString() + " / ";
-                    List<object> tmp = Server.InitServer().DataBase("uit")
+                    List<object> tmp = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = '"
                         + Nom_sz + "' and data_def is not null group by nom_sz");
                     if (tmp.Count == 0) result += "0";
@@ -124,7 +124,7 @@ namespace Cards_of_defectation.ОУП.ViewModal
                 if (row.Nom_zak != null)
                 {
                     Log.Init.Info("Формирование приоритет в плане");
-                    List<object> tmp = Server.InitServer().DataBase("cvodka")
+                    List<object> tmp = Server.GetServer.DataBase("cvodka")
                           .ExecuteCommand("select pr from nazpr where zakspis = " + row.Nom_zak);
                     if (tmp.Count != 0) result = tmp[0].ToString();
                 }

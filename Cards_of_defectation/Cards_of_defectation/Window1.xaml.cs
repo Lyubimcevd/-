@@ -45,7 +45,7 @@ namespace Cards_of_defectation
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Authorization.InitAut(true);
-            ShopAlert SA = new ShopAlert("024");
+            ShopAlert SA = new ShopAlert(References.GetReferences.GetIdCeh("024"));
             SA.Show();
         }
     }

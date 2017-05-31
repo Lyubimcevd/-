@@ -30,7 +30,7 @@ namespace Cards_of_defectation.Windows
             id = MainOUP.GetIndexOfKartDefect(Nom_sz);
             Modal = new ObservableCollection<TreeViewModal>();
             Modal.Add(LoadTreeFromServer(id));
-            Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher,this);
+            Server.GetServer.DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher,this);
             treeView.ItemsSource = Modal;
             CommandBinding bind = new CommandBinding(ApplicationCommands.Print);
             bind.Executed += Print_Execute;
@@ -44,10 +44,10 @@ namespace Cards_of_defectation.Windows
 
         TreeViewModal LoadTreeFromServer(int pid)
         {
-            RowDefectViewModal tmp = Converter.ToViewModal(Server.InitServer().DataBase("uit")
+            RowDefectViewModal tmp = Converter.ToViewModal(Server.GetServer.DataBase("uit")
                 .Table("select * from rz_kart_defect where id =" + pid).LoadFromServer() as List<Row_in_kart_defect>)[0];
             TreeViewModal root = new TreeViewModal(tmp);
-            List<object> tmp_list = Server.InitServer().DataBase("uit")
+            List<object> tmp_list = Server.GetServer.DataBase("uit")
                 .ExecuteCommand("select id from rz_kart_defect where par =" + pid);
             foreach (int id in tmp_list)
             {

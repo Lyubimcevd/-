@@ -19,7 +19,7 @@ namespace Cards_of_defectation.Windows
         bool realy_close;
         NotifyIcon NI;
 
-        public ShopAlert(string Nom_ceh)
+        public ShopAlert(int pnom_ceh)
         {
             if (Authorization.Get.IsCeh)
             {
@@ -32,10 +32,10 @@ namespace Cards_of_defectation.Windows
                 NI.ContextMenu = new System.Windows.Forms.ContextMenu();
                 NI.ContextMenu.MenuItems.Add(new System.Windows.Forms.MenuItem("Выход", Click_for_exit));
             }
-            nom_ceh = References.InitReferences().Cehs.IndexOf(Nom_ceh)+1;
+            nom_ceh = pnom_ceh;
             InitializeComponent();          
             UpdateRow();
-            Server.InitServer().DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
+            Server.GetServer.DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
             realy_close = !Authorization.Get.IsCeh;
         }
 
@@ -51,7 +51,7 @@ namespace Cards_of_defectation.Windows
 
         public void UpdateRow()
         {
-            Rows = Converter.ToViewModalShop(Server.InitServer().DataBase("uit")
+            Rows = Converter.ToViewModalShop(Server.GetServer.DataBase("uit")
                .Table("select * from rz_kart_defect where nom_ceh = '" 
                + nom_ceh + "' and spos_ustr = 1 order by data_post").LoadFromServerForShopAlert());
             if (Rows.Count != current_kolvo)
@@ -86,7 +86,7 @@ namespace Cards_of_defectation.Windows
         {
             if (main_grid.SelectedItem != null)
             {
-                Server.InitServer().DataBase("uit").ExecuteCommand("update rz_kart_defect set is_faster = 1 where id = "
+                Server.GetServer.DataBase("uit").ExecuteCommand("update rz_kart_defect set is_faster = 1 where id = "
                 + (main_grid.SelectedItem as ShopAlertViewModal).Id);
             }     
         }
@@ -95,7 +95,7 @@ namespace Cards_of_defectation.Windows
         {
             if (main_grid.SelectedItem != null)
             {
-                Server.InitServer().DataBase("uit").ExecuteCommand("update rz_kart_defect set is_faster = 0 where id = "
+                Server.GetServer.DataBase("uit").ExecuteCommand("update rz_kart_defect set is_faster = 0 where id = "
                 + (main_grid.SelectedItem as ShopAlertViewModal).Id);
             }
         }
