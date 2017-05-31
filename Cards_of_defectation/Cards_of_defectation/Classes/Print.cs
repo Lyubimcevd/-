@@ -47,8 +47,9 @@ namespace Cards_of_defectation.Classes
         }
         void ExpandTree(TreeViewModal Modal, int koef)
         {
-            //range.Text += new string('\t', koef) + Modal;
-            //foreach (TreeViewModal child in Modal.Children) ExpandTree(child, koef + 1);
+            range.Text += new string('\t', koef) + Modal.Cherch+"  "
+                +Modal.Nom_kart+"  "+Modal.Spos_ustr+"  "+Modal.Kolvo+"  "+Modal.IsDone;
+            foreach (TreeViewModal child in Modal.Children) ExpandTree(child, koef + 1);
         }
         public void PrintDocument(RowDefectViewModal header,ObservableCollection<RowDefectViewModal> Rows)
         {
@@ -82,21 +83,11 @@ namespace Cards_of_defectation.Classes
             {
                 table.Cell(table.Rows.Count, 1).Range.Text = i.ToString()+1;
                 table.Cell(table.Rows.Count, 2).Range.Text = Rows[i].Cherch + " = " + Rows[i].Kolvo.ToString() + " шт" +
-                    "\n" + Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select opis_def from rz_opis_def where id = " 
-                    + Rows[i].Opis_def)[0].ToString() + "\n" + Rows[i].Opis_def_komment;
-                table.Cell(table.Rows.Count, 3).Range.Text = Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select prich from rz_prichina where id = " + Rows[i].Prichina)[0].ToString() + "\n"
-                    + Rows[i].Prichina_komment;
-                table.Cell(table.Rows.Count, 4).Range.Text = Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select met_opr from rz_met_opred where id = " + Rows[i].Met_opr)[0].ToString() + "\n"
-                    + Rows[i].Met_opr_komment;
-                table.Cell(table.Rows.Count, 5).Range.Text = Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select teh_treb from rz_teh_treb where id = " + Rows[i].Teh_treb)[0].ToString() + "\n"
-                    + Rows[i].Teh_treb_komment;
-                table.Cell(table.Rows.Count, 6).Range.Text = Server.InitServer().DataBase("uit")
-                    .ExecuteCommand("select spos_ustr from rz_spos_ustr where id = " + Rows[i].Spos_ustr)[0].ToString() 
-                    + "\n"+ Rows[i].Spos_ustr_komment;
+                    "\n" + Rows[i].Opis_def + "\n" + Rows[i].Opis_def_komment;
+                table.Cell(table.Rows.Count, 3).Range.Text = Rows[i].Prichina + "\n"+ Rows[i].Prichina_komment;
+                table.Cell(table.Rows.Count, 4).Range.Text = Rows[i].Met_opr + "\n"+ Rows[i].Met_opr_komment;
+                table.Cell(table.Rows.Count, 5).Range.Text = Rows[i].Teh_treb + "\n" + Rows[i].Teh_treb_komment;
+                table.Cell(table.Rows.Count, 6).Range.Text = Rows[i].Spos_ustr+ "\n"+ Rows[i].Spos_ustr_komment;
                 if (i < Rows.Count - 1) table.Rows.Add(missingObj);
             }
             foreach (Word.Paragraph paragraph in document.Paragraphs)

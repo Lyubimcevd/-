@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Cards_of_defectation.ОТГО.Windows"
         mc:Ignorable="d"
         Title="CreateWindowNaim" 
-        Height="60" 
-        Width="450" 
+        Height="50" 
+        Width="440" 
         ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>

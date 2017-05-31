@@ -16,6 +16,10 @@ namespace Cards_of_defectation.ОТГО.ViewModal
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public CreateWindowNaimViewModal(List<object> tmp)
+        {
+            if (tmp.Count != 0) text_for_filter_naim = tmp[0].ToString();
+        }
         public string SelectItem
         {
             get

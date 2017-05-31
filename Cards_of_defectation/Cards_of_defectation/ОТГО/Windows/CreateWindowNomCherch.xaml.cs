@@ -35,14 +35,10 @@ namespace Cards_of_defectation.ОТГО.Windows
         {
             if (e.Key == Key.Enter)
             {
-                if (combo_box.SelectedItem == null) combo_box.SelectedItem = combo_box.Items.CurrentItem;
-                else
-                {
-                    tmp.Cherch = combo_box.SelectedItem.ToString();
-                    CreateWindowNaim Next_window = new CreateWindowNaim(tmp);
-                    Next_window.Show();
-                    this.Close();
-                }
+                tmp.Cherch = combo_box.Text;
+                CreateWindowNaim Next_window = new CreateWindowNaim(tmp);
+                Next_window.Show();
+                this.Close();
             }
         }
     }

@@ -1,206 +1,34 @@
-2017-05-30 16:27:44.0438|INFO|Cards_of_defectation.Classes.Log|Запуск MainOUP
-2017-05-30 16:27:44.2798|INFO|Cards_of_defectation.Classes.Log|Загрузка таблицы rz_plan_rabot
-2017-05-30 16:27:44.2798|INFO|Cards_of_defectation.Classes.Log|Создание соединения
-2017-05-30 16:27:44.2798|INFO|Cards_of_defectation.Classes.Log|Соединение создано
-2017-05-30 16:27:44.3618|INFO|Cards_of_defectation.Classes.Log|Старт системы слежения
-2017-05-30 16:27:44.8280|INFO|Cards_of_defectation.Classes.Log|Запущена
-2017-05-30 16:27:44.8280|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
-2017-05-30 16:27:44.9190|INFO|Cards_of_defectation.Classes.Log|Открыто
-2017-05-30 16:27:44.9490|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_plan_rabot
-2017-05-30 16:27:44.9700|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-05-30 16:27:44.9850|INFO|Cards_of_defectation.Classes.Log|Загру
-2017-05-30 16:27:45.3972|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-05-30 16:27:45.3972|INFO|Cards_of_defectation.Classes.Log|Старт системы слежения
-2017-05-30 16:27:45.3972|INFO|Cards_of_defectation.Classes.Log|Запущена
-2017-05-30 16:27:45.3972|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
-2017-05-30 16:27:45.4272|INFO|Cards_of_defectation.Classes.Log|Открыто
-2017-05-30 16:27:45.4292|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309307
-2017-05-30 16:27:45.4292|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.4542|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
-2017-05-30 16:27:45.5162|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в плане
-2017-05-30 16:27:45.5162|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '2' group by nom_sz
-2017-05-30 16:27:45.5262|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5262|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '2' and data_def is not null group by nom_sz
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 6 / 0
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309290
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 146
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в плане
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '4' group by nom_sz
-2017-05-30 16:27:45.5392|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '4' and data_def is not null group by nom_sz
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 6 / 1
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309234
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в плане
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '5' group by nom_sz
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5532|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '5' and data_def is not null group by nom_sz
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 8 / 2
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309316
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 148
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в плане
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '6' group by nom_sz
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5692|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '6' and data_def is not null group by nom_sz
-2017-05-30 16:27:45.5842|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.5842|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 4 / 0
-2017-05-30 16:27:45.7433|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-05-30 16:27:45.7433|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309316
-2017-05-30 16:27:45.7433|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.7433|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 148
-2017-05-30 16:27:45.7433|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в плане
-2017-05-30 16:27:45.7433|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '7' group by nom_sz
-2017-05-30 16:27:45.7433|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.7433|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '7' and data_def is not null group by nom_sz
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 21 / 2
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309234
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в плане
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '8' group by nom_sz
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '8' and data_def is not null group by nom_sz
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:45.7583|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 18 / 1
-2017-05-30 16:27:49.2053|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_plan_rabot
-2017-05-30 16:27:49.2053|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-05-30 16:27:49.2533|INFO|Cards_of_defectation.Classes.Log|Update таблицы rz_plan_rabot
-2017-05-30 16:27:49.2533|INFO|Cards_of_defectation.Classes.Log|Update успешно
-2017-05-30 16:27:49.2533|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_ser_nom_naim where ser_nom = 'Н70256'
-2017-05-30 16:27:49.2673|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.2673|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select cherch from rz_naim_cherch where naim = '55Ж6У'
-2017-05-30 16:27:49.2673|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.2673|INFO|Cards_of_defectation.Classes.Log|Запуск Work_shop
-2017-05-30 16:27:49.2673|INFO|Cards_of_defectation.Classes.Log|Загрузка данных
-2017-05-30 16:27:49.2673|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_ceh from rz_kart_defect where nom_ceh is not null and nom_sz = '5' group by nom_ceh
-2017-05-30 16:27:49.3033|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.3033|INFO|Cards_of_defectation.Classes.Log|Загружено
-2017-05-30 16:27:49.3954|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1
-2017-05-30 16:27:49.3954|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.3954|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в work_shop
-2017-05-30 16:27:49.3954|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 8 and nom_sz = '5' group by nom_ceh
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 8 and data_def is not null and nom_sz = '5' group by nom_sz
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 1 / 0
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в work_shop
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 16 and nom_sz = '5' group by nom_ceh
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 16 and data_def is not null and nom_sz = '5' group by nom_sz
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 2 / 1
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в work_shop
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 17 and nom_sz = '5' group by nom_ceh
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.4094|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 17 and data_def is not null and nom_sz = '5' group by nom_sz
-2017-05-30 16:27:49.4234|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.4234|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 3 / 0
-2017-05-30 16:27:49.4234|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в work_shop
-2017-05-30 16:27:49.4234|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 21 and nom_sz = '5' group by nom_ceh
-2017-05-30 16:27:49.4624|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.4624|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 21 and data_def is not null and nom_sz = '5' group by nom_sz
-2017-05-30 16:27:49.4624|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:49.4624|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 1 / 0
-2017-05-30 16:27:50.7408|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where nom_ceh = '17' and spos_ustr = 1 order by data_post
-2017-05-30 16:27:50.7408|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-05-30 16:27:50.8448|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='5'
-2017-05-30 16:27:50.8448|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8448|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309234'
-2017-05-30 16:27:50.8448|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8448|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='5'
-2017-05-30 16:27:50.8448|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='5'
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309234'
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='5'
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8588|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='8'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309234'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='8'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='5'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309234'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='5'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8738|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.8898|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.9058|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9208|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9208|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9208|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9208|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9208|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:50.9208|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:50.9208|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:50.9208|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:51.0298|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:51.0298|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:51.0298|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
-2017-05-30 16:27:51.0298|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:27:51.0298|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
-2017-05-30 16:27:51.0298|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:28:02.6333|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='5'
-2017-05-30 16:28:02.6333|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:28:02.6413|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='5'
-2017-05-30 16:28:02.6413|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-05-30 16:28:02.6413|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309234'
-2017-05-30 16:28:02.6413|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:34.5464|INFO|Cards_of_defectation.Classes.Log|Создание соединения
+2017-05-31 09:03:34.5744|INFO|Cards_of_defectation.Classes.Log|Соединение создано
+2017-05-31 09:03:34.6024|INFO|Cards_of_defectation.Classes.Log|Старт системы слежения
+2017-05-31 09:03:34.7505|INFO|Cards_of_defectation.Classes.Log|Запущена
+2017-05-31 09:03:34.7505|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
+2017-05-31 09:03:34.7915|INFO|Cards_of_defectation.Classes.Log|Открыто
+2017-05-31 09:03:34.7915|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'ж%'
+2017-05-31 09:03:35.1476|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:35.2026|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг%'
+2017-05-31 09:03:35.6076|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:35.6257|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг1%'
+2017-05-31 09:03:35.7627|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:35.7757|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг10%'
+2017-05-31 09:03:35.9047|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:36.9041|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг100%'
+2017-05-31 09:03:37.0444|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:37.0805|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг1000%'
+2017-05-31 09:03:37.2409|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:37.2810|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг10000%'
+2017-05-31 09:03:37.4183|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:38.5527|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг100002%'
+2017-05-31 09:03:38.7021|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:39.4798|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг1000026%'
+2017-05-31 09:03:39.6271|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:41.0212|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'ЖГ1000026%'
+2017-05-31 09:03:41.1374|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:41.1374|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'ЖГ1000026%'
+2017-05-31 09:03:41.2437|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-05-31 09:03:42.2699|INFO|Cards_of_defectation.Classes.Log|Старт системы слежения
+2017-05-31 09:03:42.2699|INFO|Cards_of_defectation.Classes.Log|Запущена
+2017-05-31 09:03:42.2699|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
+2017-05-31 09:03:42.2879|INFO|Cards_of_defectation.Classes.Log|Открыто
+2017-05-31 09:03:42.2879|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select ltrim(rtrim(naim)) from naim where ltrim(nom) = 'ЖГ1000026'
+2017-05-31 09:03:42.4643|INFO|Cards_of_defectation.Classes.Log|Чтение успешно

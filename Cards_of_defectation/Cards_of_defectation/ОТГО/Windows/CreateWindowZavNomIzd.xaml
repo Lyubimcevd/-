@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Cards_of_defectation.ОТГО.Windows"
         mc:Ignorable="d"
         Title="CreateWindowZavNomIzd" 
-        Height="60" 
+        Height="50" 
         Width="300" 
         ResizeMode="NoResize">
     <Grid>

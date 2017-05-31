@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Cards_of_defectation.ОТГО.Windows"
         mc:Ignorable="d"
         Title="Ремонтные заказы" 
-        Height="60" 
-        Width="390" 
+        Height="50" 
+        Width="375" 
         ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>

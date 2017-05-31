@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Cards_of_defectation.ОТГО.Classes;
 using Cards_of_defectation.ОТГО.ViewModal;
+using Cards_of_defectation.Classes;
 
 namespace Cards_of_defectation.ОТГО.Windows
 {
@@ -21,8 +22,9 @@ namespace Cards_of_defectation.ОТГО.Windows
         public CreateWindowNaim(NomSZ_Cherch_Naim ptmp)
         {
             InitializeComponent();
-            combo_box.DataContext = new CreateWindowNaimViewModal();
             tmp = ptmp;
+            combo_box.DataContext = new CreateWindowNaimViewModal(Server.InitServer().DataBase("cvodka")
+                .ExecuteCommand("select ltrim(rtrim(naim)) from naim where ltrim(nom) = '"+tmp.Cherch+"'"));
             Loaded += delegate { combo_box.Focus(); };
         }
         private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -35,15 +37,10 @@ namespace Cards_of_defectation.ОТГО.Windows
         {
             if (e.Key == Key.Enter)
             {
-                if (combo_box.SelectedItem == null) combo_box.SelectedItem = combo_box.Items.CurrentItem;
-                else
-                {
-                    tmp.Naim = combo_box.SelectedItem.ToString();
-                    CreateWindowZavNomIzd Next_window = new CreateWindowZavNomIzd(tmp);
-                    Next_window.Show();
-                    this.Close();
-                }
-                
+                tmp.Naim = combo_box.Text;
+                CreateWindowZavNomIzd Next_window = new CreateWindowZavNomIzd(tmp);
+                Next_window.Show();
+                this.Close();              
             }
         }
     }
