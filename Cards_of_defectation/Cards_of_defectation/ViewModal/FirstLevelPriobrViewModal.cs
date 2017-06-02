@@ -12,7 +12,7 @@ namespace Cards_of_defectation.ViewModal
         List<object> cherch_list, naim_list, n_nomer_list;
         Row_in_kart_defect parent_row;
         string text_for_filter_cherch, text_for_filter_naim, text_for_filter_n_nomer, color;
-        bool is_drop_down_cherch, is_drop_down_naim, is_drop_down_n_nomer, is_change;
+        bool is_drop_down_cherch, is_drop_down_naim, is_drop_down_n_nomer, is_change, is_navigate;
         int current_length_of_cherch_filter, current_length_of_naim_filter, current_length_of_n_nomer_filter;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -47,35 +47,40 @@ namespace Cards_of_defectation.ViewModal
             }
             set
             {
-                parent_row.N_nomer = value;
-                is_change = true;
-                if (SelectedNaim == null)
+                if (!IsNavigate)
                 {
-                    Naim_list = Server.GetServer.DataBase("cvodka")
-                            .ExecuteCommand("select top 50 ltrim(rtrim(naim)) from naim where nom = '"
-                                            + parent_row.N_nomer + "'");
-                    if (Naim_list.Count == 1)
+                    parent_row.N_nomer = value;
+                    is_change = true;
+                    if (SelectedNaim == null)
                     {
-                        SelectedNaim = Naim_list.First().ToString();
-                        OnPropertyChanged("SelectedNaim");
+                        Naim_list = Server.GetServer.DataBase("cvodka")
+                                .ExecuteCommand("select top 50 ltrim(rtrim(naim)) from naim where nom = '"
+                                                + parent_row.N_nomer + "'");
+                        if (Naim_list.Count == 1)
+                        {
+                            SelectedNaim = Naim_list.First().ToString();
+                            OnPropertyChanged("SelectedNaim");
+                        }
+                        if (Naim_list.Count == 0) Naim_list = null;
                     }
-                }
-                if (SelectedCherch == null)
-                {
-                    Cherch_list = Server.GetServer.DataBase("uit")
-                            .ExecuteCommand("select top 50 ltrim(rtrim(nk)) from spkd_poksp where nc = '"
+                    if (SelectedCherch == null)
+                    {
+                        Cherch_list = Server.GetServer.DataBase("uit")
+                                .ExecuteCommand("select top 50 ltrim(rtrim(nk)) from spkd_poksp where nc = '"
+                                                + parent_row.N_nomer + "'");
+                        if (Cherch_list.Count == 0 || Cherch_list.Count < 50)
+                        {
+                            List<object> tmp_list = Server.GetServer.DataBase("cvodka")
+                            .ExecuteCommand("select top 50 ltrim(rtrim(nc)) from m56 where nn = '"
                                             + parent_row.N_nomer + "'");
-                    if (Cherch_list.Count == 0 || Cherch_list.Count < 50)
-                    {
-                        List<object> tmp_list = Server.GetServer.DataBase("cvodka")
-                        .ExecuteCommand("select top 50 ltrim(rtrim(nc)) from m56 where nn = '"
-                                        + parent_row.N_nomer + "'");
-                        foreach (object ob in tmp_list) Cherch_list.Add(ob);
-                    }
-                    if (Cherch_list.Count == 1)
-                    {
-                        SelectedCherch = Cherch_list.First().ToString();
-                        OnPropertyChanged("SelectedCherch");
+                            foreach (object ob in tmp_list) Cherch_list.Add(ob);
+                        }
+                        if (Cherch_list.Count == 1)
+                        {
+                            SelectedCherch = Cherch_list.First().ToString();
+                            OnPropertyChanged("SelectedCherch");
+                        }
+                        if (Cherch_list.Count == 0) Cherch_list = null;
                     }
                 }
             }
@@ -88,35 +93,40 @@ namespace Cards_of_defectation.ViewModal
             }
             set
             {
-                parent_row.Cherch = value;
-                is_change = true;
-                if (SelectedNaim == null)
+                if (!IsNavigate)
                 {
-                    Naim_list = Server.GetServer.DataBase("cvodka")
-                            .ExecuteCommand("select top 50 ltrim(rtrim(naim)) from naim where nom = '"
+                    parent_row.Cherch = value;
+                    is_change = true;
+                    if (SelectedNaim == null)
+                    {
+                        Naim_list = Server.GetServer.DataBase("cvodka")
+                                .ExecuteCommand("select top 50 ltrim(rtrim(naim)) from naim where nom = '"
+                                                + parent_row.Cherch + "'");
+                        if (Naim_list.Count == 1)
+                        {
+                            SelectedNaim = Naim_list.First().ToString();
+                            OnPropertyChanged("SelectedNaim");
+                        }
+                        if (Naim_list.Count == 0) Naim_list = null;
+                    }
+                    if (SelectedN_nomer == null)
+                    {
+                        N_nomer_list = Server.GetServer.DataBase("uit")
+                            .ExecuteCommand("select top 50 rtrim(nc) from spkd_poksp where ltrim(rtrim(nk)) = '"
                                             + parent_row.Cherch + "'");
-                    if (Naim_list.Count == 1)
-                    {
-                        SelectedNaim = Naim_list.First().ToString();
-                        OnPropertyChanged("SelectedNaim");
-                    }
-                }
-                if (SelectedN_nomer == null)
-                {
-                    N_nomer_list = Server.GetServer.DataBase("uit")
-                        .ExecuteCommand("select top 50 rtrim(nc) from spkd_poksp where ltrim(rtrim(nk)) = '"
-                                        + parent_row.Cherch + "'");
-                    if (N_nomer_list.Count < 50)
-                    {
-                        List<object> tmp_list = Server.GetServer.DataBase("cvodka")
-                        .ExecuteCommand("select top 50 rtrim(nn) from m56 where ltrim(rtrim(nc)) = '"
-                                        + parent_row.Cherch + "'");
-                        foreach (object ob in tmp_list) N_nomer_list.Add(ob);
-                    }
-                    if (N_nomer_list.Count == 1)
-                    {
-                        SelectedN_nomer = N_nomer_list.First().ToString();
-                        OnPropertyChanged("SelectedN_nomer");
+                        if (N_nomer_list.Count < 50)
+                        {
+                            List<object> tmp_list = Server.GetServer.DataBase("cvodka")
+                            .ExecuteCommand("select top 50 rtrim(nn) from m56 where ltrim(rtrim(nc)) = '"
+                                            + parent_row.Cherch + "'");
+                            foreach (object ob in tmp_list) N_nomer_list.Add(ob);
+                        }
+                        if (N_nomer_list.Count == 1)
+                        {
+                            SelectedN_nomer = N_nomer_list.First().ToString();
+                            OnPropertyChanged("SelectedN_nomer");
+                        }
+                        if (N_nomer_list.Count == 0) N_nomer_list = null;
                     }
                 }
             }
@@ -129,28 +139,33 @@ namespace Cards_of_defectation.ViewModal
             }
             set
             {
-                parent_row.Naim = value;
-                is_change = true;
-                if (SelectedCherch == null)
+                if (!IsNavigate)
                 {
-                    Cherch_list = Server.GetServer.DataBase("uit")
-                           .ExecuteCommand("select distinct top 50 ltrim(rtrim(nc)) from table_nc1 where nc"
-                                        + " in (select nom from cvodka.dbo.naim where ltrim(naim) = '" + parent_row.Naim + "')");
-                    if (Cherch_list.Count == 1)
+                    parent_row.Naim = value;
+                    is_change = true;
+                    if (SelectedCherch == null)
                     {
-                        SelectedCherch = Cherch_list.First().ToString();
-                        OnPropertyChanged("SelectedCherch");
+                        Cherch_list = Server.GetServer.DataBase("uit")
+                               .ExecuteCommand("select distinct top 50 ltrim(rtrim(nc)) from table_nc1 where nc"
+                                            + " in (select nom from cvodka.dbo.naim where ltrim(naim) = '" + parent_row.Naim + "')");
+                        if (Cherch_list.Count == 1)
+                        {
+                            SelectedCherch = Cherch_list.First().ToString();
+                            OnPropertyChanged("SelectedCherch");
+                        }
+                        if (Cherch_list.Count == 0) Cherch_list = null;
                     }
-                }
-                if (SelectedN_nomer == null)
-                {
-                    N_nomer_list = Server.GetServer.DataBase("uit")
-                            .ExecuteCommand("select distinct top 50 rtrim(nc) from nomenkl_nom where nc"
-                                        + " in (select nom from cvodka.dbo.naim where ltrim(naim) = '" + parent_row.Naim + "')");
-                    if (N_nomer_list.Count == 1)
+                    if (SelectedN_nomer == null)
                     {
-                        SelectedN_nomer = N_nomer_list.First().ToString();
-                        OnPropertyChanged("SelectedN_nomer");
+                        N_nomer_list = Server.GetServer.DataBase("uit")
+                                .ExecuteCommand("select distinct top 50 rtrim(nc) from nomenkl_nom where nc"
+                                            + " in (select nom from cvodka.dbo.naim where ltrim(naim) = '" + parent_row.Naim + "')");
+                        if (N_nomer_list.Count == 1)
+                        {
+                            SelectedN_nomer = N_nomer_list.First().ToString();
+                            OnPropertyChanged("SelectedN_nomer");
+                        }
+                        if (N_nomer_list.Count == 0) N_nomer_list = null;
                     }
                 }
             }
@@ -225,12 +240,15 @@ namespace Cards_of_defectation.ViewModal
             set
             {
                 text_for_filter_cherch = value;
-                if (Cherch_list?.Count != 0 || current_length_of_cherch_filter > text_for_filter_cherch.Length||Cherch_list == null)
-                    Cherch_list = Server.GetServer.DataBase("uit")
-                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like '"
-                                        + text_for_filter_cherch + "%'");
-                if (Cherch_list.Count != 0) IsDropDownCherch = true;
-                current_length_of_cherch_filter = text_for_filter_cherch.Length;
+                if (!IsNavigate)
+                {
+                    if (Cherch_list?.Count != 0 || current_length_of_cherch_filter > text_for_filter_cherch.Length || Cherch_list == null)
+                        Cherch_list = Server.GetServer.DataBase("uit")
+                            .ExecuteCommand("select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like '"
+                                            + text_for_filter_cherch + "%'");
+                    if (Cherch_list.Count != 0) IsDropDownCherch = true;
+                    current_length_of_cherch_filter = text_for_filter_cherch.Length;
+                }
             }
         }
         public string Text_for_filter_naim
@@ -242,12 +260,15 @@ namespace Cards_of_defectation.ViewModal
             set
             {
                 text_for_filter_naim = value;
-                if (Naim_list?.Count != 0 || current_length_of_naim_filter > text_for_filter_naim.Length||Naim_list == null)
-                    Naim_list = Server.GetServer.DataBase("cvodka")
-                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%"
-                                        + text_for_filter_naim + "%'");
-                if (Naim_list.Count != 0) IsDropDownNaim = true;
-                current_length_of_naim_filter = text_for_filter_naim.Length;
+                if (!IsNavigate)
+                {
+                    if (Naim_list?.Count != 0 || current_length_of_naim_filter > text_for_filter_naim.Length || Naim_list == null)
+                        Naim_list = Server.GetServer.DataBase("cvodka")
+                            .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%"
+                                            + text_for_filter_naim + "%'");
+                    if (Naim_list.Count != 0) IsDropDownNaim = true;
+                    current_length_of_naim_filter = text_for_filter_naim.Length;
+                }
             }
         }
         public string Text_for_filter_n_nomer
@@ -258,13 +279,16 @@ namespace Cards_of_defectation.ViewModal
             }
             set
             {
-                text_for_filter_n_nomer = value;               
-                if (N_nomer_list?.Count != 0 || current_length_of_n_nomer_filter > text_for_filter_n_nomer.Length||N_nomer_list == null)
-                    N_nomer_list = Server.GetServer.DataBase("uit")
-                        .ExecuteCommand("select top 50 rtrim(nc) from nomenkl_nom where nc like '"
-                                        + text_for_filter_n_nomer + "%'");
-                if (N_nomer_list.Count != 0) IsDropDownNNomer = true;
-                current_length_of_n_nomer_filter = text_for_filter_n_nomer.Length;
+                text_for_filter_n_nomer = value;
+                if (!IsNavigate)
+                {
+                    if (N_nomer_list?.Count != 0 || current_length_of_n_nomer_filter > text_for_filter_n_nomer.Length || N_nomer_list == null)
+                        N_nomer_list = Server.GetServer.DataBase("uit")
+                            .ExecuteCommand("select top 50 rtrim(nc) from nomenkl_nom where nc like '"
+                                            + text_for_filter_n_nomer + "%'");
+                    if (N_nomer_list.Count != 0) IsDropDownNNomer = true;
+                    current_length_of_n_nomer_filter = text_for_filter_n_nomer.Length;
+                }
             }
         }
         public bool IsDropDownCherch
@@ -328,6 +352,17 @@ namespace Cards_of_defectation.ViewModal
             {
                 if (Kolvo == 0) return "Red";
                 else return "Black";
+            }
+        }
+        public bool IsNavigate
+        {
+            get
+            {
+                return is_navigate;
+            }
+            set
+            {
+                is_navigate = value;
             }
         }
 

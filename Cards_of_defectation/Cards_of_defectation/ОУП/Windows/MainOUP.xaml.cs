@@ -171,7 +171,9 @@ namespace Cards_of_defectation.ОУП.Windows
                 .ExecuteCommand("select * from rz_kart_defect where nom_sz = '" + Nom_sz+"'").Count == 0)
             {
                 List<Row_in_kart_defect> save_list = new List<Row_in_kart_defect>();
-                save_list.Add(new Row_in_kart_defect(Nom_sz));
+                save_list.Add(new Row_in_kart_defect((Server.GetServer.DataBase("uit")
+                    .Table("select * from rz_plan_rabot where nom_sz = '"+Nom_sz+"'")
+                    .LoadFromServer() as List<Row_in_plan_rabot>)[0]));
                 Server.GetServer.DataBase("uit")
                     .Table("select * from rz_kart_defect where nom_sz = '" + Nom_sz+"'")
                     .UpdateServerData(save_list);

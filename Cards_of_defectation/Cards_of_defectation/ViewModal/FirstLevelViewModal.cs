@@ -20,7 +20,7 @@ namespace Cards_of_defectation.ViewModal
         ObservableCollection<SlugebZapiskaPriobrViewModal> priobr;
         ObservableCollection<SlugebZapiskaStorRemViewModal> stor_rem;
         List<object> ser_nom_list,kontract_list;
-        bool is_change, is_drop_down_ser_nom, is_drop_down_kontract;
+        bool is_change, is_drop_down_ser_nom, is_drop_down_kontract,is_navigate;
         Row_in_plan_rabot save_row;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -103,14 +103,17 @@ namespace Cards_of_defectation.ViewModal
                 return text_for_filter_ser_nom;
             }
             set
-            {              
-                text_for_filter_ser_nom = value;               
-                if (Ser_nom_list?.Count != 0 || current_length_of_ser_nom_filter > text_for_filter_ser_nom.Length||Ser_nom_list == null)
-                    Ser_nom_list = Server.GetServer.DataBase("uit")
-                        .ExecuteCommand("select top 50 ser_nom from rz_ser_nom_naim where ser_nom like '"
-                                        + text_for_filter_ser_nom + "%'");
-                if (Ser_nom_list.Count != 0) IsDropDownSer_nom = true;
-                current_length_of_ser_nom_filter = text_for_filter_ser_nom.Length;
+            {
+                text_for_filter_ser_nom = value;
+                if (!IsNavigate)
+                {                
+                    if (Ser_nom_list?.Count != 0 || current_length_of_ser_nom_filter > text_for_filter_ser_nom.Length || Ser_nom_list == null)
+                        Ser_nom_list = Server.GetServer.DataBase("uit")
+                            .ExecuteCommand("select top 50 ser_nom from rz_ser_nom_naim where ser_nom like '"
+                                            + text_for_filter_ser_nom + "%'");
+                    if (Ser_nom_list.Count != 0) IsDropDownSer_nom = true;
+                    current_length_of_ser_nom_filter = text_for_filter_ser_nom.Length;
+                }
             }
         }
         public string Text_for_filter_kontract
@@ -121,14 +124,17 @@ namespace Cards_of_defectation.ViewModal
             }
             set
             {
-                text_for_filter_kontract = value;          
-                if (Kontract_list?.Count != 0 || current_length_of_kontract_filter > text_for_filter_kontract.Length||Kontract_list == null)
-                    Kontract_list = Server.GetServer.DataBase("cvodka")
-                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(t.kontr)) from "
-                        + "(SELECT sp34360+'/'+descr as kontr FROM[IZ_1C].[sql].[dbo].[SC33852] where sp34360 <> '')"
-                        + "as t where ltrim(t.kontr) like '" + text_for_filter_kontract + "%'");
-                if (Kontract_list.Count != 0) IsDropDownKontract = true;
-                current_length_of_kontract_filter = text_for_filter_kontract.Length;
+                text_for_filter_kontract = value;
+                if (!IsNavigate)
+                {          
+                    if (Kontract_list?.Count != 0 || current_length_of_kontract_filter > text_for_filter_kontract.Length || Kontract_list == null)
+                        Kontract_list = Server.GetServer.DataBase("cvodka")
+                            .ExecuteCommand("select distinct top 50 Ltrim(rtrim(t.kontr)) from "
+                            + "(SELECT sp34360+'/'+descr as kontr FROM[IZ_1C].[sql].[dbo].[SC33852] where sp34360 <> '')"
+                            + "as t where ltrim(t.kontr) like '" + text_for_filter_kontract + "%'");
+                    if (Kontract_list.Count != 0) IsDropDownKontract = true;
+                    current_length_of_kontract_filter = text_for_filter_kontract.Length;
+                }
             }
         }
         public string SelectedSer_nom
@@ -317,6 +323,17 @@ namespace Cards_of_defectation.ViewModal
             get
             {
                 return stor_rem;
+            }
+        }
+        public bool IsNavigate
+        {
+            get
+            {
+                return is_navigate;
+            }
+            set
+            {
+                is_navigate = value;
             }
         }
 

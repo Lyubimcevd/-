@@ -126,12 +126,13 @@ namespace Cards_of_defectation.Windows
         private void listBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if ((sender as ListBox).SelectedItem != null)
-            {        
-                Rows.Add((sender as ListBox).SelectedItem as RowDefectViewModal);
+            {
+                RowDefectViewModal tmp = (sender as ListBox).SelectedItem as RowDefectViewModal;
+                if (Rows.IndexOf(tmp) != -1) Rows.Add(new RowDefectViewModal(tmp));
+                else Rows.Add(tmp);     
                 IsSave = false;
             }
         }
-
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             foreach (RowDefectViewModal row in main_table.SelectedItems) row.Opis_def = (sender as ComboBox).Text;
@@ -154,8 +155,7 @@ namespace Cards_of_defectation.Windows
         }
         private void ComboBox_SelectionChanged_5(object sender, SelectionChangedEventArgs e)
         {
-            foreach (RowDefectViewModal row in main_table.SelectedItems)
-                if ((sender as ComboBox).SelectedIndex != -1) row.Nom_ceh = (sender as ComboBox).SelectedIndex;
+            foreach (RowDefectViewModal row in main_table.SelectedItems) row.Nom_ceh = (sender as ComboBox).SelectedIndex;
         }
         private void arm_search_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

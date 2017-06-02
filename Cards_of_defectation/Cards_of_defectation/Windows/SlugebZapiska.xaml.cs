@@ -115,12 +115,13 @@ namespace Cards_of_defectation.Windows
                                 break;
                         }
                         IsSave = false;
+                        (sender as DataGrid).CurrentColumn = (sender as DataGrid).Columns[0];
                     }
                 if (e.OriginalSource is TextBox)
                     if ((e.OriginalSource as TextBox).TemplatedParent!=null)
                     {
                         ComboBox tmp = (e.OriginalSource as TextBox).TemplatedParent as ComboBox;
-                        tmp.SelectedItem = tmp.Items.CurrentItem;
+                        tmp.SelectedItem = tmp.Text;
                     }
             }
         }
@@ -162,6 +163,44 @@ namespace Cards_of_defectation.Windows
                 if (result == MessageBoxResult.Yes) Save_Execute(null, null);
                 if (result == MessageBoxResult.Cancel) e.Cancel = true;
             }
+        }
+
+        protected override void OnPreviewKeyDown(KeyEventArgs e)
+        {
+            if (e.OriginalSource is TextBox)
+                if ((e.OriginalSource as TextBox).TemplatedParent is ComboBox)
+                {
+                    ComboBox tmp = (e.OriginalSource as TextBox).TemplatedParent as ComboBox;
+                    switch (e.Key)
+                    {
+                        case Key.Down:
+                            e.Handled = true;
+                            if (tmp.DataContext is SlugebZapiskaViewModal) (tmp.DataContext as SlugebZapiskaViewModal).IsNavigate = true;
+                            if (tmp.DataContext is SlugebZapiskaIzgotViewModal) (tmp.DataContext as SlugebZapiskaIzgotViewModal).IsNavigate = true;
+                            if (tmp.DataContext is SlugebZapiskaPriobrViewModal) (tmp.DataContext as SlugebZapiskaPriobrViewModal).IsNavigate = true;
+                            if (tmp.DataContext is SlugebZapiskaRemontViewModal) (tmp.DataContext as SlugebZapiskaRemontViewModal).IsNavigate = true;
+                            if (tmp.DataContext is SlugebZapiskaStorRemViewModal) (tmp.DataContext as SlugebZapiskaStorRemViewModal).IsNavigate = true;
+                            if (tmp.SelectedIndex < tmp.Items.Count) tmp.SelectedIndex++;
+                            break;
+                        case Key.Up:
+                            e.Handled = true;
+                            if (tmp.DataContext is SlugebZapiskaViewModal) (tmp.DataContext as SlugebZapiskaViewModal).IsNavigate = true;
+                            if (tmp.DataContext is SlugebZapiskaIzgotViewModal) (tmp.DataContext as SlugebZapiskaIzgotViewModal).IsNavigate = true;
+                            if (tmp.DataContext is SlugebZapiskaPriobrViewModal) (tmp.DataContext as SlugebZapiskaPriobrViewModal).IsNavigate = true;
+                            if (tmp.DataContext is SlugebZapiskaRemontViewModal) (tmp.DataContext as SlugebZapiskaRemontViewModal).IsNavigate = true;
+                            if (tmp.DataContext is SlugebZapiskaStorRemViewModal) (tmp.DataContext as SlugebZapiskaStorRemViewModal).IsNavigate = true;
+                            if (tmp.SelectedIndex > 0) tmp.SelectedIndex--;
+                            break;
+                        default:
+                            if (tmp.DataContext is SlugebZapiskaViewModal) (tmp.DataContext as SlugebZapiskaViewModal).IsNavigate = false;
+                            if (tmp.DataContext is SlugebZapiskaIzgotViewModal) (tmp.DataContext as SlugebZapiskaIzgotViewModal).IsNavigate = false;
+                            if (tmp.DataContext is SlugebZapiskaPriobrViewModal) (tmp.DataContext as SlugebZapiskaPriobrViewModal).IsNavigate = false;
+                            if (tmp.DataContext is SlugebZapiskaRemontViewModal) (tmp.DataContext as SlugebZapiskaRemontViewModal).IsNavigate = false;
+                            if (tmp.DataContext is SlugebZapiskaStorRemViewModal) (tmp.DataContext as SlugebZapiskaStorRemViewModal).IsNavigate = false;
+                            base.OnPreviewKeyDown(e);
+                            break;
+                    }
+                }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Cards_of_defectation.ViewModal
         RowDefectViewModal parent;
         Row_in_kart_defect row;
         string cherch_for_search;
-        bool is_change;
+        bool is_change = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -23,12 +23,14 @@ namespace Cards_of_defectation.ViewModal
             row.Par = prow.Id;
             row.Cherch = pCherch;
             parent = prow;
-            is_change = false;
         }
         public RowDefectViewModal(Row_in_kart_defect prow)
         {
             row = prow;
-            is_change = false;
+        }
+        public RowDefectViewModal(RowDefectViewModal prow)
+        {
+            row = new Row_in_kart_defect(prow.Save);
         }
 
         public int Id

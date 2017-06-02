@@ -72,6 +72,8 @@ namespace Cards_of_defectation.Classes
                 range.Text = Server.GetServer.DataBase("uit")
                     .ExecuteCommand("select naim from rz_ser_nom_naim where ser_nom = '"
                                     + header.Ser_nom+"'")[0].ToString();
+            range = SearchRange("@@obozn_det");
+            if (range != null) range.Text = header.Cherch;
             range = SearchRange("@@naim_det_2");
             if (range != null) range.Text = header.Naim_det;          
             range = SearchRange("@@nom_kart");
@@ -81,7 +83,7 @@ namespace Cards_of_defectation.Classes
             table = document.Tables[1];
             for (int i = 0; i < Rows.Count; i++)
             {
-                table.Cell(table.Rows.Count, 1).Range.Text = i.ToString()+1;
+                table.Cell(table.Rows.Count, 1).Range.Text = (i+1).ToString();
                 table.Cell(table.Rows.Count, 2).Range.Text = Rows[i].Cherch + " = " + Rows[i].Kolvo.ToString() + " шт" +
                     "\n" + Rows[i].Opis_def + "\n" + Rows[i].Opis_def_komment;
                 table.Cell(table.Rows.Count, 3).Range.Text = Rows[i].Prichina + "\n"+ Rows[i].Prichina_komment;
