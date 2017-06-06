@@ -26,30 +26,12 @@ namespace Cards_of_defectation.Classes
         }
         public Row_in_kart_defect(Row_in_kart_defect prow)
         {
-            id = prow.id;
             par = prow.par;
             nom_sz = prow.Nom_sz;
             cherch = prow.Cherch;
             n_nomer = prow.N_nomer;
             naim = prow.Naim;
             kolvo = prow.Kolvo;
-            nom_ceh = prow.Nom_ceh;
-            nom_kart = prow.Nom_kart;
-            opis_def = prow.Opis_def;
-            opis_def_komment = prow.Opis_def_komment;
-            prich = prow.Prich;
-            prich_komment = prow.Prich_komment;
-            met_opr = prow.Met_opr;
-            met_opr_komment = prow.Met_opr_komment;
-            teh_treb = prow.Teh_treb;
-            teh_treb_komment = prow.Teh_treb_komment;
-            spos_ustr = prow.Spos_ustr;
-            spos_ustr_komment = prow.Spos_ustr_komment;
-            data_post = prow.Data_post;
-            data_def = prow.Data_def;
-            izgotov = prow.Izgotov;
-            prim = prow.Prim;
-            is_faster = prow.IsFaster;
         }
 
         public int Id

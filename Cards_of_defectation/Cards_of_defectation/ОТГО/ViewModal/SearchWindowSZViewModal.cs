@@ -16,6 +16,10 @@ namespace Cards_of_defectation.ОТГО.ViewModal
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public SearchWindowSZViewModal()
+        {
+            nom_sz_list = Server.GetServer.DataBase("uit").ExecuteCommand("select top 50 nom_sz from rz_plan_rabot");
+        }
         public List<object> Nom_sz_list
         {
             get

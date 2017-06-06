@@ -53,7 +53,8 @@
                       SelectedItem="{Binding SelectedKontract,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"                           
                       IsTextSearchEnabled="False"
                       FontSize="14"
-                      TextBoxBase.TextChanged="ComboBox_TextChanged"/>
+                      TextBoxBase.TextChanged="ComboBox_TextChanged" 
+                      PreviewKeyDown="Key_PreviewKeyDown"/>
             <TextBlock Text="Номер станции"
                        Grid.Row="1"                       
                        FontSize="14" 

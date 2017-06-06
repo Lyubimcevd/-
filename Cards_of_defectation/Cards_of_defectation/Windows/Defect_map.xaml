@@ -44,7 +44,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock TextWrapping="Wrap" 

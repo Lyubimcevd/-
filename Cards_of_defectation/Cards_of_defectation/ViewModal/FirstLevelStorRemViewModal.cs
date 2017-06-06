@@ -36,9 +36,10 @@ namespace Cards_of_defectation.ViewModal
             parent_row = row.Save;
             text_for_filter_cherch = parent_row.Cherch;
             text_for_filter_naim = parent_row.Naim;
-            text_for_filter_izgotov = Server.GetServer.DataBase("cvodka")
+            List<object> tmp = Server.GetServer.DataBase("cvodka")
                         .ExecuteCommand("select Ltrim(rtrim(zakazchi_naim)) from"
-                         +" zakazchi_naim where id = "+ parent_row.Izgotov)[0].ToString();
+                         + " zakazchi_naim where id = " + parent_row.Izgotov);
+            if (tmp.Count != 0) text_for_filter_izgotov = tmp[0].ToString();
             DefaultAction();
             IsRight();
         }
@@ -70,6 +71,7 @@ namespace Cards_of_defectation.ViewModal
                         {
                             SelectedNaim = Naim_list.First().ToString();
                             OnPropertyChanged("SelectedNaim");
+                            IsDropDownNaim = false;
                         }
                         if (Naim_list.Count == 0) Naim_list = null;
                     }
@@ -98,6 +100,7 @@ namespace Cards_of_defectation.ViewModal
                         {
                             SelectedCherch = Cherch_list.First().ToString();
                             OnPropertyChanged("SelectedCherch");
+                            IsDropDownCherch = false;
                         }
                         if (Cherch_list.Count == 0) Cherch_list = null;
                     }

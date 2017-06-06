@@ -43,7 +43,8 @@ namespace Cards_of_defectation.Windows
             cap.DataContext = Header;
             if (Header.Par == 0)
                 Rows = Converter.ToViewModal(Server.GetServer.DataBase("uit")
-                    .Table("select * from rz_kart_defect where par = " + Id + " and spos_ustr = 1")
+                    .Table("select * from rz_kart_defect where par = " + Id + " and spos_ustr = "
+                    + References.GetReferences.GetId("rz_spos_ustr", "Дефектация"))
                     .LoadFromServer() as List<Row_in_kart_defect>);
             else
                 Rows = Converter.ToViewModal(Server.GetServer.DataBase("uit")
@@ -55,8 +56,11 @@ namespace Cards_of_defectation.Windows
 
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
-            Server.GetServer.DataBase("uit").Table("select * from rz_kart_defect where par = " + Id)
+            if (Header.Par != 0) Server.GetServer.DataBase("uit").Table("select * from rz_kart_defect where par = " + Id)
                 .UpdateServerData(Converter.ToSave(Rows));
+            else Server.GetServer.DataBase("uit").Table("select * from rz_kart_defect where par = " 
+                + Id+ " and spos_ustr = "+References.GetReferences.GetId("rz_spos_ustr","Дефектация"))
+               .UpdateServerData(Converter.ToSave(Rows));
             ObservableCollection<RowDefectViewModal> tmp = new ObservableCollection<RowDefectViewModal>();
             Header.Data_def = DateTime.Now.ToShortDateString();
             tmp.Add(Header);
@@ -128,7 +132,7 @@ namespace Cards_of_defectation.Windows
             if ((sender as ListBox).SelectedItem != null)
             {
                 RowDefectViewModal tmp = (sender as ListBox).SelectedItem as RowDefectViewModal;
-                if (Rows.IndexOf(tmp) != -1) Rows.Add(new RowDefectViewModal(tmp));
+                if (Rows.FirstOrDefault(x=>x.Cherch == tmp.Cherch) != null) Rows.Add(new RowDefectViewModal(tmp));
                 else Rows.Add(tmp);     
                 IsSave = false;
             }

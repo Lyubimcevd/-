@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using Cards_of_defectation.Classes;
+using System.Windows;
 
 namespace Cards_of_defectation.ViewModal
 {
@@ -27,10 +28,14 @@ namespace Cards_of_defectation.ViewModal
         public RowDefectViewModal(Row_in_kart_defect prow)
         {
             row = prow;
+            if (row.Par != 0) parent = Converter.ToViewModal(Server.GetServer.DataBase("uit")
+                .Table("select * from rz_kart_defect where id = " + row.Par)
+                .LoadFromServer() as List<Row_in_kart_defect>)[0];
         }
         public RowDefectViewModal(RowDefectViewModal prow)
         {
             row = new Row_in_kart_defect(prow.Save);
+            parent = prow.GetParent();
         }
 
         public int Id
@@ -77,7 +82,7 @@ namespace Cards_of_defectation.ViewModal
                         List<object> tmp = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select ks from spkd1 where ltrim(rtrim(nc))='"
                         + row.Cherch + "' and ltrim(rtrim(nk))='" + parent.Cherch + "'");
-                        if (tmp.Count!=0) row.Kolvo = Convert.ToInt32(tmp[0]);
+                        if (tmp.Count != 0) row.Kolvo = Convert.ToInt32(tmp[0]);
                         return parent.Kolvo * row.Kolvo;
                     }
                     else
@@ -90,8 +95,17 @@ namespace Cards_of_defectation.ViewModal
             }
             set
             {
-                row.Kolvo = value;
-                is_change = true;
+                if (IsKolvoCorrect(value))
+                {
+                    row.Kolvo = value;
+                    is_change = true;
+                }
+                else
+                {
+                    row.Kolvo = 0;
+                    MessageBox.Show("Введённое количество больше количества по применимости", "Ошибка");
+                }
+                OnPropertyChanged("Kolvo");
             }
         }
         public int Nom_ceh
@@ -391,9 +405,8 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                if (row.Nom_ceh == 0) return Ceh_list.Last();
-                else return Server.GetServer.DataBase("cvodka")
-                    .ExecuteCommand("select nc from podr1 where id = " + row.Nom_ceh)[0].ToString();
+                if (row.Nom_ceh == 0) row.Nom_ceh = References.GetReferences.GetIdCeh(Ceh_list.Last());
+                return References.GetReferences.GetNaimCeh(row.Nom_ceh);
             }
             set
             {
@@ -426,6 +439,10 @@ namespace Cards_of_defectation.ViewModal
                 return is_change;
             }
         }
+        public RowDefectViewModal GetParent()
+        {          
+            return parent;
+        }
         public void OnPropertyChanged(string prop)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
@@ -438,5 +455,22 @@ namespace Cards_of_defectation.ViewModal
                 return row;
             }
         }
+
+        bool IsKolvoCorrect(float kolvo)
+        {
+            if (parent != null)
+            {
+                List<object> tmp = Server.GetServer.DataBase("uit")
+                .ExecuteCommand("select ks from spkd1 where ltrim(rtrim(nc))='"
+                + row.Cherch + "' and ltrim(rtrim(nk))='" + parent.Cherch + "'");
+                if (tmp.Count != 0)
+                {
+                    if (kolvo > parent.Kolvo * Convert.ToInt32(tmp[0])) return false;
+                    else return true;
+                }
+                else return true;
+            }
+            else return true;
+        }          
     }
 }

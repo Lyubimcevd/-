@@ -60,6 +60,7 @@ namespace Cards_of_defectation.ViewModal
                         {
                             SelectedNaim = Naim_list.First().ToString();
                             OnPropertyChanged("SelectedNaim");
+                            IsDropDownNaim = false;
                         }
                         if (Naim_list.Count == 0) Naim_list = null;
                     }
@@ -79,6 +80,7 @@ namespace Cards_of_defectation.ViewModal
                         {
                             SelectedCherch = Cherch_list.First().ToString();
                             OnPropertyChanged("SelectedCherch");
+                            IsDropDownCherch = false;
                         }
                         if (Cherch_list.Count == 0) Cherch_list = null;
                     }
@@ -106,6 +108,7 @@ namespace Cards_of_defectation.ViewModal
                         {
                             SelectedNaim = Naim_list.First().ToString();
                             OnPropertyChanged("SelectedNaim");
+                            IsDropDownNaim = false;
                         }
                         if (Naim_list.Count == 0) Naim_list = null;
                     }
@@ -125,6 +128,7 @@ namespace Cards_of_defectation.ViewModal
                         {
                             SelectedN_nomer = N_nomer_list.First().ToString();
                             OnPropertyChanged("SelectedN_nomer");
+                            IsDropDownNNomer = false;
                         }
                         if (N_nomer_list.Count == 0) N_nomer_list = null;
                     }
@@ -152,6 +156,7 @@ namespace Cards_of_defectation.ViewModal
                         {
                             SelectedCherch = Cherch_list.First().ToString();
                             OnPropertyChanged("SelectedCherch");
+                            IsDropDownCherch = false;
                         }
                         if (Cherch_list.Count == 0) Cherch_list = null;
                     }
@@ -164,6 +169,7 @@ namespace Cards_of_defectation.ViewModal
                         {
                             SelectedN_nomer = N_nomer_list.First().ToString();
                             OnPropertyChanged("SelectedN_nomer");
+                            IsDropDownNNomer = false;
                         }
                         if (N_nomer_list.Count == 0) N_nomer_list = null;
                     }
