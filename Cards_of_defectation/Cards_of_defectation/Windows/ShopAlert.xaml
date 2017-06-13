@@ -7,10 +7,7 @@
         xmlns:local="clr-namespace:Cards_of_defectation.Windows"
         mc:Ignorable="d"
         Title="Оповещения цехам" 
-        Height="310"
-        ResizeMode="NoResize" 
-        Closing="Window_Closing" 
-        Width="583">
+        Closing="Window_Closing">
     <Window.Resources>
         <ContextMenu x:Key="Context_menu_OUP">
             <MenuItem Header="Дерево дефектации" 
@@ -56,7 +53,8 @@
     <Grid>
         <DataGrid Name="main_grid" 
                   AutoGenerateColumns="False"
-                  ItemsSource="{Binding}">
+                  ItemsSource="{Binding}" 
+                  FontSize="14">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" 
@@ -73,7 +71,7 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Заявка"
-                                        Width="60" >
+                                        Width="1*" >
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
@@ -89,7 +87,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Приоритет"
-                                        Width="80" >
+                                        Width="1*" >
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
@@ -105,7 +103,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Заказ"
-                                        Width="60" >
+                                        Width="1*" >
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
@@ -121,7 +119,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Деталь"
-                                        Width="130" >
+                                        Width="2*" >
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
@@ -137,7 +135,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Дата поступления"
-                                        Width="120">
+                                        Width="1*">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 
@@ -153,7 +151,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Дата дефектации"
-                                        Width="120">
+                                        Width="1*">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" 

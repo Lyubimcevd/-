@@ -12,7 +12,7 @@ namespace Cards_of_defectation.ОТГО.ViewModal
         string text_for_filter_naim,select_item;
         List<object> naim_list;
         int current_length_of_naim_filter;
-        bool is_drop_down_naim;
+        bool is_drop_down_naim,is_navigate;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -52,12 +52,15 @@ namespace Cards_of_defectation.ОТГО.ViewModal
             set
             {              
                 text_for_filter_naim = value;
-                if (Naim_list?.Count != 0 || current_length_of_naim_filter > text_for_filter_naim.Length || Naim_list == null)
-                    Naim_list = Server.GetServer.DataBase("cvodka")
-                        .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%"
-                                        + text_for_filter_naim + "%'");
-                IsDropDownNaim = true;
-                current_length_of_naim_filter = text_for_filter_naim.Length;
+                if (!IsNavigate)
+                {
+                    if (Naim_list?.Count != 0 || current_length_of_naim_filter > text_for_filter_naim.Length || Naim_list == null)
+                        Naim_list = Server.GetServer.DataBase("cvodka")
+                            .ExecuteCommand("select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%"
+                                            + text_for_filter_naim + "%'");
+                    IsDropDownNaim = true;
+                    current_length_of_naim_filter = text_for_filter_naim.Length;
+                }
             }
         }
         public bool IsDropDownNaim
@@ -71,6 +74,17 @@ namespace Cards_of_defectation.ОТГО.ViewModal
                 is_drop_down_naim = value;
                 if (Naim_list.Count == 0) is_drop_down_naim = false;
                 OnPropertyChanged("IsDropDownNaim");
+            }
+        }
+        public bool IsNavigate
+        {
+            get
+            {
+                return is_navigate;
+            }
+            set
+            {
+                is_navigate = value;
             }
         }
         public void OnPropertyChanged(string prop)

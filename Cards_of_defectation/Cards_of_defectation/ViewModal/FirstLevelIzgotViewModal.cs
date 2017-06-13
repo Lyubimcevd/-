@@ -22,7 +22,6 @@ namespace Cards_of_defectation.ViewModal
         {
             parent_row = new Row_in_kart_defect();
             color = "White";
-            is_change = false;
         }
         public SlugebZapiskaIzgotViewModal(int id)
         {
@@ -32,7 +31,6 @@ namespace Cards_of_defectation.ViewModal
                 parent_row.Nom_sz = Server.GetServer.DataBase("uit")
                             .ExecuteCommand("select nom_sz from rz_kart_defect where id = " + parent_row.Par)[0].ToString();
             color = "White";
-            is_change = false;
         }
         public SlugebZapiskaIzgotViewModal(RowDefectViewModal row)
         {
@@ -40,7 +38,6 @@ namespace Cards_of_defectation.ViewModal
             text_for_filter_cherch = parent_row.Cherch;
             text_for_filter_naim = parent_row.Naim;
             color = "White";
-            is_change = false;
             IsRight();
         }
         public string SelectedCherch

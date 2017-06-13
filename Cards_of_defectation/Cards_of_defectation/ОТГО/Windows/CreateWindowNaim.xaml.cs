@@ -43,5 +43,30 @@ namespace Cards_of_defectation.ОТГО.Windows
                 this.Close();              
             }
         }
+        protected override void OnPreviewKeyDown(KeyEventArgs e)
+        {
+            if (e.OriginalSource is TextBox)
+                if ((e.OriginalSource as TextBox).TemplatedParent is ComboBox)
+                {
+                    ComboBox tmp = (e.OriginalSource as TextBox).TemplatedParent as ComboBox;
+                    switch (e.Key)
+                    {
+                        case Key.Down:
+                            e.Handled = true;
+                            (tmp.DataContext as CreateWindowNaimViewModal).IsNavigate = true;
+                            if (tmp.SelectedIndex < tmp.Items.Count) tmp.SelectedIndex++;
+                            break;
+                        case Key.Up:
+                            e.Handled = true;
+                            (tmp.DataContext as CreateWindowNaimViewModal).IsNavigate = true;
+                            if (tmp.SelectedIndex > 0) tmp.SelectedIndex--;
+                            break;
+                        default:
+                            (tmp.DataContext as CreateWindowNaimViewModal).IsNavigate = false;
+                            base.OnPreviewKeyDown(e);
+                            break;
+                    }
+                }
+        }
     }
 }
