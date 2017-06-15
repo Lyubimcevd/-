@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cards_of_defectation.exe" size="418304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cards_of_defectation.exe" size="420352">
       <assemblyIdentity name="Cards_of_defectation" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>WoW/+fyeek3vduZrErn1et2hK1I=</dsig:DigestValue>
+        <dsig:DigestValue>4apQlHLEQUt75gixQabiN06bPJY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -165,13 +165,13 @@
       <dsig:DigestValue>f28l21Iv60/mlTF/eEfGD8/E+RE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\sl_zap.dot" size="48640">
+  <file name="Resources\sl_zap.dot" size="49152">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>QpRYPr10fAFeM4yWfYMbxNCTOio=</dsig:DigestValue>
+      <dsig:DigestValue>lW8JkhW0QxOj3T5yM9QEc042XLs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\бланк.dot" size="47616">

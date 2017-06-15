@@ -7,7 +7,7 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Cards_of_defectation.exe.manifest" size="9973">
+    <dependentAssembly dependencyType="install" codebase="Application Files\Cards_of_defectation_2_0_0_3\Cards_of_defectation.exe.manifest" size="9973">
       <assemblyIdentity name="Cards_of_defectation.exe" version="2.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>

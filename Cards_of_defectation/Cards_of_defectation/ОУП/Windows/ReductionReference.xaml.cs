@@ -20,6 +20,7 @@ namespace Cards_of_defectation.ОУП.Windows
     {
         string table_name;
         bool IsSave;
+        DataTable DT;
 
         public ReductionReference()
         {
@@ -44,7 +45,10 @@ namespace Cards_of_defectation.ОУП.Windows
         private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
         {
             Log.Init.Info("Сохранение в "+table_name);
-            Server.GetServer.DataBase("uit").Table("select * from "+table_name).UpdateServerData((dataGrid.ItemsSource as DataView).Table);
+            DT = (dataGrid.ItemsSource as DataView).Table;
+            ChangeColumnsName(DT);
+            Server.GetServer.DataBase("uit").Table("select * from "+table_name).UpdateServerData(DT);
+            ChangeColumnsName(DT);
             Log.Init.Info("Сохранено");
             MessageBox.Show("Сохранено");
             IsSave = true;
@@ -58,11 +62,52 @@ namespace Cards_of_defectation.ОУП.Windows
                 table_name = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select table_naim from rz_spravochniki where naim = '"
                         + (e.OriginalSource as TextBlock).Text + "'")[0].ToString();
-                dataGrid.ItemsSource = Server.GetServer.DataBase("uit").Table("select * from " + table_name)
-                    .LoadTableFromServer().DefaultView;
+                DT = Server.GetServer.DataBase("uit").Table("select * from " + table_name)
+                    .LoadTableFromServer();
+                ChangeColumnsName(DT);
+                dataGrid.ItemsSource = DT.DefaultView;
                 Log.Init.Info("загружено");
                 Save_item.IsEnabled = true;
             }
+        }
+
+        void ChangeColumnsName(DataTable DT)
+        {
+            bool IsChange = false;
+            foreach (DataColumn col in DT.Columns)
+            {
+                switch (col.ColumnName)
+                {
+                    case "naim":
+                        col.ColumnName = "Наименование";
+                        IsChange = true;
+                        break;
+                    case "ser_nom":
+                        col.ColumnName = "Серийный номер";
+                        IsChange = true;
+                        break;
+                    case "cherch":
+                        col.ColumnName = "Чертёж";
+                        IsChange = true;
+                        break;
+                }
+            }
+            if (!IsChange)
+                foreach (DataColumn col in DT.Columns)
+                {
+                    switch (col.ColumnName)
+                    {
+                        case "Наименование":
+                            col.ColumnName = "naim";
+                            break;
+                        case "Серийный номер":
+                            col.ColumnName = "ser_nom";
+                            break;
+                        case "Чертёж":
+                            col.ColumnName = "cherch";
+                            break;
+                    }
+                }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

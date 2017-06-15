@@ -304,6 +304,13 @@ namespace Cards_of_defectation.ViewModal
                 return row.Naim;
             }
         }
+        public string Cherch_for_screen
+        {
+            get
+            {
+                return Cherch + "\n" + Naim_det;
+            }
+        }
         public int Nom_zak
         {
             get
@@ -420,12 +427,21 @@ namespace Cards_of_defectation.ViewModal
             {
                 if (Cherch != null)
                 {
-                    if (cherch_for_search == null)
+                    if (Cherch.Trim().Length != 0)
                     {
-                        int i = 0;
-                        while (Char.IsLetter(Cherch, i) && (Cherch.Length > i)) i++;
-                        if (i != 0) cherch_for_search = Cherch.PadLeft(Cherch.Length + 4 - i);
-                        else cherch_for_search = Cherch;
+                        if (cherch_for_search == null)
+                        {
+                            int i = 0;
+                            while (Char.IsLetter(Cherch, i) && (Cherch.Length > i)) i++;
+                            if (i != 0) cherch_for_search = Cherch.PadLeft(Cherch.Length + 4 - i);
+                            else cherch_for_search = Cherch;
+                        }
+                    }
+                    else
+                    {
+                        Log.Init.Fatal("Ошибка блока Cherch_for_search для id = " + Id + ". Длина Cherch = 0");
+                        MessageBox.Show("Значение чертежа с id = " + Id + " пусто. Построение дерева невозможно");
+                        Environment.Exit(0);
                     }
                 }
                 else cherch_for_search = "";

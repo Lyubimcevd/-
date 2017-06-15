@@ -116,7 +116,6 @@ namespace Cards_of_defectation.Windows
                                 break;
                         }
                         IsSave = false;
-                        (sender as DataGrid).CurrentColumn = (sender as DataGrid).Columns[0];
                     }
                 if (e.OriginalSource is TextBox)
                     if ((e.OriginalSource as TextBox).TemplatedParent!=null)
@@ -124,6 +123,9 @@ namespace Cards_of_defectation.Windows
                         ComboBox tmp = (e.OriginalSource as TextBox).TemplatedParent as ComboBox;
                         tmp.SelectedItem = tmp.Text;
                     }
+                if ((sender as DataGrid).Columns.IndexOf((sender as DataGrid).CurrentColumn) == 2
+                        || (sender as DataGrid).Columns.IndexOf((sender as DataGrid).CurrentColumn) == 3)
+                    (sender as DataGrid).CurrentColumn = (sender as DataGrid).Columns[0];
             }
         }
         private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)

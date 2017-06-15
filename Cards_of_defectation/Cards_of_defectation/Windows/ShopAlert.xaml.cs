@@ -102,11 +102,12 @@ namespace Cards_of_defectation.Windows
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (realy_close)
+            if (!realy_close)
             {
                 e.Cancel = true;
                 this.Hide();
             }
+            else Server.GetServer.CloseConnections();
         }
     }
 }

@@ -1,14 +1,10 @@
-2017-06-13 09:20:13.8636|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
-2017-06-13 09:20:13.9556|INFO|Cards_of_defectation.Classes.Log|Открыто
-2017-06-13 09:20:13.9576|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'ж%'
-2017-06-13 09:20:14.4206|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-06-13 09:20:14.5346|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(nc)) from table_nc1 where ltrim(nc) like 'жг%'
-2017-06-13 09:20:15.0006|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-06-13 09:20:19.0146|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
-2017-06-13 09:20:19.0806|INFO|Cards_of_defectation.Classes.Log|Открыто
-2017-06-13 09:20:19.0806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select ltrim(rtrim(naim)) from naim where ltrim(nom) = 'ЖГ1000005ОП2'
-2017-06-13 09:20:19.5746|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-06-13 09:20:23.5826|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%п%'
-2017-06-13 09:20:23.7196|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-06-13 09:20:23.7816|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct top 50 Ltrim(rtrim(naim)) from naim where naim like '%пл%'
-2017-06-13 09:20:23.9046|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-06-15 11:46:25.8630|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
+2017-06-15 11:46:26.3778|INFO|Cards_of_defectation.Classes.Log|Открыто
+2017-06-15 11:46:26.3778|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from podr1 where nc = 012
+2017-06-15 11:46:26.3778|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-06-15 11:46:26.5650|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
+2017-06-15 11:46:26.5650|INFO|Cards_of_defectation.Classes.Log|Открыто
+2017-06-15 11:46:26.5650|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where nom_ceh = '9' and spos_ustr = 1 order by data_post
+2017-06-15 11:46:26.5806|INFO|Cards_of_defectation.Classes.Log|Заполнено
+2017-06-15 11:46:33.8814|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from podr1 where nc = 012
+2017-06-15 11:46:33.9594|INFO|Cards_of_defectation.Classes.Log|Чтение успешно

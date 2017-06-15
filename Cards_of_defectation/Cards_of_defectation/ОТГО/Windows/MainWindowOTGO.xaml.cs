@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Cards_of_defectation.ОТГО.Classes;
+using Cards_of_defectation.Classes;
 
 namespace Cards_of_defectation.ОТГО.Windows
 {
@@ -31,6 +32,11 @@ namespace Cards_of_defectation.ОТГО.Windows
         {
             SearchWindowSZ Next_window = new SearchWindowSZ();
             Next_window.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Server.GetServer.CloseConnections();
         }
     }
 }

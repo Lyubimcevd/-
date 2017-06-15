@@ -131,7 +131,7 @@ namespace Cards_of_defectation.ViewModal
                         Kontract_list = Server.GetServer.DataBase("cvodka")
                             .ExecuteCommand("select distinct top 50 Ltrim(rtrim(t.kontr)) from "
                             + "(SELECT sp34360+'/'+descr as kontr FROM[IZ_1C].[sql].[dbo].[SC33852] where sp34360 <> '')"
-                            + "as t where ltrim(t.kontr) like '" + text_for_filter_kontract + "%'");
+                            + "as t where t.kontr like '%" + text_for_filter_kontract + "%'");
                     if (Kontract_list.Count != 0) IsDropDownKontract = true;
                     current_length_of_kontract_filter = text_for_filter_kontract.Length;
                 }

@@ -97,7 +97,7 @@
                       CanUserDeleteRows="True"
                       PreviewKeyDown="main_table_PreviewKeyDown">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Cherch}" 
+                        <DataGridTextColumn Binding="{Binding Cherch_for_screen}" 
                                         IsReadOnly="True"
                                         Header="Обозначение детали"
                                         Width="3*"

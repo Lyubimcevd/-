@@ -106,6 +106,8 @@ namespace Cards_of_defectation.Classes
             fileName = Path.GetTempFileName();
             File.WriteAllBytes(fileName, Properties.Resources.sl_zap);
             document = application.Documents.Open(fileName);
+            range = SearchRange("@@nom_sz");
+            if (range != null) range.Text = flvm.Nom_sz;
             range = SearchRange("@@poluch");
             if (range != null)
                 range.Text = "";

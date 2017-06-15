@@ -22,7 +22,11 @@ namespace Cards_of_defectation.Classes
         {
             get
             {
-                if (server == null) server = new Server();
+                if (server == null)
+                {
+                    server = new Server();
+                    SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=uit;MultipleActiveResultSets=True");
+                }
                 return server;
             }          
         }
@@ -31,6 +35,11 @@ namespace Cards_of_defectation.Classes
             if (!connections.ContainsKey(DataBaseName)) 
                 connections.Add(DataBaseName, new Connection(DataBaseName));
             return connections[DataBaseName];
+        }
+        public void CloseConnections()
+        {
+            SqlDependency.Stop("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=uit;MultipleActiveResultSets=True");
+            foreach (KeyValuePair<string, Cards_of_defectation.Classes.Connection> item in connections) item.Value.Close();
         }
     }
 
@@ -46,7 +55,6 @@ namespace Cards_of_defectation.Classes
         public Connection(string DataBaseName)
         {
             conn = new SqlConnection("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=" + DataBaseName + ";MultipleActiveResultSets=True");            
-            SqlDependency.Start("user id=ldo;password=IfLyyz4sCJ;server=nitel-hp;database=uit;MultipleActiveResultSets=True");
             Log.Init.Info("Открытие соединения");
             try
             {
@@ -167,6 +175,10 @@ namespace Cards_of_defectation.Classes
         {
             if (MOUP != null) dis.Invoke(new Action(MOUP.UpdateTable));
             StalkerForPlan();
+        }
+        public void Close()
+        {
+            conn.Close();
         }
     }
 

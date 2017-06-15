@@ -48,5 +48,10 @@ namespace Cards_of_defectation
             ShopAlert SA = new ShopAlert(References.GetReferences.GetIdCeh("024"));
             SA.Show();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Server.GetServer.CloseConnections();
+        }
     }
 }
