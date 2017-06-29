@@ -55,7 +55,12 @@ namespace Cards_of_defectation.Windows
                 if (tmplist == null) root.Children.Add(LoadTreeFromServer(id));
                 else tmplist = LoadTreeFromServer(id);
             }
-            root.Sort();         
+            if (root.Children.Count != 0)
+            {
+                List<TreeViewModal> tmp1 = (from u in root.Children orderby u.Nom_ceh select u).ToList();
+                root.Children.Clear();
+                foreach (TreeViewModal list in tmp1) root.Children.Add(list);
+            }
             return root;
         }
 

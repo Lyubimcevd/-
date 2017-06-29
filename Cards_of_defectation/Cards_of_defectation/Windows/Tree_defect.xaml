@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Cards_of_defectation.Windows"
         mc:Ignorable="d"
         Title="Дерево дефектации" 
-        Height="378" 
-        Width="449">
+        Height="380" 
+        Width="460">
     <Window.Resources>
         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
                         Color="Aquamarine"/>

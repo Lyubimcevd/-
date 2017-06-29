@@ -60,7 +60,9 @@ namespace Cards_of_defectation.Classes
             range = SearchRange("@@nom_zak");
             if (range != null) range.Text = "№ " + header.Nom_zak.ToString();
             range = SearchRange("@@prior");
-            if (range != null) range.Text = header.Prior.ToString();
+            if (range != null)
+                if (header.Prior != null) range.Text = header.Prior.ToString();
+                else range.Text = "";
             range = SearchRange("@@kolvo");
             if (range != null) range.Text = header.Kolvo.ToString();
             range = SearchRange("@@ser_nom_izd");

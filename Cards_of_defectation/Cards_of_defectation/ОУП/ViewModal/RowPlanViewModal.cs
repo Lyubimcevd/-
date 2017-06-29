@@ -102,17 +102,15 @@ namespace Cards_of_defectation.ОУП.ViewModal
                 string result = "";
                 if (Nom_sz != Ser_nom)
                 {
-                    Log.Init.Info("Формирование всего/выполнено в плане");
-                    result = Server.GetServer.DataBase("uit")
+                    result = Convert.ToInt32(Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = '"
-                        + Nom_sz + "' group by nom_sz")[0].ToString() + " / ";
+                        + Nom_sz + "' and spos_ustr = 1 group by nom_sz")[0])-1 + " / ";
                     List<object> tmp = Server.GetServer.DataBase("uit")
                         .ExecuteCommand("select count(*) from rz_kart_defect where nom_sz = '"
-                        + Nom_sz + "' and data_def is not null group by nom_sz");
+                        + Nom_sz + "' and spos_ustr = 1 and data_def is not null group by nom_sz");
                     if (tmp.Count == 0) result += "0";
                     else result += tmp[0].ToString();
                 }
-                Log.Init.Info("Формирование завершено. Результат "+result);
                 return result;
             }
         }

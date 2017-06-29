@@ -87,19 +87,5 @@ namespace Cards_of_defectation.ViewModal
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-        public void Sort()
-        {
-            TreeViewModal tmp;
-            for (int i = 0; i<children.Count-1;i++)
-                for(int j = i+1; j < children.Count;j++)
-                {
-                    if (string.Compare(children[i].Nom_ceh,children[j].Nom_ceh)>0)
-                    {
-                        tmp = children[i];
-                        children[i] = children[j];
-                        children[j] = tmp;
-                    }
-                }
-        }
     }
 }

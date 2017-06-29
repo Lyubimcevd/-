@@ -8,10 +8,6 @@ D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defecta
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Cards_of_defectation.pdb
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Microsoft.Office.Interop.Word.dll
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\NLog.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Xceed.Wpf.AvalonDock.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Xceed.Wpf.AvalonDock.Themes.Aero.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Xceed.Wpf.AvalonDock.Themes.Metro.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Xceed.Wpf.DataGrid.dll
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Xceed.Wpf.Toolkit.dll
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\office.dll
@@ -20,16 +16,6 @@ D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defecta
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\Microsoft.Office.Interop.Word.xml
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\NLog.xml
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\office.xml
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\de\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\es\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\fr\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\hu\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\it\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\ro\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\ru\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\sv\Xceed.Wpf.AvalonDock.resources.dll
-D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\bin\Release\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Release\Window1.g.cs
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Release\Windows\Choice_of_podrazd.g.cs
 D:\Project\Карты дефектации\Cards_of_defectation\Cards_of_defectation\obj\Release\Windows\SlugebZapiska.g.cs
