@@ -8,6 +8,10 @@
         Title="Дерево дефектации" 
         Height="380" 
         Width="460">
+    <Window.CommandBindings>
+        <CommandBinding Command="Print" 
+                        Executed="CommandBinding_Print"/>
+    </Window.CommandBindings>
     <Window.Resources>
         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
                         Color="Aquamarine"/>

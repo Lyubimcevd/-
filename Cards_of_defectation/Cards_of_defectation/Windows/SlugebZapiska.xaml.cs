@@ -21,38 +21,27 @@ namespace Cards_of_defectation.Windows
     public partial class SlugebZapiska : Window
     {
         SlugebZapiskaViewModal SZVM;
-        bool IsSave;
+        bool IsSave = true;
 
         public SlugebZapiska(string pNom_sz)
         {
             InitializeComponent();
             SZVM = new SlugebZapiskaViewModal(pNom_sz);
-            DefaultAction();
         }
+
         public SlugebZapiska(string pNom_sz,string ser_nom)
         {
             InitializeComponent();
             SZVM = new SlugebZapiskaViewModal(pNom_sz, ser_nom);
-            DefaultAction();
-        }
-        void DefaultAction()
-        {         
-            CommandBinding bind = new CommandBinding(ApplicationCommands.Print);
-            bind.Executed += Print_Execute;
-            this.CommandBindings.Add(bind);
-            bind = new CommandBinding(ApplicationCommands.Save);
-            bind.Executed += Save_Execute;
-            this.CommandBindings.Add(bind);
-            main_grid.DataContext = SZVM;
-            IsSave = true;
         }
 
-        private void Print_Execute(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Print(object sender, ExecutedRoutedEventArgs e)
         {
             Choice_of_podrazd CoP = new Choice_of_podrazd(SZVM);
             CoP.Show();
         }
-        private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
+
+        private void CommandBinding_Save(object sender, ExecutedRoutedEventArgs e)
         {
             if (SZVM.SaveInPlanRabot() != null)
             {
@@ -66,6 +55,7 @@ namespace Cards_of_defectation.Windows
             else MessageBox.Show("Сохранено");
             IsSave = true;
         }
+
         private void Key_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
@@ -128,11 +118,13 @@ namespace Cards_of_defectation.Windows
                     (sender as DataGrid).CurrentColumn = (sender as DataGrid).Columns[0];
             }
         }
+
         private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {       
             var tb = (TextBox)e.OriginalSource;
             tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
         }
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             foreach (SlugebZapiskaIzgotViewModal row in SZVM.Izgot)
@@ -163,7 +155,7 @@ namespace Cards_of_defectation.Windows
             if (!IsSave)
             {
                 MessageBoxResult result = MessageBox.Show("Заявка не сохранена. Сохранить?", "Предупреждение", MessageBoxButton.YesNoCancel);
-                if (result == MessageBoxResult.Yes) Save_Execute(null, null);
+                if (result == MessageBoxResult.Yes) CommandBinding_Save(null, null);
                 if (result == MessageBoxResult.Cancel) e.Cancel = true;
             }
         }
@@ -204,6 +196,11 @@ namespace Cards_of_defectation.Windows
                             break;
                     }
                 }
+        }
+
+        private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = !IsSave;
         }
     }
 }

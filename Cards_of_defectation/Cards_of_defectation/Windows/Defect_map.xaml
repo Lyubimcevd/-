@@ -8,17 +8,13 @@
         Title="Карта дефектации" 
         Height="400" 
         Closing="window_Closing">
-    <Window.Resources>
-        <ContextMenu x:Key="Context_menu_row">
-            <MenuItem Command="ApplicationCommands.Cut"/>
-            <MenuItem Command="ApplicationCommands.Copy"/>
-            <MenuItem Command="ApplicationCommands.Paste"/>
-        </ContextMenu>
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="ContextMenu" 
-                    Value="{StaticResource ResourceKey=Context_menu_row}" />
-        </Style>
-    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="Save" 
+                        Executed="CommandBinding_Save"
+                        CanExecute="Save_CanExecute"/>
+        <CommandBinding Command="Print" 
+                        Executed="CommandBinding_Print"/>
+    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>

@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:Cards_of_defectation.ОУП.Windows"
         mc:Ignorable="d"
         Title="Справочники" Height="300" Width="514" Closing="Window_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="Save" 
+                        Executed="CommandBinding_Save"
+                        CanExecute="Save_CanExecute"/>
+    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -16,8 +21,8 @@
             <ColumnDefinition Width="3"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu x:Name="menu" Grid.Row="0" Grid.ColumnSpan="3">
-            <MenuItem x:Name="Save_item" Header="Сохранить" Command="Save" IsEnabled="False"/>
+        <Menu Grid.Row="0" Grid.ColumnSpan="3">
+            <MenuItem Header="Сохранить" Command="Save"/>
         </Menu>
         <GridSplitter Grid.Row="1" Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
         <DataGrid x:Name="dataGrid" ColumnWidth="*" Grid.Column="2" Grid.Row="1" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="Column" CellEditEnding="dataGrid_CellEditEnding"/>

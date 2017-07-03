@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="План работ" 
         Closing="Window_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="Save" 
+                        Executed="CommandBinding_Save"
+                        CanExecute="Save_CanExecute"/>
+        <CommandBinding Command="New" 
+                        Executed="CommandBinding_New"/>
+    </Window.CommandBindings>
     <Window.Resources>
         <ContextMenu x:Key="Context_menu_row">
             <MenuItem Header="Служебная записка" 

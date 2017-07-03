@@ -19,30 +19,20 @@ namespace Cards_of_defectation.ОУП.Windows
     public partial class ReductionReference:Window
     {
         string table_name;
-        bool IsSave;
+        bool IsSave = true;
         DataTable DT;
 
         public ReductionReference()
         {
-            IsSave = true;
             Log.Init.Info("Запуск ReductionReference");
             InitializeComponent();
-            Binding_Commands();
             Log.Init.Info("Загрузка таблицы rz_spravochniki");
             dataGrid1.ItemsSource = Server.GetServer.DataBase("uit").Table("select naim from rz_spravochniki")
                 .LoadTableFromServer().DefaultView;
             Log.Init.Info("Загружено");
         }
 
-        void Binding_Commands()
-        {
-            CommandBinding bind = new CommandBinding(ApplicationCommands.Save);
-            bind.Executed += Save_Execute;
-            this.CommandBindings.Add(bind);
-            bind = new CommandBinding(ApplicationCommands.Delete);
-        }
-
-        private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Save(object sender, ExecutedRoutedEventArgs e)
         {
             Log.Init.Info("Сохранение в "+table_name);
             DT = (dataGrid.ItemsSource as DataView).Table;
@@ -67,7 +57,6 @@ namespace Cards_of_defectation.ОУП.Windows
                 ChangeColumnsName(DT);
                 dataGrid.ItemsSource = DT.DefaultView;
                 Log.Init.Info("загружено");
-                Save_item.IsEnabled = true;
             }
         }
 
@@ -115,7 +104,7 @@ namespace Cards_of_defectation.ОУП.Windows
             if (!IsSave)
             {
                 MessageBoxResult result = MessageBox.Show("Есть несохранённые изменения. Сохранить?", "Предупреждение", MessageBoxButton.YesNoCancel);
-                if (result == MessageBoxResult.Yes) Save_Execute(null, null);
+                if (result == MessageBoxResult.Yes) CommandBinding_Save(null, null);
                 if (result == MessageBoxResult.Cancel) e.Cancel = true;
             }
         }
@@ -123,6 +112,11 @@ namespace Cards_of_defectation.ОУП.Windows
         private void dataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             IsSave = false;
+        }
+
+        private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = !IsSave;
         }
     }
 }

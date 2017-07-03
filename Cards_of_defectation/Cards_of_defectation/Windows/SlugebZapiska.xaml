@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="SlugebZapiska"
         Closing="Window_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="Save" 
+                        Executed="CommandBinding_Save"
+                        CanExecute="Save_CanExecute"/>
+        <CommandBinding Command="Print" 
+                        Executed="CommandBinding_Print"/>
+    </Window.CommandBindings>
     <Window.Resources>
         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
                         Color="Aquamarine"/>

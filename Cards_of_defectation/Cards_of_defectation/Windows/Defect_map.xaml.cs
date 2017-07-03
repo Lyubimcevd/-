@@ -23,20 +23,13 @@ namespace Cards_of_defectation.Windows
         ObservableCollection<RowDefectViewModal> Rows;
         RowDefectViewModal Header;
         int Id;
-        bool IsSave;
+        bool IsSave = true;
         List<object> arm_search_list;
 
         public Defect_map(int pid)
         {
             InitializeComponent();
             Id = pid;
-
-            CommandBinding bind = new CommandBinding(ApplicationCommands.Save);
-            bind.Executed += Save_Execute;
-            this.CommandBindings.Add(bind);
-            bind = new CommandBinding(ApplicationCommands.Print);
-            bind.Executed += Print_Execute;
-            this.CommandBindings.Add(bind);
 
             Header = Converter.ToViewModal(Server.GetServer.DataBase("uit")
                 .Table("select * from rz_kart_defect where id = " + Id).LoadFromServer() as List<Row_in_kart_defect>)[0];
@@ -51,10 +44,9 @@ namespace Cards_of_defectation.Windows
                     .Table("select * from rz_kart_defect where par = " + Id).LoadFromServer() as List<Row_in_kart_defect>);
             main_table.ItemsSource = Rows;
             listBox_sostav.ItemsSource = References.GetReferences.InitComposition(Header);
-            IsSave = true;
         }
 
-        private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Save(object sender, ExecutedRoutedEventArgs e)
         {
             if (Header.Par != 0) Server.GetServer.DataBase("uit").Table("select * from rz_kart_defect where par = " + Id)
                 .UpdateServerData(Converter.ToSave(Rows));
@@ -70,7 +62,7 @@ namespace Cards_of_defectation.Windows
             IsSave = true;
         }
 
-        private void Print_Execute(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Print(object sender, ExecutedRoutedEventArgs e)
         {
             if (Header.Nom_zak.ToString().Length == 8) Print.Init().PrintDocument(Header,Rows);
             else MessageBox.Show("Номер заказа введён неверно","Ошибка");
@@ -137,35 +129,47 @@ namespace Cards_of_defectation.Windows
                 IsSave = false;
             }
         }
+
+        #region ComboBox_SelectionChanged
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             foreach (RowDefectViewModal row in main_table.SelectedItems) row.Opis_def = (sender as ComboBox).Text;
         }
+
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             foreach (RowDefectViewModal row in main_table.SelectedItems) row.Prichina = (sender as ComboBox).Text;
         }
+
         private void ComboBox_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
         {
             foreach (RowDefectViewModal row in main_table.SelectedItems) row.Met_opr = (sender as ComboBox).Text;
         }
+
         private void ComboBox_SelectionChanged_3(object sender, SelectionChangedEventArgs e)
         {
             foreach (RowDefectViewModal row in main_table.SelectedItems) row.Teh_treb = (sender as ComboBox).Text;
         }
+
         private void ComboBox_SelectionChanged_4(object sender, SelectionChangedEventArgs e)
         {
             foreach (RowDefectViewModal row in main_table.SelectedItems) row.Spos_ustr = (sender as ComboBox).Text;
         }
+
         private void ComboBox_SelectionChanged_5(object sender, SelectionChangedEventArgs e)
         {
             foreach (RowDefectViewModal row in main_table.SelectedItems) row.Nom_ceh = (sender as ComboBox).SelectedIndex;
         }
+        
+        #endregion
+
         private void arm_search_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if ((sender as ComboBox).SelectedItem!=null)
                 listBox_arm.ItemsSource = References.GetReferences.SearchAndLoad(Header, (sender as ComboBox).SelectedItem.ToString());
         }
+
         private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             arm_search_list = Server.GetServer.DataBase("uit")
@@ -176,6 +180,7 @@ namespace Cards_of_defectation.Windows
             var tb = (TextBox)e.OriginalSource;
             tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
         }
+
         private void window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             foreach (RowDefectViewModal row in Rows)
@@ -187,9 +192,14 @@ namespace Cards_of_defectation.Windows
             if (!IsSave)
             {
                 MessageBoxResult result = MessageBox.Show("Карта не сохранена. Сохранить?", "Предупреждение", MessageBoxButton.YesNoCancel);
-                if (result == MessageBoxResult.Yes) Save_Execute(null, null);
+                if (result == MessageBoxResult.Yes) CommandBinding_Save(null, null);
                 if (result == MessageBoxResult.Cancel) e.Cancel = true;
             }
+        }
+
+        private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = !IsSave;
         }
     }
 }

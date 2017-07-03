@@ -17,13 +17,13 @@ namespace Cards_of_defectation.ОУП.Windows
     public partial class MainOUP : Window
     {
         ObservableCollection<RowPlanViewModal> Rows;
-        bool IsSave;
+        bool IsSave = true;
+
         public MainOUP()
         {
             IsSave = true;
             Log.Init.Info("Запуск MainOUP");
             InitializeComponent();
-            Binding_Commands();
             UpdateTable();
             Server.GetServer.DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher, this);
         }
@@ -37,24 +37,14 @@ namespace Cards_of_defectation.ОУП.Windows
             main_table.ItemsSource = Rows;
         }
 
-        void Binding_Commands()
-        {
-            CommandBinding bind = new CommandBinding(ApplicationCommands.New);
-            bind.Executed += New_Execute;
-            this.CommandBindings.Add(bind);
-            bind = new CommandBinding(ApplicationCommands.Save);
-            bind.Executed += Save_Execute;
-            this.CommandBindings.Add(bind);
-        }
-
-        private void New_Execute(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_New(object sender, ExecutedRoutedEventArgs e)
         {          
             Rows.Add(new RowPlanViewModal());
             Log.Init.Info("Добавлена строка в rz_plan_rabot");
             IsSave = false;
         }
 
-        private void Save_Execute(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Save(object sender, ExecutedRoutedEventArgs e)
         {
             Log.Init.Info("Сохранение в rz_plan_rabot");
             Server.GetServer.DataBase("uit").Table("select * from rz_plan_rabot")
@@ -122,7 +112,7 @@ namespace Cards_of_defectation.ОУП.Windows
             if (!IsSave)
             {
                 MessageBoxResult result = MessageBox.Show("Данные не были сохранены. Сохранить?", "Предупреждение", MessageBoxButton.YesNoCancel);
-                if (result == MessageBoxResult.Yes) Save_Execute(null, null);
+                if (result == MessageBoxResult.Yes) CommandBinding_Save(null, null);
                 if (result == MessageBoxResult.Cancel) e.Cancel = true;
             }
             if (!e.Cancel) Server.GetServer.CloseConnections();
@@ -183,6 +173,11 @@ namespace Cards_of_defectation.ОУП.Windows
                         .ExecuteCommand("select id from rz_kart_defect where nom_sz = '" + Nom_sz + "' and par is NULL")[0]);
             Log.Init.Info("Возвращён индекс "+result);
             return result;
+        }
+
+        private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = !IsSave;
         }
     }
 }

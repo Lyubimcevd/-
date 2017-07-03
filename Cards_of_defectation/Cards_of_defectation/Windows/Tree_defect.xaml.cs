@@ -32,9 +32,6 @@ namespace Cards_of_defectation.Windows
             Modal.Add(LoadTreeFromServer(id));
             Server.GetServer.DataBase("uit").InitStalker(Dispatcher.CurrentDispatcher,this);
             treeView.ItemsSource = Modal;
-            CommandBinding bind = new CommandBinding(ApplicationCommands.Print);
-            bind.Executed += Print_Execute;
-            this.CommandBindings.Add(bind);
         }
 
         public void UpdateTree()
@@ -81,7 +78,7 @@ namespace Cards_of_defectation.Windows
             }
         }
 
-        private void Print_Execute(object sender, ExecutedRoutedEventArgs e)
+        private void CommandBinding_Print(object sender, ExecutedRoutedEventArgs e)
         {
             Print.Init().PrintTree(Modal[0]);
         }

@@ -15,7 +15,7 @@
             <ColumnDefinition Width="275"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Введите номера служебной записки: 137/" 
+        <TextBlock Text="Введите номер служебной записки: 137/" 
                    FontSize="14"/>
         <xctk:MaskedTextBox Mask="00-0000" 
                             Name="textbox"
