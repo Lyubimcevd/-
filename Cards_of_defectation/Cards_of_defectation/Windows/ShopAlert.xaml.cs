@@ -107,7 +107,6 @@ namespace Cards_of_defectation.Windows
                 e.Cancel = true;
                 this.Hide();
             }
-            else Server.GetServer.CloseConnections();
         }
     }
 }

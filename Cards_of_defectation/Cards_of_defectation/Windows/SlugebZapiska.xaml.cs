@@ -27,12 +27,14 @@ namespace Cards_of_defectation.Windows
         {
             InitializeComponent();
             SZVM = new SlugebZapiskaViewModal(pNom_sz);
+            main_grid.DataContext = SZVM;
         }
 
         public SlugebZapiska(string pNom_sz,string ser_nom)
         {
             InitializeComponent();
             SZVM = new SlugebZapiskaViewModal(pNom_sz, ser_nom);
+            main_grid.DataContext = SZVM;
         }
 
         private void CommandBinding_Print(object sender, ExecutedRoutedEventArgs e)

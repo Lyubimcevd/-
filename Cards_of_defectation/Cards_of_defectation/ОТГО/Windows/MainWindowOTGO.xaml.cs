@@ -33,10 +33,5 @@ namespace Cards_of_defectation.ОТГО.Windows
             SearchWindowSZ Next_window = new SearchWindowSZ();
             Next_window.Show();
         }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Server.GetServer.CloseConnections();
-        }
     }
 }

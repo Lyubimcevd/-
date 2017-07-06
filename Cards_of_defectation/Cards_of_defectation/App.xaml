@@ -1,5 +1,5 @@
 ﻿<Application x:Class="Cards_of_defectation.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Cards_of_defectation">
+             xmlns:local="clr-namespace:Cards_of_defectation" Exit="Application_Exit">
 </Application>

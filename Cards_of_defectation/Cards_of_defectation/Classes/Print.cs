@@ -134,45 +134,57 @@ namespace Cards_of_defectation.Classes
             table = document.Tables[2];
             for (int i = 0; i < flvm.Izgot.Count; i++)
             {
-                table.Cell(table.Rows.Count, 1).Range.Text = (i+1).ToString();
-                table.Cell(table.Rows.Count, 2).Range.Text = flvm.Izgot[i].SelectedCherch;
-                table.Cell(table.Rows.Count, 3).Range.Text = flvm.Izgot[i].SelectedNaim;
-                table.Cell(table.Rows.Count, 4).Range.Text = flvm.Izgot[i].Kolvo.ToString();                     
-                table.Cell(table.Rows.Count, 5).Range.Text = flvm.Izgot[i].Prim;
-                if (i < flvm.Izgot.Count - 1) table.Rows.Add(missingObj);
+                if (flvm.Izgot[i].Save!=null)
+                {
+                    table.Cell(table.Rows.Count, 1).Range.Text = (i + 1).ToString();
+                    table.Cell(table.Rows.Count, 2).Range.Text = flvm.Izgot[i].SelectedCherch;
+                    table.Cell(table.Rows.Count, 3).Range.Text = flvm.Izgot[i].SelectedNaim;
+                    table.Cell(table.Rows.Count, 4).Range.Text = flvm.Izgot[i].Kolvo.ToString();
+                    table.Cell(table.Rows.Count, 5).Range.Text = flvm.Izgot[i].Prim;
+                    if (i < flvm.Izgot.Count - 1) table.Rows.Add(missingObj);
+                }
             }
             table = document.Tables[3];
             for (int i = 0; i < flvm.Remont.Count; i++)
             {
-                table.Cell(table.Rows.Count, 1).Range.Text = (i+1).ToString();
-                table.Cell(table.Rows.Count, 2).Range.Text = flvm.Remont[i].SelectedCherch;
-                table.Cell(table.Rows.Count, 3).Range.Text = flvm.Remont[i].SelectedNaim;
-                table.Cell(table.Rows.Count, 4).Range.Text = flvm.Remont[i].Kolvo.ToString();                    
-                table.Cell(table.Rows.Count, 5).Range.Text = flvm.Remont[i].Prim;
-                if (i < flvm.Remont.Count - 1) table.Rows.Add(missingObj);
+                if (flvm.Remont[i].Save!=null)
+                {
+                    table.Cell(table.Rows.Count, 1).Range.Text = (i + 1).ToString();
+                    table.Cell(table.Rows.Count, 2).Range.Text = flvm.Remont[i].SelectedCherch;
+                    table.Cell(table.Rows.Count, 3).Range.Text = flvm.Remont[i].SelectedNaim;
+                    table.Cell(table.Rows.Count, 4).Range.Text = flvm.Remont[i].Kolvo.ToString();
+                    table.Cell(table.Rows.Count, 5).Range.Text = flvm.Remont[i].Prim;
+                    if (i < flvm.Remont.Count - 1) table.Rows.Add(missingObj);
+                }
             }
             table = document.Tables[4];
             for (int i = 0; i < flvm.Priobr.Count; i++)
-            {
-                table.Cell(table.Rows.Count, 1).Range.Text = (i+1).ToString();
-                table.Cell(table.Rows.Count, 2).Range.Text = flvm.Priobr[i].SelectedN_nomer;
-                table.Cell(table.Rows.Count, 3).Range.Text = flvm.Priobr[i].SelectedCherch;
-                table.Cell(table.Rows.Count, 4).Range.Text = flvm.Priobr[i].SelectedNaim;
-                table.Cell(table.Rows.Count, 5).Range.Text = flvm.Priobr[i].Kolvo.ToString() 
-                    + EdIzm(flvm.Priobr[i].SelectedN_nomer);
-                table.Cell(table.Rows.Count, 6).Range.Text = flvm.Priobr[i].Prim;
-                if (i < flvm.Priobr.Count - 1) table.Rows.Add(missingObj);
+            { 
+                if (flvm.Priobr[i].Save!=null)
+                {
+                    table.Cell(table.Rows.Count, 1).Range.Text = (i + 1).ToString();
+                    table.Cell(table.Rows.Count, 2).Range.Text = flvm.Priobr[i].SelectedN_nomer;
+                    table.Cell(table.Rows.Count, 3).Range.Text = flvm.Priobr[i].SelectedCherch;
+                    table.Cell(table.Rows.Count, 4).Range.Text = flvm.Priobr[i].SelectedNaim;
+                    table.Cell(table.Rows.Count, 5).Range.Text = flvm.Priobr[i].Kolvo.ToString()
+                        + EdIzm(flvm.Priobr[i].SelectedN_nomer);
+                    table.Cell(table.Rows.Count, 6).Range.Text = flvm.Priobr[i].Prim;
+                    if (i < flvm.Priobr.Count - 1) table.Rows.Add(missingObj);
+                }
             }
             table = document.Tables[5];
             for (int i = 0; i < flvm.Stor_rem.Count; i++)
             {
-                table.Cell(table.Rows.Count, 1).Range.Text = (i+1).ToString();
-                table.Cell(table.Rows.Count, 2).Range.Text = flvm.Stor_rem[i].SelectedCherch;
-                table.Cell(table.Rows.Count, 3).Range.Text = flvm.Stor_rem[i].SelectedNaim;
-                table.Cell(table.Rows.Count, 4).Range.Text = flvm.Stor_rem[i].Kolvo.ToString();                  
-                table.Cell(table.Rows.Count, 5).Range.Text = flvm.Stor_rem[i].SelectedIzgotov;
-                table.Cell(table.Rows.Count, 6).Range.Text = flvm.Stor_rem[i].Prim;
-                if (i < flvm.Stor_rem.Count - 1) table.Rows.Add(missingObj);
+                if (flvm.Stor_rem[i].Save!=null)
+                {
+                    table.Cell(table.Rows.Count, 1).Range.Text = (i + 1).ToString();
+                    table.Cell(table.Rows.Count, 2).Range.Text = flvm.Stor_rem[i].SelectedCherch;
+                    table.Cell(table.Rows.Count, 3).Range.Text = flvm.Stor_rem[i].SelectedNaim;
+                    table.Cell(table.Rows.Count, 4).Range.Text = flvm.Stor_rem[i].Kolvo.ToString();
+                    table.Cell(table.Rows.Count, 5).Range.Text = flvm.Stor_rem[i].SelectedIzgotov;
+                    table.Cell(table.Rows.Count, 6).Range.Text = flvm.Stor_rem[i].Prim;
+                    if (i < flvm.Stor_rem.Count - 1) table.Rows.Add(missingObj);
+                }
             }
             foreach (Word.Paragraph paragraph in document.Paragraphs)
                 if (paragraph.Range.Text.Trim() == string.Empty)

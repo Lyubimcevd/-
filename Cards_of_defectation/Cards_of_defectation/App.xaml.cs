@@ -43,5 +43,10 @@ namespace Cards_of_defectation
                     break;
             }
         }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            Server.GetServer.CloseConnections();
+        }
     }
 }

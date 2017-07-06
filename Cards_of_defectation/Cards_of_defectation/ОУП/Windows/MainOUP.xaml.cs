@@ -115,7 +115,6 @@ namespace Cards_of_defectation.ОУП.Windows
                 if (result == MessageBoxResult.Yes) CommandBinding_Save(null, null);
                 if (result == MessageBoxResult.Cancel) e.Cancel = true;
             }
-            if (!e.Cancel) Server.GetServer.CloseConnections();
         }
 
         private void main_table_PreviewKeyDown(object sender, KeyEventArgs e)
