@@ -109,14 +109,14 @@ namespace Cards_of_defectation.ОУП.Windows
             }
         }
 
-        private void dataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            IsSave = false;
-        }
-
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = !IsSave;
+        }
+
+        private void dataGrid_CurrentCellChanged(object sender, EventArgs e)
+        {
+            IsSave = false;
         }
     }
 }

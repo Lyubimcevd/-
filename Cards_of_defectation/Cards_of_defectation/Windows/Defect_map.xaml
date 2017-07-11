@@ -262,9 +262,9 @@
                 </DataGrid>
                 <TabControl x:Name="tabControl">
                     <TabItem Header="Состав">
-                        <ListBox x:Name="listBox_sostav" 
-                             MouseLeftButtonUp="listBox_MouseLeftButtonUp">
-                            <ListBox.ItemTemplate>
+                    <ListBox x:Name="listBox_sostav" 
+                             PreviewMouseLeftButtonDown="listBox_PreviewMouseLeftButtonDown">
+                        <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -296,7 +296,7 @@
                         <ListBox x:Name="listBox_arm" 
                                  Grid.ColumnSpan="2" 
                                  Grid.Row="1" 
-                                 MouseLeftButtonUp="listBox_MouseLeftButtonUp">
+                                 PreviewMouseLeftButtonDown="listBox_PreviewMouseLeftButtonDown">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Cherch}"/>

@@ -390,7 +390,11 @@ namespace Cards_of_defectation.ViewModal
         {
             get
             {
-                return References.GetReferences.ReferenceByName("rz_spos_ustr");
+                List<string> tmp = References.GetReferences.ReferenceByName("rz_spos_ustr");
+                tmp.Remove("Приобрести");
+                tmp.Remove("Изготовить");
+                tmp.Remove("Сторонний ремонт");
+                return tmp;
             }
         }
         public List<string> Ceh_list

@@ -119,17 +119,6 @@ namespace Cards_of_defectation.Windows
             Server.GetServer.DataBase("uit").ExecuteCommand("delete from rz_kart_defect where id=" + pid);
         }
 
-        private void listBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if ((sender as ListBox).SelectedItem != null)
-            {
-                RowDefectViewModal tmp = (sender as ListBox).SelectedItem as RowDefectViewModal;
-                if (Rows.FirstOrDefault(x=>x.Cherch == tmp.Cherch) != null) Rows.Add(new RowDefectViewModal(tmp));
-                else Rows.Add(tmp);     
-                IsSave = false;
-            }
-        }
-
         #region ComboBox_SelectionChanged
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -200,6 +189,17 @@ namespace Cards_of_defectation.Windows
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = !IsSave;
+        }
+
+        private void listBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                RowDefectViewModal tmp = (sender as ListBox).SelectedItem as RowDefectViewModal;
+                if (Rows.FirstOrDefault(x => x.Cherch == tmp.Cherch) != null) Rows.Add(new RowDefectViewModal(tmp));
+                else Rows.Add(tmp);
+                IsSave = false;
+            }
         }
     }
 }

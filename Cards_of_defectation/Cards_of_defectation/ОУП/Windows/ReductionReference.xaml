@@ -21,11 +21,28 @@
             <ColumnDefinition Width="3"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu Grid.Row="0" Grid.ColumnSpan="3">
-            <MenuItem Header="Сохранить" Command="Save"/>
+        <Menu Grid.Row="0" 
+              Grid.ColumnSpan="3">
+            <MenuItem Header="Сохранить" 
+                      Command="Save"/>
         </Menu>
-        <GridSplitter Grid.Row="1" Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
-        <DataGrid x:Name="dataGrid" ColumnWidth="*" Grid.Column="2" Grid.Row="1" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}" HeadersVisibility="Column" CellEditEnding="dataGrid_CellEditEnding"/>
-        <DataGrid x:Name="dataGrid1" ColumnWidth="*" Grid.Row="1" ItemsSource="{Binding}" HeadersVisibility="None" IsReadOnly="True" MouseLeftButtonDown="dataGrid1_MouseLeftButtonDown"/>
+        <GridSplitter Grid.Row="1" 
+                      Grid.Column="1" 
+                      Width="3" 
+                      VerticalAlignment="Stretch" 
+                      HorizontalAlignment="Center"/>
+        <DataGrid x:Name="dataGrid" 
+                  ColumnWidth="*" 
+                  Grid.Column="2" 
+                  Grid.Row="1" 
+                  ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}" 
+                  HeadersVisibility="Column" 
+                  CurrentCellChanged="dataGrid_CurrentCellChanged"/>
+        <DataGrid x:Name="dataGrid1" 
+                  ColumnWidth="*" 
+                  Grid.Row="1" 
+                  HeadersVisibility="None" 
+                  IsReadOnly="True" 
+                  MouseLeftButtonDown="dataGrid1_MouseLeftButtonDown"/>
     </Grid>
 </Window>
