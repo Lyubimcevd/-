@@ -1,335 +1,338 @@
-2017-07-10 08:41:56.4026|INFO|Cards_of_defectation.Classes.Log|Запуск MainOUP
-2017-07-10 08:41:56.4596|INFO|Cards_of_defectation.Classes.Log|Загрузка таблицы rz_plan_rabot
-2017-07-10 08:41:56.8636|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
-2017-07-10 08:41:56.9026|INFO|Cards_of_defectation.Classes.Log|Открыто
-2017-07-10 08:41:56.9026|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_plan_rabot
-2017-07-10 08:41:56.9116|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:56.9116|INFO|Cards_of_defectation.Classes.Log|Загру
-2017-07-10 08:41:57.0536|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-07-10 08:41:57.0536|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
-2017-07-10 08:41:57.1006|INFO|Cards_of_defectation.Classes.Log|Открыто
-2017-07-10 08:41:57.1006|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309307
-2017-07-10 08:41:57.1006|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1006|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
-2017-07-10 08:41:57.1226|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '2' and spos_ustr = 1 group by nom_sz
-2017-07-10 08:41:57.1226|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1306|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '2' and spos_ustr = 1 and data_def is not null group by nom_sz
-2017-07-10 08:41:57.1306|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1306|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-07-10 08:41:57.1306|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309368
-2017-07-10 08:41:57.1306|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1306|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
-2017-07-10 08:41:57.1306|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '22-569' and spos_ustr = 1 group by nom_sz
-2017-07-10 08:41:57.1306|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '22-569' and spos_ustr = 1 and data_def is not null group by nom_sz
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309080
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '22-680' and spos_ustr = 1 group by nom_sz
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1456|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '22-680' and spos_ustr = 1 and data_def is not null group by nom_sz
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309290
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 146
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '4' and spos_ustr = 1 group by nom_sz
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '4' and spos_ustr = 1 and data_def is not null group by nom_sz
-2017-07-10 08:41:57.1616|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3216|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-07-10 08:41:57.3216|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309234
-2017-07-10 08:41:57.3216|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3216|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
-2017-07-10 08:41:57.3216|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '5' and spos_ustr = 1 group by nom_sz
-2017-07-10 08:41:57.3346|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3346|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '5' and spos_ustr = 1 and data_def is not null group by nom_sz
-2017-07-10 08:41:57.3346|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3346|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-07-10 08:41:57.3346|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309316
-2017-07-10 08:41:57.3346|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3346|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 148
-2017-07-10 08:41:57.3346|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '7' and spos_ustr = 1 group by nom_sz
-2017-07-10 08:41:57.3546|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3546|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '7' and spos_ustr = 1 and data_def is not null group by nom_sz
-2017-07-10 08:41:57.3546|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3856|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
-2017-07-10 08:41:57.3856|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309234
-2017-07-10 08:41:57.3856|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3856|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
-2017-07-10 08:41:57.3856|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '8' and spos_ustr = 1 group by nom_sz
-2017-07-10 08:41:57.3956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:57.3956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '8' and spos_ustr = 1 and data_def is not null group by nom_sz
-2017-07-10 08:41:57.3956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.1926|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_plan_rabot
-2017-07-10 08:41:59.1926|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.1926|INFO|Cards_of_defectation.Classes.Log|Update таблицы rz_plan_rabot
-2017-07-10 08:41:59.2056|INFO|Cards_of_defectation.Classes.Log|Update успешно
-2017-07-10 08:41:59.2056|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_ser_nom_naim where ser_nom = 'Н33333'
-2017-07-10 08:41:59.2056|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2056|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select cherch from rz_naim_cherch where naim = '55Ж6'
-2017-07-10 08:41:59.2056|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2216|INFO|Cards_of_defectation.Classes.Log|Запрос нового индекса в rz_kart_defect
-2017-07-10 08:41:59.2216|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select * from rz_kart_defect where nom_sz = '2'
-2017-07-10 08:41:59.2216|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2426|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from rz_kart_defect where nom_sz = '2' and par is NULL
-2017-07-10 08:41:59.2426|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2426|INFO|Cards_of_defectation.Classes.Log|Возвращён индекс 658
-2017-07-10 08:41:59.2426|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id =658
-2017-07-10 08:41:59.2426|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from rz_kart_defect where par =658
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id =166
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id = 658
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from rz_kart_defect where par =166
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id =167
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2526|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id = 658
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from rz_kart_defect where par =167
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id =168
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id = 658
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from rz_kart_defect where par =168
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id =169
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2686|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id = 658
-2017-07-10 08:41:59.2836|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:41:59.2836|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from rz_kart_defect where par =169
-2017-07-10 08:41:59.2836|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2836|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:41:59.2836|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2836|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:41:59.2986|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2986|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:41:59.2986|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2986|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:41:59.2986|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2986|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:41:59.2986|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.2986|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:41:59.3136|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.3136|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select cex from iz_ci_v_cex where ci in (select distinct ci from stabil where nc ='  ЖГ1000035Д13')
-2017-07-10 08:41:59.3136|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.3136|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1
-2017-07-10 08:41:59.3136|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.3136|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from podr1 where nc = 095
-2017-07-10 08:41:59.3296|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.3296|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:41:59.3296|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.3296|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:41:59.3456|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.3676|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr where id =1
-2017-07-10 08:41:59.3816|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:41:59.3816|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr where id =1
-2017-07-10 08:41:59.3926|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.1756|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr where id =1
-2017-07-10 08:42:00.2256|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.2446|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id = 658
-2017-07-10 08:42:00.2586|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:42:00.2586|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from rz_spos_ustr where naim = 'Дефектация'
-2017-07-10 08:42:00.2666|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.2666|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where par = 658 and spos_ustr = 1
-2017-07-10 08:42:00.2666|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:42:00.2666|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id = 658
-2017-07-10 08:42:00.2666|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:42:00.2666|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id = 658
-2017-07-10 08:42:00.2666|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:42:00.2666|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where id = 658
-2017-07-10 08:42:00.3006|INFO|Cards_of_defectation.Classes.Log|Заполнено
-2017-07-10 08:42:00.3006|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select ltrim(rtrim(nc)) from spkd1 where nk = '  ЖГ1000026' order by nc
-2017-07-10 08:42:00.4286|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.4806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026ВД'
-2017-07-10 08:42:00.4836|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.4836|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026ВД'
-2017-07-10 08:42:00.4836|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.4836|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026ВД'
-2017-07-10 08:42:00.4836|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.4836|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026ВИ/С'
-2017-07-10 08:42:00.4836|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.4836|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026ВИ/С'
-2017-07-10 08:42:00.5016|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5016|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026ВИ/С'
-2017-07-10 08:42:00.5016|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5016|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026ВС'
-2017-07-10 08:42:00.5016|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5016|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026ВС'
-2017-07-10 08:42:00.5196|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5196|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026ВС'
-2017-07-10 08:42:00.5196|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5196|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д14'
-2017-07-10 08:42:00.5196|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5196|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д14'
-2017-07-10 08:42:00.5346|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5346|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026Д14'
-2017-07-10 08:42:00.5346|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5346|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д15'
-2017-07-10 08:42:00.5516|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5516|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д15'
-2017-07-10 08:42:00.5516|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5516|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026Д15'
-2017-07-10 08:42:00.5516|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5616|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д27'
-2017-07-10 08:42:00.5616|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5616|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д27'
-2017-07-10 08:42:00.5616|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5616|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026Д27'
-2017-07-10 08:42:00.5616|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5616|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д28'
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д28'
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026Д28'
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д46'
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д46'
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5796|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026Д46'
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д47'
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д47'
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026Д47'
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д8/С'
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.5946|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д8/С'
-2017-07-10 08:42:00.6116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026Д8/С'
-2017-07-10 08:42:00.6116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д81'
-2017-07-10 08:42:00.6116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026Д81'
-2017-07-10 08:42:00.6116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026Д81'
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026ЗИ'
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026ЗИ'
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select cex from iz_ci_v_cex where ci in (select distinct ci from stabil where nc ='  ЖГ1000026ЗИ')
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026ЗИ'
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6256|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026И21'
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026И21'
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026И21'
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026И21.1'
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026И21.1'
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026И21.1'
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6406|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026И21.2'
-2017-07-10 08:42:00.6656|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6656|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026И21.2'
-2017-07-10 08:42:00.6656|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6656|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026И21.2'
-2017-07-10 08:42:00.6656|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6656|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026И22'
-2017-07-10 08:42:00.6726|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.6726|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select distinct ci from cvodka.dbo.stabil where nc ='  ЖГ1000026И22'
-2017-07-10 08:42:00.7036|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7036|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from naim where nom = '  ЖГ1000026И22'
-2017-07-10 08:42:00.7036|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where Nom_sz = '2'
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select ser_nom from rz_plan_rabot where nom_sz = '2'
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where Nom_sz = '2'
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309307
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr where id =1
-2017-07-10 08:42:00.7206|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_opis_def
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_opis_def where id =1
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_prichina
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_prichina where id =1
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_met_opr
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_met_opr where id =1
-2017-07-10 08:42:00.7336|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_teh_treb
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_teh_treb where id =1
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr where id =1
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select cex from iz_ci_v_cex where ci in (select distinct ci from stabil where nc ='  ЖГ1000026ВД')
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7506|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_opis_def
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_opis_def where id =1
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_prichina
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_prichina where id =1
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_met_opr
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7646|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_met_opr where id =1
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_teh_treb
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_teh_treb where id =1
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr where id =1
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select cex from iz_ci_v_cex where ci in (select distinct ci from stabil where nc ='  ЖГ1000026ВИ/С')
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:42:00.7806|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_opis_def
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_opis_def where id =1
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_prichina
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_prichina where id =1
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_met_opr
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_met_opr where id =1
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_teh_treb
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.7956|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_teh_treb where id =1
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_spos_ustr where id =1
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select cex from iz_ci_v_cex where ci in (select distinct ci from stabil where nc ='  ЖГ1000026ВС')
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 60
-2017-07-10 08:42:00.8116|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.6071|INFO|Cards_of_defectation.Classes.Log|Запуск MainOUP
+2017-08-14 09:31:38.7021|INFO|Cards_of_defectation.Classes.Log|Загрузка таблицы rz_plan_rabot
+2017-08-14 09:31:38.8281|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
+2017-08-14 09:31:38.8541|INFO|Cards_of_defectation.Classes.Log|Открыто
+2017-08-14 09:31:38.8561|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_plan_rabot
+2017-08-14 09:31:38.8561|INFO|Cards_of_defectation.Classes.Log|Заполнено
+2017-08-14 09:31:38.8561|INFO|Cards_of_defectation.Classes.Log|Загру
+2017-08-14 09:31:38.9721|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
+2017-08-14 09:31:38.9721|INFO|Cards_of_defectation.Classes.Log|Открытие соединения
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|Открыто
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309307
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '2' and spos_ustr = 1 group by nom_sz
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '2' and spos_ustr = 1 and data_def is not null group by nom_sz
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309368
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9811|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '22-569' and spos_ustr = 1 group by nom_sz
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '22-569' and spos_ustr = 1 and data_def is not null group by nom_sz
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309080
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '22-680' and spos_ustr = 1 group by nom_sz
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '22-680' and spos_ustr = 1 and data_def is not null group by nom_sz
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:38.9971|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
+2017-08-14 09:31:39.0131|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309290
+2017-08-14 09:31:39.0131|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.0131|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 146
+2017-08-14 09:31:39.0131|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '4' and spos_ustr = 1 group by nom_sz
+2017-08-14 09:31:39.0131|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.0131|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '4' and spos_ustr = 1 and data_def is not null group by nom_sz
+2017-08-14 09:31:39.0131|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.1811|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
+2017-08-14 09:31:39.1811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309234
+2017-08-14 09:31:39.1811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '5' and spos_ustr = 1 group by nom_sz
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '5' and spos_ustr = 1 and data_def is not null group by nom_sz
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309316
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 148
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '7' and spos_ustr = 1 group by nom_sz
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '7' and spos_ustr = 1 and data_def is not null group by nom_sz
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Формирование приоритет в плане
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = 20309234
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 147
+2017-08-14 09:31:39.1841|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '8' and spos_ustr = 1 group by nom_sz
+2017-08-14 09:31:39.2011|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:39.2011|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_sz = '8' and spos_ustr = 1 and data_def is not null group by nom_sz
+2017-08-14 09:31:39.2011|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.4611|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_plan_rabot
+2017-08-14 09:31:41.4641|INFO|Cards_of_defectation.Classes.Log|Заполнено
+2017-08-14 09:31:41.4991|INFO|Cards_of_defectation.Classes.Log|Update таблицы rz_plan_rabot
+2017-08-14 09:31:41.5081|INFO|Cards_of_defectation.Classes.Log|Update успешно
+2017-08-14 09:31:41.5081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select naim from rz_ser_nom_naim where ser_nom = '3407962'
+2017-08-14 09:31:41.5081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.5081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select cherch from rz_naim_cherch where naim = '55Ж6'
+2017-08-14 09:31:41.5241|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.5241|INFO|Cards_of_defectation.Classes.Log|Запуск Work_shop
+2017-08-14 09:31:41.5421|INFO|Cards_of_defectation.Classes.Log|Загрузка данных
+2017-08-14 09:31:41.5421|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_ceh from rz_kart_defect where nom_ceh is not null and nom_sz = '22-680' group by nom_ceh
+2017-08-14 09:31:41.5421|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.5421|INFO|Cards_of_defectation.Classes.Log|Загружено
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 2
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в work_shop
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 2 and nom_sz = '22-680' group by nom_ceh
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 2 and data_def is not null and nom_sz = '22-680' group by nom_sz
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 1 / 0
+2017-08-14 09:31:41.6401|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 3
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в work_shop
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 3 and nom_sz = '22-680' group by nom_ceh
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 3 and data_def is not null and nom_sz = '22-680' group by nom_sz
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 2 / 0
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 21
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в work_shop
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 21 and nom_sz = '22-680' group by nom_ceh
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 21 and data_def is not null and nom_sz = '22-680' group by nom_sz
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 1 / 0
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 45
+2017-08-14 09:31:41.6491|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6641|INFO|Cards_of_defectation.Classes.Log|Формирование всего/выполнено в work_shop
+2017-08-14 09:31:41.6641|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 45 and nom_sz = '22-680' group by nom_ceh
+2017-08-14 09:31:41.6641|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6641|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select count(*) from rz_kart_defect where nom_ceh = 45 and data_def is not null and nom_sz = '22-680' group by nom_sz
+2017-08-14 09:31:41.6641|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:41.6641|INFO|Cards_of_defectation.Classes.Log|Формирование завершено. Результат 1 / 0
+2017-08-14 09:31:42.7181|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 3
+2017-08-14 09:31:42.7181|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.7181|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from podr1 where nc = '004'
+2017-08-14 09:31:42.7181|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.7311|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where nom_ceh = '3' and spos_ustr = 1 order by data_post
+2017-08-14 09:31:42.7311|INFO|Cards_of_defectation.Classes.Log|Заполнено
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8361|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8501|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8651|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8811|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.8971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.9121|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9121|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.9121|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9121|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.9381|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9381|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:42.9381|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9381|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='22-680'
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9431|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309080'
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='22-680'
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='22-680'
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309080'
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='22-680'
+2017-08-14 09:31:42.9591|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.1911|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nc from podr1 where id = 3
+2017-08-14 09:31:45.2191|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.2191|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select id from podr1 where nc = '004'
+2017-08-14 09:31:45.2221|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.2221|INFO|Cards_of_defectation.Classes.Log|Заполнение таблицы из DataAdapter. Команда: select * from rz_kart_defect where nom_ceh = '3' and spos_ustr = 1 order by data_post
+2017-08-14 09:31:45.2221|INFO|Cards_of_defectation.Classes.Log|Заполнено
+2017-08-14 09:31:45.3141|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3171|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3301|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3461|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3611|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3771|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3771|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3771|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3771|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3771|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.3971|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309290'
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='4'
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
+2017-08-14 09:31:45.4081|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309316'
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='7'
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='22-680'
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309080'
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='22-680'
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4241|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='22-680'
+2017-08-14 09:31:45.4391|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4391|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select pr from nazpr where zakspis = '20309080'
+2017-08-14 09:31:45.4391|INFO|Cards_of_defectation.Classes.Log|Чтение успешно
+2017-08-14 09:31:45.4391|INFO|Cards_of_defectation.Classes.Log|ExecuteCommand чтение по запросу select nom_zak from rz_plan_rabot where nom_sz ='22-680'
+2017-08-14 09:31:45.4391|INFO|Cards_of_defectation.Classes.Log|Чтение успешно

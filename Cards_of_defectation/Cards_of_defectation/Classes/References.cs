@@ -84,7 +84,7 @@ namespace Cards_of_defectation.Classes
         public int GetIdCeh(string ceh_naim)
         {          
             return Convert.ToInt32(Server.GetServer.DataBase("cvodka")
-                    .ExecuteCommand("select id from podr1 where nc = " + ceh_naim)[0]);
+                    .ExecuteCommand("select id from podr1 where nc = '" + ceh_naim+"'")[0]);
         }
         public string GetNaimCeh(int id)
         {
